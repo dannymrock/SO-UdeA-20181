@@ -1,74 +1,8 @@
-# Manejo básico del GNU Compiler Collection (GCC)
+# Practica de laboratorio Manejo básico del GNU Compiler Collection (GCC)
 
-> **Objetivos**
-> * Abordar el manejo del GCC como herramienta para la compilación de código en lenguaje de programación C.
+## 1. Ejercicios de refuerzo
 
-## 1. Aspectos generales sobre el GCC
-GCC es un compilador rápido, muy flexible, y riguroso con el estándar de C ANSI. Como ejemplo de sus múltiples virtudes, diremos que gcc puede funcionar como compilador cruzado para un gran número de arquitecturas distintas. GCC no proporciona un entorno de desarrollo (IDE), es sólo una herramienta que se utiliza en el proceso de creación de un programa. GCC se encarga de realizar el preprocesado del código, la compilación, y el enlazado. Dicho de otra manera, nosotros proporcionamos a GCC nuestro código fuente en el lenguaje de programación C, y él nos devuelve un archivo binario compilado para nuestra arquitectura.
-
-## 2. Manejo básico del GCC
-
-### 2.1. Elementos necesarios
-Para compilar un programa se necesitan 3 elementos principalmente. En nuestro caso:
-* **PC con un sistema operativo**: Puede ser cualquier sistema operativo pero es preferiblemente que sea Linux.
-* **Un compilador**: Las versiones de Linux suelen venir con el compilador gcc; en el caso de Windows, es necesario descargarlo, existen dos que pueden ser útiles: el Cygwin y el MinGW.
-* **Un Editor de textos o entorno de desarrollo (IDE)**: Dentro de Linux un editor muy empleado es el Gedit, aunque también se pueden trabajar con editores de consola como el **nano**, el **pico**, el **vi**, o incluso otros más poderosos como el **Emacs**. En lo que respecta a los entornos de desarrollo (IDEs) la ventaja de estos es que integran en un ambiente amigable las tareas de edición de código y compilación, dentro de los más comunes encontramos el Eclipse, el Netbeans, el Dev-C++ o el Geany entre otros.
-
-### 2.2. Compilando el primer programa
-A continuación se muestran los pasos que debe seguir para compilar programas, le recomendamos los siga en su equipo ya que este proceso será continuamente repetido cada vez que usted codifique un nuevo programa; si no tiene un equipo con linux por el momento, siga los pasos en un emulador de terminal online como el propuesto en el siguiente [enlace](https://www.tutorialspoint.com/unix_terminal_online.php) y emplee como editor de texto el **vi**. Una guía de comandos comunes para el vi se puede encontrar en la siguiente [tabla](https://free-electrons.com/doc/legacy/command-line/vi_memento.pdf), lo animamos a trabajar en lo que resta del curso con este o cualquier editor en modo texto, verá que es mucho mejor que un editor de texto una vez se alcance la práctica necesaria. 
-
-A continuación se muestra el proceso que se sigue para codificar un programa (suponiendo que vamos a usar como editor grafico el gedit):
-
-Figura XXXX
-
-A continuación se describirán cada uno de los pasos de la figura anteriormente mostrada:
-1. **Ubicarnos en el directorio de trabajo**: Para tal fin lo primero que hacemos es invocar la consola. Una vez allí nos ubicamos dentro de la carpeta en la cual deseamos trabajar. La siguiente figura muestra esto:
-
-Figura 
-
-Como se puede ver en la figura anterior nos encontramos en la carpeta home del usuario, **tigarto** en este caso, si se llegase a verificar con **pwd**, la ruta arrojada seria **/home/tigarto**. Una vez allí cree un directorio de trabajo para editar y compilar sus programas, recuerde que para eso se usa el comando **mkdir**. Desplácese hasta este directorio con el comando **cd** y una vez allí compruebe que si esta en dicho directorio. Por ejemplo en la siguiente figura creamos un directorio llamado **LabSO** dentro de la carpeta **Documents** del directorio **tigarto** para codificar y probar todos nuestros programas:
-
-Figura XXX
-
-2. **Abrir el editor de texto**: Hay dos formas de hacer esto, desde el menú de Ubuntu o desde la terminal, colocando el nombre del editor, **gedit** en nuestro caso. La forma más recomendable al abrirlo desde la terminal es hacerlo en **background** colocando un **&** después del nombre del editor pues así la consola no se bloquea, para esto digitaríamos en consola: **gedit &**. La siguientes figuras muestran los 3 modos de abrir el editor.
-
-Figura XX1
-
-Figura XX2
-
-Figura XX3
-
-3. **Editar el archivo fuente**: Una vez abierto el editor, se codifica el programa y se guarda en la ruta deseada (para este ejemplo **/home/tigarto/Documents/LabSO**), el nombre de este debe tener extensión **.c**. Para ello codifique el siguiente código fuente y guardelo con el nombre de **ejemplo1.c**:
-
-```C
-/* ejemplo1.c
- * Author - Sistemas Operativos UdeA
- * Purpose - Ejemplo de bienvenida
- */
-
-#include <stdio.h>
-#include <unistd.h>
-
-char nombre[50];
-int main(void) {
- int pid = getpid();
- /* Solicitud de los datos al usuario */
- printf("Ingrese su nombre por favor: ");                   // Despliegue en pantalla
- scanf("%s", nombre);                                       // Entrada de datos
- /* Salida el programa */
- printf("Hola %s, su ID de proceso es %d\n", nombre, pid);  
- return 0;
-}
-```
-La siguiente figura muestra el anterior codigo codificado en gedit.
-
-figura XXX
-
-Después de que el programa se editó, se verifica que si se halla guardado en el directorio de trabajo con el comando **ls** tal y como se muestra en la siguiente figura: 
-
-figura XXX
-
-4. **Compilar el programa**: Para compilar el programa se usa el comando gcc de la siguiente manera:
+Antes de hacer el siguiente ejercicio recuerde la forma basica de uso del comando gcc para compilar y generar el ejecutable en un solo paso:
 
 >  
 > ``` gcc archivoFuente –o nombreEjecutable ```
@@ -78,26 +12,13 @@ figura XXX
 > * **nombreEjecutable**: Nombre del ejecutable generado tras la ejecución del comando.
 >
 > La anterior forma de uso del comando gcc, suele ser la más sencilla para compilar y enlazar un archivo fuente (archivo 
-> **.c**) de modo que se genera un ejecutable con nombre dado  por **nombreEjecutable**. Sin embargo este comando permite 
-> muchas más posibilidades las cuales para más información pueden ser consultadas en: 
-> http://www.mhe.es/universidad/informatica/8448198441/archivos/apendice_general_1.pdf 
+> **.c**) de modo que se genera un ejecutable con nombre dado  por **nombreEjecutable**. 
 
-En la siguiente figura se muestra el empleo de este comando en nuestro caso particular. Nótese que **archivoFuente=ejemplo1.c** y **nombreEjecutable=exe1** para nuestro caso.
 
-Figura XXX
+### 1.1. Ejercicio de refuerzo 1 - Manejo basico del GCC
 
-A veces suele ser común que el programa en cuestión tenga errores de sintaxis, en cuyo caso el compilador los muestra y no genera el ejecutable hasta que todos hayan sido corregidos; de este modo, si hay un error, se debe corregir en el editor, por el contrario, si todo está bien entonces el compilador generará el ejecutable.
+1. En el editor de textos (ojala emacs) codifique el siguiente código fuente:
 
-Figura XXX
-
-Como  se muestra en la figura anterior, si la compilación esta buena, el resultado será el archivo exe1 en nuestro caso.
-
-5. **Ejecutar el programa**: Para probar el ejecutable generado se coloca el nombre del ejecutable antecedido por **./**, en este ejemplo como el ejecutable se llama **exe1**, entonces para su ejecución tecleamos **./exe1** tal y como se muestra a continuación:
-
-Figura XXX
-
-### 2.2. Ejercicio de refuerzo
-1. En el editor de textos (ojala vi o emacs) codifique el siguiente código fuente:
 ```C 
 #include <stdio.h>
 
@@ -113,7 +34,6 @@ int main()
 
 > Nota: El codigo anterior tambien se encuentra disponible online en el siguiente [link](https://goo.gl/yjRZaZ)
 
-## 3. GCC con un poco más de detalle
 
 El proceso de obtener un archivo ejecutable (entendible por la máquina) a partir de un archivo fuente (escrito en lenguaje de programación y entendido por el programador) involucra 4 etapas (ver figura XXX), las cuales son principalmente:
 1. Pre-procesamiento.
