@@ -45,11 +45,17 @@ En la siguiente figura se muestra que ya nos encontramos en las ruta **/home/tig
 
 2. **Abrir el editor de texto**: Hay dos formas de hacer esto, desde el menú de Ubuntu o desde la terminal, colocando el nombre del editor, **gedit** en nuestro caso. La forma más recomendable al abrirlo desde la terminal es hacerlo en **background** colocando un **&** después del nombre del editor pues así la consola no se bloquea, para esto digitaríamos en consola: **gedit &**. La siguientes figuras muestran los 3 modos de abrir el editor.
 
-Figura XX1
+![editor1](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_gedit1.png)
 
-Figura XX2
+**Figura 3**. Abriendo el editor desde el menú
 
-Figura XX3
+![editor2](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_gedit2.png)
+
+**Figura 4**. Abriendo el editor desde la consola (la cual se bloquea)
+
+![editor3](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_gedit3.png)
+
+**Figura 5**. Abriendo en background el editor desde la consola (la cual no se bloquea)
 
 3. **Editar el archivo fuente**: Una vez abierto el editor, se codifica el programa y se guarda en la ruta deseada (para este ejemplo **/home/tigarto/Documents/LabSO**), el nombre de este debe tener extensión **.c**. Para ello codifique el siguiente código fuente y guardelo con el nombre de **ejemplo1.c**:
 
@@ -75,11 +81,16 @@ int main(void) {
 ```
 La siguiente figura muestra el anterior codigo codificado en gedit.
 
-figura XXX
+![codigo](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_codigo.png)
+
+**Figura 6**. Codigo codificado en el editor de texto
+
 
 Después de que el programa se editó, se verifica que si se halla guardado en el directorio de trabajo con el comando **ls** tal y como se muestra en la siguiente figura: 
 
-figura XXX
+![verificacion](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_ruta.png)
+
+**Figura 7**. Verificacion del archivo codificado
 
 4. **Compilar el programa**: Para compilar el programa se usa el comando gcc de la siguiente manera:
 
@@ -97,20 +108,27 @@ figura XXX
 
 En la siguiente figura se muestra el empleo de este comando en nuestro caso particular. Nótese que **archivoFuente=ejemplo1.c** y **nombreEjecutable=exe1** para nuestro caso.
 
-Figura XXX
+![compilacion](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_compilacion.png)
+
+**Figura 8**. Compilacion del programa
 
 A veces suele ser común que el programa en cuestión tenga errores de sintaxis, en cuyo caso el compilador los muestra y no genera el ejecutable hasta que todos hayan sido corregidos; de este modo, si hay un error, se debe corregir en el editor, por el contrario, si todo está bien entonces el compilador generará el ejecutable.
 
-Figura XXX
+![verificacion_exe](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_verificacion_exe.png)
+
+**Figura 9**. Compilacion del programa
 
 Como  se muestra en la figura anterior, si la compilación esta buena, el resultado será el archivo exe1 en nuestro caso.
 
 5. **Ejecutar el programa**: Para probar el ejecutable generado se coloca el nombre del ejecutable antecedido por **./**, en este ejemplo como el ejecutable se llama **exe1**, entonces para su ejecución tecleamos **./exe1** tal y como se muestra a continuación:
 
-Figura XXX
+![exe](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_ejecucion.png)
+
+**Figura 9**. Compilacion del programa
 
 ### 2.2. Ejercicio de refuerzo
 1. En el editor de textos (ojala vi o emacs) codifique el siguiente código fuente:
+
 ```C 
 #include <stdio.h>
 
