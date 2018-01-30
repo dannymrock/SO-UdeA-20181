@@ -19,16 +19,29 @@ A continuación se muestran los pasos que debe seguir para compilar programas, l
 
 A continuación se muestra el proceso que se sigue para codificar un programa (suponiendo que vamos a usar como editor grafico el gedit):
 
-Figura XXXX
+![proceso](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_proceso.png)
+
+**Figura 1**. Proceso de compilacion completo
 
 A continuación se describirán cada uno de los pasos de la figura anteriormente mostrada:
-1. **Ubicarnos en el directorio de trabajo**: Para tal fin lo primero que hacemos es invocar la consola. Una vez allí nos ubicamos dentro de la carpeta en la cual deseamos trabajar. La siguiente figura muestra esto:
+1. **Ubicarnos en el directorio de trabajo**: Para tal fin lo primero que hacemos es invocar la consola. Una vez allí nos ubicamos dentro de la carpeta en la cual deseamos trabajar. 
 
-Figura 
+Suponiendo que nos encontramos en la carpeta **home del usuario**, **tigarto** en este caso, si se llegase a verificar con **pwd**, la ruta arrojada seria **/home/tigarto**. Luego por medio del comando **cd**, supongamos que nos desplazamos a directorio **Documents** dentro del directorio **home del usuario** para posteriormente (empleando **mkdir**) crear un directorio llamado **LabSO** con el fin de codificar y probar alli nuestros programas. Solo resta ingresar a este ultimo directorio con el comando **cd** y estamos listos para el siguiente paso. Para clarificar lo anterior, se muestran los comandos que se hubieran ejecutado en consola para el caso:
 
-Como se puede ver en la figura anterior nos encontramos en la carpeta home del usuario, **tigarto** en este caso, si se llegase a verificar con **pwd**, la ruta arrojada seria **/home/tigarto**. Una vez allí cree un directorio de trabajo para editar y compilar sus programas, recuerde que para eso se usa el comando **mkdir**. Desplácese hasta este directorio con el comando **cd** y una vez allí compruebe que si esta en dicho directorio. Por ejemplo en la siguiente figura creamos un directorio llamado **LabSO** dentro de la carpeta **Documents** del directorio **tigarto** para codificar y probar todos nuestros programas:
+```
+pwd        // Arroja: /home/tigarto
+cd Documents
+pwd        // Arroja: /home/tigarto/Documents 
+mkdir labSO
+cd labSO
+pwd        // Arroja: /home/tigarto/Documents/labSO 
+```
 
-Figura XXX
+En la siguiente figura se muestra que ya nos encontramos en las ruta **/home/tigarto/Documents/labSO**
+
+![home_codigo](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_ruta0.png)
+
+**Figura 2**. Directorio de trabajo
 
 2. **Abrir el editor de texto**: Hay dos formas de hacer esto, desde el menú de Ubuntu o desde la terminal, colocando el nombre del editor, **gedit** en nuestro caso. La forma más recomendable al abrirlo desde la terminal es hacerlo en **background** colocando un **&** después del nombre del editor pues así la consola no se bloquea, para esto digitaríamos en consola: **gedit &**. La siguientes figuras muestran los 3 modos de abrir el editor.
 
