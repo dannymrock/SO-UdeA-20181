@@ -475,7 +475,11 @@ En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master
 Las Instrucciones de control en C son similares a las de Java. A continuación se describe la estructura y se muestan algunos ejemplos:
 
 ### 5.1 Estructura condicional 
+
 #### 5.1.1. Estructura if/else if/else
+
+La forma de esta estructura se muestra a continuación:
+
 ```C
 if(condicion1) {
   instrucciones_condicion_1_verdadero;
@@ -560,6 +564,9 @@ La nota es: E
 ```
 
 #### 5.1.2. Estructura switch
+
+La forma de esta estructura se muestra a continuación:
+
 ```C
 switch(selector) {
   case valor_1:
@@ -662,11 +669,33 @@ int main() {
 	    printf("Su signo es categoria aire\n");
 	    break;
 	  default:
-	    printf("\"ERROR\": no está asociado a ningún signo");
+	    printf("\"ERROR\": no está asociado a ningún signo\n");
   }
   return 0;
 }
 ```
+A continuación se muestra un caso de test cuando el usuario ingresa un numero no valido para un signo:
+
+```
+
+SIGNOS DEL ZODIACO
+1. Aries
+2. Tauro
+3. Géminis
+4. Cáncer
+5. Leo
+6. Virgo
+7. Libra
+8. Escorpio
+9. Sagitario
+10. Capricornio
+11. Acuario
+12. Piscis
+
+Seleccione el signo del zodiaco de su preferencia: 13
+"ERROR": no está asociado a ningún signo
+```
+
 ### 5.2 Ciclos
 #### 5.2.1. Estructura for
 ```C
