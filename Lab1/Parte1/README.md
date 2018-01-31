@@ -15,38 +15,31 @@ En internet se encuentran innumerables recursos para simular el comportamiento d
 * [learnshell.org](http://www.learnshell.org/)
 
 ## 1. Introducción al manejo de la consola GNU/Linux ##
-### ¿Qué es la consola? ###
-La consola o terminal (shell) es un programa informático donde interactúa el usuario con el sistema operativo mediante una ventana que espera órdenes escritas por el usuario desde el teclado.
-### ¿Por qué usar la consola? ###
-La consola permite un mayor grado de funciones y configuración de lo que queremos hacer con una aplicación o acción en general respecto del entorno gráfico. "A grosso modo", puedes tener un mayor control sobre tu equipo.
-
-En GNU/Linux la consola es algo necesario. Acciones para dar o quitar permisos, configurar e instalar drivers que no estén empaquetados y puedan ser ejecutados por un instalador, matar procesos de una manera más efectiva, ejercer como súper usuario cuando estás en una cuenta cualquiera del equipo y muchas acciones más que puedes descubrir a lo largo del manual.
-
-### ¿Puede cualquier usuario usar la consola? ### 
-Cualquier usuario puede usar la consola siempre que sepa lo que está haciendo en ella, ya que si ejecutamos algún comando sin conocimiento y este resulta peligroso para nuestro sistema, podríamos dejar nuestro sistema inutilizable, borrar archivos necesarios, etc.
-### ¿Qué  conocimientos previos son necesarios? ### 
-Los conocimientos previos más básicos son los comandos que hay en la consola. Es imposible saberlos todos de memoria, pero si es recomendable que los más usados se conozcan muy bien. A la hora de hacer configuraciones, instalaciones, modificaciones, etc. si es necesario que se tenga noción de que archivo es, su importancia en Linux, guardar una copia del archivo.
-
-Los comandos al escribirlos en pantalla se ejecutan en la carpeta actual donde se esté ubicado, por tanto, si se quiere realizar un acción sobre otra carpeta basta con poner la ruta después del comando 
+La consola o terminal (shell) es un programa informático donde el usuario interactúa con el sistema operativo mediante una ventana que espera órdenes escritas desde el teclado.
+La consola permite controlar completamente un equipo con un sistema operativo GNU/Linux, es una interfaz muy poderosa pero a la vez muy liviana (mucho más simple que la interfaz gráfica).
+En GNU/Linux la consola es esencial, puesto que permite realizar un gran número de acciones para la gestión del sistema operativo, por ejemplo, dar o quitar permisos, configurar e instalar drivers, enviar señales (posiblemente de terminación) a procesos y muchas otras acciones de gestión y control.
+Cualquier usuario puede usar la consola, debido a que es un programa más del sistema operativo. Es de notar que se debe tener cuidado con la ejecución de comandos, ya que si ejecutamos algún comando sin conocimiento y este resulta peligroso para nuestro sistema, podríamos dejar el equipo inutilizable, borrar archivos necesarios, etc.
+Existen un gran número de comandos disponibles, y es casi imposible saberlos todos de memoria, pero si es recomendable conocer bien los más usados. A la hora de hacer configuraciones, instalaciones, modificaciones en el sistema operativo es necesario tomar precauciones, como generar respaldo de información o consultar el correcto uso del comando a utilizar.
+Al ejecutar los comandos en la consola, éstos se ejecutan usando como directorio de trabajo la carpeta actual (/home/<user> por defecto), por tanto, si se quiere realizar una acción sobre otra carpeta basta con poner la ruta después del comando.
 
 ## 2. Organización del sistema de archivos ## 
-En linux todo es un archivo (directorios, archivos como tal y dispositivos). En linux el sistema de archivos se organiza en una estructura jerárquica a modo de arbol, siendo el nivel mas alto del sistema el directorio raiz (/) tal y como se muestra en la siguiente figura.
+En linux todo es un archivo (directorios, archivos como tal y dispositivos). En linux el sistema de archivos se organiza en una estructura jerárquica a modo de arbol, siendo el nivel más alto del sistema el directorio raíz (/) tal y como se muestra en la siguiente figura.
 
 ![Sistema de archivos linux](http://etutorials.org/shared/images/tutorials/tutorial_99/541331fg0703.jpg)
 
-**Figura 1**. Esquema resumido la la jerarqua del sistema de archivos en Linux. (Imagen tomada de: http://bit.ly/2BDqTQZ)
+**Figura 1**. Esquema resumido de la jerarquía del sistema de archivos en GNU/Linux. (Imagen tomada de: http://bit.ly/2BDqTQZ)
 
 
 ### Rutas ###
 Secuencia de directorios anidados separados con el carácter slash (/) con un archivo o directorio al final.
 
-[Forma tipica de una ruta](http://etutorials.org/shared/images/tutorials/tutorial_99/541331fg0704.jpg)
+[Forma típica de una ruta](http://etutorials.org/shared/images/tutorials/tutorial_99/541331fg0704.jpg)
 Imagen tomada de: http://bit.ly/2BDqTQZ
 
 ### Directorios especiales ###
-La siguiente tabla muestra los simbolos especiales empleados en el sistema de archivos linux y los directorios a los cuales estos hacen referencia.
+La siguiente tabla muestra los símbolos especiales empleados en el sistema de archivos linux y los directorios a los cuales estos hacen referencia.
 
-| Simbolo | Directorio especial asociado                                    |
+| Símbolo | Directorio especial asociado                                    |
 |---------|-----------------------------------------------------------------|
 | /       | Directorio raíz                                                 |
 | ./      | Directorio actual                                               |
@@ -82,27 +75,27 @@ Responder las siguientes preguntas:
   </tr>
   <tr>
     <td class="tg-yw4l">man</td>
-    <td class="tg-yw4l">Manual de comandos</td>
+    <td class="tg-yw4l">Muestra el manual de comandos</td>
   </tr>
   <tr>
     <td class="tg-yw4l">pwd</td>
-    <td class="tg-yw4l">Ubicación actual</td>
+    <td class="tg-yw4l">Imprime la ruta del directorio de trabajo actual</td>
   </tr>
   <tr>
     <td class="tg-yw4l">cd</td>
-    <td class="tg-yw4l">Cambiar de directorio</td>
+    <td class="tg-yw4l">Cambia el directorio de trabajo actual</td>
   </tr>
   <tr>
     <td class="tg-yw4l">ls</td>
-    <td class="tg-yw4l">Listado de archivos y directorios</td>
+    <td class="tg-yw4l">Lista los el contenido (archivos y directorios) del directorio de trabajo actual</td>
   </tr>
   <tr>
     <td class="tg-yw4l">clear</td>
-    <td class="tg-yw4l">Limpiar pantalla</td>
+    <td class="tg-yw4l">Limpia pantalla</td>
   </tr>
   <tr>
     <td class="tg-yw4l">mkdir</td>
-    <td class="tg-yw4l">Crear directorio</td>
+    <td class="tg-yw4l">Crea un nuevo directorio</td>
   </tr>
   <tr>
     <td class="tg-yw4l">rm</td>
@@ -110,32 +103,32 @@ Responder las siguientes preguntas:
   </tr>
 </table>
 
-### 3.1. Ver Archivos y Directorios
+### 3.1. Listar Archivos y Directorios
 ```
 ls <opciones> <dir>	
 ```
-El comando `ls` lista los archivos de un directorio, en orden alfanumérico, exceptuando los archivos que empiezan con el carácter "." (archivos ocultos). Los parámetros `opciones` y `dir` no son obligatorios. En lo que respecta al parámetro `dir`cuando no aparece en el comando, los archivos listados son los del directorio actual. A continuación se muestran algunos ejemplos:
+El comando `ls` lista los archivos de un directorio, en orden alfanumérico, exceptuando los archivos que empiezan con el carácter "." (archivos ocultos). Los parámetros `opciones` y `dir` no son obligatorios. En lo que respecta al parámetro `dir`cuando no aparece en el comando, los archivos listados son los del directorio de trabajo actual. A continuación se muestran algunos ejemplos:
 
 | Comando | Efecto                                                                                |
 |---------|---------------------------------------------------------------------------------------|
-| ls <opciones> <dir>	| Lista archivos del directorio dir, las opciones son opcionales            |
+| ls <opciones> <dir>	| Lista archivos del directorio <dir>, dadas las <opciones> ingresadas por el usuario |
 | ls                  | Lista los archivos del directorio actual                                  |
-| ls  /ruta/dir       | Lista los archivos de un directorio específico	                          |
+| ls  /ruta/dir       | Lista los archivos de un directorio específico	                          |
 
 Ambos comandos pueden ser modificados para mostrar información específica, las opciones más usadas son:
 
 | Comando | Efecto                                                             |
 |---------|--------------------------------------------------------------------|
-| ls -a 	| Listar todos los archivos y carpetas incluyendo **ocultos**            |
-| ls -l   | Listar las **propiedades** de los archivos                             |
-| ls -t   | Listar **ordenando** por fecha de modificación	                       |
-| ls –m   | Listar en **una sóla línea** y separados por comas                     |
+| ls -a 	| Lista todos los archivos y carpetas incluyendo **ocultos**            |
+| ls -l   | Lista las **propiedades** de los archivos                             |
+| ls -t   | Lista **ordenando** por fecha de modificación	                       |
+| ls –m   | Lista en **una sóla línea** y separados por comas                     |
    
 ### 3.2. Manual
 ```
-man comando	
+man <comando>	
 ```
-Permite conocer la utilidad y la forma de uso de un comando de forma detallada. Despues de ejecutar comando ```man``` se ingresa al manual del comando donde es posible navegar a traves de este usando las flechas del cursor; para salir del manual se usa la tecla **q**.
+Permite conocer la utilidad y la forma de uso de un comando de forma detallada. Después de ejecutar comando ```man <comando>``` se ingresa al manual del comando, donde el usuario puede navegar por la información presentada usando las flechas del cursor; para salir del manual se usa la tecla **q**.
 
 Por ejemplo, para mayor información del comando ls se usa el comando: ``` man ls ```
 
@@ -156,10 +149,10 @@ Algunas de las opciones disponibles para el comando cd son:
 
 | Comando | Efecto                                                             |
 |---------|--------------------------------------------------------------------|
-| cd <dir> 	| Ir al directorio **dir**             |
-| cd -   | Ir al directorio **anterior**                            |
-| cd ..   | 	Ir al directorio **padre**	                       |
-| cd ~   | Ir a la carpeta **home**                     |
+| cd <dir> 	| Cambia el directorio de trabajo a **dir**             |
+| cd -   | Cambia el directorio de trabajo al **anterior** directorio de trabajo válido |
+| cd ..   | 	Cambia el directorio de trabajo al directorio **padre**	                       |
+| cd ~   | Cambia el directorio de trabajo al directorio **home** del usuario                 |
 
 La Figura 4 muestra un ejemplo del uso del comando cd. Para mayor información puede consultar el manual del comando: ```man cd```.
 
@@ -170,9 +163,9 @@ La Figura 4 muestra un ejemplo del uso del comando cd. Para mayor información p
 
 ### 3.4. Cambiar el Directorio de Trabajo
 ```
-mkdir dir
+mkdir <dir>
 ```
-El comando ```mkdir``` permite crear directorios en un sistema Linux. Su modo de uso es muy simple, solo se requiere ingresar en la terminal ```mkdir``` seguido por el nombre de la carpeta a crear.
+El comando ```mkdir``` permite crear directorios en un sistema GNU/Linux. Su modo de uso es muy simple, sólo se requiere ingresar en la terminal ```mkdir``` seguido por el nombre de la carpeta a crear.
 La Figura 5 muestra un ejemplo del uso del comando mkdir. Para mayor información puede consultar el manual del comando: ```man mkdir```.
 
 ![figura 5](https://github.com/dannymrock/SO-UdeA/blob/master/wiki_SO/images/1/comando_mkdir.png)
@@ -181,15 +174,15 @@ La Figura 5 muestra un ejemplo del uso del comando mkdir. Para mayor informació
 
 ### 3.5. Borrar Archivos y Directorios
 ```
-rm <opc> ruta/archivo
+rm <opc> <ruta o archivo>
 ```
-Si se quiere borrar un directorio en Linux, se puede hacer uso del comando ```rm```. La sintaxis es simple, ```rm``` más la ruta completa (absoluta o relativa) seguida del nombre del archivo a eliminar. A continuación el significado de algunas de las opciones empleadas para este comando:
+Si se quiere borrar un directorio en Linux, se puede hacer uso del comando ```rm```. La sintáxis es simple, ```rm``` más la ruta completa (absoluta o relativa) seguida del nombre del archivo a eliminar. A continuación el significado de algunas de las opciones empleadas para este comando:
 
-| Opcion | Efecto                                                             |
+| Opción | Efecto                                                             |
 |---------|--------------------------------------------------------------------|
 | -r 	| Para un **borrado recursivo** |
-| -f   | Para un **borrado forzado** sin pedir autorización para cada archivo  |
-| -i   | 	Para **pedir confirmación** por cada archivo borrado                  |
+| -f   | Para un **borrado forzado**. No solicita autorización para cada archivo  |
+| -i   | 	Para **pedir confirmación**. Solicita autorizació por cada archivo borrado |
 
 La Figura 6 muestra un ejemplo del uso del comando rm. Para mayor información puede consultar el manual del comando: ```man rm```.
 
@@ -200,7 +193,7 @@ La Figura 6 muestra un ejemplo del uso del comando rm. Para mayor información p
 ### 3.6. Copiar Archivos y Directorios
 Para copiar directorios y archivos se puede usar el comando ```cp```. La siguiente tabla describe las principales formas de uso de este comando:
 
-| Forma de uso | Descripcion                                                            |
+| Forma de uso | Descripción                                                            |
 |---------|--------------------------------------------------------------------|
 | cp <source_file> <target_file> | Copia el archivo fuente (source_file) al destino (target_file) |
 | cp file1 file2 file3 ... dir   | Copia los archivos al directorio target (ultimo argumento)  |
