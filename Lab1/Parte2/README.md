@@ -45,17 +45,17 @@ A continuación mostramos algunas de las opciones más habituales al usar gcc (a
 
 | Opción | Descripción            |
 |------|-------------------|
-| -help | Indica a gcc que muestre su salida de ayuda (muy reducida).|
-| -o <file> | El archivo ejecutable generado por gcc es por defecto a.out. Mediante este modificador, le especificamos el nombre del ejecutable.|
-| -Wall | No omite la detección de ninguna advertencia (warning).|
-| -g | Incluye en el binario información necesaria para utilizar un depurador posteriormente.|
-| -O <nivel> | Indica a gcc que utilice optimizaciones en el código. Los niveles posibles van desde 0 (no optimizar) hasta 3 (optimización máxima). Utilizar el optimizador aumenta el tiempo de compilación, pero suele generar programas que se  ejecutan más rápido.|
-| -E | Sólo realiza la fase del preprocesador, no compila, ni ensambla, ni enlaza.|
-| -S | Preprocesa y compila, pero no ensambla ni enlaza.|
-| -c | Preprocesa, compila y ensambla, pero no enlaza.|
-| -I <dir> | Especifica un directorio adicional donde gcc debe buscar los archivos de cabecera indicados en el código fuente.|
-| -L <dir> | Especifica un directorio adicional donde gcc debe buscar las librerías necesarias en el proceso de enlazado.|
-| -l<library> | Especifica el nombre de una librería adicional que deberá ser utilizada en el proceso de enlazado.|
+| ```-help``` | Indica a gcc que muestre su salida de ayuda (muy reducida).|
+| ```-o <file>``` | El archivo ejecutable generado por gcc es por defecto a.out. Mediante este modificador, le especificamos el nombre del ejecutable.|
+| ```-Wall``` | No omite la detección de ninguna advertencia (warning).|
+| ```-g``` | Incluye en el binario información necesaria para utilizar un depurador posteriormente.|
+| ```-O <nivel>``` | Indica a gcc que utilice optimizaciones en el código. Los niveles posibles van desde 0 (no optimizar) hasta 3 (optimización máxima). Utilizar el optimizador aumenta el tiempo de compilación, pero suele generar programas que se  ejecutan más rápido.|
+| ```-E```| Sólo realiza la fase del preprocesador, no compila, ni ensambla, ni enlaza.|
+| ```-S``` | Preprocesa y compila, pero no ensambla ni enlaza.|
+| ```-c``` | Preprocesa, compila y ensambla, pero no enlaza.|
+| ```-I <dir>``` | Especifica un directorio adicional donde gcc debe buscar los archivos de cabecera indicados en el código fuente.|
+| ```-L <dir>``` | Especifica un directorio adicional donde gcc debe buscar las librerías necesarias en el proceso de enlazado.|
+| ```-l<library>``` | Especifica el nombre de una librería adicional que deberá ser utilizada en el proceso de enlazado.|
 
 La colección completa de modificadores a utilizar con gcc se encuentra en su página de manual, **man gcc**, o también si esta muy embalado puede llamar a nuestro santo favorito **google**.
 
@@ -76,4 +76,4 @@ int main()
 3. Compile el programa usando GCC y los parámetros adecuados para generar un ejecutable llamado ejecutable.
 4. Si hay errores, volver al código y corregirlos. De lo contrario ejecute el programa. 
 
-> Nota: El codigo anterior tambien se encuentra disponible online en el siguiente [link](https://goo.gl/yjRZaZ)
+> Nota: El código anterior también se encuentra disponible online en el siguiente [link](https://goo.gl/yjRZaZ)
