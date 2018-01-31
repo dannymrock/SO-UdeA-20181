@@ -241,7 +241,9 @@ En el siguiente [enlace](https://goo.gl/3c5mcH) puede comprobar el resultado. No
 | %o                         |unsigned (el resultado se muestra en formato octal)   |
 | %x                         |unsigned (el resultado se muestra en formato hexadecimal)   |
 
-2. Dado el siguiente fragmendo de codigo:
+**Ejemplo**:
+Dado el siguiente fragmendo de codigo:
+
 ```C
 printf("ABC");
 printf("\n");
@@ -382,14 +384,35 @@ Esta funcion lee caracteres desde el flujo de entrada estándar, los interpreta 
 * Cuando el tipo de dato asociado a la variable es simple (char, int, etc); se antepone el simbolo apersand (&) a la variable (pues con este simbolo se obtiene la direccion de la variable, por ahora esto no importa), por ejemplo:
 
 ```C
-int edad;
-float estatura;
-printf("Digite la edad: ");
-scanf("%d", &edad);
-printf("Digite la estatura (en metros): ");
-scanf("%f", &estatura);
+#include <stdio.h>
+
+int main() {
+  int edad;
+  float estatura;
+  printf("Digite la edad: ");
+  scanf("%d", &edad);
+  printf("Digite la estatura (en metros): ");
+  scanf("%f", &estatura);
+  printf("\n------------------------------------------\n");
+  printf("Edad: %d\n",edad);
+  printf("Estatura %f\n",estatura);
+  return 0;
+}
+
+}
 ```
-Notese el uso del ampersand antepuesto a las variables edad y estatura cuando se emplea la funcion scanf.
+Notese el uso del ampersand antepuesto a las variables edad y estatura cuando se emplea la funcion scanf. El programa anterior cuando se ejecuta arroja una salida como la siguiente (para nuestro caso asumimos una edad de 3 años y una estatura de 0.8 m).
+
+```
+Digite la edad: 3
+Digite la estatura (en metros): 0.8
+
+------------------------------------------
+Edad: 3
+Estatura 0.800000
+```
+
+
 * Cuando lo que se ingresa es una cadena de caracteres, no es necesario emplear el ampersand (&) pues de por si el nombre de una cadena de caracteres es una dirección, por ejemplo:
 ```C
 char nombre[20];
