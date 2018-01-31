@@ -126,24 +126,6 @@ Como  se muestra en la figura anterior, si la compilación esta buena, el result
 
 **Figura 9**. Compilacion del programa
 
-### 2.2. Ejercicio de refuerzo
-1. En el editor de textos (ojala vi o emacs) codifique el siguiente código fuente:
-
-```C 
-#include <stdio.h>
-
-int main()
-{
-    printf( "Mr. Anderson, welcome back!!!\n" )
-    return 0;
-}
-```  
-2. Guarde el archivo fuente en una ruta adecuada (por ejemplo, /home/<user>/SO/labs) con el nombre de hola_mundo.c
-3. Compile el programa usando GCC y los parámetros adecuados para generar un ejecutable llamado ejecutable.
-4. Si hay errores, volver al código y corregirlos. De lo contrario ejecute el programa. 
-
-> Nota: El codigo anterior tambien se encuentra disponible online en el siguiente [link](https://goo.gl/yjRZaZ)
-
 ## 3. GCC con un poco más de detalle
 
 El proceso de obtener un archivo ejecutable (entendible por la máquina) a partir de un archivo fuente (escrito en lenguaje de programación y entendido por el programador) involucra 4 etapas (ver figura 10), las cuales son principalmente:
