@@ -19,6 +19,6 @@ int main() {
     scanf("%d",&num);
     sum += num;
   }
-  printf("\n La suma es: %d\n",num);
+  printf("\nLa suma es: %d\n",sum);
   return 0;
 }
