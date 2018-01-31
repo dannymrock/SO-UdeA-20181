@@ -200,11 +200,11 @@ Finalmente, cuando el especificador de formato asociado a una cadena de caracter
 ## 3. Entrada y salida estándar
 En C la entrada y salida de texto se abstraen como streams o flujos de caracteres, no importa de dónde se origine el flujo o hacia a donde se dirija. Un flujo de texto, es una secuencia de caracteres dividida en líneas; cada línea consiste de cero o más caracteres seguidos por un carácter de nueva línea.
 
-Para el correcto funcionamiento de la entrada y salida en C, y dado que las funciones de E/S, estructuras de datos usadas por esas funciones, etc., se encuentran declaradas en el archivo de cabecera <stdio.h>, es necesario incluir dicho archivo, mediante la directiva del preprocesador #include, para que la E/S funcione correctamente, pues en caso contrario, puede funcionar de forma incorrecta, e incluso, puede llegar a dar errores de compilación.
+Para el correcto funcionamiento de la entrada y salida en C, y dado que las funciones de E/S, estructuras de datos usadas por esas funciones, etc., se encuentran declaradas en el archivo de cabecera **<stdio.h>**, es necesario incluir dicho archivo, mediante la directiva del preprocesador **#include**, para que la E/S funcione correctamente, pues en caso contrario, puede funcionar de forma incorrecta, e incluso, puede llegar a dar errores de compilación.
 
 La biblioteca stdio.h provee un conjunto de funciones para leer y escribir desde la consola. A continuación veremos algunas:
 
-#### Funcion printf
+### Funcion printf
 
 La forma de la función se muestra a continuacion:
 
@@ -213,12 +213,19 @@ int printf(const char *format[,argumento,...]);
 ```
 La función ```printf()``` se usa para escribir cualquier tipo de dato a la pantalla. Se conoce como salida formateada, convierte, formatea, e imprime sus argumentos ```(arg1, arg2, ...)``` en la salida estándar utilizando el formato establecido (ver en la tabla 1 la columna **especificador de formato** asociada a cada tipo de dato) en la cadena **format**. (Para informacion adicional puede consultar el siguiente [link](http://c.conclase.net/librerias/?ansifun=printf#inicio))
 
-#### Ejemplos:
-1. ¿Cual es la salida en pantalla del siguiente fragmendo de codigo?
+Por ejemplo suponiendo que se tiene el siguiente fragmendo de codigo en C: 
+
 ```C
 printf("Color %s, Number %d, Float %5.2f\n", "red", 12345, 3.14);
 ```
-En el siguiente [enlace](https://goo.gl/3c5mcH) puede comprobar el resultado. Notará que la parte asociada a especificador de formato se reemplaza por el respectivo valor asociado a la variable o constante. Recuerde, los especificadores de formato están precedidos por el signo %, y dicen a la función que tipo de datos van a ser impresos a continuación. A modo de recorderis los especificadores de formato válidos mas comunes se vuelven a colocar en la siguiente tabla:
+
+La salida en pantalla será:
+
+```
+Color red, Number 12345, Float 3.14
+```
+
+En el siguiente [enlace](https://goo.gl/3c5mcH) puede comprobar el resultado. Notará que la parte asociada a especificador de formato se reemplaza (parte precedida por % en el printf) por el respectivo valor asociado a la variable o constante. A modo de recorderis los especificadores de formato válidos mas comunes se vuelven a colocar en la siguiente tabla:
 
 **Tabla 3**. Especificadores de formato mas comunes en C
 
@@ -234,7 +241,7 @@ En el siguiente [enlace](https://goo.gl/3c5mcH) puede comprobar el resultado. No
 | %o                         |unsigned (el resultado se muestra en formato octal)   |
 | %x                         |unsigned (el resultado se muestra en formato hexadecimal)   |
 
-2. ¿Cual es la salida en pantalla del siguiente fragmendo de codigo?
+2. Dado el siguiente fragmendo de codigo:
 ```C
 printf("ABC");
 printf("\n");
@@ -260,12 +267,18 @@ printf("%c\n",'?');
 printf("%d\n",'?');
 printf("---\n");
 ```
+La salida en pantalla se muestra a continuación:
+
+PONER FIGURA XXX
+
 Puede verificar el resultado consultando el siguiente [enlace](https://goo.gl/MkQe9X)
 
 La salida formateada permite un mayor control de la apariencia de la salida en pantalla, ya que es posible controlar que tantas columnas serán usadas a la salida del contenido de una variable particular al especificar el campo ancho (#).
-El comportamiendo del especificador dependerá del tipo de dato tal y como se resume en la siguiente tabla:
+El comportamiendo del especificador dependerá del tipo de dato tal y como se resume en las siguiente tablas segun el tipo de dato a imprimir.
 
-* **Tipos de datos char y enteros**
+1. **Datos reales**
+
+**Tabla 3**. Usando especificadores para datos  tipo char e int
 
 |Especificador de formato  | Tipo de dato |
 |----------------|--------------------------|
@@ -274,7 +287,8 @@ El comportamiendo del especificador dependerá del tipo de dato tal y como se re
 
 En lo que respecta al alineamiento y para todos los casos cuando el simbolo es un menos (-) el alineamiento sera a la izquierda, por otro lado si no hay simbolo el alineamiento sera a la derecha. Tambien, si se desea colocar ceros en vez de espacios, se debe colocar un cero (0) antes del campo ancho ancho (#). Por ejemplo: %04d.
 
-3. ¿Cual es la salida en pantalla del siguiente fragmendo de codigo?
+**Ejemplo**:
+Dado el siguiente fragmendo de codigo y teniendo en cuenta la talba anterior:
 ```C
 char lett='w';
 int i=1,j=29;
@@ -289,16 +303,21 @@ printf("%-010d\n",j);
 printf("%2o\n",j);
 printf("%2x\n",j);
 ```
-Puede verificar el resultado consultando el siguiente [enlace](https://goo.gl/fYDXkX)
+Puede verificar el resultado consultando el siguiente [enlace](https://goo.gl/fYDXkX). La siguiente figura muestra el resultado en pantalla:
 
-* **Datos reales**
+PONER FIGURA
+
+2. **Datos reales**
+
+**Tabla 4**. Usando especificadores para datos  tipo float (tambien aplica a los demas tipos de dato reales)
 
 |Especificador de formato  | Tipo de dato | Ejemplo | Resultado |
 |----------------|--------------------------|----|---|
-| %[alineamiento][field_width].[decimal_places]f| float   | printf("%10.4f",4.0/3.0)|----1.3333|
-| %[alineamiento][field_width].[decimal_places]e| float   | printf("%10.4e",4.0/3.0)|_1.333e+10[
+| %[alineamiento][field_width].[decimal_places]f| float   | printf("%10.4f",4.0/3.0)|_ _ _ _1.3333 |
+| %[alineamiento][field_width].[decimal_places]e| float   | printf("%10.4e",4.0/3.0)|_1.333e+10|
 
-3. ¿Cual es la salida en pantalla del siguiente fragmendo de codigo?
+**Ejemplo**:
+Se tiene el siguiente fragmendo de codigo:
 
 ```C
 float x=333.123456;
@@ -313,15 +332,19 @@ printf("%.9f\n",y);
 printf("%.20f\n",y);
 printf("%20.4e\n",y);
 ```
-Puede verificar el resultado consultando el siguiente [enlace](https://goo.gl/qM9AXy)
+La salida en pantalla se muestra a continuación y puede ser simulada en el siguiente [enlace](https://goo.gl/qM9AXy):
 
-* **Cadenas de caracteres**
+PONER FIGURA
+
+3. **Cadenas de caracteres**
 
 |Especificador de formato  | Tipo de dato | Ejemplo | Resultado |
 |----------------|--------------------------|----|---|
 | %[alineamiento][field_width].[maximum_number_of_characters_printed]s| char[]   | printf("%3.4s\n","Sheridan")|Sher|
 
-4. ¿Cual es la salida en pantalla del siguiente fragmendo de codigo?
+**Ejemplo**:
+Dado el siguiente código:
+
 ```C
 char s[]="an evil presence";
 printf("%s\n",s);
@@ -334,9 +357,17 @@ printf("%15.12s\n",s);
 printf("%-15.12s\n",s);
 printf("%3.12s\n",s);
 ```
+La variable asociada a la cadena de caracteres tendrá el siguiente contenido:
+
+PONER FIGURA
+
+Adicionalmente, La salida en pantalla será:
+
+PONER FIGURA
+
 Puede verificar el resultado consultando el siguiente [enlace](https://goo.gl/Z7de6H)
 
-#### Funcion scanf
+### Funcion scanf
 
 La forma de la función se muestra a continuacion:
 
