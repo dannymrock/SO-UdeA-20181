@@ -244,6 +244,13 @@ La compilación se lleva a cabo con la opción ```-S```. Para el caso, este coma
 ```
 gcc -S archivoFuente <-o archivoResultante>
 ```
+
+La siguiente figura muestra el resultado de ejecutar el comando anterior:
+
+![compilacion](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/prep_comp.png)	
+
+**Figura 12**. Resultado del comando gcc con la opcion para realizar la compilacion
+
 Para el caso, también es opcional la opción ```-o```; sin embargo, no es necesario su uso a menos que se quiera renombrar el archivo resultante. Por defecto, el resultado de la ejecución de este comando (sin hacer uso de ```-o``` es un archivo resultante con el mismo nombre del archivo fuente pero con extencion .s). Para el caso, se ejecutó el comando de la siguiente manera:
 ```
 gcc -S hello.c
@@ -279,6 +286,13 @@ El ensamblado transforma el programa escrito en lenguaje ensamblador a código o
 ```
 gcc -c archivoFuente <-o archivoResultante>
 ```  
+
+La siguiente figura muestra el resultado de ejecutar el comando anterior:
+
+![compilacion](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/prep_comp_ensam.png)	
+
+**Figura 13**. Resultado del comando gcc con la opcion para realizar el proceso de ensamblado
+
 El archivo objeto resultante tiene el mismo nombre que el archivo fuente pero su extensión es **.o**. La opción -o sigue siendo opcional y cumple los mismos propositos que los mencionados con anterioridad (¿cuáles?). Para el caso, el comando aplicado es:
 ```
 gcc -c hello.c
@@ -334,6 +348,10 @@ El enlazador se denomina **ld**. El uso directo del enlazador **ld** es muy poco
 ```
 gcc archivoObjeto <-o ejecutable>
 ```
+
+
+
+
 Para nuestro caso, se ejecutaría el comando anterior de la siguiente manera:
 ```
 gcc hello.o -o hello.out
