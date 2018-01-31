@@ -289,7 +289,7 @@ gcc -c archivoFuente <-o archivoResultante>
 
 La siguiente figura muestra el resultado de ejecutar el comando anterior:
 
-![compilacion](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/prep_comp_ensam.png)	
+![ensamblado](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/prep_comp_ensam.png)	
 
 **Figura 13**. Resultado del comando gcc con la opcion para realizar el proceso de ensamblado
 
@@ -349,7 +349,11 @@ El enlazador se denomina **ld**. El uso directo del enlazador **ld** es muy poco
 gcc archivoObjeto <-o ejecutable>
 ```
 
+En la siguiente figura se muestra el empleo de este comando:
 
+![enlazado](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/enlazado_corregido.png)	
+
+**Figura 14**. Resultado del comando gcc con la opcion para realizar el proceso de enlazado partiendo del codigo objeto
 
 
 Para nuestro caso, se ejecutaría el comando anterior de la siguiente manera:
