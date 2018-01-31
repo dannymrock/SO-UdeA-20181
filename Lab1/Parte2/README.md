@@ -72,7 +72,7 @@ int main()
     return 0;
 }
 ```  
-2. Guarde el archivo fuente en una ruta adecuada (por ejemplo, /home/<user>/SO/labs) con el nombre de hola_mundo.c
+2. Guarde el archivo fuente en una ruta adecuada (por ejemplo, /home/**user**/SO/labs) con el nombre de hola_mundo.c
 3. Compile el programa usando GCC y los parámetros adecuados para generar un ejecutable llamado ejecutable.
 4. Si hay errores, volver al código y corregirlos. De lo contrario ejecute el programa. 
 
