@@ -719,17 +719,37 @@ int main() {
   int N;   // Cantidad de numeros
   int num; // Numero a leer
   int i;   // i-esimo numero
-  sum = 0; // Suma de los numeros
+  int sum = 0; // Suma de los numeros
   printf("Ingrese la cantidad de numeros a sumar: ");
   scanf("%d",&N);
   for(i = 0; i < N; i++) {
     scanf("%d",&num);
     sum += num;
   }
-  printf("\n La suma es: %d\n",num);
+  printf("\nLa suma es: %d\n",sum);
   return 0;
 }
 ```
+
+A continuación se muestra un caso de ejecución del programa anterior:
+
+```
+Ingrese la cantidad de numeros a sumar: 3
+123 3 3
+
+La suma es: 129
+```
+**Nota**: Para el caso, la función ```scanf``` toma el **espacio** como un **enter**. Lo anterior implica que el caso anterior seria similar al que se muestra a continuacion (en lo que respecta a los valores capturados desde el teclado):
+
+```
+Ingrese la cantidad de numeros a sumar: 3
+123 
+3 
+3
+
+La suma es: 129
+```
+
 #### 5.2.2. Estructura while
 ```C
 while(condicion_control){
