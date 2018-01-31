@@ -436,136 +436,31 @@ Hola: Ramon
 
 1. Escriba un programa que use una llamada printf() para imprimir su nombre y su apellido en una línea, use una segunda llamada printf() para imprimir su nombre y su apellido en dos líneas separadas, y use un par de llamadas a printf() para imprimir su nombre y apellido en una línea. La salida del programa podrá ser como esta (pero usando su nombre):
 
-```C
-Anton Bruckner First print statement
-Anton Second print statement
-Bruckner Still the second print statement
-Anton Bruckner Third and fourth print statements
-/* Programming Exercise 2-1 */
-#include <stdio.h>
-int main(void)
-{
-  printf("Adam West\n");
-  printf("Adam\nWest\n");
-  printf("Adam ");
-  printf("West\n");
-  return 0;
-}
-```
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res1.c) se encuentra el codigo solucion.
 
 2. Escriba un programa convierta su edad en años a días. Em este punto, no se preocupe sobre los años fraccionales y años bisiestos.
 
-```C
-/* Programming Exercise 2-3 */
-#include <stdio.h>
-
-int main(void)
-{
-  int ageyears; /* age in years */
-  int agedays; /* age in days */
-  /* large ages may require the long type */
-  ageyears = 44;
-  agedays = 365 * ageyears;
-  printf("An age of %d years is %d days.\n", ageyears, agedays);
-  return 0;
-}
-```
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res2.c) se encuentra el codigo solucion.
 
 3. Escriba un programa que cree una variable entera llamada toes. Luego que haga esto, le lleve 10 a toes. El programa debe calcular el doble y el cuadrado de toes también. El programa imprimirá todos estos tres valores identificándolos.
 
-```C
-/* Programming Exercise 2-5 */
-#include <stdio.h>
-int main(void)
-{
-  int toes;
-  
-  toes = 10;
-  
-  printf("toes = %d\n", toes);
-  printf("Twice toes = %d\n", 2 * toes);
-  printf("toes squared = %d\n", toes * toes);
-  return 0;
-}
-/* or create two more variables, set them to 2 * toes and toes * toes */
-```
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res3.c) se encuentra el codigo solucion.
+
 4. Escriba un programa que solicite un valor en código ASCII, tal como 66, y entonces imprima el carácter asociado a dicho código ASCII.
 
-```C
-/* Programming Exercise 3-2 */
-#include <stdio.h>
-int main(void)
-{
-  int ascii;
-
-  printf("Enter an ASCII code: ");
-  scanf("%d", &ascii);
-  printf("%d is the ASCII code for %c.\n", ascii, ascii);
-  return 0;
-}
-```
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res4.c) se encuentra el codigo solucion.
 
 5. Escriba un programa que lea un número en punto flotante y lo imprima primero en notación de punto decimal y luego en notación exponencial. La salida debe tener el siguiente formato:
 
-```
-The input is 21.290000 or 2.129000e+001.
-```
-
-```C
-/* Programming Exercise 3-4 */
-
-#include <stdio.h>
-
-int main(void)
-{
-  float num;
-  printf("Enter a floating-point value: ");
-  scanf("%f", &num);
-  printf("fixed-point notation: %f\n", num);
-  printf("exponential notation: %e\n", num);
-  return 0;
-}
-```
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res5.c) se encuentra el codigo solucion.
 
 6. La masa de una molécula única de agua es aproximadamente de gramos. Un cuarto de agua es aproximadamente de 950 gramos. Escriba un programa que solicite la cantidad de agua, en cuartos, y despliegue el número de moléculas en esa cantidad.
 
-```C
-/* Programming Exercise 3-6 */
-#include <stdio.h>
-int main(void)
-{
-  float mass_mol = 3.0e-23; /* mass of water molecule in grams */
-  float mass_qt = 950; /* mass of quart of water in grams */
-  float quarts;
-  float molecules;
-
-  printf("Enter the number of quarts of water: ");
-  scanf("%f", &quarts);
-  molecules = quarts * mass_qt / mass_mol;
-  printf("%f quarts of water contain %e molecules.\n", quarts, molecules);
-  return 0;
-}
-```
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res6.c) se encuentra el codigo solucion.
 
 7. Escriba un programa que le pregunte por su nombre y apellido y entonces imprima los nombre en formato apellido, nombre.
 
-```C
-/* Programming Exercise 4-1 */
-#include <stdio.h>
-int main(void)
-{
-  char fname[40];
-  char lname[40];
-
-  printf("Enter your first name: ");
-  scanf("%s", fname);
-  printf("Enter your last name: ");
-
-  scanf("%s", lname);
-  printf("%s, %s\n", lname, fname);
-  return 0;
-}
-```
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res7.c) se encuentra el codigo solucion.
 
 8. Escriba un programa que solicite su altura en pulgadas y su nombre, y entonces despliegue la información en el siguiente formato:
 
@@ -574,23 +469,7 @@ Dabney, you are 6.208 feet tall
 ```
 Es lo que se imprime en caso de que el nombre ingresado sea Dabney y la altura sea 6.298
 
-```C
-/* Programming Exercise 4-4 */
-#include <stdio.h>
-int main(void)
-{
-  float height;
-  char name[40];
-
-  printf("Enter your height in inches: ");
-  scanf("%f", &height);
-  printf("Enter your name: ");
-  scanf("%s", name);
-  printf("%s, you are %.3f feet tall\n", name, height / 12.0);
-
-  return 0;
-}
-```
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res8.c) se encuentra el codigo solucion.
 
 ## 5. Sentencias de Control
 Las Instrucciones de control en C son similares a las de Java. A continuación se describe la estructura y se muestan algunos ejemplos:
