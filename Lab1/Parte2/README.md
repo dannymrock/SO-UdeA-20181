@@ -1,15 +1,16 @@
-# Practica de laboratorio Manejo básico del GNU Compiler Collection (GCC)
+# Práctica de laboratorio manejo básico del GNU Compiler Collection (GCC)
 
 ## Conceptos previos
 
 ## 1. Generando el ejecutable en un solo paso (se eliminan los archivos intermedios)
 
 >  
-> ``` gcc archivoFuente –o nombreEjecutable ```
+> ``` gcc archivoFuente –o nombreEjecutable -Wall```
 >
 > Dónde:
 > * **archivoFuente**: Archivo de extensión **.c** que será compilado y enlazado.
 > * **nombreEjecutable**: Nombre del ejecutable generado tras la ejecución del comando.
+> * **-Wall**: Esta opción activa todos las advertencias más comunes ¡se recomienda usar siempre esta opción!. Por defecto GCC no produce advertencias a menos que estén activadas. Las advertencias del compilador son una ayuda esencial detectando problemas al programar en lenguaje C.
 >
 > La anterior forma de uso del comando gcc, suele ser la más sencilla para compilar y enlazar un archivo fuente (archivo 
 > **.c**) de modo que se genera un ejecutable con nombre dado  por **nombreEjecutable**. 
@@ -42,18 +43,17 @@ Cuando se ejecuta el comando ```gcc``` con la opción ```-save-temps``` los arch
 ## 4. Otras opciones con el gcc
 A continuación mostramos algunas de las opciones más habituales al usar gcc (algunas ya vistas):
 
-| Opcion | Descripción            |
+| Opción | Descripción            |
 |------|-------------------|
 | -help | Indica a gcc que muestre su salida de ayuda (muy reducida).|
 | -o <file> | El archivo ejecutable generado por gcc es por defecto a.out. Mediante este modificador, le especificamos el nombre del ejecutable.|
-| -Wall | No omite la detección de ningún warning. Por defecto, gcc omite una colección de warnings  "poco importantes".|
+| -Wall | No omite la detección de ninguna advertencia (warning).|
 | -g | Incluye en el binario información necesaria para utilizar un depurador posteriormente.|
-| -O <nivel> | Indica a gcc que utilice optimizaciones en el código. Los niveles posibles van desde 0 (no optimizar) hasta 3 (optimización máxima). Utilizar el optimizador aumenta el tiempo de compilación, pero suele generar ejecutables más rápidos.|
+| -O <nivel> | Indica a gcc que utilice optimizaciones en el código. Los niveles posibles van desde 0 (no optimizar) hasta 3 (optimización máxima). Utilizar el optimizador aumenta el tiempo de compilación, pero suele generar programas que se  ejecutan más rápido.|
 | -E | Sólo realiza la fase del preprocesador, no compila, ni ensambla, ni enlaza.|
 | -S | Preprocesa y compila, pero no ensambla ni enlaza.|
 | -c | Preprocesa, compila y ensambla, pero no enlaza.|
 | -I <dir> | Especifica un directorio adicional donde gcc debe buscar los archivos de cabecera indicados en el código fuente.|
-| -L <dir> | Especifica un directorio adicional donde gcc debe buscar las librerías necesarias en el proceso de enlazado.|
 | -L <dir> | Especifica un directorio adicional donde gcc debe buscar las librerías necesarias en el proceso de enlazado.|
 | -l<library> | Especifica el nombre de una librería adicional que deberá ser utilizada en el proceso de enlazado.|
 
@@ -77,5 +77,3 @@ int main()
 4. Si hay errores, volver al código y corregirlos. De lo contrario ejecute el programa. 
 
 > Nota: El codigo anterior tambien se encuentra disponible online en el siguiente [link](https://goo.gl/yjRZaZ)
-
-
