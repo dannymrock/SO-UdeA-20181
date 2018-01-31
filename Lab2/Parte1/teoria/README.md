@@ -39,7 +39,7 @@ Como se puede notar, la forma es similar a la que se emplea en cualquier otro le
 
 #### Ejemplo:
 Hacer un programa que despliegue **Hello world** en pantalla:
-1. Empleando java
+1. Empleando java.
 2. Empleando C
 
 **Solución**
@@ -52,7 +52,7 @@ public class Hello {
     }
 }
 ```
-En [Solución java](https://goo.gl/kKWUEg) se encuentra el código anterior online anteriormente mostrado
+En [Solución java](https://goo.gl/kKWUEg) se encuentra el código anterior online anteriormente mostrado.
 
 2. **Empleando C**: en el enlace [solución en C](https://goo.gl/9CKdbC) esta el código C que implementa lo solicitado:
 ```C
@@ -74,7 +74,7 @@ hello.c  hello.out
 Hello, World
 ```
 ## 2. Tipos de Datos
-Los tipos de datos básicos incorporados en C son enteros, reales y carácter. En la siguiente tabla se resumen éstos:
+Los tipos de datos básicos incorporados en C son los enteros, los reales y los tipo carácter. En la siguiente tabla se resumen éstos:
 
 **Tabla 1**. Tipos de datos primitivos en C
 
@@ -99,7 +99,6 @@ El manejo de los tipos de datos en C es muy similar al que se hace en java. Cabe
 1. Caracteres encerrados entre comillas ('A', 'b', 'p') asociados a un valor ascii.
 2. Caracteres no imprimibles (tabulación, avance de página) los cuales se representan con secuencias de escape ('\n', '\t'). La siguiente tabla muestra algunos de estos caracteres:
 
-
 **Tabla 2**. Secuencias de escape en C
 
 | Carácter de escape                               | Singnificado | Código ASCII                     |
@@ -120,16 +119,21 @@ El manejo de los tipos de datos en C es muy similar al que se hace en java. Cabe
 | \0                          | Carácter nulo o terminación de cadena              |           |
 
 
-3. Variables 
+La equivalencia entre un caracter especifico y su valor ascii se puede encontrar en una tabla ascii como la mostrada en el siguiente [enlace](http://www.fceia.unr.edu.ar/~ifc/apuntes/tascii.pdf).
+
+## 3. Variables 
 Una declaración indica el tipo de variable y le sirve al compilador para determinar la cantidad de memoria requerida para almacenar la variable deseada. El formato básico para declarar una variable es:
 ```C
 tipo var1, var2, ...;
 ```
+
 Si la declaración produce también un almacenamiento (inicialización), entonces es una definición.
+
 ```C
 tipo var = valor inicial;
 ```
-**Nota**: Todas las variables en C se declaran o definen antes de ser utilizadas, de lo contrario el compilador arrojará un error.
+
+**Nota**: Todas las variables en C se declaran o definen antes de ser utilizadas, de lo contrario el compilador arrojará un error de variable no declarada.
 
 #### Ejemplo:
 A continuación se muestran varias declaraciones de variables, note que la forma es similar a la empleada en java:
@@ -142,6 +146,8 @@ int a = 1, b = 2;
 char ac = '@';
 const IVA = 19
 ```
+En el siguiente [enlace](https://goo.gl/cgydMU) puede hacer la simulacion del codigo anterior (notese que las variables no inicializadas no aparecen desplegadas).
+
 **Nota**: La palabra reservada **const** permite definir determinadas variables con valores constantes que no se pueden modificar.
 
 4. Cadenas de carácteres
