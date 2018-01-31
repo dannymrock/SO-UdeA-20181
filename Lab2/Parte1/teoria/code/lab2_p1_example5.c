@@ -12,7 +12,7 @@ int main() {
   int N;   // Cantidad de numeros
   int num; // Numero a leer
   int i;   // i-esimo numero
-  sum = 0; // Suma de los numeros
+  int sum = 0; // Suma de los numeros
   printf("Ingrese la cantidad de numeros a sumar: ");
   scanf("%d",&N);
   for(i = 0; i < N; i++) {
