@@ -398,8 +398,6 @@ int main() {
   printf("Estatura %f\n",estatura);
   return 0;
 }
-
-}
 ```
 Notese el uso del ampersand antepuesto a las variables edad y estatura cuando se emplea la funcion scanf. El programa anterior cuando se ejecuta arroja una salida como la siguiente (para nuestro caso asumimos una edad de 3 años y una estatura de 0.8 m).
 
@@ -415,12 +413,26 @@ Estatura 0.800000
 
 * Cuando lo que se ingresa es una cadena de caracteres, no es necesario emplear el ampersand (&) pues de por si el nombre de una cadena de caracteres es una dirección, por ejemplo:
 ```C
-char nombre[20];
-scanf("%s", nombre);
-```
-Notese que no se emplea para nada el ampersand con nombre.
+#include <stdio.h>
 
-#### Ejemplos resueltos
+int main() {
+  char nombre[15]; // Almacena maximo 14 caracteres
+  printf("Digite el nombre: ");
+  scanf("%s",nombre);
+  printf("\nHola: %s\n",nombre);
+  return 0;
+}
+```
+
+Notese que no se emplea para nada el ampersand (a diferentecia de las variables edad y estatura del ejemplo anterior) con cuando se lee la cadena nombre con el scanf. La salida del programa anterior se muestra a continuacion:
+
+```
+Digite el nombre: Ramon
+
+Hola: Ramon
+```
+
+### Ejemplos resueltos de entrada y salida
 
 1. Escriba un programa que use una llamada printf() para imprimir su nombre y su apellido en una línea, use una segunda llamada printf() para imprimir su nombre y su apellido en dos líneas separadas, y use un par de llamadas a printf() para imprimir su nombre y apellido en una línea. La salida del programa podrá ser como esta (pero usando su nombre):
 
@@ -622,13 +634,6 @@ La nota es: -B
 ```
 A continuación se muestra el código solución:
 ```C
-/*
- * Name         : ejemploX.c
- * Author       : SO UdeA
- * Description  : Ejercicio que calcula la nota en letras de un estudiante
- * Compilation  : gcc -Wall ejemploX.c -o ejemploX
- * Execution    : ./ejemploX
-*/
 #include <stdio.h>
 
 int main() {
@@ -710,14 +715,6 @@ el mensaje: **"ERROR: <numero> no está asociado a ningún signo"**. Hacer este 
 A continuación se muestra el código solución:
 
 ```C
-/*
- * Name         : ejemploX.c
- * Author       : SO UdeA
- * Description  : Ejercicio que obtiene la categoria a la que pertenece cada signo del zodiaco
- * Compilation  : gcc -Wall ejemploX.c -o ejemploX
- * Execution    : ./ejemploX
-*/
-
 #include <stdio.h>
 
 #define ARIES 1
@@ -794,13 +791,6 @@ Escriba un programa que sume una secuencia de enteros. Suponga que el primer ent
 Donde 5 indica que deben sumarse los siguientes 5 valores.
 
 ```C
-/*
- * Name         : ejemploX.c
- * Author       : SO UdeA
- * Description  : Ejercicio que suma una numero determinado de numeros enteros
- * Compilation  : gcc -Wall ejemploX.c -o ejemploX
- * Execution    : ./ejemploX
-*/
 #include <stdio.h>
 
 int main() {
@@ -832,13 +822,6 @@ Escriba un programa que calcule e imprima el promedio de varios enteros posivos.
 ```
 Que indica que el promedio de todos los valores que preceden a 9999 se va a calcular. (**Pista**: Hacer esto con un ciclo **while** dentro del cual se lean los valores a promedia, siempre y cuando la condición de que lo leído no se 9999 se cumpla).
 ```C
-/*
- * Name         : ejemploX.c
- * Author       : SO UdeA
- * Description  : Ejercicio que suma una numero determinado de numeros enteros hasta que el usuario ingresa 9999
- * Compilation  : gcc -Wall ejemploX.c -o ejemploX
- * Execution    : ./ejemploX
-*/
 #include <stdio.h>
 
 const unsigned CENTINELA = 9999;
@@ -864,14 +847,6 @@ do {
 #### Ejemplo
 Hacer un programa que solicite un numero de tal manera que si este es negativo mostrara un mensaje que diga "Numero negativo asi que suerte", y si es positivo mostrará un mensaje que diga: "Numero positivo, siga usted" y solicitara nuevamente un numero.
 ```C
-/*
- * Name         : ejemploX.c
- * Author       : SO UdeA
- * Description  : Ejercicio pide varios numeros positivos hasta que el usuario ingresa un numero negativo, el programa se 
-                  minimo una vez.
- * Compilation  : gcc -Wall ejemploX.c -o ejemploX
- * Execution    : ./ejemploX
-*/
 #include <stdio.h>
 
 int num; // Numero a leer
@@ -962,14 +937,6 @@ Los ejemplos anteriormente mostrados solo hacian enfasis en las partes de las fu
 1. Hacer un programa que calcule el factorial de un numero empleando funciones.
 
 ```C
-/*
- * Name         : ejemploX.c
- * Author       : SO UdeA
- * Description  : Ejercicio que obtiene la categoria a la que pertenece cada signo del zodiaco
- * Compilation  : gcc -Wall ejemploX.c -o ejemploX
- * Execution    : ./ejemploX
-*/
-
 #include <stdio.h>
 
 /* Declaracion de funciones */
