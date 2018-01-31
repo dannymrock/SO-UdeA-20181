@@ -1,3 +1,3 @@
 # LABORATORIO 1
-* **Parte 1**: Ejercicios
-* **Parte 2**: Material de apoyo teorico
+* **Parte 1**: Linux basico
+* **Parte 2**: Manejo basico del GCC
