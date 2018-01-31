@@ -402,6 +402,11 @@ Cuando se ejecuta el comando ```gcc``` con la opción ```-save-temps``` los arch
 
 ``` gcc -save-temps archivoFuente <–o nombreEjecutable>```
 
+![todo](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/todo.png)	
+
+**Figura 15**. Resultado del comando gcc conservando los archivos intermedios del proceso
+
+
 Para nuestro caso específico el comando será:
 
 ``` gcc -save-temps hello.c –o hello.out ```
