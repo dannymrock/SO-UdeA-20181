@@ -146,13 +146,16 @@ int main()
 
 ## 3. GCC con un poco más de detalle
 
-El proceso de obtener un archivo ejecutable (entendible por la máquina) a partir de un archivo fuente (escrito en lenguaje de programación y entendido por el programador) involucra 4 etapas (ver figura XXX), las cuales son principalmente:
+El proceso de obtener un archivo ejecutable (entendible por la máquina) a partir de un archivo fuente (escrito en lenguaje de programación y entendido por el programador) involucra 4 etapas (ver figura 10), las cuales son principalmente:
 1. Pre-procesamiento.
 2. Compilación.
 3. Ensamblado.
 4. Enlazado.
 
-figura XXX
+![proceso_etapas](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/compilacion_proceso.png)
+
+**Figura 10**. Etapas del proceso de compilacion 
+
 
 En las seccion anterior, se llegó a la obtención del ejecutable directamente mediante la ejecución de un solo comando, sin embargo en esta parte se analizaán cada una de estas etapas y las opciones involucradas en la herramienta GCC asociadas. 
 
@@ -177,7 +180,7 @@ int main(int argc, char *argv[])
 A continuación se muestra el proceso de compilación por pasos y se resalta el archivo generado en cada uno de ellos.
 
 #### 1 Pre-procesado
-En esta etapa se interpretan las directivas al pre-procesador y se eliminan comentarios si los hay. En lo que respecta a las directivas del preprocesador, estas son sustituidas en el código por su valor en todos los lugares donde aparece su nombre.
+En esta etapa se interpretan las directivas al pre-procesador y se eliminan comentarios si los hay. En lo que respecta a las directivas del preprocesador, estas son sustituidas en el código por su valor en todos los lugares donde aparece su nombre. 
 
 Las directivas del pre-procesador comienzan con #, permiten buenas prácticas de programación. Estas se usan principalmente para:
 * Inserción de contenido de un archivo en su programa:  ```#include```
@@ -189,6 +192,13 @@ Para llevar a cabo el pre-procesado de un archivo fuente se ejecuta la opcion -E
 ```
 gcc -E archivoFuente <-o archivoResultante>
 ``` 
+
+La siguiente figura muestra el resultado de ejecutar el comando anterior:
+
+![preprocesamiento](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/preprocesamiento_1.png)	
+
+**Figura 11**. Resultado del preprocesamiento de un archivo fuente 
+
 La parte asociada con **-o** es opcional y si no se usa el resultado del preprocesamiento aparece en pantalla. Para nuestro caso se empleó el nombre del archivo resultante con extensión .i así:
 ```
 gcc -E hello.c -o hello.i
