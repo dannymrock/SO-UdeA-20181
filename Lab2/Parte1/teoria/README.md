@@ -543,7 +543,21 @@ int main() {
   return 0;
 }
 ```
-Compile y corra el programa.
+
+A continuacion se muestran dos casos de ejecución y sus respectivas salidas para el programa anterior:
+* Introduciendo una nota de 3.6:
+
+```
+Introduzca la nota que saco el pelao: 3.6
+La nota es: B
+```
+
+* Introducciendo una nota de 4.8:
+
+```
+Introduzca la nota que saco el pelao: 4.8
+La nota es: E
+```
 
 #### 5.1.2. Estructura switch
 ```C
