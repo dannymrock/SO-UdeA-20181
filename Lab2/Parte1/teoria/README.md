@@ -121,7 +121,7 @@ El manejo de los tipos de datos en C es muy similar al que se hace en java. Cabe
 
 La equivalencia entre un caracter especifico y su valor ascii se puede encontrar en una tabla ascii como la mostrada en el siguiente [enlace](http://www.fceia.unr.edu.ar/~ifc/apuntes/tascii.pdf).
 
-## 3. Variables 
+### 2.1. Variables 
 Una declaración indica el tipo de variable y le sirve al compilador para determinar la cantidad de memoria requerida para almacenar la variable deseada. El formato básico para declarar una variable es:
 ```C
 tipo var1, var2, ...;
@@ -133,7 +133,9 @@ Si la declaración produce también un almacenamiento (inicialización), entonce
 tipo var = valor inicial;
 ```
 
-**Nota**: Todas las variables en C se declaran o definen antes de ser utilizadas, de lo contrario el compilador arrojará un error de variable no declarada.
+**Nota**: 
+* Todas las variables en C se declaran o definen antes de ser utilizadas, de lo contrario el compilador arrojará un error de variable no declarada.
+* Las variables a las cuales se hizo referencia en esta seccion, es decir las variables primitivas (char, int, float, double, et.), cuando las variables son compuestas (arrays, cadenas de caracteres, matrices,.) la inicializacion es diferente; sin embargo, esto se abordará despues.
 
 #### Ejemplo:
 A continuación se muestran varias declaraciones de variables, note que la forma es similar a la empleada en java:
@@ -148,9 +150,9 @@ const IVA = 19
 ```
 En el siguiente [enlace](https://goo.gl/cgydMU) puede hacer la simulacion del codigo anterior (notese que las variables no inicializadas no aparecen desplegadas).
 
-**Nota**: La palabra reservada **const** permite definir determinadas variables con valores constantes que no se pueden modificar.
+**Nota**: La palabra reservada **const** (**final** en el caso de java) permite definir determinadas variables con valores constantes que no se pueden modificar.
 
-4. Cadenas de carácteres
+### 2.2. Cadenas de carácteres
 Una cadena de carácteres (C string) no es mas que un arreglo de carácteres (datos primitivos tipo char). Existen varias formas de declarar cadenas de carácteres:
 1. Indicando el máximo número de carácteres en la definición:
 ```C
@@ -195,7 +197,7 @@ Si lo ve necesario puede ayudarse del código que se encuentra en siguiente [pá
 
 Finalmente, cuando el especificador de formato asociado a una cadena de caracteres es: **%s**, su uso sera explicado posteriormente con mas detalle.
 
-## 4. Entrada y salida estándar
+## 3. Entrada y salida estándar
 En C la entrada y salida de texto se abstraen como streams o flujos de caracteres, no importa de dónde se origine el flujo o hacia a donde se dirija. Un flujo de texto, es una secuencia de caracteres dividida en líneas; cada línea consiste de cero o más caracteres seguidos por un carácter de nueva línea.
 
 Para el correcto funcionamiento de la entrada y salida en C, y dado que las funciones de E/S, estructuras de datos usadas por esas funciones, etc., se encuentran declaradas en el archivo de cabecera <stdio.h>, es necesario incluir dicho archivo, mediante la directiva del preprocesador #include, para que la E/S funcione correctamente, pues en caso contrario, puede funcionar de forma incorrecta, e incluso, puede llegar a dar errores de compilación.
