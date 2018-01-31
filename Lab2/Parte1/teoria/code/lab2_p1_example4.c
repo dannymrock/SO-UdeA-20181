@@ -63,3 +63,4 @@ int main() {
 	    printf("\"ERROR\": no está asociado a ningún signo");
   }
   return 0;
+}
