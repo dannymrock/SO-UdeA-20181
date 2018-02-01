@@ -127,26 +127,27 @@ Si observa la segunda instrucción anteriormente mostrada, la forma como se obtu
 |p	| Contenido del apuntador p	|103|
 |&p	| Dirección del apuntador p	|106|
 
+Nótese de la tabla anterior y la figura previa que con & lo que se obtiene es dirección base de una variable no importa su tipo ya sea una variable normal (char, int, float, etc), apuntador u otro.
 
+### 2.2. Manipulación de memoria mediante apuntadores
 
+Una de las aplicaciones más importantes es el acceso directo a memoria para su manipulación. Para ello, se manejan dos operadores importantes los cuales el operador referencia (&) y el operador desreferencia (*).
 
-| Carácter de escape                               | Singnificado | Código ASCII                     |
-|---------------------------------------------|-------------------|---------------------------|
-| \a                          | Carácter de alerta (timbre)                | 7           |
-| \b                          | Retroceso de espacio                | 8           |
-| \f                         | Avance de página               | 12           |
-| \n                          | Nueva línea                | 10           |
-| \r                          | Retorno de carro                | 13           |
-| \t                          | Tabulación horizontal                | 9           |
-| \v                          | Tabulación vertical                | 11           |
-| \\                          | Backslash ( \ ).              | 92           |
-| \?                          | Interrogación ( ? ).              | 63           |
-| \'                          | Comilla sencilla ( ' ).              | 39           |
-| \"                          | Comillas dobles.              | 34           |
-| \0nn                          | Número octal.              |            |
-| \Xnn                          | Número hexadecimal              |            |
-| \0                          | Carácter nulo o terminación de cadena              |           |
+### 2.2.1. Referenciar un apuntador
 
+Consiste en asociar el apuntador a una dirección específica (durante la declaración o después de esta), para esto se suele usar el operador & para obtener la dirección de la variable en cuestión. A continuación se muestra la forma como normalmente se hace esto:
+
+```C
+apuntador = &variable;
+```
+También es posible referenciar un apuntador pasándole el valor que se tiene en otro apuntador. Note que no se hizo uso del operador & en este caso:
+
+```C
+apuntador = &variable;
+```
+apuntador1 = apuntador2;
+
+Todo apuntador debe inicializarse antes de usarse. Si esto no se hace, cuando intente usarlo para hacer alguna operación en memoria el programa sacara un error. Un puntero que no ha sido inicializado se conoce como **Wild pointer**.
 
 
 ## 7. Enlaces de interes
