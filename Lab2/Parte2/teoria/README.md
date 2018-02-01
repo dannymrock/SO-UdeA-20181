@@ -47,6 +47,35 @@ Como se puede ver en la figura anterior, lo que se modifica cuando se hace manip
 
 Un apuntador es una variable que almacena una **dirección de memoria y no un valor** como ocurre en el caso de las variables normales. La siguiente tabla resalta este hecho:
 
+<table>
+    <tr>
+        <td colspan="2">Instrucciones</td>
+    </tr>
+    <tr>
+        <td><b>int *p;<br>
+            p = 1000;</b><br><br>
+            <b>Nota</b>: Supóngase que <b>el apuntador<\b> se guarda en la posición 500.
+        </td>
+        <td>
+            <img src="https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/rep_mapa_ptr_inst1.png">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">Mapa de memoria</td>
+    </tr>
+    <tr>
+        <td>
+          <b>int p;<br>
+            p = 1000;</b><br><br>
+            <b>Nota</b>: Supóngase que la <b>variable p<\b> se guarda en posición 500.
+          </td>
+        <td>
+            <img src="https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/rep_mapa_var_inst1_comp.png"> 
+         </td>
+    </tr>
+</table>
+
+
 
 
 
