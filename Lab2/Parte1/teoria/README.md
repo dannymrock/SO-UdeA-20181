@@ -988,7 +988,7 @@ Suerte es que le digo...
 ### Ejemplos resueltos funciones
 1. Se define un numero combinatorio m sobre n de la siguiente manera:
 
-FIGURA XX
+![formula](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/formula_binomial.png)
 
 Escribir un programa que lea los valores de m y de n y calcule el valor de m sobre n.
 
@@ -1076,6 +1076,12 @@ void incremento(int num) {
   num++;
 }
 ```
+La siguiente figura da una persepectiva del codigo anterior en operacion:
+
+![f_valor](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/funcion_valor.png)
+
+**Figura 6**. Visualizacion del programa anterior (**Nota**: este aun no ha culminado su ejecucion).
+
 **Preguntas**
 1. Cual es el valor de num y N antes del retorno de la función incremento: ¿Cambian ambas? (Puede ayudarse del enlace solución).
 
@@ -1153,6 +1159,12 @@ void incremento(int *num) {
   *num += 1;
 }
 ```
+Para visualizar ma facil lo que se afirmo en los parrafos anteriores observe la siguiente imagen:
+
+![f_referencia](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/funcion_referencia.png)
+
+**Figura 7**. Visualizacion del programa anterior (**Nota**: este aun no ha culminado su ejecucion).
+
 **Preguntas**
 1. ¿Cual es el valor de N antes y después del retorno de la función incremento?
 
@@ -1160,6 +1172,10 @@ void incremento(int *num) {
 1. Repase los ejemplos anteriormente mostrados y observe las diferencias en su ejecucion:
 * [Codigo llamado por valor](https://goo.gl/ebh6Jg)
 * [Codigo llamado por referencia](https://goo.gl/5CQ2s7)
+
+Por comodidad se colocan los dos codigos:
+
+
 
 2. Analice y entienda el siguiente [codigo](https://goo.gl/NsuZLC):
 
