@@ -271,7 +271,7 @@ printf("---\n");
 ```
 La salida en pantalla se muestra a continuación:
 
-![output1](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/imagenes/fig_output1.png)
+![output1](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/fig_output1.png)
 
 **Figura 1**. Salida en pantalla del codigo anterior
 
