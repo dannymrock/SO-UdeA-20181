@@ -21,8 +21,6 @@
 #define ACUARIO 11
 #define PISCIS 12
 
-// https://www.programiz.com/c-programming/c-enumeration
-
 enum tipo {
     fuego = 0,
     tierra = 1,
