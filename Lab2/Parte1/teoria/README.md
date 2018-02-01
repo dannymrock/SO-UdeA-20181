@@ -471,12 +471,12 @@ Es lo que se imprime en caso de que el nombre ingresado sea Dabney y la altura s
 
 En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res8.c) se encuentra el codigo solucion.
 
-## 5. Sentencias de Control
+## 4. Sentencias de Control
 Las Instrucciones de control en C son similares a las de Java. A continuación se describe la estructura y se muestan algunos ejemplos:
 
-### 5.1 Estructura condicional 
+### 4.1 Estructura condicional 
 
-#### 5.1.1. Estructura if/else if/else
+### 4.1.1. Estructura if/else if/else
 
 La forma de esta estructura se muestra a continuación:
 
@@ -563,7 +563,7 @@ Introduzca la nota que saco el pelao: 4.8
 La nota es: E
 ```
 
-#### 5.1.2. Estructura switch
+### 4.1.2. Estructura switch
 
 La forma de esta estructura se muestra a continuación:
 
@@ -696,8 +696,11 @@ Seleccione el signo del zodiaco de su preferencia: 13
 "ERROR": no está asociado a ningún signo
 ```
 
-### 5.2 Ciclos
-#### 5.2.1. Estructura for
+### 4.2 Estructura repetitiva
+### 4.2.1. Estructura for
+
+La forma de esta estructura se muestra a continuación:
+
 ```C
 for(expresion_inicializacion; expresion_test; expression_modificacion){
   instrucciones;
@@ -750,7 +753,10 @@ Ingrese la cantidad de numeros a sumar: 3
 La suma es: 129
 ```
 
-#### 5.2.2. Estructura while
+### 4.2.2. Estructura while
+
+La forma de esta estructura se muestra a continuación:
+
 ```C
 while(condicion_control){
   instrucciones;
@@ -769,25 +775,39 @@ Que indica que el promedio de todos los valores que preceden a 9999 se va a calc
 const unsigned CENTINELA = 9999;
 int main() {
   int num; // Numero a leer
-  sum = 0; // Suma de los numeros
+  int sum = 0; // Suma de los numeros
   scanf("%u",&num);
   while(num != CENTINELA) {
     sum += num;
     scanf("%d",&num);
   }
-  printf("\n La suma es: %d\n",num);
+  printf("\nLa suma es: %d\n", sum);
   return 0;
 }
 ```
-#### 5.2.3. Estructura do-while
+
+Ingresando los valores 10, 8, 11, 7 y 9 se obtiene 45 como resultado de la suma, veamos el programa en  acción para este caso:
+
+```
+10 8 11 7 9 9999
+
+La suma es: 45
+```
+
+### 4.2.3. Estructura do-while
+
+La forma de esta estructura se muestra a continuación:
+
 ```C
 do {
   instrucciones;
   ...
 } while(condicion_control);
 ```
+
 #### Ejemplo
 Hacer un programa que solicite un numero de tal manera que si este es negativo mostrara un mensaje que diga "Numero negativo asi que suerte", y si es positivo mostrará un mensaje que diga: "Numero positivo, siga usted" y solicitara nuevamente un numero.
+
 ```C
 #include <stdio.h>
 
@@ -809,7 +829,24 @@ int main() {
 }
 ```
 
-## 6. Funciones
+A continuación se muestra una salida tipica al ejecutar el anterior programa:
+
+```
+1
+Numero positivo, siga usted
+2
+Numero positivo, siga usted
+3
+Numero positivo, siga usted
+0
+Numero positivo, siga usted
+-7
+Numero negativo asi que suerte
+
+Fin del programa
+```
+
+## 5. Funciones
 
 Ademas de las funciones de librerias (como scanf y prinf) en C es posible crear funciones definidas por el usuario haciendo que los programas sean modulares. Una funcion en C es un pequeño **sub-programa** que lleva a cabo una tarea particular. La forma de trabajar con funciones en C sigue la misma filosofia que la empleada en los metodos en java. Para usar funciones el programador debe hacer tres cosas:
 1. **Definir** la función.
@@ -817,7 +854,9 @@ Ademas de las funciones de librerias (como scanf y prinf) en C es posible crear 
 3. **Usar** la función.
 
 A continuacion se detalla cada aspecto de los anteriormente mencionados.
-1. **Definición de la función**: Consiste en las instrucciones que implementan lo que hace la función. La definición de una función tiene la siguiente sintaxis:
+###  1. Definición de la función
+
+Consiste en las instrucciones que implementan lo que hace la función. La definición de una función tiene la siguiente sintaxis:
 
 ```C
 return_type function_name (data type variable name list) {
@@ -827,6 +866,7 @@ return_type function_name (data type variable name list) {
 ```
 
 **Ejemplo**
+
 Hacer una función que calcule el factorial de un numero:
 
 ```C
@@ -837,7 +877,8 @@ int factorial (int n) {
   return product;
 }
 ```
-2. **Declaración de la función**: Esta asociada a la cabecera de la funcion y se colocan en un programa antes de que la función sea definida. Tambien se conocen como prototipos de la función y no son mas que la cabecera de la función. La forma es la siguiente.
+### 2. Declaración de la función
+Esta asociada a la cabecera de la funcion y se colocan en un programa antes de que la función sea definida. Tambien se conocen como prototipos de la función y no son mas que la cabecera de la función. La forma es la siguiente.
 
 ```C
 return_type function_name (data type variable name list);
@@ -851,9 +892,11 @@ return_type function_name (data type variable name list);
 int factorial (int n);
 }
 ```
-3. **Uso de la función**: Consiste en invocar la funcion; lo cual consiste en colocar el nombre de la función asegurando en proporsionar los argumentos y variables para almacenar valores retornos (en caso de ser necesario).
+### 3. Uso de la función
+Consiste en invocar la funcion; lo cual consiste en colocar el nombre de la función asegurando en proporsionar los argumentos y variables para almacenar valores retornos (en caso de ser necesario).
 
 **Ejemplo**
+
 * Calcular el factorial de 8 llevando el resultado a una variable llamada f
 
 ```C
@@ -873,10 +916,8 @@ printf("%d! = %d\n", num, f);
 }
 ```
 
-#### Ejemplos: 
-Los ejemplos anteriormente mostrados solo hacian enfasis en las partes de las funciones. Para usar una funcion es necesario hacer uso de los 3 aspectos anteriormente mencionados a la hora de codificar, vamos a ver varios ejemplos para tal fin:
-
-1. Hacer un programa que calcule el factorial de un numero empleando funciones.
+#### Ejemplos 
+Los ejemplos anteriormente mostrados solo hacian enfasis en las partes de las funciones. Para usar una funcion es necesario juantar los  aspectos anteriormente mencionados a la hora de codificar el archivo fuente, vamos a ver varios ejemplos para tal fin. A continuacion se muestra el programa completo:
 
 ```C
 #include <stdio.h>
@@ -896,7 +937,7 @@ int main() {
      printf("Digite un numero positivo o -1 para terminar: ");
      scanf("%d", &num); 	 
   }
-  printf("\nSuerte es que le digo ...");
+  printf("\nSuerte es que le digo...");
   return 0;
 }
 
@@ -910,6 +951,21 @@ int factorial(int n) {
   }
 }
 ```
+
+A continuacion se muestra el programa anterior para un caso de ejecucion particular:
+
+```
+Digite un numero positivo o -1 para terminar: 0
+0! = 1
+
+Digite un numero positivo o -1 para terminar: 5
+5! = 120
+
+Digite un numero positivo o -1 para terminar: -1
+
+Suerte es que le digo...
+```
+
 2. 
 
 ```C
