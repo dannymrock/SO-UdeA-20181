@@ -910,7 +910,6 @@ return_type function_name (data type variable name list);
 
 ```C
 int factorial (int n);
-}
 ```
 ### 3. Uso de la función
 Consiste en invocar la funcion; lo cual consiste en colocar el nombre de la función asegurando en proporsionar los argumentos y variables para almacenar valores retornos (en caso de ser necesario).
@@ -922,7 +921,6 @@ Consiste en invocar la funcion; lo cual consiste en colocar el nombre de la func
 ```C
 int f;
 f = factorial(8);
-}
 ```
 
 * Calcular el factorial de un numero ingresado por el usuario:
@@ -933,7 +931,6 @@ printf("Ingrese el numero");
 scanf("%d",&num);
 f = factorial(num);
 printf("%d! = %d\n", num, f);
-}
 ```
 
 #### Ejemplo
@@ -1219,9 +1216,9 @@ void intercambioValor(int x, int y) {
 ```
 
 
-
-https://www.geeksforgeeks.org/data-types-in-c/
-https://www.programiz.com/c-programming/c-enumeration
+## 7. Enlaces de interes
+* https://www.geeksforgeeks.org/data-types-in-c/
+* https://www.programiz.com/c-programming/c-enumeration
 
 
 
