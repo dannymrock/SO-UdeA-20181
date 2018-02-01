@@ -169,7 +169,50 @@ Ahora si lo que se desea hacer es escribir en el lugar de memoria apuntado se ha
 ```C
 *apuntador = variable;
 ```
-En la siguiente figura se ilustra un poco mejor las 2 operaciones anteriores:
+
+**Ejemplo**
+Suponga que se tiene el siguiente fragmento de codigo fuente:
+
+```C
+int i,j;
+int *p; //Apuntador a un entero
+p = &i;
+*p = 5;
+j = i;
+```
+
+Tambien tenga en cuenta lo siguientes enunciados:
+* Suponga que i y j son de 4 bytes y ocupan las direcciones base 1000 y 1004.
+* El apuntador p ocupa las direccione base 2000.
+* Asi mismo la arquitectura es de 64 bits por lo que el espacio ocupado por el apuntador sera de 8 bytes.
+
+Muestre la ejecución paso a paso del codigo anterior resaltando la evolucion en memoria:
+
+**Solucion**: Las instrucciones que se estan evaluando en un momento dado se resaltan
+<table>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+
 
 
 
