@@ -271,7 +271,9 @@ printf("---\n");
 ```
 La salida en pantalla se muestra a continuación:
 
-PONER FIGURA XXX
+![output1](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/imagenes/fig_output1.png)
+
+**Figura 1**. Salida en pantalla del codigo anterior
 
 Puede verificar el resultado consultando el siguiente [enlace](https://goo.gl/MkQe9X)
 
@@ -307,7 +309,9 @@ printf("%2x\n",j);
 ```
 Puede verificar el resultado consultando el siguiente [enlace](https://goo.gl/fYDXkX). La siguiente figura muestra el resultado en pantalla:
 
-PONER FIGURA
+![output2](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/imagenes/fig_output2.png)
+
+**Figura 2**. Salida en pantalla del codigo anterior
 
 2. **Datos reales**
 
@@ -336,7 +340,9 @@ printf("%20.4e\n",y);
 ```
 La salida en pantalla se muestra a continuación y puede ser simulada en el siguiente [enlace](https://goo.gl/qM9AXy):
 
-PONER FIGURA
+![output3](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/imagenes/fig_output3.png)
+
+**Figura 3**. Salida en pantalla del codigo anterior
 
 3. **Cadenas de caracteres**
 
@@ -361,11 +367,15 @@ printf("%3.12s\n",s);
 ```
 La variable asociada a la cadena de caracteres tendrá el siguiente contenido:
 
-PONER FIGURA
+![array](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/imagenes/fig_array.png)
+
+**Figura 4**. Cadena de caracteres **s** en memoria.
 
 Adicionalmente, La salida en pantalla será:
 
-PONER FIGURA
+![output4](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/imagenes/fig_output4.png)
+
+**Figura 5**. Salida en pantalla del codigo anterior
 
 Puede verificar el resultado consultando el siguiente [enlace](https://goo.gl/Z7de6H)
 
