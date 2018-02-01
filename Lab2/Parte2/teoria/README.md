@@ -22,7 +22,7 @@ La siguiente figura ilustra su representacion en memoria:
 
 Desde el punto de vista del mapa de memoria y suponiendo que una variable tipo int ocupa 4 bytes tenemos el siguiente resultado por instruccion:
 
-<table bgcolor="#FFFFFF">
+<table>
 <tbody>
 <tr>
 <td>&nbsp;Instruccion</td>
@@ -38,6 +38,15 @@ Desde el punto de vista del mapa de memoria y suponiendo que una variable tipo i
 </tr>
 </tbody>
 </table>
+
+Como se puede ver en la figura anterior, lo que se modifica cuando se hace manipulacion sobre variables es el contenido almacenado en un lugar especifico de memoria. Entender esto es de vital importancia para manejar el proximo tema.
+
+## 2. Entrando en materia - Algunos aspectos sobre los apuntadores
+
+### 2.1. ¿Que es un apuntador?
+
+Un apuntador es una variable que almacena una **dirección de memoria y no un valor** como ocurre en el caso de las variables normales. La siguiente tabla resalta este hecho:
+
 
 
 
