@@ -129,6 +129,15 @@ Si observa la segunda instrucción anteriormente mostrada, la forma como se obtu
 
 Nótese de la tabla anterior y la figura previa que con & lo que se obtiene es dirección base de una variable no importa su tipo ya sea una variable normal (char, int, float, etc), apuntador u otro. A continuacion se muestra una forma simplificada (tomada de la sección **Pointers basics** de [How Stuff Works](https://computer.howstuffworks.com/c22.htm)) para visualizar los apuntadores y las variables comunes de manera grafica sin tener que recurrir al bosquejo del mapa de memoria previamente realizado. 
 
+![var_mem](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/apuntador2.png)
+
+**Figura 2**. Vista simplificada con variables y apuntadores.
+
+Note la diferencia en la grafica, en el dibujo el circulo representa una variable tipo apuntador y como tal almacena una direccion de memoria, la de i para el caso (103); por otro lado el vinculo entre el apuntador y la variable se representa por medio de la flecha. Finalmente, el contenido de la variable puede ser accedido o manipulado desde el simbolo i, o desde al desreferenciar el apuntador (usando *ptr), pero este sera un tema a tratar depues.
+
+Una forma aun mas simplificada e incluso mas conveniente al momento de hacer pruebas de escritorio se muestra a continuación. En esta solo se resalta el vinculo del apuntador con la variable:
+
+![var_mem](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/apuntador.png)
 
 
 ### 2.2. Manipulación de memoria mediante apuntadores
