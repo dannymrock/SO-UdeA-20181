@@ -11,12 +11,12 @@
 const unsigned CENTINELA = 9999;
 int main() {
   int num; // Numero a leer
-  sum = 0; // Suma de los numeros
+  int sum = 0; // Suma de los numeros
   scanf("%u",&num);
   while(num != CENTINELA) {
     sum += num;
     scanf("%d",&num);
   }
-  printf("\n La suma es: %d\n",num);
+  printf("\nLa suma es: %d\n",sum);
   return 0;
 }
