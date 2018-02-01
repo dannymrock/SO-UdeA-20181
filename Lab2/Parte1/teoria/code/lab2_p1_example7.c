@@ -20,7 +20,7 @@ int main() {
     else {
       printf("Numero negativo asi que suerte\n"); 
     }
-  } while(num >= 0) {    
+  } while(num >= 0);    
   printf("\nFin del programa\n");
   return 0;
 }
