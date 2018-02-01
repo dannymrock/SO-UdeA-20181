@@ -145,9 +145,22 @@ También es posible referenciar un apuntador pasándole el valor que se tiene en
 ```C
 apuntador = &variable;
 ```
-apuntador1 = apuntador2;
-
 Todo apuntador debe inicializarse antes de usarse. Si esto no se hace, cuando intente usarlo para hacer alguna operación en memoria el programa sacara un error. Un puntero que no ha sido inicializado se conoce como **Wild pointer**.
+
+### 2.2.2. Desreferenciar un apuntador
+Para poder acceder al lugar de memoria que está siendo apuntado por el puntero y realizar operaciones de lectura y escritura sobre esta dirección de memoria se debe desreferenciar el apuntador. Para ello se hace uso del operador desreferencia (*) después de la declaración del apuntador. El contenido del lugar de memoria apuntado (lectura) se obtiene de la siguiente manera:
+
+```C
+variable = *apuntador;
+```
+Ahora si lo que se desea hacer es escribir en el lugar de memoria apuntado se hace lo siguiente:
+
+```C
+*apuntador = variable;
+```
+En la siguiente figura se ilustra un poco mejor las 2 operaciones anteriores:
+
+
 
 
 ## 7. Enlaces de interes
