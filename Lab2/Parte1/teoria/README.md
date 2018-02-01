@@ -986,107 +986,9 @@ El codigo solucion se encuentra en el siguiente [enlace](https://github.com/dann
 
 2. Escriba el programa de los signos del zodiaco y su simbolo asociado (agua, aire, tierra y fuego) visto en ejemplos anteriores, pero para este caso modularise el programa empleando funciones:
 
-```C
-/*
- * Name         : ejemploX.c
- * Author       : SO UdeA
- * Description  : Ejercicio que obtiene la categoria a la que pertenece cada signo del zodiaco
- * Compilation  : gcc -Wall ejemploX.c -o ejemploX
- * Execution    : ./ejemploX
-*/
+**Nota**: Se le deja al estudiante.
 
-#include <stdio.h>
-
-#define ARIES 1
-#define TAURO 2
-#define GEMINIS 3
-#define CANCER 4
-#define LEO 5
-#define VIRGO 6
-#define LIBRA 7
-#define ESCORPIO 8
-#define SAGITARIO 9
-#define CAPRICORNIO 10
-#define ACUARIO 11
-#define PISCIS 12
-
-// https://www.programiz.com/c-programming/c-enumeration
-
-enum tipo {
-    fuego = 0,
-    tierra = 1,
-    agua = 2,
-    aire = 3,
-	invalido = -1,
-};
-enum tipo tipoSigno;
-
-/* Declaración de las funciones */
-void menu(void);
-tipoSigno obtenerTipo(int signo);
-
-int main() {
-  int signo;
-  tipoSigno tSigno;
-  menu();
-  printf("Seleccione el signo del zodiaco de su preferencia: ");
-  scanf("%d",&signo);
-  ts =  obtenerTipo(signo);
-  switch(signo) {
-	  case fuego:
-	    printf("Su signo es categoria fuego\n");
-		break;
-	  case tierra:
-	    printf("Su signo es categoria tierra\n");
-		break;
-	  case agua:
-	    printf("Su signo es categoria agua\n");
-		break;
-	  case aire:
-	    printf("Su signo es categoria aire\n");
-		break;
-	  default:
-	    printf("\"ERROR\": no está asociado a ningún signo");
-  }
-  return 0;
-}
-
-/* Definicion de las funciones */
-void menu(void) {
-  printf("SIGNOS DEL ZODIACO\n");
-  printf("1. Aries\n");
-  printf("2. Tauro\n");
-  printf("3. Géminis\n");
-  printf("4. Cáncer\n");
-  printf("5. Leo\n");
-  printf("6. Virgo\n");
-  printf("7. Libra\n");
-  printf("8. Escorpio\n");
-  printf("9. Sagitario\n");
-  printf("10. Capricornio\n");
-  printf("11. Acuario\n");
-  printf("12. Piscis\n\n");	
-}
-
-tipoSigno obtenerTipo(int signo) {
-  if (signo == ARIES || signo == LEO || signo == SAGITARIO) {
-    return fuego;
-  }
-  else if (signo == TAURO || signo == VIRGO || signo == CAPRICORNIO) {
-    return tierra;
-  }	
-  else if (signo == GEMINIS || signo == ESCORPIO || signo == PISCIS) {
-    return agua;    
-  }		
-  else if (signo == CANCER || signo == LIBRA || signo == ACUARIO) {
-    return aire;   
-  }
-  else {
-    return invalido; 
-  }		
-}
-```
-### 1. Paso de parámetros a una función
+## 6. Paso de parámetros a una función
 
 En lenguaje C existen dos formas de pasar parametros a una funcion, estos son:
 1. Paso por valor.
@@ -1094,7 +996,7 @@ En lenguaje C existen dos formas de pasar parametros a una funcion, estos son:
 
 A continuacion se tratará cada uno de estos con mas detalle:
 
-#### Paso por valor
+### 6.1. Paso por valor
 Cuando un argumento es pasado a una función su valor es copiado en el parámetro de la función. Como la función trabaja sobre el parámetro cuando es invocada, los cambios realizados al parámetro (copia del argumento) de la función no afectan el valor pasado como argumento. La forma típica de una función de este tipo se muestra a continuación:
 
 * **Declaracion o prototipo**
@@ -1167,7 +1069,7 @@ void incremento(int num) {
 **Preguntas**
 1. Cual es el valor de num y N antes del retorno de la función incremento: ¿Cambian ambas? (Puede ayudarse del enlace solución).
 
-### 2. Paso por referencia
+### 6.2. Paso por referencia
 
 Una función por referencia es aquella que emplea como parámetros apuntadores (variables que almacenan direcciones de memoria, este tema se tratara después con mas detalle). En este caso particular cuando una función es llamada por referencia lo que se pasa es la dirección de la variable pasada como argumento (anteponiendo el 
 ampersand (**&**) al nombre de esta (**&var** = **Dirección de var**)), con esto, la función no trabaja sobre una copia local del argumento, sino directamente sobre la variable en sí, pues su contenido en memoria es manipulado a través del apuntador asociado al parámetro de la función. A continuación, se muestra la forma básica de trabajo para llamados por referencia:
