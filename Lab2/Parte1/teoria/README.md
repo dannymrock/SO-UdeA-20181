@@ -1173,9 +1173,11 @@ Para visualizar ma facil lo que se afirmo en los parrafos anteriores observe la 
 * [Codigo llamado por valor](https://goo.gl/ebh6Jg)
 * [Codigo llamado por referencia](https://goo.gl/5CQ2s7)
 
-Por comodidad se colocan los dos codigos:
+Por comodidad se colocan nuevamente las imagenes de los dos codigos anteriormente involucrados:
 
+![ambos](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/ambas_funciones.png)
 
+**Figura 8**. Visualizacion del programa anterior (**Nota**: este aun no ha culminado su ejecucion).
 
 2. Analice y entienda el siguiente [codigo](https://goo.gl/NsuZLC):
 
