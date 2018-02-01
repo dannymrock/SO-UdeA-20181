@@ -54,7 +54,7 @@ Un apuntador es una variable que almacena una **dirección de memoria y no un va
     <tr>
         <td><b>int *p;<br>
             p = 1000;</b><br><br>
-            <b>Nota</b>: Supóngase que <b>el apuntador<b> se guarda en la posición 500.
+            <b>Nota</b>: Supóngase que <b>el apuntador</b> se guarda en la posición 500.
         </td>
         <td>
             <img src="https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/rep_mapa_ptr_inst1.png">
@@ -67,7 +67,7 @@ Un apuntador es una variable que almacena una **dirección de memoria y no un va
         <td>
           <b>int p;<br>
             p = 1000;</b><br><br>
-            <b>Nota</b>: Supóngase que la <b>variable p<\b> se guarda en posición 500.
+            <b>Nota</b>: Supóngase que la <b>variable p</b> se guarda en posición 500.
           </td>
         <td>
             <img src="https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/rep_mapa_var_inst1_comp.png"> 
@@ -108,10 +108,9 @@ La siguiente figura muestra esto lo anterior en términos del mapa de memoria:
         <li>El tamaño de una variable tipo apuntador es de 4 bytes.</li>
         <li>En el dibujo del mapa de memoria cada dirección aumenta de 1 en 1</li>
         </ul> 
-        </td>
-        
-        
+        </td>       
         <td>
+            <img src="https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/rep_ptr_map1.png"> 
         </td>
     </tr>
 </table>
