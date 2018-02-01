@@ -7,13 +7,37 @@
 > * Conocer cómo es posible asignar de forma eficiente espacio en memoria.
 
 ## 1. Conceptos previos - ¿Que sucede cuando se declara una variable?
-Cuando una variable se declara esta pasa a ocupar un lugar de memoria cuyo tamaño dependerá del número de bytes asociados al tipo de dato con el cual esta se declara. La siguiente figura ilustra esto:
+Cuando una variable se declara esta pasa a ocupar un lugar de memoria cuyo tamaño dependerá del número de bytes asociados al tipo de dato con el cual esta se declara. Suponiendo que se tienen las siguientes instrucciones en C:
+
+```C
+int i;
+i = 35;
+```
+
+La siguiente figura ilustra su representacion en memoria:
 
 ![var_mem](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/var_memoria.png)
 
 **Figura 1**. Representación de una variable en memoria.
 
+Desde el punto de vista del mapa de memoria y suponiendo que una variable tipo int ocupa 4 bytes tenemos el siguiente resultado por instruccion:
 
+<table>
+<tbody>
+<tr>
+<td>&nbsp;Instruccion</td>
+<td>Representacion en&nbsp;memoria&nbsp;</td>
+</tr>
+<tr>
+<td>int i;</td>
+<td><img src="https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/rep_mapa_inst1.png" alt="var_mm1"></td>
+</tr>
+<tr>
+<td>i = 35;</td>
+<td><img src="https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/rep_mapa_inst2.png" alt="var_mm2"></td>
+</tr>
+</tbody>
+</table>
 
 
 
