@@ -127,7 +127,9 @@ Si observa la segunda instrucción anteriormente mostrada, la forma como se obtu
 |p	| Contenido del apuntador p	|103|
 |&p	| Dirección del apuntador p	|106|
 
-Nótese de la tabla anterior y la figura previa que con & lo que se obtiene es dirección base de una variable no importa su tipo ya sea una variable normal (char, int, float, etc), apuntador u otro.
+Nótese de la tabla anterior y la figura previa que con & lo que se obtiene es dirección base de una variable no importa su tipo ya sea una variable normal (char, int, float, etc), apuntador u otro. A continuacion se muestra una forma simplificada (tomada de la sección **Pointers basics** de [How Stuff Works](https://computer.howstuffworks.com/c22.htm)) para visualizar los apuntadores y las variables comunes de manera grafica sin tener que recurrir al bosquejo del mapa de memoria previamente realizado. 
+
+
 
 ### 2.2. Manipulación de memoria mediante apuntadores
 
