@@ -383,6 +383,8 @@ Esta funcion lee caracteres desde el flujo de entrada estándar, los interpreta 
 **Notas importantes**
 * Cuando el tipo de dato asociado a la variable es simple (char, int, etc); se antepone el simbolo apersand (&) a la variable (pues con este simbolo se obtiene la direccion de la variable, por ahora esto no importa), por ejemplo:
 
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example1.c) esta el codigo:
+
 ```C
 #include <stdio.h>
 
@@ -412,6 +414,7 @@ Estatura 0.800000
 
 
 * Cuando lo que se ingresa es una cadena de caracteres, no es necesario emplear el ampersand (&) pues de por si el nombre de una cadena de caracteres es una dirección, por ejemplo:
+
 ```C
 #include <stdio.h>
 
@@ -424,7 +427,7 @@ int main() {
 }
 ```
 
-Notese que no se emplea para nada el ampersand (a diferentecia de las variables edad y estatura del ejemplo anterior) con cuando se lee la cadena nombre con el scanf. La salida del programa anterior se muestra a continuacion:
+Notese que en el [codigo](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example2.c) esta el codigo: no se emplea para nada el ampersand (a diferentecia de las variables edad y estatura del ejemplo anterior) con cuando se lee la cadena nombre con el scanf. La salida del programa anterior se muestra a continuacion:
 
 ```
 Digite el nombre: Ramon
@@ -515,7 +518,7 @@ Una muestra de la salida del programa se muestra a continuación:
 Introduzca la nota que saco el pelao: 3.2
 La nota es: -B
 ```
-A continuación se muestra el código solución:
+A continuación se muestra el [codigo](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example3.c) solución:
 ```C
 #include <stdio.h>
 
@@ -612,7 +615,7 @@ Se quiere escribir un programa en C que:
 **Nota**: Si el numero introducido por el usuario, no está asociado a ningún signo del zodiaco, se mostrara
 el mensaje: **"ERROR: <numero> no está asociado a ningún signo"**. Hacer este problema usando la sentencia switch.
 
-A continuación se muestra el código solución:
+A continuación se muestra el [codigo](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example4.c) solución:
 
 ```C
 #include <stdio.h>
@@ -713,7 +716,9 @@ Escriba un programa que sume una secuencia de enteros. Suponga que el primer ent
 ```
 5 100 200 300 400 500
 ```
-Donde 5 indica que deben sumarse los siguientes 5 valores.
+Donde 5 indica que deben sumarse los siguientes 5 valores. 
+
+El [codigo](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example5.c) del programa se muestra a continuacion:
 
 ```C
 #include <stdio.h>
@@ -769,6 +774,9 @@ Escriba un programa que calcule e imprima el promedio de varios enteros posivos.
 10 8 11 7 9 9999
 ```
 Que indica que el promedio de todos los valores que preceden a 9999 se va a calcular. (**Pista**: Hacer esto con un ciclo **while** dentro del cual se lean los valores a promedia, siempre y cuando la condición de que lo leído no se 9999 se cumpla).
+
+La [solución](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example6.c) se muestra a continuación:
+
 ```C
 #include <stdio.h>
 
@@ -808,6 +816,8 @@ do {
 #### Ejemplo
 Hacer un programa que solicite un numero de tal manera que si este es negativo mostrara un mensaje que diga "Numero negativo asi que suerte", y si es positivo mostrará un mensaje que diga: "Numero positivo, siga usted" y solicitara nuevamente un numero.
 
+La [solución](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example7.c) se muestra a continuación:
+
 ```C
 #include <stdio.h>
 
@@ -823,7 +833,7 @@ int main() {
     else {
       printf("Numero negativo asi que suerte\n"); 
     }
-  } while(num >= 0) {    
+  } while(num >= 0);    
   printf("\nFin del programa\n");
   return 0;
 }
@@ -916,8 +926,8 @@ printf("%d! = %d\n", num, f);
 }
 ```
 
-#### Ejemplos 
-Los ejemplos anteriormente mostrados solo hacian enfasis en las partes de las funciones. Para usar una funcion es necesario juantar los  aspectos anteriormente mencionados a la hora de codificar el archivo fuente, vamos a ver varios ejemplos para tal fin. A continuacion se muestra el programa completo:
+#### Ejemplo
+Los ejemplos anteriormente mostrados solo hacian enfasis en las partes de las funciones. Para usar una funcion es necesario juantar los  aspectos anteriormente mencionados a la hora de codificar el archivo fuente, vamos a ver varios ejemplos para tal fin. A continuacion se muestra el [codigo](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example8.c) del programa completo:
 
 ```C
 #include <stdio.h>
