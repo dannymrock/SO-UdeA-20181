@@ -54,7 +54,7 @@ Un apuntador es una variable que almacena una **dirección de memoria y no un va
     <tr>
         <td><b>int *p;<br>
             p = 1000;</b><br><br>
-            <b>Nota</b>: Supóngase que <b>el apuntador<\b> se guarda en la posición 500.
+            <b>Nota</b>: Supóngase que <b>el apuntador<b> se guarda en la posición 500.
         </td>
         <td>
             <img src="https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/rep_mapa_ptr_inst1.png">
@@ -75,6 +75,46 @@ Un apuntador es una variable que almacena una **dirección de memoria y no un va
     </tr>
 </table>
 
+Como se puede notar en la figura anterior, cuando el valor almacenado en el apuntador hará referencia a la dirección 1000 y no al valor de 1000, esto nos permitirá acceder a dicho lugar de memoria desde el apuntador. Más tarde veremos cómo. Así mismo, como un apuntador guarda una dirección de memoria y teniendo en cuenta que para el ejemplo se supone una arquitectura en la cual se manejan 32 bits ( equivalentes a 4 bytes), esto hará que una variable tipo apuntador sin importar el tipo de dato al que apunte tenga un tamaño de 4 bytes. (Este tamaño se define por la arquitectura. Por ejemplo si la maquina es de 64 bits entonces el tamaño ocupado por una variable tipo apuntador será de 8 bytes).
+
+### 2.2. ¿Como se declara un apuntador?
+
+Un apuntador se declara de la siguiente manera (donde las cosas que se encuentran entre corchetes son opcionales):
+
+```C
+tipo *[modificadores_del_tipo] nombre [=valor inicial];
+```
+Dónde:
+* **Tipo**: Tipo de dato al cual se desea apuntar, puede ser un tipo de dato simple (char, int, etc.) o un tipo de dato complejo como una estructura).
+* **Modificadores del tipo**: Puede contener cualquier combinación de los modificadores de tipo const, volatile y restrict.
+* **Nombre**: Nombre del apuntador.
+* **Valor inicial**: Valor inicial del apuntador. 
+
+La siguiente figura muestra esto lo anterior en términos del mapa de memoria:
+
+<table>
+    <tr>
+        <td><b>Instrucciones</b></td>
+        <td><b>Mapa de memoria</b></td>
+    </tr>
+    <tr>
+        <td><b>    
+        short i = 5; <br>
+        short *ptr = &i; 
+         </b> <br> <br>
+         <b>Nota</b>:
+        <ul>
+        <li>El tamaño de una variables short es de 2 bytes.</li>
+        <li>El tamaño de una variable tipo apuntador es de 4 bytes.</li>
+        <li>En el dibujo del mapa de memoria cada dirección aumenta de 1 en 1</li>
+        </ul> 
+        </td>
+        
+        
+        <td>
+        </td>
+    </tr>
+</table>
 
 
 
