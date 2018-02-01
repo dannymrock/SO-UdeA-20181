@@ -22,7 +22,7 @@ La siguiente figura ilustra su representacion en memoria:
 
 Desde el punto de vista del mapa de memoria y suponiendo que una variable tipo int ocupa 4 bytes tenemos el siguiente resultado por instruccion:
 
-<table>
+<table bgcolor="#FFFFFF">
 <tbody>
 <tr>
 <td>&nbsp;Instruccion</td>
