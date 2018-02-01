@@ -975,59 +975,16 @@ Digite un numero positivo o -1 para terminar: -1
 
 Suerte es que le digo...
 ```
+### Ejemplos resueltos funciones
+1. Se define un numero combinatorio m sobre n de la siguiente manera:
 
-2. 
+FIGURA XX
 
-```C
-/*
- * Name         : ejemploX.c
- * Author       : SO UdeA
- * Description  : Ejercicio que obtiene la categoria a la que pertenece cada signo del zodiaco
- * Compilation  : gcc -Wall ejemploX.c -o ejemploX
- * Execution    : ./ejemploX
-*/
+Escribir un programa que lea los valores de m y de n y calcule el valor de m sobre n.
 
-#include <stdio.h>
+El codigo solucion se encuentra en el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res9.c)
 
-/* Declaracion de funciones */
-int factorial(int n);
-int coefBinomial(int m, int n);
-
-/* Funcion principal */
-int main() {
-  int num; 
-  ///int ;
-  // Continuara
-  printf("Digite un numero positivo o -1 para terminar: ");
-  scanf("%d", &num);
-  while(num != -1) {
-	 fac = factorial(num);
-     printf("%d! = %d\n\n", num, fac);
-     printf("Digite un numero positivo o -1 para terminar: ");
-     scanf("%d", &num); 	 
-  }
-  printf("\nSuerte es que le digo ...");
-  return 0;
-}
-
-/* Definicion de funciones */ 
-
-int coefBinomial(int m, int n) {
-	int coef;
-	coef = (factorial(m))/(factorial(n)*factorial(m - n));
-	return coef;
-}
-
-int factorial(int n) {
-	if (n > 0) {
-		return n*factorial(n-1);
-	}
-	else {
-		return 1;
-	}
-}
-```
-3.  
+2. Escriba el programa de los signos del zodiaco y su simbolo asociado (agua, aire, tierra y fuego) visto en ejemplos anteriores, pero para este caso modularise el programa empleando funciones:
 
 ```C
 /*
@@ -1334,7 +1291,7 @@ void intercambioValor(int x, int y) {
 
 
 https://www.geeksforgeeks.org/data-types-in-c/
-
+https://www.programiz.com/c-programming/c-enumeration
 
 
 
