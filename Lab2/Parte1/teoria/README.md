@@ -6,7 +6,7 @@
 > * Introducir el uso de las funciones y establecer cómo se realiza el paso de parámetros a funciones.
 
 ## 1. Formato típico de un programa en C
-En su forma mas básica un programa en C tiene la siguiente estructura:
+En su forma más básica un programa en C tiene la siguiente estructura:
 
 ```C
 /** Directivas del preprocesador */
@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 ```
-Como se puede notar, la forma es similar a la que se emplea en cualquier otro lenguaje. A continuación se muestra, con un breve ejemplo, un caso de aplicación de la plantilla anterior.
+Como se puede notar, la forma es similar a la que se emplea en cualquier otro lenguaje. A continuación se muestra, con un breve ejemplo un caso de aplicación de la plantilla anterior.
 
 #### Ejemplo:
 Hacer un programa que despliegue **Hello world** en pantalla:
@@ -54,7 +54,7 @@ public class Hello {
 ```
 En [Solución java](https://goo.gl/kKWUEg) se encuentra el código anterior online anteriormente mostrado.
 
-2. **Empleando C**: en el enlace [solución en C](https://goo.gl/9CKdbC) esta el código C que implementa lo solicitado:
+2. **Empleando C**: en el enlace [solución en C](https://goo.gl/9CKdbC) se encuentra el código C que implementa lo solicitado:
 ```C
 #include <stdio.h>
 
@@ -119,7 +119,7 @@ El manejo de los tipos de datos en C es muy similar al que se hace en java. Cabe
 | \0                          | Carácter nulo o terminación de cadena              |           |
 
 
-La equivalencia entre un caracter especifico y su valor ascii se puede encontrar en una tabla ascii como la mostrada en el siguiente [enlace](http://www.fceia.unr.edu.ar/~ifc/apuntes/tascii.pdf).
+La equivalencia entre un carácter específico y su valor ascii se puede encontrar en una tabla ascii como la mostrada en el siguiente [enlace](http://www.fceia.unr.edu.ar/~ifc/apuntes/tascii.pdf).
 
 ### 2.1. Variables 
 Una declaración indica el tipo de variable y le sirve al compilador para determinar la cantidad de memoria requerida para almacenar la variable deseada. El formato básico para declarar una variable es:
@@ -135,7 +135,7 @@ tipo var = valor inicial;
 
 **Nota**: 
 * Todas las variables en C se declaran o definen antes de ser utilizadas, de lo contrario el compilador arrojará un error de variable no declarada.
-* Las variables a las cuales se hizo referencia en esta seccion, es decir las variables primitivas (char, int, float, double, et.), cuando las variables son compuestas (arrays, cadenas de caracteres, matrices,.) la inicializacion es diferente; sin embargo, esto se abordará despues.
+* En esta sección se hace referencia sólo a las variables primitivas (char, int, float, double, et.), cuando las variables son compuestas (arrays, cadenas de caracteres, matrices, ...) la inicializacion es diferente (este tema será abordado más adelante en el curso).
 
 #### Ejemplo:
 A continuación se muestran varias declaraciones de variables, note que la forma es similar a la empleada en java:
@@ -148,12 +148,12 @@ int a = 1, b = 2;
 char ac = '@';
 const IVA = 19
 ```
-En el siguiente [enlace](https://goo.gl/cgydMU) puede hacer la simulacion del codigo anterior (notese que las variables no inicializadas no aparecen desplegadas).
+En el siguiente [enlace](https://goo.gl/cgydMU) puede hacer la simulacion del código anterior (note que las variables no inicializadas no aparecen desplegadas).
 
 **Nota**: La palabra reservada **const** (**final** en el caso de java) permite definir determinadas variables con valores constantes que no se pueden modificar.
 
-### 2.2. Cadenas de carácteres
-Una cadena de carácteres (C string) no es mas que un arreglo de carácteres (datos primitivos tipo char). Existen varias formas de declarar cadenas de carácteres:
+### 2.2. Cadenas de caracteres
+En C una cadena de caracteres (C String) no es un tipo de dato primitivo. En C se requiere usar un **arreglo** de caracteres (datos primitivos tipo char) cada vez que se requiera utilizar un **String**. Existen varias formas de declarar cadenas de caracteres:
 1. Indicando el máximo número de carácteres en la definición:
 ```C
 char nombreCadena[TAM];
@@ -166,24 +166,24 @@ char nombreCadena[] = "Contenido_de_la_cadena";
 ```C
 char nombreCadena[TAM] = "Contenido_de_la_cadena";
 ```
-El carácter NULL (\0) es incluído al final de la cadena para marcar el final de la cadena.
+En una cadena de carácteres el último carácter útil es el carácter NULL (\0). El cual se incluye de manera automática para marcar el final de la cadena.
 
-#### Ejemplo
+#### Ejemplos
 1. Declarar una cadena llamada temp de 5 bytes cuyo contenido inicial sea *Hot*:
 
 ```C
 char temp[5] = "Hot";
 ```
-El resultado sera el siguiente:
+El resultado en memoria será el siguiente:
 
 
 | 'H' | 'o' | 't' | '\0' |   |
 |-----|-----|-----|------|---|
 
 </center>
-Es importante resaltar que el programador debe asegurarse que la cadena de caracteres sea lo bastante grande para el uso deseado. Vemos que **temp** mantiene hasta 4 caracteres mas el NULL (\0). 
+Es importante resaltar que el programador debe asegurarse que la cadena de caracteres sea lo bastante grande para el uso deseado. Vemos que **temp** mantiene 4 caracteres, 3 de la palabra *Hot* más el carácter NULL(\0). 
 
-2. Se tiene la siguientes declaraciones:
+2. Se tienen la siguientes declaraciones:
 ```C
 char s1[6];
 char s2[5] = "Hola";
@@ -200,7 +200,7 @@ Finalmente, cuando el especificador de formato asociado a una cadena de caracter
 ## 3. Entrada y salida estándar
 En C la entrada y salida de texto se abstraen como streams o flujos de caracteres, no importa de dónde se origine el flujo o hacia a donde se dirija. Un flujo de texto, es una secuencia de caracteres dividida en líneas; cada línea consiste de cero o más caracteres seguidos por un carácter de nueva línea.
 
-Para el correcto funcionamiento de la entrada y salida en C, y dado que las funciones de E/S, estructuras de datos usadas por esas funciones, etc., se encuentran declaradas en el archivo de cabecera **<stdio.h>**, es necesario incluir dicho archivo, mediante la directiva del preprocesador **#include**, para que la E/S funcione correctamente, pues en caso contrario, puede funcionar de forma incorrecta, e incluso, puede llegar a dar errores de compilación.
+En C las funciones de E/S y  las estructuras de datos usadas por esas funciones se encuentran declaradas en el archivo de cabecera **<stdio.h>**. Para el correcto funcionamiento del código es necesario incluir dicho archivo mediante la directiva del preprocesador **#include**, pues en caso contrario, puede funcionar de forma incorrecta, e incluso, puede llegar a dar errores de compilación.
 
 La biblioteca stdio.h provee un conjunto de funciones para leer y escribir desde la consola. A continuación veremos algunas:
 
@@ -211,9 +211,10 @@ La forma de la función se muestra a continuacion:
 ```C
 int printf(const char *format[,argumento,...]);
 ```
-La función ```printf()``` se usa para escribir cualquier tipo de dato a la pantalla. Se conoce como salida formateada, convierte, formatea, e imprime sus argumentos ```(arg1, arg2, ...)``` en la salida estándar utilizando el formato establecido (ver en la tabla 1 la columna **especificador de formato** asociada a cada tipo de dato) en la cadena **format**. (Para informacion adicional puede consultar el siguiente [link](http://c.conclase.net/librerias/?ansifun=printf#inicio))
+La función ```printf()``` se usa para escribir cualquier tipo de dato a la consola. Se conoce como salida formateada pues convierte, formatea, e imprime sus argumentos ```(arg1, arg2, ...)``` en la salida estándar. Para ello toma el formato establecido por el usuario en el argumento **format** (ver en la tabla 1 la columna **especificador de formato** asociada a cada tipo de dato).
+Para informacion adicional puede consultar el siguiente [enlace](http://c.conclase.net/librerias/?ansifun=printf#inicio)
 
-Por ejemplo suponiendo que se tiene el siguiente fragmendo de codigo en C: 
+Por ejemplo suponiendo que se tiene el siguiente fragmento de código en C: 
 
 ```C
 printf("Color %s, Number %d, Float %5.2f\n", "red", 12345, 3.14);
@@ -225,9 +226,9 @@ La salida en pantalla será:
 Color red, Number 12345, Float 3.14
 ```
 
-En el siguiente [enlace](https://goo.gl/3c5mcH) puede comprobar el resultado. Notará que la parte asociada a especificador de formato se reemplaza (parte precedida por % en el printf) por el respectivo valor asociado a la variable o constante. A modo de recorderis los especificadores de formato válidos mas comunes se vuelven a colocar en la siguiente tabla:
+En el siguiente [enlace](https://goo.gl/3c5mcH) puede comprobar el resultado. Notará que la parte asociada a especificador de formato (parte precedida por % en el primer argumento de la función printf) se reemplaza por el respectivo valor asociado a la variable o constante. Como recordatorio, presentamos en la siguiente tabla los especificadores de formato más comunes:
 
-**Tabla 3**. Especificadores de formato mas comunes en C
+**Tabla 3**. Especificadores de formato más comunes en C
 
 |Especificador de formato  | Tipo de dato |
 |----------------|--------------------------|
@@ -236,13 +237,13 @@ En el siguiente [enlace](https://goo.gl/3c5mcH) puede comprobar el resultado. No
 | %s                         |char[] (cadena de caracteres)   |
 | %f                         |float   |
 | %lf                         |double   |
-| %e                         |float (El resultado se muestra en notacion exponencial)   |
+| %e                         |float (El resultado se muestra en notación exponencial)   |
 | %u                         |unsigned   |
 | %o                         |unsigned (el resultado se muestra en formato octal)   |
 | %x                         |unsigned (el resultado se muestra en formato hexadecimal)   |
 
 **Ejemplo**:
-Dado el siguiente fragmendo de codigo:
+Dado el siguiente fragmento de código:
 
 ```C
 printf("ABC");
@@ -273,26 +274,26 @@ La salida en pantalla se muestra a continuación:
 
 ![output1](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/fig_output1.png)
 
-**Figura 1**. Salida en pantalla del codigo anterior
+**Figura 1**. Salida en pantalla del código anterior
 
 Puede verificar el resultado consultando el siguiente [enlace](https://goo.gl/MkQe9X)
 
-La salida formateada permite un mayor control de la apariencia de la salida en pantalla, ya que es posible controlar que tantas columnas serán usadas a la salida del contenido de una variable particular al especificar el campo ancho (#).
 El comportamiendo del especificador dependerá del tipo de dato tal y como se resume en las siguiente tablas segun el tipo de dato a imprimir.
 
 1. **Datos reales**
 
-**Tabla 3**. Usando especificadores para datos  tipo char e int
+**Tabla 3**. Usando especificadores para datos tipo char e int
 
 |Especificador de formato  | Tipo de dato |
 |----------------|--------------------------|
-| %[alineamiento][ancho]c | char   |
-| %[alineamiento][ancho]d | int |
+| %[alineación][ancho]c | char   |
+| %[alineación][ancho]d | int |
 
-En lo que respecta al alineamiento y para todos los casos cuando el simbolo es un menos (-) el alineamiento sera a la izquierda, por otro lado si no hay simbolo el alineamiento sera a la derecha. Tambien, si se desea colocar ceros en vez de espacios, se debe colocar un cero (0) antes del campo ancho ancho (#). Por ejemplo: %04d.
+La salida formateada permite un mayor control de la apariencia de la salida en pantalla, ya que es posible controlar que tantas columnas serán usadas a la salida del contenido de una variable particular al especificar el ancho del campo.
+En lo que respecta a la alineación y para todos los casos cuando el símbolo es un menos (-) la alineación será a la izquierda, por otro lado si no hay símbolo, la alineación será a la derecha. Tambien, si se desea colocar ceros en vez de espacios, se debe colocar un cero (0) antes del campo ancho ancho. Por ejemplo: %04d.
 
 **Ejemplo**:
-Dado el siguiente fragmendo de codigo y teniendo en cuenta la talba anterior:
+Examine el siguiente fragmento de código teniendo en cuenta la tabla anterior:
 ```C
 char lett='w';
 int i=1,j=29;
@@ -311,19 +312,19 @@ Puede verificar el resultado consultando el siguiente [enlace](https://goo.gl/fY
 
 ![output2](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/fig_output2.png)
 
-**Figura 2**. Salida en pantalla del codigo anterior
+**Figura 2**. Salida en pantalla del código anterior
 
 2. **Datos reales**
 
-**Tabla 4**. Usando especificadores para datos  tipo float (tambien aplica a los demas tipos de dato reales)
+**Tabla 4**. Usando especificadores para datos tipo float (también aplica a los demas tipos de datos reales)
 
 |Especificador de formato  | Tipo de dato | Ejemplo | Resultado |
 |----------------|--------------------------|----|---|
-| %[alineamiento][field_width].[decimal_places]f| float   | printf("%10.4f",4.0/3.0)|_ _ _ _1.3333 |
-| %[alineamiento][field_width].[decimal_places]e| float   | printf("%10.4e",4.0/3.0)|_1.333e+10|
+| %[alineación][ancho].[decimales]f| float   | printf("%10.4f",4.0/3.0)|_ _ _ _1.3333 |
+| %[alineación][ancho].[decimales]e| float   | printf("%10.4e",4.0/3.0)|_1.333e+10|
 
 **Ejemplo**:
-Se tiene el siguiente fragmendo de codigo:
+Examine el siguiente fragmento de código:
 
 ```C
 float x=333.123456;
@@ -342,16 +343,16 @@ La salida en pantalla se muestra a continuación y puede ser simulada en el sigu
 
 ![output3](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/fig_output3.png)
 
-**Figura 3**. Salida en pantalla del codigo anterior
+**Figura 3**. Salida en pantalla del código anterior
 
 3. **Cadenas de caracteres**
 
 |Especificador de formato  | Tipo de dato | Ejemplo | Resultado |
 |----------------|--------------------------|----|---|
-| %[alineamiento][field_width].[maximum_number_of_characters_printed]s| char[]   | printf("%3.4s\n","Sheridan")|Sher|
+| %[alineación][ancho].[Máximo_número_de_caracteres_a_imprimir]s| char[]   | printf("%3.4s\n","Sheridan")|Sher|
 
 **Ejemplo**:
-Dado el siguiente código:
+Examine el siguiente fragmento de código:
 
 ```C
 char s[]="an evil presence";
@@ -375,7 +376,7 @@ Adicionalmente, La salida en pantalla será:
 
 ![output4](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/fig_output4.png)
 
-**Figura 5**. Salida en pantalla del codigo anterior
+**Figura 5**. Salida en pantalla del código anterior
 
 Puede verificar el resultado consultando el siguiente [enlace](https://goo.gl/Z7de6H)
 
@@ -386,14 +387,14 @@ La forma de la función se muestra a continuacion:
 ```C
 int scanf(const char *format[,arg1,arg2...]);
 ```
-La función ```scanf()``` se usa para leer cualquier tipo de dato predefinido desde el teclado, y convertirlo, de forma automática, al formato interno adecuado.
+La función ```scanf()``` se usa para leer cualquier tipo de dato predefinido desde el teclado, y convertirlo de forma automática al formato interno adecuado.
 
-Esta funcion lee caracteres desde el flujo de entrada estándar, los interpreta según la especificación en **format**, y los almacena en los argumentos. Cada argumento debe ser la dirección de la variable donde será almacenado el carácter. Retorna el número de ítems (argumentos) de entrada emparejados con éxito (salvados). Los identificadores de formato para scanf son los mismos que para printf (ver tabla 3).
+Esta funcion lee caracteres desde el flujo de entrada estándar, los interpreta según lo especificado en **format**, y los almacena en los argumentos. Cada argumento debe ser la dirección de la variable donde será almacenado el carácter. Retorna el número de ítems (argumentos) de entrada emparejados con éxito (almacenados). Los identificadores de formato para scanf son los mismos que para printf (ver tabla 3).
 
 **Notas importantes**
-* Cuando el tipo de dato asociado a la variable es simple (char, int, etc); se antepone el simbolo apersand (&) a la variable (pues con este simbolo se obtiene la direccion de la variable, por ahora esto no importa), por ejemplo:
+* Cuando el tipo de dato asociado a la variable es simple (char, int, etc); se antepone el símbolo apersand (&) a la variable, pues con este símbolo se obtiene la dirección en memoria de la variable (estoo será explicado más adelante en el curso), por ejemplo:
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example1.c) esta el codigo:
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example1.c) esta el siguiente código:
 
 ```C
 #include <stdio.h>
@@ -411,7 +412,7 @@ int main() {
   return 0;
 }
 ```
-Notese el uso del ampersand antepuesto a las variables edad y estatura cuando se emplea la funcion scanf. El programa anterior cuando se ejecuta arroja una salida como la siguiente (para nuestro caso asumimos una edad de 3 años y una estatura de 0.8 m).
+Note como el ampersand es usado antepuesto a las variables edad y estatura cuando se emplea la funcion scanf. El programa anterior cuando se ejecuta arroja una salida como la siguiente (para nuestro caso asumimos una edad de 3 años y una estatura de 0.8 m).
 
 ```
 Digite la edad: 3
@@ -423,7 +424,7 @@ Estatura 0.800000
 ```
 
 
-* Cuando lo que se ingresa es una cadena de caracteres, no es necesario emplear el ampersand (&) pues de por si el nombre de una cadena de caracteres es una dirección, por ejemplo:
+* Cuando lo que se ingresa es una cadena de caracteres, no es necesario emplear el ampersand (&) pues en C el nombre de una cadena de caracteres se interpreta como una dirección de memoria, por ejemplo:
 
 ```C
 #include <stdio.h>
@@ -437,7 +438,7 @@ int main() {
 }
 ```
 
-Notese que en el [codigo](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example2.c) esta el codigo: no se emplea para nada el ampersand (a diferentecia de las variables edad y estatura del ejemplo anterior) con cuando se lee la cadena nombre con el scanf. La salida del programa anterior se muestra a continuacion:
+Note como en este [código](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example2.c) no se emplea el ampersand cuando se lee la cadena nombre con el scanf (a diferentecia de las variables edad y estatura del ejemplo anterior). La salida del programa anterior se muestra a continuacion:
 
 ```
 Digite el nombre: Ramon
@@ -449,31 +450,32 @@ Hola: Ramon
 
 1. Escriba un programa que use una llamada printf() para imprimir su nombre y su apellido en una línea, use una segunda llamada printf() para imprimir su nombre y su apellido en dos líneas separadas, y use un par de llamadas a printf() para imprimir su nombre y apellido en una línea. La salida del programa podrá ser como esta (pero usando su nombre):
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res1.c) se encuentra el codigo solucion.
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res1.c) se encuentra el código de la solución.
 
-2. Escriba un programa convierta su edad en años a días. Em este punto, no se preocupe sobre los años fraccionales y años bisiestos.
+2. Escriba un programa convierta su edad en años a días. En este punto, no se preocupe sobre los años fraccionales y años bisiestos.
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res2.c) se encuentra el codigo solucion.
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res2.c) se encuentra el código de la solución.
 
 3. Escriba un programa que cree una variable entera llamada toes. Luego que haga esto, le lleve 10 a toes. El programa debe calcular el doble y el cuadrado de toes también. El programa imprimirá todos estos tres valores identificándolos.
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res3.c) se encuentra el codigo solucion.
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res3.c) se encuentra el código de la solución.
 
 4. Escriba un programa que solicite un valor en código ASCII, tal como 66, y entonces imprima el carácter asociado a dicho código ASCII.
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res4.c) se encuentra el codigo solucion.
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res4.c) se encuentra el código de la solución.
 
 5. Escriba un programa que lea un número en punto flotante y lo imprima primero en notación de punto decimal y luego en notación exponencial. La salida debe tener el siguiente formato:
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res5.c) se encuentra el codigo solucion.
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res5.c) se encuentra el código de la solución.
 
+// TODO:revisar siguiente enunciado
 6. La masa de una molécula única de agua es aproximadamente de gramos. Un cuarto de agua es aproximadamente de 950 gramos. Escriba un programa que solicite la cantidad de agua, en cuartos, y despliegue el número de moléculas en esa cantidad.
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res6.c) se encuentra el codigo solucion.
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res6.c) se encuentra el código de la solución.
 
 7. Escriba un programa que le pregunte por su nombre y apellido y entonces imprima los nombre en formato apellido, nombre.
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res7.c) se encuentra el codigo solucion.
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res7.c) se encuentra el código de la solución.
 
 8. Escriba un programa que solicite su altura en pulgadas y su nombre, y entonces despliegue la información en el siguiente formato:
 
@@ -482,7 +484,7 @@ Dabney, you are 6.208 feet tall
 ```
 Es lo que se imprime en caso de que el nombre ingresado sea Dabney y la altura sea 6.298
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res8.c) se encuentra el codigo solucion.
+En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res8.c) se encuentra el código de la solución.
 
 ## 4. Sentencias de Control
 Las Instrucciones de control en C son similares a las de Java. A continuación se describe la estructura y se muestan algunos ejemplos:
@@ -528,7 +530,7 @@ Una muestra de la salida del programa se muestra a continuación:
 Introduzca la nota que saco el pelao: 3.2
 La nota es: -B
 ```
-A continuación se muestra el [codigo](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example3.c) solución:
+A continuación se muestra el [código](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example3.c) de la solución:
 ```C
 #include <stdio.h>
 
@@ -622,10 +624,10 @@ Se quiere escribir un programa en C que:
 2. Pida por teclado un número (dato entero) asociado a un signo del zodiaco.
 3. Muestre la categoría a la que pertenece el signo del zodiaco seleccionado.
 
-**Nota**: Si el numero introducido por el usuario, no está asociado a ningún signo del zodiaco, se mostrara
+**Nota**: Si el número introducido por el usuario, no está asociado a ningún signo del zodiaco, se mostrará
 el mensaje: **"ERROR: <numero> no está asociado a ningún signo"**. Hacer este problema usando la sentencia switch.
 
-A continuación se muestra el [codigo](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example4.c) solución:
+A continuación se muestra el [código](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example4.c) de la solución:
 
 ```C
 #include <stdio.h>
@@ -687,7 +689,7 @@ int main() {
   return 0;
 }
 ```
-A continuación se muestra un caso de test cuando el usuario ingresa un numero no valido para un signo:
+A continuación se muestra un caso de test cuando el usuario ingresa un número no válido para un signo:
 
 ```
 
@@ -728,7 +730,7 @@ Escriba un programa que sume una secuencia de enteros. Suponga que el primer ent
 ```
 Donde 5 indica que deben sumarse los siguientes 5 valores. 
 
-El [codigo](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example5.c) del programa se muestra a continuacion:
+El [código](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example5.c) del programa se muestra a continuacion:
 
 ```C
 #include <stdio.h>
@@ -757,7 +759,7 @@ Ingrese la cantidad de numeros a sumar: 3
 
 La suma es: 129
 ```
-**Nota**: Para el caso, la función ```scanf``` toma el **espacio** como un **enter**. Lo anterior implica que el caso anterior seria similar al que se muestra a continuacion (en lo que respecta a los valores capturados desde el teclado):
+**Nota**: Para el caso, la función ```scanf``` toma el **espacio** como un **enter**. Lo anterior implica que el caso anterior sería similar al que se muestra a continuacion (en lo que respecta a los valores capturados desde el teclado):
 
 ```
 Ingrese la cantidad de numeros a sumar: 3
@@ -779,11 +781,11 @@ while(condicion_control){
 }
 ```
 #### Ejemplo
-Escriba un programa que calcule e imprima el promedio de varios enteros posivos. Suponga que el último valor leído es el centinela 9999. Una secuencia típica de entrada seria:
+Escriba un programa que calcule e imprima el promedio de varios enteros posivos. Suponga que el último valor leído es el centinela 9999. Una secuencia típica de entrada sería:
 ```
 10 8 11 7 9 9999
 ```
-Que indica que el promedio de todos los valores que preceden a 9999 se va a calcular. (**Pista**: Hacer esto con un ciclo **while** dentro del cual se lean los valores a promedia, siempre y cuando la condición de que lo leído no se 9999 se cumpla).
+Que indica que el promedio de todos los valores que preceden a 9999 se va a calcular. (**Pista**: Hacer esto con un ciclo **while** dentro del cual se lean los valores a promediar, siempre y cuando la condición de que lo leído no sea 9999, se cumpla).
 
 La [solución](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example6.c) se muestra a continuación:
 
@@ -804,7 +806,7 @@ int main() {
 }
 ```
 
-Ingresando los valores 10, 8, 11, 7 y 9 se obtiene 45 como resultado de la suma, veamos el programa en  acción para este caso:
+Ingresando los valores 10, 8, 11, 7 y 9 se obtiene 45 como resultado de la suma, veamos el programa en acción para este caso:
 
 ```
 10 8 11 7 9 9999
@@ -824,7 +826,7 @@ do {
 ```
 
 #### Ejemplo
-Hacer un programa que solicite un numero de tal manera que si este es negativo mostrara un mensaje que diga "Numero negativo asi que suerte", y si es positivo mostrará un mensaje que diga: "Numero positivo, siga usted" y solicitara nuevamente un numero.
+Hacer un programa que solicite un número de tal manera que si este es negativo mostrara un mensaje que diga "Número negativo asi que suerte", y si es positivo mostrará un mensaje que diga: "Número positivo, siga usted" y solicite nuevamente un número.
 
 La [solución](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example7.c) se muestra a continuación:
 
@@ -849,7 +851,7 @@ int main() {
 }
 ```
 
-A continuación se muestra una salida tipica al ejecutar el anterior programa:
+A continuación se muestra una salida típica al ejecutar el anterior programa:
 
 ```
 1
@@ -873,7 +875,7 @@ Ademas de las funciones de librerias (como scanf y prinf) en C es posible crear 
 2. **Declarar** la función.
 3. **Usar** la función.
 
-A continuacion se detalla cada aspecto de los anteriormente mencionados.
+A continuación se detalla cada aspecto de los anteriormente mencionados.
 ###  1. Definición de la función
 
 Consiste en las instrucciones que implementan lo que hace la función. La definición de una función tiene la siguiente sintaxis:
@@ -887,7 +889,7 @@ return_type function_name (data type variable name list) {
 
 **Ejemplo**
 
-Hacer una función que calcule el factorial de un numero:
+Hacer una función que calcule el factorial de un número:
 
 ```C
 int factorial (int n) {
@@ -898,7 +900,7 @@ int factorial (int n) {
 }
 ```
 ### 2. Declaración de la función
-Esta asociada a la cabecera de la funcion y se colocan en un programa antes de que la función sea definida. Tambien se conocen como prototipos de la función y no son mas que la cabecera de la función. La forma es la siguiente.
+La declaración de una función está asociada a la cabecera de la funcion. El código de la declaración debe ubicarse antes de que la función sea definida. También se conocen como prototipos de la función y no son más que la cabecera de la función. La forma es la siguiente.
 
 ```C
 return_type function_name (data type variable name list);
@@ -912,7 +914,7 @@ return_type function_name (data type variable name list);
 int factorial (int n);
 ```
 ### 3. Uso de la función
-Consiste en invocar la funcion; lo cual consiste en colocar el nombre de la función asegurando en proporsionar los argumentos y variables para almacenar valores retornos (en caso de ser necesario).
+Consiste en invocar la funcion; lo cual consiste en colocar el nombre de la función proporsionando los argumentos y variables para almacenar valores retornados (en caso de ser necesario).
 
 **Ejemplo**
 
@@ -923,7 +925,7 @@ int f;
 f = factorial(8);
 ```
 
-* Calcular el factorial de un numero ingresado por el usuario:
+* Calcular el factorial de un número ingresado por el usuario:
 
 ```C
 int num, f;
@@ -934,7 +936,7 @@ printf("%d! = %d\n", num, f);
 ```
 
 #### Ejemplo
-Los ejemplos anteriormente mostrados solo hacian enfasis en las partes de las funciones. Para usar una funcion es necesario juantar los  aspectos anteriormente mencionados a la hora de codificar el archivo fuente, vamos a ver varios ejemplos para tal fin. A continuacion se muestra el [codigo](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example8.c) del programa completo:
+Los ejemplos anteriormente mostrados solo hacian énfasis en las partes de las funciones. Para usar una funcion es necesario unir los aspectos anteriormente mencionados a la hora de codificar el archivo fuente, vamos a ver varios ejemplos para tal fin. A continuación se muestra el [código](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example8.c) del programa completo:
 
 ```C
 #include <stdio.h>
@@ -969,7 +971,7 @@ int factorial(int n) {
 }
 ```
 
-A continuacion se muestra el programa anterior para un caso de ejecucion particular:
+A continuación se muestra un caso de ejecucion del programa anterior:
 
 ```
 Digite un numero positivo o -1 para terminar: 0
@@ -983,13 +985,13 @@ Digite un numero positivo o -1 para terminar: -1
 Suerte es que le digo...
 ```
 ### Ejemplos resueltos funciones
-1. Se define un numero combinatorio m sobre n de la siguiente manera:
+1. Se define un número combinatorio m sobre n de la siguiente manera:
 
-![formula](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/formula_binomial.png)
+![fórmula](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/formula_binomial.png)
 
 Escribir un programa que lea los valores de m y de n y calcule el valor de m sobre n.
 
-El codigo solucion se encuentra en el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res9.c)
+El código de la solución se encuentra en el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res9.c)
 
 2. Escriba el programa de los signos del zodiaco y su simbolo asociado (agua, aire, tierra y fuego) visto en ejemplos anteriores, pero para este caso modularise el programa empleando funciones:
 
@@ -997,11 +999,11 @@ El codigo solucion se encuentra en el siguiente [enlace](https://github.com/dann
 
 ## 6. Paso de parámetros a una función
 
-En lenguaje C existen dos formas de pasar parametros a una funcion, estos son:
+En lenguaje C existen dos formas de pasar parametros a una función, estos son:
 1. Paso por valor.
 2. Paso por referencia.
 
-A continuacion se tratará cada uno de estos con mas detalle:
+A continuacion se tratará cada uno de estos con más detalle:
 
 ### 6.1. Paso por valor
 Cuando un argumento es pasado a una función su valor es copiado en el parámetro de la función. Como la función trabaja sobre el parámetro cuando es invocada, los cambios realizados al parámetro (copia del argumento) de la función no afectan el valor pasado como argumento. La forma típica de una función de este tipo se muestra a continuación:
@@ -1052,7 +1054,7 @@ incremento(N);
 **Ejemplo**
 En el siguiente ejemplo se muestra una función que incrementa valor que se pasa al parámetro. Este, como los ejemplos vistos con anterioridad emplean el paso de funciones por argumento:
 
-El codigo solucion se encuentra en el siguiente [enlace](https://goo.gl/ebh6Jg)
+El código de la solucion se encuentra en el siguiente [enlace](https://goo.gl/ebh6Jg)
 ```C
 #include <stdio.h>
 
@@ -1073,21 +1075,20 @@ void incremento(int num) {
   num++;
 }
 ```
-La siguiente figura da una persepectiva del codigo anterior en operacion:
+La siguiente figura muestra un caso de ejecución del codigo anterior:
 
 ![f_valor](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/funcion_valor.png)
 
-**Figura 6**. Visualizacion del programa anterior (**Nota**: este aun no ha culminado su ejecucion).
+**Figura 6**. Visualización del programa anterior (**Nota**: éste aún no ha culminado su ejecución).
 
 **Preguntas**
-1. Cual es el valor de num y N antes del retorno de la función incremento: ¿Cambian ambas? (Puede ayudarse del enlace solución).
+1. ¿Cuál es el valor de num y N antes del retorno de la función incremento? ¿Cambian ambas variables? (Puede ayudarse del enlace solución).
 
 ### 6.2. Paso por referencia
 
-Una función por referencia es aquella que emplea como parámetros apuntadores (variables que almacenan direcciones de memoria, este tema se tratara después con mas detalle). En este caso particular cuando una función es llamada por referencia lo que se pasa es la dirección de la variable pasada como argumento (anteponiendo el 
-ampersand (**&**) al nombre de esta (**&var** = **Dirección de var**)), con esto, la función no trabaja sobre una copia local del argumento, sino directamente sobre la variable en sí, pues su contenido en memoria es manipulado a través del apuntador asociado al parámetro de la función. A continuación, se muestra la forma básica de trabajo para llamados por referencia:
+Una función por referencia es aquella que emplea como parámetros apuntadores (variables que almacenan direcciones de memoria, este tema se tratará después con más detalle). En este caso particular cuando una función es llamada por referencia lo que se pasa es la dirección de la variable pasada como argumento (anteponiendo el ampersand (**&**) al nombre de esta (**&var** = **Dirección de var**)), con esto, la función no trabaja sobre una copia local del argumento, sino directamente sobre la variable en sí, pues su contenido en memoria es manipulado a través del apuntador asociado al parámetro de la función. A continuación, se muestra la forma básica de trabajo para llamados por referencia:
 
-* **Declaracion o prototipo**
+* **Declaración o prototipo**
 
 > ```C
 > return_type function_name (type1 *var1, type2  *var2, ...);
@@ -1099,7 +1100,7 @@ El siguiente código es un ejemplo de lo anterior:
 void incremento(int *num);
 ```
 
-* **Definicion**
+* **Definición**
 
 > ```C
 > return_type function_name (type1 *var1, type2  *var2, ...) {
@@ -1118,7 +1119,7 @@ void incremento(int *num) {
 }
 ```
 
-**Nota**: Tanto en la declaracion como en la definición note que el manejo del parametro se hizo anteponiendo a la variable un simbolo asterisco (*****), esto se debe a que el parametro es una variable tipo apuntador, este sera un tema posterior, por ahora, tenga en cuenta que gracias al asterisco es que se puede cambiar el contenido almacenado en la memoria de la variable a la que el parametro tipo apuntador num apunta.
+**Nota**: Tanto en la declaración como en la definición note que el manejo del parametro se hizo anteponiendo a la variable un simbolo asterisco (*****), esto se debe a que el parametro es una variable tipo apuntador, este será un tema posterior, por ahora, tenga en cuenta que gracias al asterisco es que se puede cambiar el contenido almacenado en la memoria de la variable a la que el parametro tipo apuntador num apunta.
 
 * **Invocacion**
 > ```C
@@ -1132,12 +1133,12 @@ int N = 1;
 incremento(&N);
 ```
 
-**Nota**: Observe que la invocación para el caso se hizo con el operador ampersand (&), esto tiene su razón de ser pero sera abordado despues, por ahora tenga en cuenta que cuando se pasan variables a funciones y el llamado es por referencia se les debe anteponer el operador ampersand (&) como en el ejemplo anterior y en el caso de la función scanf (analizada previamente).
+**Nota**: Observe que la invocación para el caso se hizo con el operador ampersand (&), esto tiene su razón de ser pero será abordado después, por ahora tenga en cuenta que cuando se pasan variables a funciones y el llamado es por referencia se les debe anteponer el operador ampersand (&) como en el ejemplo anterior y en el caso de la función scanf (analizada previamente).
 
 **Ejemplo**
-En el siguiente ejemplo se muestra una función que incrementa referencia que se pasa al parámetro, la idea es resumir todo lo expuesto anteriormente, no se preocupe si de entrada no coje el hilo, es el tema mas dificil de manejar en C (incluso, personalmente fue algo dificil de entender en nuestro pregrado), pero una vez tenga claridad con este todo fluira.
+En el siguiente ejemplo se muestra una función que incrementa referencia que se pasa al parámetro, la idea es resumir todo lo expuesto anteriormente, no se preocupe si de entrada no coje el hilo, es el tema más dificil de manejar en C (incluso, personalmente fue algo difícil de entender en nuestro pregrado), pero una vez tenga claridad con esto todo fluirá.
 
-En el siguiente [enlace](https://goo.gl/5CQ2s7), se encuentra la solución observe detenidamente lo que pasa cuando la función es invocada.
+En el siguiente [enlace](https://goo.gl/5CQ2s7), se encuentra la solución. Observe detenidamente lo que pasa cuando la función es invocada.
 
 ```C
 #include <stdio.h>
@@ -1156,27 +1157,27 @@ void incremento(int *num) {
   *num += 1;
 }
 ```
-Para visualizar ma facil lo que se afirmo en los parrafos anteriores observe la siguiente imagen:
+Para visualizar más fácil lo que se afirmó en los párrafos anteriores observe la siguiente imagen:
 
 ![f_referencia](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/funcion_referencia.png)
 
-**Figura 7**. Visualizacion del programa anterior (**Nota**: este aun no ha culminado su ejecucion).
+**Figura 7**. Visualización del programa anterior (**Nota**: éste aún no ha culminado su ejecución).
 
 **Preguntas**
-1. ¿Cual es el valor de N antes y después del retorno de la función incremento?
+1. ¿Cuál es el valor de N antes y después del retorno de la función incremento?
 
 **Asimilando lo anterior**
-1. Repase los ejemplos anteriormente mostrados y observe las diferencias en su ejecucion:
-* [Codigo llamado por valor](https://goo.gl/ebh6Jg)
-* [Codigo llamado por referencia](https://goo.gl/5CQ2s7)
+1. Repase los ejemplos anteriormente mostrados y observe las diferencias en su ejecución:
+* [Código llamado por valor](https://goo.gl/ebh6Jg)
+* [Código llamado por referencia](https://goo.gl/5CQ2s7)
 
-Por comodidad se colocan nuevamente las imagenes de los dos codigos anteriormente involucrados:
+Por comodidad se colocan nuevamente las imágenes de los dos códigos anteriormente involucrados:
 
-![ambos](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/ambas_funciones.png)
+![ámbos](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/ambas_funciones.png)
 
-**Figura 8**. Visualizacion del programa anterior (**Nota**: este aun no ha culminado su ejecucion).
+**Figura 8**. Visualización del programa anterior (**Nota**: éste aún no ha culminado su ejecución).
 
-2. Analice y entienda el siguiente [codigo](https://goo.gl/NsuZLC):
+2. Analice y entienda el siguiente [código](https://goo.gl/NsuZLC):
 
 ```C
 #include <stdio.h>
@@ -1216,7 +1217,7 @@ void intercambioValor(int x, int y) {
 ```
 
 
-## 7. Enlaces de interes
+## 7. Enlaces de interés
 * https://www.geeksforgeeks.org/data-types-in-c/
 * https://www.programiz.com/c-programming/c-enumeration
 
