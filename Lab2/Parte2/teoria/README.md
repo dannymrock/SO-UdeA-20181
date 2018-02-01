@@ -115,6 +115,18 @@ La siguiente figura muestra esto lo anterior en términos del mapa de memoria:
     </tr>
 </table>
 
+Como se puede notar en la figura anterior, lo que se guarda en el apuntador es la dirección base (dirección del byte de menor peso) de la variable a la cual se apunta. Para el caso anterior, la variable i ocupa 2 bytes (103 y 104) sin embargo, en el apuntador se almacena la parte menos correspondiente al byte pesado (byte 103). 
+
+Si observa la segunda instrucción anteriormente mostrada, la forma como se obtuvo la dirección de i fue por medio del operador dirección (&) antepuesto a la variable. La siguiente tabla se llena con base en la figura anterior:
+
+
+| Expresion	| Significado |	Valor |
+|-----------|-------------|-------|
+|i	| Contenido de i	|5|
+|&i	| Dirección de i	|103|
+|p	| Contenido del apuntador p	|103|
+|&p	| Dirección del apuntador p	|106|
+
 
 
 
