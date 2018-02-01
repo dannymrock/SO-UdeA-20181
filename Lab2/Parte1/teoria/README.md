@@ -309,7 +309,7 @@ printf("%2x\n",j);
 ```
 Puede verificar el resultado consultando el siguiente [enlace](https://goo.gl/fYDXkX). La siguiente figura muestra el resultado en pantalla:
 
-![output2](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/imagenes/fig_output2.png)
+![output2](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/fig_output2.png)
 
 **Figura 2**. Salida en pantalla del codigo anterior
 
@@ -340,7 +340,7 @@ printf("%20.4e\n",y);
 ```
 La salida en pantalla se muestra a continuación y puede ser simulada en el siguiente [enlace](https://goo.gl/qM9AXy):
 
-![output3](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/imagenes/fig_output3.png)
+![output3](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/fig_output3.png)
 
 **Figura 3**. Salida en pantalla del codigo anterior
 
@@ -367,13 +367,13 @@ printf("%3.12s\n",s);
 ```
 La variable asociada a la cadena de caracteres tendrá el siguiente contenido:
 
-![array](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/imagenes/fig_array.png)
+![array](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/fig_array.png)
 
 **Figura 4**. Cadena de caracteres **s** en memoria.
 
 Adicionalmente, La salida en pantalla será:
 
-![output4](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/imagenes/fig_output4.png)
+![output4](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/fig_output4.png)
 
 **Figura 5**. Salida en pantalla del codigo anterior
 
