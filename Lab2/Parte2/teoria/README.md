@@ -140,11 +140,11 @@ Una forma aun mas simplificada e incluso mas conveniente al momento de hacer pru
 ![var_mem](./imagenes/apuntador.png)
 
 
-### 2.2. Manipulación de memoria mediante apuntadores
+### 2.3. Manipulación de memoria mediante apuntadores
 
 Una de las aplicaciones más importantes es el acceso directo a memoria para su manipulación. Para ello, se manejan dos operadores importantes los cuales el operador referencia (&) y el operador desreferencia (*).
 
-### 2.2.1. Referenciar un apuntador
+### 2.3.1. Referenciar un apuntador
 
 Consiste en asociar el apuntador a una dirección específica (durante la declaración o después de esta), para esto se suele usar el operador & para obtener la dirección de la variable en cuestión. A continuación se muestra la forma como normalmente se hace esto:
 
@@ -158,7 +158,7 @@ apuntador = &variable;
 ```
 Todo apuntador debe inicializarse antes de usarse. Si esto no se hace, cuando intente usarlo para hacer alguna operación en memoria el programa sacara un error. Un puntero que no ha sido inicializado se conoce como **Wild pointer**.
 
-### 2.2.2. Desreferenciar un apuntador
+### 2.3.2. Desreferenciar un apuntador
 Para poder acceder al lugar de memoria que está siendo apuntado por el puntero y realizar operaciones de lectura y escritura sobre esta dirección de memoria se debe desreferenciar el apuntador. Para ello se hace uso del operador desreferencia (*) después de la declaración del apuntador. El contenido del lugar de memoria apuntado (lectura) se obtiene de la siguiente manera:
 
 ```C
@@ -234,7 +234,7 @@ Nótese que en la última instrucción resaltada el cambio del contenido de la s
 **Ejemplo 2**
 
 A continuación se muestra otro ejemplo en el cual se resalta que es posible que varios apuntadores estén apuntando a un mismo lugar de memoria. Tenga en cuenta lo siguientes enunciados:
-* Suponga que i y j son de 2 bytes y ocupan las direcciones base 1000 y 1008.
+* Suponga que i y j son de 4 bytes y ocupan las direcciones base 1000 y 1008.
 * Los apuntadores p, q y r ocupan las direcciones base 2000, 3000 y 4000.
 * Así mismo la arquitectura es de 32 bits por lo que el espacio ocupado por el apuntador será de 4 bytes.
 
