@@ -14,19 +14,19 @@ int i;
 i = 35;
 ```
 
-La siguiente figura ilustra su representacion en memoria:
+La siguiente figura ilustra su representación en memoria:
 
 ![var_mem](./imagenes/var_memoria.png)
 
 **Figura 1**. Representación de una variable en memoria.
 
-Desde el punto de vista del mapa de memoria y suponiendo que una variable tipo int ocupa 4 bytes tenemos el siguiente resultado por instruccion:
+Desde el punto de vista del mapa de memoria y suponiendo que una variable tipo int ocupa 4 bytes tenemos el siguiente resultado por instrucción:
 
 <table>
 <tbody>
 <tr>
-<td>&nbsp;Instruccion</td>
-<td>Representacion en&nbsp;memoria&nbsp;</td>
+<td>&nbsp;Instrucción</td>
+<td>Representación en&nbsp;memoria&nbsp;</td>
 </tr>
 <tr>
 <td>int i;</td>
@@ -39,7 +39,7 @@ Desde el punto de vista del mapa de memoria y suponiendo que una variable tipo i
 </tbody>
 </table>
 
-Como se puede ver en la figura anterior, lo que se modifica cuando se hace manipulacion sobre variables es el contenido almacenado en un lugar especifico de memoria. Entender esto es de vital importancia para manejar el proximo tema.
+Como se puede ver en la figura anterior, lo que se modifica cuando se hace manipulación sobre variables es el contenido almacenado en un lugar especifico de memoria. Entender esto es de vital importancia para manejar el próximo tema.
 
 ## 2. Entrando en materia - Algunos aspectos sobre los apuntadores
 
@@ -120,20 +120,20 @@ Como se puede notar en la figura anterior, lo que se guarda en el apuntador es l
 Si observa la segunda instrucción anteriormente mostrada, la forma como se obtuvo la dirección de i fue por medio del operador dirección (&) antepuesto a la variable. La siguiente tabla se llena con base en la figura anterior:
 
 
-| Expresion	| Significado |	Valor |
+| Expresión	| Significado |	Valor |
 |-----------|-------------|-------|
 |i	| Contenido de i	|5|
 |&i	| Dirección de i	|103|
 |p	| Contenido del apuntador p	|103|
 |&p	| Dirección del apuntador p	|106|
 
-Nótese de la tabla anterior y la figura previa que con & lo que se obtiene es dirección base de una variable no importa su tipo ya sea una variable normal (char, int, float, etc), apuntador u otro. A continuacion se muestra una forma simplificada (tomada de la sección **Pointers basics** de [How Stuff Works](https://computer.howstuffworks.com/c22.htm)) para visualizar los apuntadores y las variables comunes de manera grafica sin tener que recurrir al bosquejo del mapa de memoria previamente realizado. 
+Note en la tabla anterior y la figura previa que con & lo que se obtiene es dirección base de una variable no importa su tipo ya sea una variable normal (char, int, float, etc), apuntador u otro. A continuación se muestra una forma simplificada (tomada de la sección **Pointers basics** de [How Stuff Works](https://computer.howstuffworks.com/c22.htm)) para visualizar los apuntadores y las variables comunes de manera gráfica sin tener que recurrir al bosquejo del mapa de memoria previamente realizado. 
 
 ![var_mem](./imagenes/apuntador2.png)
 
 **Figura 2**. Vista simplificada con variables y apuntadores.
 
-Note la diferencia en la grafica, en el dibujo el circulo representa una variable tipo apuntador y como tal almacena una direccion de memoria, la de i para el caso (103); por otro lado el vinculo entre el apuntador y la variable se representa por medio de la flecha. Finalmente, el contenido de la variable puede ser accedido o manipulado desde el simbolo i, o desde al desreferenciar el apuntador (usando *ptr), pero este sera un tema a tratar depues.
+Note la diferencia en la gráfica, en el dibujo el circulo representa una variable tipo apuntador y como tal almacena una dirección de memoria, la de i para el caso (103); por otro lado el vinculo entre el apuntador y la variable se representa por medio de la flecha. Finalmente, el contenido de la variable puede ser accedido o manipulado desde el símbolo i, o desde al desreferenciar el apuntador (usando *ptr), pero este sera un tema a tratar después.
 
 Una forma aun mas simplificada e incluso mas conveniente al momento de hacer pruebas de escritorio se muestra a continuación. En esta solo se resalta el vinculo del apuntador con la variable:
 
@@ -143,7 +143,7 @@ Una forma aun mas simplificada e incluso mas conveniente al momento de hacer pru
 
 ### 2.3. Manipulación de memoria mediante apuntadores
 
-Una de las aplicaciones más importantes es el acceso directo a memoria para su manipulación. Para ello, se manejan dos operadores importantes los cuales el operador referencia (&) y el operador desreferencia (*).
+Una de las aplicaciones más importantes es el acceso directo a memoria para su manipulación. Para ello, se manejan dos operadores importantes los cuales el operador referencia (&) y el operador des-referencia (*).
 
 ### 2.3.1. Referenciar un apuntador
 
@@ -159,8 +159,8 @@ apuntador = &variable;
 ```
 Todo apuntador debe inicializarse antes de usarse. Si esto no se hace, cuando intente usarlo para hacer alguna operación en memoria el programa sacara un error. Un puntero que no ha sido inicializado se conoce como **Wild pointer**.
 
-### 2.3.2. Desreferenciar un apuntador
-Para poder acceder al lugar de memoria que está siendo apuntado por el puntero y realizar operaciones de lectura y escritura sobre esta dirección de memoria se debe desreferenciar el apuntador. Para ello se hace uso del operador desreferencia (*) después de la declaración del apuntador. El contenido del lugar de memoria apuntado (lectura) se obtiene de la siguiente manera:
+### 2.3.2. Des-referenciar un apuntador
+Para poder acceder al lugar de memoria que está siendo apuntado por el puntero y realizar operaciones de lectura y escritura sobre esta dirección de memoria se debe des-referenciar el apuntador. Para ello se hace uso del operador des-referencia (*) después de la declaración del apuntador. El contenido del lugar de memoria apuntado (lectura) se obtiene de la siguiente manera:
 
 ```C
 variable = *apuntador;
@@ -173,7 +173,7 @@ Ahora si lo que se desea hacer es escribir en el lugar de memoria apuntado se ha
 
 **Ejemplo 1**
 
-Suponga que se tiene el siguiente fragmento de codigo fuente:
+Suponga que se tiene el siguiente fragmento de código fuente:
 
 ```C
 int i,j;
@@ -183,14 +183,14 @@ p = &i;
 j = i;
 ```
 
-Tambien tenga en cuenta lo siguientes enunciados:
+También tenga en cuenta lo siguientes enunciados:
 * Suponga que i y j son de 4 bytes y ocupan las direcciones base 1000 y 1004.
 * El apuntador p ocupa las direccione base 2000.
-* Asi mismo la arquitectura es de 64 bits por lo que el espacio ocupado por el apuntador sera de 8 bytes.
+* Así mismo la arquitectura es de 64 bits por lo que el espacio ocupado por el apuntador sera de 8 bytes.
 
-Muestre la ejecución paso a paso del codigo anterior resaltando la evolucion en memoria:
+Muestre la ejecución paso a paso del código anterior resaltando la evolución en memoria:
 
-**Solucion**: Las instrucciones que se estan evaluando en un momento dado se resaltan, sin embargo, para mayor facilidad, la simulación del codigo anterior se puede hacer siguiendo el siguiente [enlace](https://goo.gl/MPttRK).
+**Solución**: Las instrucciones que se están evaluando en un momento dado se resaltan, sin embargo, para mayor facilidad, la simulación del código anterior se puede hacer siguiendo el siguiente [enlace](https://goo.gl/MPttRK).
 
 <table>
     <tr>
@@ -231,7 +231,7 @@ Muestre la ejecución paso a paso del codigo anterior resaltando la evolucion en
     </tr>
 </table>
 
-Nótese que en la última instrucción resaltada el cambio del contenido de la sección de memoria asociado a la variable i no se realizó desde esta (i = 5) sino desde el apuntador p (*p = 5) el cual previamente se puso a apuntar a dicho lugar de memoria (p = &i).
+Note que en la última instrucción resaltada el cambio del contenido de la sección de memoria asociado a la variable i no se realizó desde esta (i = 5) sino desde el apuntador p (*p = 5) el cual previamente se puso a apuntar a dicho lugar de memoria (p = &i).
 
 **Ejemplo 2**
 
@@ -240,7 +240,7 @@ A continuación se muestra otro ejemplo en el cual se resalta que es posible que
 * Los apuntadores p, q y r ocupan las direcciones base 2000, 3000 y 4000.
 * Así mismo la arquitectura es de 32 bits por lo que el espacio ocupado por el apuntador será de 4 bytes.
 
-**Solucion**: en el siguiente [enlace](https://goo.gl/XpVxW9) se muestra la simulación, la siguiente tabla muestra con detalle los resultados:
+**Solución**: en el siguiente [enlace](https://goo.gl/XpVxW9) se muestra la simulación, la siguiente tabla muestra con detalle los resultados:
 
 <table>
     <tr>
@@ -269,7 +269,7 @@ Como se vio en la primera parte del laboratorio, existen dos maneras de hacer ll
 
 <table>
     <tr>
-        <td><b>Item analizado</b></td>
+        <td><b>Ítem analizado</b></td>
         <td><b>Llamada por valor</b></td>
         <td><b>Llamada por referencia</b></td>
     </tr>
@@ -377,12 +377,12 @@ int main() {
     printf("Llamada por valor \n");
     printf("Antes del swap -> x = %d, y = %d\n",x,y);
     swap(x, y);
-    printf("Despues del swap -> x = %d, y = %d\n",x,y);
+    printf("Después del swap -> x = %d, y = %d\n",x,y);
     printf("---------------------------------------------------\n");
     printf("Llamada por referencia " << endl;
     printf("Antes del swap -> x = %d, y = %d\n",x,y);
     swap(&x, &y);
-    printf("Despues del swap -> x = %d, y = %d\n",x,y);
+    printf("Después del swap -> x = %d, y = %d\n",x,y);
     printf("---------------------------------------------------\n");
     return 0;
 }
@@ -407,17 +407,17 @@ La salida del programa sera la siguiente:
 ---------------------------------------------------
 Llamada por valor 
 Antes del swap -> x = 5, y = 10
-Despues del swap -> x = 5, y = 10
+Después del swap -> x = 5, y = 10
 ---------------------------------------------------
 Llamada por referencia 
 Antes del swap -> x = 5, y = 10
-Despues del swap -> x = 10, y = 5
+Después del swap -> x = 10, y = 5
 ---------------------------------------------------
 ```
 Una función también puede retornar un apuntador cuando es invocada, para hacer esto, en la definición y declaración de la función se debe indicar que la función retornara un apuntador lo cual se hace precediendo el nombre de la función por un asterisco (Ver parte resaltada e rojo a continuación). A continuación se muestra la forma que debe llevar la función para este caso:
 
 ```C
-tipo_retorno *f(parametros...) 
+tipo_retorno *f(parámetros...) 
 ```
 
 Observe el siguiente fragmento de código, el cual consiste en una función que obtiene el valor mayor de un vector mediante apuntadores devolviendo la dirección del elemento mayor mediante un apuntador:
@@ -452,8 +452,8 @@ Así mismo, note también, que lo realimente importante es que se declaró un ap
 
 ```C
 tipo *funcion(tipo *arg1,...) {
-  tipo *ptr;  // Declaracion del apuntador
-  ptr = &arg; // Inicializacion del apuntador
+  tipo *ptr;  // Declaración del apuntador
+  ptr = &arg; // Inicialización del apuntador
   
   /** Operaciones **/
   ...  
@@ -461,12 +461,12 @@ tipo *funcion(tipo *arg1,...) {
 }
 ```
 
-Para reforzar lo anteriormente trabajado, compile y ejecute el siguiente programa en el cual se hace uso de la función anteriormente creada. Comprenda bien cómo funciona (sobre todo analice: Declaración, definición e invocación), ayudese del siguiente [enlace](https://goo.gl/YmKvcC) para simular:
+Para reforzar lo anteriormente trabajado, compile y ejecute el siguiente programa en el cual se hace uso de la función anteriormente creada. Comprenda bien cómo funciona (sobre todo analice: Declaración, definición e invocación), ayúdese del siguiente [enlace](https://goo.gl/YmKvcC) para simular:
 
 ```C
 #include <stdio.h>
 
-int *mayor(int *a,int n); // Declaracion
+int *mayor(int *a,int n); // Declaración
 
 int main() {
     int a[6] = {1,2,5,9,-1,3};
@@ -489,7 +489,7 @@ int *mayor(int *a,int n) {
   return m;
 }
 ```
-La siguiente figura muestra el estado de ejecucion del programa antes de hacer el retorno de la subrutina mayor:
+La siguiente figura muestra el estado de ejecución del programa antes de hacer el retorno de la subrutina mayor:
 
 ![ret_ptr](./imagenes/retorno_prt.png)
 
@@ -506,12 +506,12 @@ El elemento mayor del vector es: 9
 
 #### 2.4.2.1. Vectores
 
-Un arreglo es un conjunto o colección indexada que permite manejar elementos que son del mismo tipo de dato como un solo objeto. A continuación se muestran algunos ejemplos ([enlace simulacion](https://goo.gl/8qAgxY)):
+Un arreglo es un conjunto o colección indexada que permite manejar elementos que son del mismo tipo de dato como un solo objeto. A continuación se muestran algunos ejemplos ([enlace simulación](https://goo.gl/8qAgxY)):
 
 <table>
     <tr>
-        <td><b>Declaracion del arreglo</b></td>
-        <td><b>Representacion en memoria</b></td>
+        <td><b>Declaración del arreglo</b></td>
+        <td><b>Representación en memoria</b></td>
     </tr>
     <tr>
         <td>int veci[4] = {2, 4, 6, 8};</td>
@@ -591,7 +591,7 @@ Lo anterior muestra que existe una relación entre la forma de escribir un array
         <td><b>En resumen</b></td>
     </tr>
     <tr>
-        <td>El nombre de un arreglo es <b>realmente un apuntador al primer elemento en el array</b>, asi si a es un arreglo adimensional entonces la dirección del primer elemento del array es <b>&a[0]</b> o simplemente <b>a</b>.</td>
+        <td>El nombre de un arreglo es <b>realmente un apuntador al primer elemento en el array</b>, así si a es un arreglo unidimensional entonces la dirección del primer elemento del array es <b>&a[0]</b> o simplemente <b>a</b>.</td>
         <td>&a[0]↔a</td>
     </tr>
     <tr>
@@ -618,14 +618,14 @@ p2 = &b[1];
 return 0;
 ```
 
-Para entender el resultado del codigo anterior puede seguir el siguiente [enlace](https://goo.gl/sSW8gy).
+Para entender el resultado del código anterior puede seguir el siguiente [enlace](https://goo.gl/sSW8gy).
 
 
 
 
 
 
-## 7. Enlaces de interes
+## 7. Enlaces de interés
 * https://www.geeksforgeeks.org/data-types-in-c/
 * https://www.programiz.com/c-programming/c-enumeration
 
