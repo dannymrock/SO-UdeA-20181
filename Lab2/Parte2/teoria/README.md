@@ -30,11 +30,11 @@ Desde el punto de vista del mapa de memoria y suponiendo que una variable tipo i
 </tr>
 <tr>
 <td>int i;</td>
-<td><img src="https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/rep_mapa_inst1.png" alt="var_mm1"></td>
+<td><img src="./imagenes/rep_mapa_inst1.png" alt="var_mm1"></td>
 </tr>
 <tr>
 <td>i = 35;</td>
-<td><img src="https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/rep_mapa_inst2.png" alt="var_mm2"></td>
+<td><img src="./imagenes/rep_mapa_inst2.png" alt="var_mm2"></td>
 </tr>
 </tbody>
 </table>
@@ -57,7 +57,7 @@ Un apuntador es una variable que almacena una **dirección de memoria y no un va
             <b>Nota</b>: Supóngase que <b>el apuntador</b> se guarda en la posición 500.
         </td>
         <td>
-            <img src="https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/rep_mapa_ptr_inst1.png">
+            <img src="./imagenes/rep_mapa_ptr_inst1.png">
         </td>
     </tr>
     <tr>
