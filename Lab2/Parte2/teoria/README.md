@@ -189,7 +189,8 @@ Tambien tenga en cuenta lo siguientes enunciados:
 
 Muestre la ejecución paso a paso del codigo anterior resaltando la evolucion en memoria:
 
-**Solucion**: Las instrucciones que se estan evaluando en un momento dado se resaltan
+**Solucion**: Las instrucciones que se estan evaluando en un momento dado se resaltan, sin embargo, para mayor facilidad, la simulación del codigo anterior se puede hacer siguiendo el siguiente [enlace](https://goo.gl/MPttRK).
+
 <table>
     <tr>
         <td><b>Instrucciones ejecutadas</b></td>
@@ -215,7 +216,7 @@ Muestre la ejecución paso a paso del codigo anterior resaltando la evolucion en
         *p = 5;</br>    
         </td>
         <td><img src="./imagenes/rep_ptr_map2.png"></td>
-        <td><img src="./imagenes/ptr_ejem2_hsw2.png"></td>
+        <td><img src="./imagenes/ptr_ejem2_hsw3.png"></td>
     </tr>
     <tr>
         <td>        
@@ -238,6 +239,8 @@ A continuación se muestra otro ejemplo en el cual se resalta que es posible que
 * Los apuntadores p, q y r ocupan las direcciones base 2000, 3000 y 4000.
 * Así mismo la arquitectura es de 32 bits por lo que el espacio ocupado por el apuntador será de 4 bytes.
 
+**Solucion**: en el siguiente [enlace](https://goo.gl/XpVxW9) se muestra la simulación, la siguiente tabla muestra con detalle los resultados:
+
 <table>
     <tr>
         <td><b>Instrucciones ejecutadas</b></td>
@@ -257,7 +260,105 @@ A continuación se muestra otro ejemplo en el cual se resalta que es posible que
     </tr>
 </table>
 
+### 2.4. Usos de los apuntadores
 
+### 2.4.1. Funciones y apuntadores
+
+Como se vio en la primera parte del laboratorio, existen dos maneras de hacer llamados a funciones, por referencia y por valor. Cuando se realiza un **llamado por valor**; se trabaja sobre una copia de la variable pasada como argumento y por lo tanto la variable original (la que se pasó como argumento) no se modifica. Por otro lado, cuando se realiza un **llamado por referencia** al estar accediendo al lugar de memoria en el que se encuentra la variable pasada como argumento es posible modificar el valor original de la variable pasada como argumento. La siguiente tabla compara un poco la diferencia entre referencia y valor:
+
+<table>
+    <tr>
+        <td><b>Item analizado</b></td>
+        <td><b>Llamada por valor</b></td>
+        <td><b>Llamada por referencia</b></td>
+    </tr>
+    <tr>
+        <td><b>Declaración</b></td>
+        <td>void swap(int i, int j);</td>
+        <td>void swap(int *i, int *j);</td>
+    </tr>
+    <tr>
+        <td><b>Definición</b></td>
+        <td>
+          void swap(int i, int j) { </br>
+            &nbsp;&nbsp;&nbsp;int t; </br>
+            &nbsp;&nbsp;&nbsp;t = x; </br>
+            &nbsp;&nbsp;&nbsp;i = j; </br>
+            &nbsp;&nbsp;&nbsp;j = t; </br>
+          } </br>
+        </td>
+        <td>
+           int v1 = 1, v2 = 2; </br>
+           swap(v1, v2); </br>
+        </td>
+    </tr>
+    <tr>
+        <td><b>Invocación</b></td>
+        <td>
+            void swap(int *i, *int j) { </br>
+               &nbsp;&nbsp;&nbsp;int t; </br>
+               &nbsp;&nbsp;&nbsp;t = *i; </br>
+               &nbsp;&nbsp;&nbsp;*i = *j; </br>
+               &nbsp;&nbsp;&nbsp;*j = t; </br>
+            }   </br>
+        </td>
+        <td>
+           int v1 = 1, v2 = 2; </br>
+           swap(&v1, &v2); </br>
+        </td>
+    </tr>
+</table>
+
+El paso de funciones por referencia es de extrema utilidad cuando los argumentos que se están pasando a la función son pesados ya que esto evita que se tengan que hacer copias de dichos argumentos que en el peor de los casos pueden ocasionar que el programa colapse por llenar **stack**. También, mediante el uso de apuntadores, es posible superar la restricción que se tiene en la cual una función no puede retornar más de un elemento; así, por medio de referencias es posible retornar un array por ejemplo.
+
+Para indicar que una función será pasada por referencia, se emplean apuntadores en la cabecera de la función, esto porque lo que se pasa como argumento es la dirección de memoria. Por ejemplo:
+
+```C
+tipo_retorno f(tipo_1 *pName_1,tipo_2 *pName_2,...,tipo_N *pName_N) 
+```
+Para aterrizar un poco más lo anterior, supongamos esta función:
+
+```C
+void swap(int *i, int *j) {
+    int t;
+    t = *i;
+    *i = *j;
+    *j = t;
+}
+```
+Como se pueden notar en la definición de la función anterior, en este caso ambos argumentos son pasados por referencia. 
+
+Ahora en lo que respecta a la invocación si lo que se pasa es como parámetro es una variable como tal se debe hacer uso del operador **&** para obtener la dirección de dicha variable y así inicializar el apuntador que funciona como argumento. Por otro lado si lo que se está pasando es un apuntador a una variable, no es necesario usar el operador **&** ya que el valor almacenado en este será una dirección de memoria. La siguiente tabla ilustra esto:
+
+<table>
+    <tr>
+        <td><b>Caso</b></td>
+        <td><b>Invocación</b></td>
+        <td><b>Observaciones</b></td>
+    </tr>
+    <tr>
+        <td>Se está pasando una variable a una función que se llama por referencia</td>
+        <td>
+            int a = 5, b = 10; </br>
+            swap(&a,&b); </br>
+        </td>
+        <td>Es necesario usar el operador & para obtener la dirección de memoria de las variables y así poder inicializar lo apuntadores que funcionan como argumentos.</td>
+    </tr>
+    <tr>
+        <td>Se está pasando apuntador a una función que se llama por referencia</td>
+        <td>
+            int a = 5, b = 10; </br>
+            int *px = &a, *py; </br>
+            py = &b;  </br>
+            swap(px,py); </br>
+        </td>
+        <td>Como lo que se pasan son apuntadores previamente inicializados, estos ya tienen la dirección de memoria de la variable que será pasada como argumento de la función, por lo tanto no es necesario usar el operador &.</td>
+    </tr>
+</table>
+
+La siguiente figura (tomada de [HowStuffWorks](http://computer.howstuffworks.com/c26.htm)) muestra cómo trabaja una función por referencia:
+
+![call_ref](http://computer.howstuffworks.com/c26.htm)
 
 ## 7. Enlaces de interes
 * https://www.geeksforgeeks.org/data-types-in-c/
