@@ -55,7 +55,7 @@ Existen 2 tipos de rutas:
 ### Ejemplo 1: ###
 Dada la siguiente imagen:
 
-![figura 2](https://github.com/dannymrock/SO-UdeA/blob/master/wiki_SO/images/1/ejemplo1.png)
+![figura 2](./imagenes/ejemplo1.png)
 
 **Figura 2**. Sistema de archivos ejemplo 1
 
@@ -134,7 +134,7 @@ Por ejemplo, para mayor información del comando ls se usa el comando: ``` man l
 
 La Figura 3 muestra un ejemplo del uso del comando ls, listando archivos y directorios del directorio usr.
 
-![figura 3](https://github.com/dannymrock/SO-UdeA/blob/master/wiki_SO/images/1/comando_ls.png)
+![figura 3](./imagenes/comando_ls.png)
 
 **Figura 3**. Uso del comando ls
 
@@ -156,7 +156,7 @@ Algunas de las opciones disponibles para el comando cd son:
 
 La Figura 4 muestra un ejemplo del uso del comando cd. Para mayor información puede consultar el manual del comando: ```man cd```.
 
-![figura 4](https://github.com/dannymrock/SO-UdeA/blob/master/wiki_SO/images/1/comando_cd.png)
+![figura 4](./imagenes/comando_cd.png)
 
 **Figura 4**. Uso del comando cd
 
@@ -168,7 +168,7 @@ mkdir <dir>
 El comando ```mkdir``` permite crear directorios en un sistema GNU/Linux. Su modo de uso es muy simple, sólo se requiere ingresar en la terminal ```mkdir``` seguido por el nombre de la carpeta a crear.
 La Figura 5 muestra un ejemplo del uso del comando mkdir. Para mayor información puede consultar el manual del comando: ```man mkdir```.
 
-![figura 5](https://github.com/dannymrock/SO-UdeA/blob/master/wiki_SO/images/1/comando_mkdir.png)
+![figura 5](./imagenes/comando_mkdir.png)
 
 **Figura 5**. Uso del comando mkdir
 
@@ -186,7 +186,7 @@ Si se quiere borrar un directorio en Linux, se puede hacer uso del comando ```rm
 
 La Figura 6 muestra un ejemplo del uso del comando rm. Para mayor información puede consultar el manual del comando: ```man rm```.
 
-![figura 6](https://github.com/dannymrock/SO-UdeA/blob/master/wiki_SO/images/1/comando_rm.png)
+![figura 6](./imagenes/comando_rm.png)
 
 **Figura 6**. Uso del comando rm
 
@@ -203,7 +203,7 @@ Para copiar directorios y archivos se puede usar el comando ```cp```. La siguien
 La Figura 7 muestra un ejemplo del uso del comando cp. Para mayor información puede consultar el manual del comando: ```man cp```.
 
 
-![figura 7](https://github.com/dannymrock/SO-UdeA/blob/master/wiki_SO/images/1/comando_cp.png)
+![figura 7](./imagenes/comando_cp.png)
 
 **Figura 7**. Uso del comando cp
 
@@ -226,7 +226,7 @@ mv source_file dest_file
 ```
 La Figura 8 muestra un ejemplo del uso del comando mv. Para mayor información puede consultar el manual del comando: ```man mv```.
 
-![figura 8](https://github.com/dannymrock/SO-UdeA/blob/master/wiki_SO/images/1/comando_mv.png)
+![figura 8](./imagenes/comando_mv.png)
 
 **Figura 8**. Uso del comando mv
 
@@ -247,7 +247,7 @@ El comando ```find``` es usado para buscar archivos o directorios en el sistema 
 
 La Figura 9 muestra un ejemplo del uso del comando ```find```. Para mayor información puede consultar el manual del comando: ```man find```.
 
-![figura 9](https://github.com/dannymrock/SO-UdeA/blob/master/wiki_SO/images/1/comando_find.png)
+![figura 9](./imagenes/comando_find.png)
 
 **Figura 9**. Uso del comando find
 
@@ -271,7 +271,7 @@ Después de usar un buen tiempo la terminal es probable que nos encontremos conf
 
 **Ejercicio 1**: Basandose en la misma figura del ejemplo 1 (incluida abajo por comodidad) y asumiendo que al ejecutar el comando **pwd** usted se encuentra dentro del directorio **home**
 
-![figura 10](https://github.com/dannymrock/SO-UdeA/blob/master/wiki_SO/images/1/ejemplo1.png)
+![figura 10](./imagenes/ejemplo1.png)
 
 **Figura 10**. Figura ejercicio de autoevaluacion 1
 
@@ -283,7 +283,7 @@ Responda las siguientes preguntas:
 
 ** Ejercicio 2**: Dada la siguiente figura.
 
-![figura 11](https://github.com/dannymrock/SO-UdeA/blob/master/wiki_SO/images/1/ejercicio_refuerzo2.png)
+![figura 11](./imagenes/ejercicio_refuerzo2.png)
 
 **Figura 11**. Figura ejercicio de autoevaluacion 2
 
@@ -301,7 +301,7 @@ Responda las siguientes preguntas:
 
 ** Ejercicio 3**: Dada la siguiente figura.
 
-![figura 12](https://github.com/dannymrock/SO-UdeA/blob/master/wiki_SO/images/1/ejercicio_refuerzo3.png)
+![figura 12](./imagenes/ejercicio_refuerzo3.png)
 
 **Figura 12**. Figura ejercicio de autoevaluacion 3
 
