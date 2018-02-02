@@ -358,7 +358,9 @@ Ahora en lo que respecta a la invocación si lo que se pasa es como parámetro e
 
 La siguiente figura (tomada de [HowStuffWorks](http://computer.howstuffworks.com/c26.htm)) muestra cómo trabaja una función por referencia:
 
-![call_ref](http://computer.howstuffworks.com/c26.htm)
+![call_ref](./imagenes/call_ref.png)
+
+
 
 ## 7. Enlaces de interes
 * https://www.geeksforgeeks.org/data-types-in-c/
