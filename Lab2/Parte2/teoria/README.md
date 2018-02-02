@@ -1,4 +1,4 @@
-# Apuntadores, arreglos y memoria dinamica
+# Apuntadores, arreglos y matrices
 
 > **Objetivos**
 > * Conocer y utilizar los apuntadores para el uso eficiente de la memoria.
