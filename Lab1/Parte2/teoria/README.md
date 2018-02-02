@@ -19,7 +19,7 @@ A continuación se muestran los pasos que debe seguir para compilar programas, l
 
 A continuación se muestra el proceso que se sigue para codificar un programa (suponiendo que vamos a usar como editor grafico el gedit):
 
-![proceso](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_proceso.png)
+![proceso](./imagenes/fig_proceso.png)
 
 **Figura 1**. Proceso de compilacion completo
 
@@ -39,21 +39,21 @@ pwd        // Arroja: /home/tigarto/Documents/labSO
 
 En la siguiente figura se muestra que ya nos encontramos en las ruta **/home/tigarto/Documents/labSO**
 
-![home_codigo](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_ruta0.png)
+![home_codigo](./imagenes/fig_ruta0.png)
 
 **Figura 2**. Directorio de trabajo
 
 2. **Abrir el editor de texto**: Hay dos formas de hacer esto, desde el menú de Ubuntu o desde la terminal, colocando el nombre del editor, **gedit** en nuestro caso. La forma más recomendable al abrirlo desde la terminal es hacerlo en **background** colocando un **&** después del nombre del editor pues así la consola no se bloquea, para esto digitaríamos en consola: **gedit &**. La siguientes figuras muestran los 3 modos de abrir el editor.
 
-![editor1](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_gedit1.png)
+![editor1](./imagenes/fig_gedit1.png)
 
 **Figura 3**. Abriendo el editor desde el menú
 
-![editor2](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_gedit2.png)
+![editor2](./imagenes/fig_gedit2.png)
 
 **Figura 4**. Abriendo el editor desde la consola (la cual se bloquea)
 
-![editor3](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_gedit3.png)
+![editor3](./imagenes/fig_gedit3.png)
 
 **Figura 5**. Abriendo en background el editor desde la consola (la cual no se bloquea)
 
@@ -81,14 +81,14 @@ int main(void) {
 ```
 La siguiente figura muestra el anterior codigo codificado en gedit.
 
-![codigo](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_codigo.png)
+![codigo](./imagenes/fig_codigo.png)
 
 **Figura 6**. Codigo codificado en el editor de texto
 
 
 Después de que el programa se editó, se verifica que si se halla guardado en el directorio de trabajo con el comando **ls** tal y como se muestra en la siguiente figura: 
 
-![verificacion](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_ruta.png)
+![verificacion](./imagenes/fig_ruta.png)
 
 **Figura 7**. Verificacion del archivo codificado
 
@@ -108,13 +108,13 @@ Después de que el programa se editó, se verifica que si se halla guardado en e
 
 En la siguiente figura se muestra el empleo de este comando en nuestro caso particular. Nótese que **archivoFuente=ejemplo1.c** y **nombreEjecutable=exe1** para nuestro caso.
 
-![compilacion](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_compilacion.png)
+![compilacion](./imagenes/fig_compilacion.png)
 
 **Figura 8**. Compilacion del programa
 
 A veces suele ser común que el programa en cuestión tenga errores de sintaxis, en cuyo caso el compilador los muestra y no genera el ejecutable hasta que todos hayan sido corregidos; de este modo, si hay un error, se debe corregir en el editor, por el contrario, si todo está bien entonces el compilador generará el ejecutable.
 
-![verificacion_exe](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_verificacion_exe.png)
+![verificacion_exe](./imagenes/fig_verificacion_exe.png)
 
 **Figura 9**. Compilacion del programa
 
@@ -122,7 +122,7 @@ Como  se muestra en la figura anterior, si la compilación esta buena, el result
 
 5. **Ejecutar el programa**: Para probar el ejecutable generado se coloca el nombre del ejecutable antecedido por **./**, en este ejemplo como el ejecutable se llama **exe1**, entonces para su ejecución tecleamos **./exe1** tal y como se muestra a continuación:
 
-![exe](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/fig_ejecucion.png)
+![exe](./imagenes/fig_ejecucion.png)
 
 **Figura 9**. Compilacion del programa
 
@@ -134,7 +134,7 @@ El proceso de obtener un archivo ejecutable (entendible por la máquina) a parti
 3. Ensamblado.
 4. Enlazado.
 
-![proceso_etapas](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/compilacion_proceso.png)
+![proceso_etapas](./imagenes/compilacion_proceso.png)
 
 **Figura 10**. Etapas del proceso de compilacion 
 
@@ -177,7 +177,7 @@ gcc -E archivoFuente <-o archivoResultante>
 
 La siguiente figura muestra el resultado de ejecutar el comando anterior:
 
-![preprocesamiento](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/preprocesamiento_1.png)	
+![preprocesamiento](./imagenes/preprocesamiento_1.png)	
 
 **Figura 11**. Resultado del preprocesamiento de un archivo fuente 
 
@@ -229,7 +229,7 @@ gcc -S archivoFuente <-o archivoResultante>
 
 La siguiente figura muestra el resultado de ejecutar el comando anterior:
 
-![compilacion](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/prep_comp.png)	
+![compilacion](./imagenes/prep_comp.png)	
 
 **Figura 12**. Resultado del comando gcc con la opcion para realizar la compilacion
 
@@ -271,7 +271,7 @@ gcc -c archivoFuente <-o archivoResultante>
 
 La siguiente figura muestra el resultado de ejecutar el comando anterior:
 
-![ensamblado](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/prep_comp_ensam.png)	
+![ensamblado](./imagenes/prep_comp_ensam.png)	
 
 **Figura 13**. Resultado del comando gcc con la opcion para realizar el proceso de ensamblado
 
@@ -333,7 +333,7 @@ gcc archivoObjeto <-o ejecutable>
 
 En la siguiente figura se muestra el empleo de este comando:
 
-![enlazado](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/enlazado_corregido.png)	
+![enlazado](./imagenes/enlazado_corregido.png)	
 
 **Figura 14**. Resultado del comando gcc con la opcion para realizar el proceso de enlazado partiendo del codigo objeto
 
@@ -384,7 +384,7 @@ Cuando se ejecuta el comando ```gcc``` con la opción ```-save-temps``` los arch
 
 ``` gcc -save-temps archivoFuente <–o nombreEjecutable>```
 
-![todo](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab1/Parte2/teoria/imagenes/todo.png)	
+![todo](./imagenes/todo.png)	
 
 **Figura 15**. Resultado del comando gcc conservando los archivos intermedios del proceso
 
