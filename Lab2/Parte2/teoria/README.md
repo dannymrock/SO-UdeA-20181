@@ -139,6 +139,7 @@ Una forma aun mas simplificada e incluso mas conveniente al momento de hacer pru
 
 ![var_mem](./imagenes/apuntador.png)
 
+**Figura 3**. Vista aun mas simplificada con variables y apuntadores.
 
 ### 2.3. Manipulación de memoria mediante apuntadores
 
@@ -359,6 +360,141 @@ Ahora en lo que respecta a la invocación si lo que se pasa es como parámetro e
 La siguiente figura (tomada de [HowStuffWorks](http://computer.howstuffworks.com/c26.htm)) muestra cómo trabaja una función por referencia:
 
 ![call_ref](./imagenes/call_ref.png)
+
+**Figura 4**. Llamado por referencia.
+
+Para aclarar un poco observe el siguiente código (el cual puede ser simulado en el siguiente [enlace](https://goo.gl/jbpVKV)):
+
+```C
+#include <stdio.h>
+
+void swap (int *x, int *y);
+void swap (int x, int y);
+
+int main() {
+    int x = 5, y = 10;
+    printf("---------------------------------------------------\n");
+    printf("Llamada por valor \n");
+    printf("Antes del swap -> x = %d, y = %d\n",x,y);
+    swap(x, y);
+    printf("Despues del swap -> x = %d, y = %d\n",x,y);
+    printf("---------------------------------------------------\n");
+    printf("Llamada por referencia " << endl;
+    printf("Antes del swap -> x = %d, y = %d\n",x,y);
+    swap(&x, &y);
+    printf("Despues del swap -> x = %d, y = %d\n",x,y);
+    printf("---------------------------------------------------\n");
+    return 0;
+}
+
+void swap(int *px, int *py) {
+    int temp;
+    temp = *px;
+    *px = *py;
+    *py = temp;    
+}
+
+void swap(int x, int y) {
+    int temp;
+    temp = x;
+    x = y;
+    y = temp;
+}
+```
+
+La salida del programa sera la siguiente:
+```
+---------------------------------------------------
+Llamada por valor 
+Antes del swap -> x = 5, y = 10
+Despues del swap -> x = 5, y = 10
+---------------------------------------------------
+Llamada por referencia 
+Antes del swap -> x = 5, y = 10
+Despues del swap -> x = 10, y = 5
+---------------------------------------------------
+```
+Una función también puede retornar un apuntador cuando es invocada, para hacer esto, en la definición y declaración de la función se debe indicar que la función retornara un apuntador lo cual se hace precediendo el nombre de la función por un asterisco (Ver parte resaltada e rojo a continuación). A continuación se muestra la forma que debe llevar la función para este caso:
+
+```C
+tipo_retorno *f(parametros...) 
+```
+
+Observe el siguiente fragmento de código, el cual consiste en una función que obtiene el valor mayor de un vector mediante apuntadores devolviendo la dirección del elemento mayor mediante un apuntador:
+
+```C
+int *mayor(int *a, int n) {
+  int i;
+  int *m = a;
+  a++;
+  for (i = 1; i < n; ++i )
+    if(*m < *a) {
+      m = a;
+      a++;
+    }
+  return m;
+}
+```
+La declaración de la función anterior se muestra a continuación:
+
+```C
+int *mayor(int *a, int n); 
+```
+Otra forma de declaración puede ser:
+
+```C
+int *mayor(int *, int n); 
+```
+
+Recuerde lo importante en la declaración de la función es indicarle al compilador como van a usarse los parámetros.
+
+Así mismo, note también, que lo realimente importante es que se declaró un apuntador a un tipo de dato específico, se inicializo, se actualizo y luego se retornó este, en general en la definición de la función se sigue la siguiente plantilla:
+
+```C
+tipo *funcion(tipo *arg1,...) {
+  tipo *ptr;  // Declaracion del apuntador
+  ptr = &arg; // Inicializacion del apuntador
+  
+  /** Operaciones **/
+  ...  
+  return ptr; // Retorno del apuntador
+}
+```
+
+Para reforzar lo anteriormente trabajado, compile y ejecute el siguiente programa en el cual se hace uso de la función anteriormente creada. Comprenda bien cómo funciona (sobre todo analice: Declaración, definición e invocación), ayudese del siguiente [enlace](https://goo.gl/MoJJPE) para simular:
+
+```C
+#include <stdio.h>
+
+int *mayor(int *a,int n); // Declaracion
+
+int main() {
+    int a[6] = {1,2,5,9,-1,3};
+    int *p;
+    p = mayor(a,5); // Invocación
+    printf("El elemento mayor del vector es: *p \n",*p);
+    return 0;
+}
+
+// Definición
+int *mayor(int *a,int n) {
+  int i;
+  int *m = a;
+  a++;
+  for (i = 1; i < n; ++i )
+    if(*m < *a) {
+      m = a;
+      a++;
+    }
+  return m;
+}
+```
+La siguiente figura muestra el estado de ejecucion del programa antes de hacer el retorno de la subrutina mayor:
+
+
+
+
+
 
 
 
