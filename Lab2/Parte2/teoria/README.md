@@ -70,7 +70,7 @@ Un apuntador es una variable que almacena una **dirección de memoria y no un va
             <b>Nota</b>: Supóngase que la <b>variable p</b> se guarda en posición 500.
           </td>
         <td>
-            <img src="https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/rep_mapa_var_inst1_comp.png"> 
+            <img src="./imagenes/rep_mapa_var_inst1_comp.png"> 
          </td>
     </tr>
 </table>
@@ -110,7 +110,7 @@ La siguiente figura muestra esto lo anterior en términos del mapa de memoria:
         </ul> 
         </td>       
         <td>
-            <img src="https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/rep_ptr_map1.png"> 
+            <img src="./imagenes/rep_ptr_map1.png"> 
         </td>
     </tr>
 </table>
@@ -129,7 +129,7 @@ Si observa la segunda instrucción anteriormente mostrada, la forma como se obtu
 
 Nótese de la tabla anterior y la figura previa que con & lo que se obtiene es dirección base de una variable no importa su tipo ya sea una variable normal (char, int, float, etc), apuntador u otro. A continuacion se muestra una forma simplificada (tomada de la sección **Pointers basics** de [How Stuff Works](https://computer.howstuffworks.com/c22.htm)) para visualizar los apuntadores y las variables comunes de manera grafica sin tener que recurrir al bosquejo del mapa de memoria previamente realizado. 
 
-![var_mem](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/apuntador2.png)
+![var_mem](./imagenes/apuntador2.png)
 
 **Figura 2**. Vista simplificada con variables y apuntadores.
 
@@ -137,7 +137,7 @@ Note la diferencia en la grafica, en el dibujo el circulo representa una variabl
 
 Una forma aun mas simplificada e incluso mas conveniente al momento de hacer pruebas de escritorio se muestra a continuación. En esta solo se resalta el vinculo del apuntador con la variable:
 
-![var_mem](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/apuntador.png)
+![var_mem](./imagenes/apuntador.png)
 
 
 ### 2.2. Manipulación de memoria mediante apuntadores
@@ -191,24 +191,40 @@ Muestre la ejecución paso a paso del codigo anterior resaltando la evolucion en
 **Solucion**: Las instrucciones que se estan evaluando en un momento dado se resaltan
 <table>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><b>Instrucciones ejecutadas</b></td>
+        <td><b>Contenido del mapa de memoria</b></td>
+        <td><b>Visualización al estilo HowStuffWorks</b></td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>
+            <b>
+            int i,j;</br>
+            int *p; //Apuntador a un entero</br></b>
+            p = &i;</br>
+            *p = 5;</br>
+</td>
+        <td><img src="./imagenes/ptr_ejem2_map1.png"></td>
+        <td><img src="./imagenes/ptr_ejem2_hsw1.png"></td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>        
+        int i,j;</br>
+        int *p; //Apuntador a un entero</br>
+        <b>p = &i;</br></b>
+        *p = 5;</br>    
+        </td>
+        <td><img src="./imagenes/rep_ptr_map2.png"></td>
+        <td><img src="./imagenes/ptr_ejem2_hsw2.png"></td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>        
+        int i,j;</br>
+        int *p; //Apuntador a un entero</br>
+        p = &i;</br>
+        <b>*p = 5;</br></b>     
+        </td>
+        <td><img src="./imagenes/rep_ptr_map3.png"></td>
+        <td><img src="./imagenes/ptr_ejem2_hsw2.png"></td>
     </tr>
 </table>
 
