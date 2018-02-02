@@ -217,7 +217,7 @@ Muestre la ejecución paso a paso del codigo anterior resaltando la evolucion en
         *p = 5;</br>    
         </td>
         <td><img src="./imagenes/rep_ptr_map2.png"></td>
-        <td><img src="./imagenes/ptr_ejem2_hsw3.png"></td>
+        <td><img src="./imagenes/ptr_ejem2_hsw2.png"></td>
     </tr>
     <tr>
         <td>        
@@ -227,7 +227,7 @@ Muestre la ejecución paso a paso del codigo anterior resaltando la evolucion en
         <b>*p = 5;</br></b>     
         </td>
         <td><img src="./imagenes/rep_ptr_map3.png"></td>
-        <td><img src="./imagenes/ptr_ejem2_hsw2.png"></td>
+        <td><img src="./imagenes/ptr_ejem2_hsw3.png"></td>
     </tr>
 </table>
 
@@ -506,7 +506,7 @@ El elemento mayor del vector es: 9
 
 #### 2.4.2.1. Arreglos unidimensionales
 
-Un arreglo es un conjunto o colección indexada que permite manejar elementos que son del mismo tipo de dato como un solo objeto. A continuación se muestran algunos ejemplos:
+Un arreglo es un conjunto o colección indexada que permite manejar elementos que son del mismo tipo de dato como un solo objeto. A continuación se muestran algunos ejemplos ([enlace simulacion](https://goo.gl/8qAgxY)):
 
 <table>
     <tr>
@@ -514,20 +514,20 @@ Un arreglo es un conjunto o colección indexada que permite manejar elementos qu
         <td><b>Representacion en memoria</b></td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
+        <td>int veci[4] = {2, 4, 6, 8};</td>
+        <td><img src="./imagenes/vec_int.png"></td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
+        <td>float vecf[] = {2.657, 7.9, 2.003, 1.1, 5.8, 8.54, 9.5, 4.09};</td>
+        <td><img src="./imagenes/vec_float.png"></td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
+        <td>char mess1[10] = "Hola";</td>
+        <td><img src="./imagenes/vec_char1.png"></td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
+        <td>mess2[] = {'H','o','l','a','\0'};</td>
+        <td><img src="./imagenes/vec_char2.png"></td>
     </tr>
 </table>
 
