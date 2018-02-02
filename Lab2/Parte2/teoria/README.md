@@ -16,7 +16,7 @@ i = 35;
 
 La siguiente figura ilustra su representacion en memoria:
 
-![var_mem](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte2/teoria/imagenes/var_memoria.png)
+![var_mem](./imagenes/var_memoria.png)
 
 **Figura 1**. Representación de una variable en memoria.
 
