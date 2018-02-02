@@ -461,7 +461,7 @@ tipo *funcion(tipo *arg1,...) {
 }
 ```
 
-Para reforzar lo anteriormente trabajado, compile y ejecute el siguiente programa en el cual se hace uso de la función anteriormente creada. Comprenda bien cómo funciona (sobre todo analice: Declaración, definición e invocación), ayudese del siguiente [enlace](https://goo.gl/MoJJPE) para simular:
+Para reforzar lo anteriormente trabajado, compile y ejecute el siguiente programa en el cual se hace uso de la función anteriormente creada. Comprenda bien cómo funciona (sobre todo analice: Declaración, definición e invocación), ayudese del siguiente [enlace](https://goo.gl/YmKvcC) para simular:
 
 ```C
 #include <stdio.h>
@@ -491,11 +491,39 @@ int *mayor(int *a,int n) {
 ```
 La siguiente figura muestra el estado de ejecucion del programa antes de hacer el retorno de la subrutina mayor:
 
+![ret_ptr](./imagenes/retorno_prt.png)
+
+**Figura 5**. Funcion retornando un apuntador.
+
+La salida del programa anterior en pantalla es la siguiente:
+
+```
+El elemento mayor del vector es: 9
+```
 
 
+### 2.4.2. Apuntadores y vectores
 
+#### 2.4.2.1. Arreglos unidimensionales
 
+Un arreglo es un conjunto o colección indexada que permite manejar elementos que son del mismo tipo de dato como un solo objeto. A continuación se muestran algunos ejemplos:
 
+<table>
+    <tr>
+        <td><b>Declaracion del arreglo</b></td>
+        <td><b>Representacion en memoria</b></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+Como los apuntadores son variables es posible realizar operaciones matemáticas sobre ellos, sin embargo debido a que lo almacenado en  estos son direcciones de memoria no todas las operaciones convencionales que se podrían hacer sobre una variable normal son posibles. La siguiente tabla muestra las operaciones validas:
 
 
 ## 7. Enlaces de interes
