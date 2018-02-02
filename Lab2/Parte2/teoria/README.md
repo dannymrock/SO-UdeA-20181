@@ -504,7 +504,7 @@ El elemento mayor del vector es: 9
 
 ### 2.4.2. Apuntadores y vectores
 
-#### 2.4.2.1. Arreglos unidimensionales
+#### 2.4.2.1. Vectores
 
 Un arreglo es un conjunto o colección indexada que permite manejar elementos que son del mismo tipo de dato como un solo objeto. A continuación se muestran algunos ejemplos ([enlace simulacion](https://goo.gl/8qAgxY)):
 
@@ -531,7 +531,33 @@ Un arreglo es un conjunto o colección indexada que permite manejar elementos qu
     </tr>
 </table>
 
+Cabe resaltar que la manipulación es similar a la empleada en otros lenguajes como java.
+
+#### 2.4.2.1. Apuntadores y vectores
+
 Como los apuntadores son variables es posible realizar operaciones matemáticas sobre ellos, sin embargo debido a que lo almacenado en  estos son direcciones de memoria no todas las operaciones convencionales que se podrían hacer sobre una variable normal son posibles. La siguiente tabla muestra las operaciones validas:
+
+<table>
+    <tr>
+        <td><b>Operación</b></td>
+        <td><b>Anotaciones</b></td>
+    </tr>
+    <tr>
+        <td>Añadir o sustraer un entero de un apuntador.</td>
+        <td>Esto hace  que el puntero apunte a otro lugar de memoria diferente al que inicialmente estaba apuntando esto debido a la modificación de lo que se encuentra almacenado en este.</td>
+    </tr>
+    <tr>
+        <td>Sustraer un apuntador de otro.</td>
+        <td>Cuando se realiza esta operación, los dos apuntadores deben ser del mismo tipo. </td>
+    </tr>
+    <tr>
+        <td>Comparar dos apuntadores.</td>
+        <td>La comparación es comúnmente empleada para comparar cualquier puntero con el puntero a **NULL** usando los operadores de igualdad (**==** o **!=**).</td>
+    </tr>
+</table>
+
+Las tres operaciones anteriormente descritas son generalmente útiles para apuntadores que se refieren a los elementos de un array. Recordemos que un array consiste de un conjunto de variables del mismo tipo las cuales pueden ser accedidas bajo un mismo nombre usando subíndices. Cuando se declara un array lo que sucede en memoria es que se reservan un conjunto de posiciones contiguas en memoria tal y como se muestra en la siguiente figura: 
+
 
 
 ## 7. Enlaces de interes
