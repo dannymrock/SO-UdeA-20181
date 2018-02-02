@@ -272,7 +272,7 @@ printf("---\n");
 ```
 La salida en pantalla se muestra a continuación:
 
-![output1](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/fig_output1.png)
+![output1](./imagenes/fig_output1.png)
 
 **Figura 1**. Salida en pantalla del código anterior
 
@@ -310,7 +310,7 @@ printf("%2x\n",j);
 ```
 Puede verificar el resultado consultando el siguiente [enlace](https://goo.gl/fYDXkX). La siguiente figura muestra el resultado en pantalla:
 
-![output2](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/fig_output2.png)
+![output2](./imagenes/fig_output2.png)
 
 **Figura 2**. Salida en pantalla del código anterior
 
@@ -341,7 +341,7 @@ printf("%20.4e\n",y);
 ```
 La salida en pantalla se muestra a continuación y puede ser simulada en el siguiente [enlace](https://goo.gl/qM9AXy):
 
-![output3](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/fig_output3.png)
+![output3](./imagenes/fig_output3.png)
 
 **Figura 3**. Salida en pantalla del código anterior
 
@@ -368,13 +368,13 @@ printf("%3.12s\n",s);
 ```
 La variable asociada a la cadena de caracteres tendrá el siguiente contenido:
 
-![array](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/fig_array.png)
+![array](./imagenes/fig_array.png)
 
 **Figura 4**. Cadena de caracteres **s** en memoria.
 
 Adicionalmente, La salida en pantalla será:
 
-![output4](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/fig_output4.png)
+![output4](./imagenes/fig_output4.png)
 
 **Figura 5**. Salida en pantalla del código anterior
 
@@ -394,7 +394,7 @@ Esta funcion lee caracteres desde el flujo de entrada estándar, los interpreta 
 **Notas importantes**
 * Cuando el tipo de dato asociado a la variable es simple (char, int, etc); se antepone el símbolo apersand (&) a la variable, pues con este símbolo se obtiene la dirección en memoria de la variable (estoo será explicado más adelante en el curso), por ejemplo:
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example1.c) esta el siguiente código:
+En el siguiente [enlace](./code/lab2_p1_example1.c) esta el siguiente código:
 
 ```C
 #include <stdio.h>
@@ -438,7 +438,7 @@ int main() {
 }
 ```
 
-Note como en este [código](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example2.c) no se emplea el ampersand cuando se lee la cadena nombre con el scanf (a diferentecia de las variables edad y estatura del ejemplo anterior). La salida del programa anterior se muestra a continuacion:
+Note como en este [código](./code/lab2_p1_example2.c) no se emplea el ampersand cuando se lee la cadena nombre con el scanf (a diferentecia de las variables edad y estatura del ejemplo anterior). La salida del programa anterior se muestra a continuacion:
 
 ```
 Digite el nombre: Ramon
@@ -450,32 +450,32 @@ Hola: Ramon
 
 1. Escriba un programa que use una llamada printf() para imprimir su nombre y su apellido en una línea, use una segunda llamada printf() para imprimir su nombre y su apellido en dos líneas separadas, y use un par de llamadas a printf() para imprimir su nombre y apellido en una línea. La salida del programa podrá ser como esta (pero usando su nombre):
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res1.c) se encuentra el código de la solución.
+En el siguiente [enlace](./code/lab2_p1_res1.c) se encuentra el código de la solución.
 
 2. Escriba un programa convierta su edad en años a días. En este punto, no se preocupe sobre los años fraccionales y años bisiestos.
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res2.c) se encuentra el código de la solución.
+En el siguiente [enlace](./code/lab2_p1_res2.c) se encuentra el código de la solución.
 
 3. Escriba un programa que cree una variable entera llamada toes. Luego que haga esto, le lleve 10 a toes. El programa debe calcular el doble y el cuadrado de toes también. El programa imprimirá todos estos tres valores identificándolos.
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res3.c) se encuentra el código de la solución.
+En el siguiente [enlace](./code/lab2_p1_res3.c) se encuentra el código de la solución.
 
 4. Escriba un programa que solicite un valor en código ASCII, tal como 66, y entonces imprima el carácter asociado a dicho código ASCII.
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res4.c) se encuentra el código de la solución.
+En el siguiente [enlace](./code/lab2_p1_res4.c) se encuentra el código de la solución.
 
 5. Escriba un programa que lea un número en punto flotante y lo imprima primero en notación de punto decimal y luego en notación exponencial. La salida debe tener el siguiente formato:
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res5.c) se encuentra el código de la solución.
+En el siguiente [enlace](./code/lab2_p1_res5.c) se encuentra el código de la solución.
 
 // TODO:revisar siguiente enunciado
 6. La masa de una molécula única de agua es aproximadamente de gramos. Un cuarto de agua es aproximadamente de 950 gramos. Escriba un programa que solicite la cantidad de agua, en cuartos, y despliegue el número de moléculas en esa cantidad.
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res6.c) se encuentra el código de la solución.
+En el siguiente [enlace](./code/lab2_p1_res6.c) se encuentra el código de la solución.
 
 7. Escriba un programa que le pregunte por su nombre y apellido y entonces imprima los nombre en formato apellido, nombre.
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res7.c) se encuentra el código de la solución.
+En el siguiente [enlace](./code/lab2_p1_res7.c) se encuentra el código de la solución.
 
 8. Escriba un programa que solicite su altura en pulgadas y su nombre, y entonces despliegue la información en el siguiente formato:
 
@@ -484,7 +484,7 @@ Dabney, you are 6.208 feet tall
 ```
 Es lo que se imprime en caso de que el nombre ingresado sea Dabney y la altura sea 6.298
 
-En el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res8.c) se encuentra el código de la solución.
+En el siguiente [enlace](./code/lab2_p1_res8.c) se encuentra el código de la solución.
 
 ## 4. Sentencias de Control
 Las Instrucciones de control en C son similares a las de Java. A continuación se describe la estructura y se muestan algunos ejemplos:
@@ -530,7 +530,7 @@ Una muestra de la salida del programa se muestra a continuación:
 Introduzca la nota que saco el pelao: 3.2
 La nota es: -B
 ```
-A continuación se muestra el [código](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example3.c) de la solución:
+A continuación se muestra el [código](./code/lab2_p1_example3.c) de la solución:
 ```C
 #include <stdio.h>
 
@@ -627,7 +627,7 @@ Se quiere escribir un programa en C que:
 **Nota**: Si el número introducido por el usuario, no está asociado a ningún signo del zodiaco, se mostrará
 el mensaje: **"ERROR: <numero> no está asociado a ningún signo"**. Hacer este problema usando la sentencia switch.
 
-A continuación se muestra el [código](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example4.c) de la solución:
+A continuación se muestra el [código](./code/lab2_p1_example4.c) de la solución:
 
 ```C
 #include <stdio.h>
@@ -730,7 +730,7 @@ Escriba un programa que sume una secuencia de enteros. Suponga que el primer ent
 ```
 Donde 5 indica que deben sumarse los siguientes 5 valores. 
 
-El [código](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example5.c) del programa se muestra a continuacion:
+El [código](./code/lab2_p1_example5.c) del programa se muestra a continuacion:
 
 ```C
 #include <stdio.h>
@@ -787,7 +787,7 @@ Escriba un programa que calcule e imprima el promedio de varios enteros posivos.
 ```
 Que indica que el promedio de todos los valores que preceden a 9999 se va a calcular. (**Pista**: Hacer esto con un ciclo **while** dentro del cual se lean los valores a promediar, siempre y cuando la condición de que lo leído no sea 9999, se cumpla).
 
-La [solución](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example6.c) se muestra a continuación:
+La [solución](./code/lab2_p1_example6.c) se muestra a continuación:
 
 ```C
 #include <stdio.h>
@@ -828,7 +828,7 @@ do {
 #### Ejemplo
 Hacer un programa que solicite un número de tal manera que si este es negativo mostrara un mensaje que diga "Número negativo asi que suerte", y si es positivo mostrará un mensaje que diga: "Número positivo, siga usted" y solicite nuevamente un número.
 
-La [solución](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example7.c) se muestra a continuación:
+La [solución](./code/lab2_p1_example7.c) se muestra a continuación:
 
 ```C
 #include <stdio.h>
@@ -936,7 +936,7 @@ printf("%d! = %d\n", num, f);
 ```
 
 #### Ejemplo
-Los ejemplos anteriormente mostrados solo hacian énfasis en las partes de las funciones. Para usar una funcion es necesario unir los aspectos anteriormente mencionados a la hora de codificar el archivo fuente, vamos a ver varios ejemplos para tal fin. A continuación se muestra el [código](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_example8.c) del programa completo:
+Los ejemplos anteriormente mostrados solo hacian énfasis en las partes de las funciones. Para usar una funcion es necesario unir los aspectos anteriormente mencionados a la hora de codificar el archivo fuente, vamos a ver varios ejemplos para tal fin. A continuación se muestra el [código](./code/lab2_p1_example8.c) del programa completo:
 
 ```C
 #include <stdio.h>
@@ -987,11 +987,11 @@ Suerte es que le digo...
 ### Ejemplos resueltos funciones
 1. Se define un número combinatorio m sobre n de la siguiente manera:
 
-![fórmula](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/formula_binomial.png)
+![fórmula](./teoria/imagenes/formula_binomial.png)
 
 Escribir un programa que lea los valores de m y de n y calcule el valor de m sobre n.
 
-El código de la solución se encuentra en el siguiente [enlace](https://github.com/dannymrock/SO-UdeA-20181/tree/master/Lab2/Parte1/teoria/code/lab2_p1_res9.c)
+El código de la solución se encuentra en el siguiente [enlace](./code/lab2_p1_res9.c)
 
 2. Escriba el programa de los signos del zodiaco y su simbolo asociado (agua, aire, tierra y fuego) visto en ejemplos anteriores, pero para este caso modularise el programa empleando funciones:
 
@@ -1077,7 +1077,7 @@ void incremento(int num) {
 ```
 La siguiente figura muestra un caso de ejecución del codigo anterior:
 
-![f_valor](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/funcion_valor.png)
+![f_valor](./imagenes/funcion_valor.png)
 
 **Figura 6**. Visualización del programa anterior (**Nota**: éste aún no ha culminado su ejecución).
 
@@ -1159,7 +1159,7 @@ void incremento(int *num) {
 ```
 Para visualizar más fácil lo que se afirmó en los párrafos anteriores observe la siguiente imagen:
 
-![f_referencia](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/funcion_referencia.png)
+![f_referencia](./imagenes/funcion_referencia.png)
 
 **Figura 7**. Visualización del programa anterior (**Nota**: éste aún no ha culminado su ejecución).
 
@@ -1173,7 +1173,7 @@ Para visualizar más fácil lo que se afirmó en los párrafos anteriores observ
 
 Por comodidad se colocan nuevamente las imágenes de los dos códigos anteriormente involucrados:
 
-![ámbos](https://github.com/dannymrock/SO-UdeA-20181/blob/master/Lab2/Parte1/teoria/imagenes/ambas_funciones.png)
+![ámbos](./imagenes/ambas_funciones.png)
 
 **Figura 8**. Visualización del programa anterior (**Nota**: éste aún no ha culminado su ejecución).
 
