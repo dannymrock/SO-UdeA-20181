@@ -552,11 +552,76 @@ Como los apuntadores son variables es posible realizar operaciones matemáticas 
     </tr>
     <tr>
         <td>Comparar dos apuntadores.</td>
-        <td>La comparación es comúnmente empleada para comparar cualquier puntero con el puntero a **NULL** usando los operadores de igualdad (**==** o **!=**).</td>
+        <td>La comparación es comúnmente empleada para comparar cualquier puntero con el puntero a <b>NULL</b> usando los operadores de igualdad (<b>==</b> o <b>!=</b>).</td>
     </tr>
 </table>
 
 Las tres operaciones anteriormente descritas son generalmente útiles para apuntadores que se refieren a los elementos de un array. Recordemos que un array consiste de un conjunto de variables del mismo tipo las cuales pueden ser accedidas bajo un mismo nombre usando subíndices. Cuando se declara un array lo que sucede en memoria es que se reservan un conjunto de posiciones contiguas en memoria tal y como se muestra en la siguiente figura: 
+
+![array_hsw](./imagenes/array_hsw.png)
+
+**Figura 6**. Diferencia entre una variable normal y un vector.
+
+Para ilustrar lo anterior suponga lo que tiene dos apuntadores, p1 y p2 los cuales están apuntando a los elementos de un array a como el siguiente:
+
+![array_a](./imagenes/array_a.png)
+
+**Figura 7**. Arreglo a.
+
+* p1 apunta al elemento i del array (a[i]).
+
+![array_a_p1](./imagenes/array_a_p1.png)
+
+**Figura 8**. Arreglo a y apuntador p1.
+
+* Si n es un entero, entonces la expresión **p2 = p1 + n** hace que **p2** apunta al elemento **a[i+n]**. Ojo que **i+n** debe estar dentro del índice del array (es decir **0 <= i+n <= Tamaño del array - 1**). La siguiente figura muestra el caso para **n = 2**, es decir que **p2** apuntara al elemento **a[i+2]**
+
+![array_a_p1_p2](./imagenes/array_a_p1_p2.png)
+
+**Figura 9**. Arreglo a y apuntadores p1 y p2.
+
+* La resta **p2 – p1** da el número de elementos del array entre los dos apuntadores. Para el caso de la gráfica anterior **2**.
+* La comparación **p1 < p2** es cierta si el elemento referenciado por p2 tiene un índice más grande que el referenciado por **p1**, de otro lado la comparación es **falsa**. Donde para la figura anterior el resultado es **cierto**.
+
+Lo anterior muestra que existe una relación entre la forma de escribir un array con subíndices y escribirlo con apuntadores aritmética de apuntadores. Para aterrizar un poco lo anterior analicemos la siguiente tabla:
+
+<table>
+    <tr>
+        <td><b>Relación entre índices y array</b></td>
+        <td><b>En resumen</b></td>
+    </tr>
+    <tr>
+        <td>El nombre de un arreglo es <b>realmente un apuntador al primer elemento en el array</b>, asi si a es un arreglo adimensional entonces la dirección del primer elemento del array es <b>&a[0]</b> o simplemente <b>a</b>.</td>
+        <td>&a[0]↔a</td>
+    </tr>
+    <tr>
+        <td>La dirección del elemento **i** del array puede ser expresada como <b>&a[i]</b> o como <b>a + i</b>, por lo tanto existen dos manera de escribir la dirección de cualquier elemento del array.</td>
+        <td>&a[i]↔a+i</td>
+    </tr>
+    <tr>
+        <td><b>a[i]</b> o <b>*(a+i)</b> representan el contenido que hay en la dirección en cuestión</td>
+        <td>a[i]↔*(a+i)</td>
+    </tr>
+</table>
+
+Para entender un poco lo anterior suponga que se ejecutan las siguientes instrucciones:
+
+```C
+char b[] = {'h', 'o', 'l', 'a','\0'};
+*(b+2) = *b;
+char *p1 = b;
+char *p2 = b + 3;
+p2 = p2 - 1;
+p1 = p2 - 1;
+*p2 = *(b + 1) + 1;
+p2 = &b[1];
+return 0;
+```
+
+Para entender el resultado del codigo anterior puede seguir el siguiente [enlace](https://goo.gl/sSW8gy).
+
+
+
 
 
 
