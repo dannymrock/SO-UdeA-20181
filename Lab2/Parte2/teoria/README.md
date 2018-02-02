@@ -170,7 +170,8 @@ Ahora si lo que se desea hacer es escribir en el lugar de memoria apuntado se ha
 *apuntador = variable;
 ```
 
-**Ejemplo**
+**Ejemplo 1**
+
 Suponga que se tiene el siguiente fragmento de codigo fuente:
 
 ```C
@@ -228,8 +229,33 @@ Muestre la ejecución paso a paso del codigo anterior resaltando la evolucion en
     </tr>
 </table>
 
+Nótese que en la última instrucción resaltada el cambio del contenido de la sección de memoria asociado a la variable i no se realizó desde esta (i = 5) sino desde el apuntador p (*p = 5) el cual previamente se puso a apuntar a dicho lugar de memoria (p = &i).
 
+**Ejemplo 2**
 
+A continuación se muestra otro ejemplo en el cual se resalta que es posible que varios apuntadores estén apuntando a un mismo lugar de memoria. Tenga en cuenta lo siguientes enunciados:
+* Suponga que i y j son de 2 bytes y ocupan las direcciones base 1000 y 1008.
+* Los apuntadores p, q y r ocupan las direcciones base 2000, 3000 y 4000.
+* Así mismo la arquitectura es de 32 bits por lo que el espacio ocupado por el apuntador será de 4 bytes.
+
+<table>
+    <tr>
+        <td><b>Instrucciones ejecutadas</b></td>
+        <td><b>Contenido del mapa de memoria</b></td>
+        <td><b>Visualización al estilo HowStuffWorks</b></td>
+    </tr>
+    <tr>
+        <td>
+          int i = 5; </br>
+          int *p,*q,*r; </br>
+          p = &i; </br>
+          q = &i; </br>
+          r = p; </br>
+        </td>
+        <td><img src="./imagenes/rep_ptr2_map.png"></td>
+        <td><img src="./imagenes/rep_ptr2_hsw.png"></td>
+    </tr>
+</table>
 
 
 
