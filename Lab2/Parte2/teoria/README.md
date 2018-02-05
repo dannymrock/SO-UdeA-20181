@@ -733,6 +733,15 @@ for(int i = 1;i < 6;i++) {
 ```
 La conclusión a la que se llega depues de simular es que existe una correspondencia entre como accedo a un vector mediante la notacion con subindices y la notacion con apuntadores. La siguiente tabla muestra esta relación:
 
+| Notación subíndice	| Notación puntero |
+|-----------|-------------|
+|&A[0]	| A |
+|&A[i]	| A + i |
+|A[0]	| *A |
+|A[i]	| *(A + i) |
+
+
+
 
 
 
