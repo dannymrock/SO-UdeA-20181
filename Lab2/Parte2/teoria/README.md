@@ -620,12 +620,123 @@ return 0;
 
 Para entender el resultado del código anterior puede seguir el siguiente [enlace](https://goo.gl/sSW8gy).
 
+## 7. Aritmetica de punteros
+Como se dijo previamente, un apuntador almacena un direccion de memoria asociada a un dato. Tambien, se mostro como es posible hacer uso de apuntadores para barrer y manipular arrays. La existencia diferentes tipos de datos en C (char, int, float, double, ...) con un tamaño en bytes asociado repercute en los valores almancenados en el apuntador. Para aclarar esto un poco observemos las siguientes graaficas.
+
+En la figura 10 se muestra un array de datos tipo **short** comparado con uno tipo **char**. Los datos tipo short tienen un tamaño de 2 bytes de modo que cada miembro consecutivo del array tipo short (A) tendra una direccion aumentada 2 bytes respecto a miembro anterior; segun lo anterior, si la direccion del elemento A[0] es 0x1000 (&A[0] = 0x1000), la dirección del miembro A[1] será 0x1000 + 2bytes = 0x1000 + 16bits = 0x1010. Por otro lado, en el caso del arreglo char B, la direccion solo cambiar de uno en uno. Asi, si &B[0] = 0x1000, entonces &B[1] = 0x1008. De modo que se puede llegar a una expresión mas general como la siguiente:
+
+
+![array_hsw](./imagenes/arit_pointer.png)
+
+**Figura 10**. Arrays y apuntadores.
+
+
+```
+dir[i] = dir[j] +/- n*(sizeof(type)*8) bits
+
+Donde n es la diferencia entre los indices j e i
+```
+
+Tomando nuevamente la grafica 10, vemos que &A[3] = &A[0] + 3*(sizeof(short)*8) = 0x1000 + 3*2*8 = 0x1000 + 48 = 0x1000 + 0x30 = 0x1030. 
+De modo similar B[1] = B[2] - 1*(sizeof(char)*8)= 0x1000 - 1*(1*8) = 0x1000 + 8 = 0x1000 + 0x0008 = 0x1008.
+
+A continuación se muestran unos cuantos ejemplos para clarificar esto:
+
+**Ejemplos**
+
+1. Supongase que se tiene el siguiente código:
+
+```C
+char A[] = {'h', 'o', 'l', 'a','\0'};
+short B[] = {1,2,3};
+```
+
+Asumiendo que un dato tipo short ocupa 2 bytes de memoria y uno char 1 byte. Dibuje en el mapa de memoria los vectores anteriormente resaltados. Las direcciones base son 100 para el vector A y 200 para el vector B. Asi mismo, para el caso las direcciones serán manejadas en decimal.
+
+**Representacion en memoria con un ancho a 4 bytes**
+En la siguiente figura se muestra la representacion en memoria en la cual se manejan 4 bytes de ancho.
+
+![array_hsw](./imagenes/mm_short1.png)
+
+**Figura 11**. Representación a 4 bytes de ancho.
+
+**Representacion en memoria con un ancho a 1 byte**
+En la siguiente figura se muestra la representacion en memoria en la cual se manejan 1 byte de ancho.
+
+![array_hsw](./imagenes/mm_short2.png)
+
+**Figura 12**. Representación a 1 byte de ancho.
+
+2. Supongase que se tiene el siguiente codigo fuente:
+
+```C
+#include <stdio.h>
+
+int V[4];
+int main() {
+  print("%d\n",sizeof(int));
+  print("%p\n",V);
+  int *p1 = V;
+  *p1 = 3;
+  int p2 = &V[0];
+  int p2 += 2;
+  *p2 = 1;
+  p1 = p2 - 1;
+  *p1 = -(*p2);
+  *(p2 + 1) = 2;
+  return 0;
+}
+```
+Responda las siguientes preguntas:
+* ¿Cual es la direccion base del vector V y de cada uno de sus elementos?
+* ¿Cuando se acaba la ejecucion que valor queda almacenado en los apuntadores p1 y p2?
+* ¿Cual es el contenido del vector cuando culmina el programa?
+
+En el siguiente [enlace](https://goo.gl/FQQtgG) puede simular el programa. 
+
+Es posible acceder a cada uno de los elementos del arreglo por medio del índice o de manera alternativa usando apuntadores y es allí donde entra en juego la aritmética de punteros ya que por medio de las operaciones de adición y sustracción nos podemos mover a las diferentes posiciones del array para luego poder acceder a sus elementos. Para entender más esto suponga que tiene la siguiente porción de [código](https://goo.gl/qap678) en la cual se manipula un vector empleando la notación con subíndices:
+
+```C
+int a[6]={1,0,4,7,8,10};
+int i,suma = 0;
+a[0]=2;
+a[3]=10;
+for(i = 1;i<6;i++) {
+  if(i%2==0) {
+    a[i] = -a[i];
+  }
+  else {
+    a[i]=a[i]+1;
+  }
+}
+```
+
+Por otro lado el siguiente [codigo](https://goo.gl/fHgmFN), hace exactamente lo mismo mediante la notacion de apuntadores:
+
+```C
+int a[6]={1,0,4,7,8,10};
+int *ptr;		// Declaracion del apuntador
+ptr = &a[0];	// Inicializacion del apuntador. (ptr = a)
+*ptr = 2;	// a[0] = 2
+ptr = &a[3];	// Ahora ptr esta apuntando al elemento a[3]
+*ptr=10;	//a[3] = 10
+ptr = &a[1];	// Ahora ptr esta apuntando al elemento a[1]
+for(int i = 1;i < 6;i++) {
+  if(i%2==0) {
+    *ptr = -(*ptr); 
+  }
+  else {
+    *ptr = *ptr + 1;
+  }
+  ptr++;	//Cambio del valor del apuntador para barrer el arreglo
+}
+```
+La conclusión a la que se llega depues de simular es que existe una correspondencia entre como accedo a un vector mediante la notacion con subindices y la notacion con apuntadores. La siguiente tabla muestra esta relación:
 
 
 
 
-
-## 7. Enlaces de interés
+## ss. Enlaces de interés
 * https://www.geeksforgeeks.org/data-types-in-c/
 * https://www.programiz.com/c-programming/c-enumeration
 
