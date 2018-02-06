@@ -767,7 +767,7 @@ pch = &ch; /*Inicializacion del apuntador*/
 ppch = &pch; /*Inicializacion del apuntador al apuntador*/
 ```
 
-![ptr_to_ptr__mem_2_3](./imagenes/ptr_to_ptr_ambas.png)
+![ptr_to_ptr__mem_2_3](./imagenes/ptr_to_ptr_mem_2_3.png)
 
 **Figura 14**. Resultado de la ejecución del codigo anterior.
 
@@ -778,10 +778,19 @@ La siguiente tabla muestra una lista de equivalencias entre los valores almacena
 
 | Ítem	| Equivalencia en código |
 |-----------|-------------|
-|Lugar de memoria accedido ( variable ch)	| ch = *pch = **ppch |
+|Lugar de memoria accedido (variable ch)	| ch = *pch = **ppch |
 |Dirección de la variable ch (&ch)	| &ch = pch = *ppch |
 |Dirección de memoria del apuntador (&pch)	| &pch = ppch |
 |Dirección de memoria del apuntador al apuntador (&ppch)	| &ppch |
+
+Aplicando la anterior equivalencia en la figura 14 tenemos (Tenga muy claro el operador direccion (&)):
+1. ch = *pch = **ppch = ?
+2. &ch = pch = *ppch = 0xFFF000BCC
+3. &pch = ppch = 0xFFF000BD0
+4. &ppch = 0xFFF000BD8
+
+La anterior tabla implica que si yo quiero cambiar el valor de ch lo puedo hacer ya modificando la variable como tal (ch = valor) o desreferenciando el apuntador que la apunta (*pch = valor)  o desreferenciando el apuntador del apuntador que la apunta (**ppch = valor), a continuación se muestran las tres equivalencias:
+
 
 ## ss. Enlaces de interés
 * https://www.geeksforgeeks.org/data-types-in-c/
