@@ -741,7 +741,16 @@ La conclusión a la que se llega depues de simular es que existe una corresponde
 |A[i]	| *(A + i) |
 
 
+## 8. Apuntadores a apuntadores
 
+Es posible poner apuntar un apuntador a un apuntador, lo cual se indica con la cantidad de asteriscos colocados en la declaración del apuntador, así la declaración realizada en las siguientes líneas de código:
+
+````C
+char ch; /*Un caracter*/
+char *pch; /*Un apuntado a un dato tipo caracter*/
+char **pch; /*Un apuntador a un apuntador a un caracter*/
+```
+Tiene el efecto mostrado en la siguiente figura:
 
 
 
