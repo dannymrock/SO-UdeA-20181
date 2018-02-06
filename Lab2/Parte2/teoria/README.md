@@ -789,12 +789,54 @@ Aplicando la anterior equivalencia en la figura 14 tenemos (Tenga muy claro el o
 3. &pch = ppch = 0xFFF000BD0
 4. &ppch = 0xFFF000BD8
 
-La anterior tabla implica que si yo quiero cambiar el valor de ch lo puedo hacer ya modificando la variable como tal (ch = valor) o desreferenciando el apuntador que la apunta (*pch = valor)  o desreferenciando el apuntador del apuntador que la apunta (**ppch = valor), a continuación se muestran las tres equivalencias:
+La anterior tabla implica que si yo quiero cambiar el valor de ch lo puedo hacer ya modificando la variable como tal (ch = valor) o desreferenciando el apuntador que la apunta (*pch = valor)  o desreferenciando el apuntador del apuntador que la apunta (**ppch = valor), a continuación se muestran las tres equivalencias. A continuación se muestra esto:
 
+**Forma 1**: modificando la variable directamente
+
+```C
+ch = 'A';
+```
+
+**Forma 2**: modificando la variable por medio del apuntador
+
+```C
+*pch = 'A';
+```
+
+**Forma 3**: modificando la variable por medio del apuntador al apuntador
+
+```C
+**ppch = 'A';
+```
+
+**Ejemplo**:
+Simule el siguiente codigo y saque conclusiones:
+
+```C
+int main() {
+  char ch;
+  char *pch, **ppch;
+  char ***pppch = &ppch;
+  pch = &ch;
+  ppch = &pch;
+  ***pppch = 'A';
+  **ppch = *pch + 1;
+  ch = **ppch + 3;
+  return 0;
+}
+```
 
 ## ss. Enlaces de interés
 * https://www.geeksforgeeks.org/data-types-in-c/
 * https://www.programiz.com/c-programming/c-enumeration
+* http://people.duke.edu/~tkb13/courses/ncsu-csc230/lecture/
+* https://www.geeksforgeeks.org/dangling-void-null-wild-pointers/
+* https://www.geeksforgeeks.org/tag/c-pointers/
+* https://www.geeksforgeeks.org/double-pointer-pointer-pointer-c/
+* https://www.eskimo.com/~scs/cclass/int/sx8.html
+* https://www.tutorialspoint.com/cprogramming/c_pointer_to_pointer.htm
+* https://boredzo.org/pointers/
+* https://beginnersbook.com/2014/01/c-pointer-to-pointer/
 
 
 
