@@ -626,7 +626,7 @@ Como se dijo previamente, un apuntador almacena un direccion de memoria asociada
 En la figura 10 se muestra un array de datos tipo **short** comparado con uno tipo **char**. Los datos tipo short tienen un tamaño de 2 bytes de modo que cada miembro consecutivo del array tipo short (A) tendra una direccion aumentada 2 bytes respecto a miembro anterior; segun lo anterior, si la direccion del elemento A[0] es 0x1000 (&A[0] = 0x1000), la dirección del miembro A[1] será 0x1000 + 2bytes = 0x1000 + 16bits = 0x1010. Por otro lado, en el caso del arreglo char B, la direccion solo cambiar de uno en uno. Asi, si &B[0] = 0x1000, entonces &B[1] = 0x1008. De modo que se puede llegar a una expresión mas general como la siguiente:
 
 
-![array_hsw](./imagenes/arit_pointer.png)
+![array_p](./imagenes/arit_pointer.png)
 
 **Figura 10**. Arrays y apuntadores.
 
@@ -656,14 +656,14 @@ Asumiendo que un dato tipo short ocupa 2 bytes de memoria y uno char 1 byte. Dib
 **Representacion en memoria con un ancho a 4 bytes**
 En la siguiente figura se muestra la representacion en memoria en la cual se manejan 4 bytes de ancho.
 
-![array_hsw](./imagenes/mm_short1.png)
+![array_hsw](./imagenes/mm_char_short1.png)
 
 **Figura 11**. Representación a 4 bytes de ancho.
 
 **Representacion en memoria con un ancho a 1 byte**
 En la siguiente figura se muestra la representacion en memoria en la cual se manejan 1 byte de ancho.
 
-![array_hsw](./imagenes/mm_short2.png)
+![array_hsw2](./imagenes/mm_char_short2.png)
 
 **Figura 12**. Representación a 1 byte de ancho.
 
