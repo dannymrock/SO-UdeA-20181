@@ -744,15 +744,44 @@ La conclusión a la que se llega depues de simular es que existe una corresponde
 ## 8. Apuntadores a apuntadores
 
 Es posible poner apuntar un apuntador a un apuntador, lo cual se indica con la cantidad de asteriscos colocados en la declaración del apuntador, así la declaración realizada en las siguientes líneas de código:
-
-````C
+```C
 char ch; /*Un caracter*/
 char *pch; /*Un apuntado a un dato tipo caracter*/
 char **pch; /*Un apuntador a un apuntador a un caracter*/
 ```
-Tiene el efecto mostrado en la siguiente figura:
+suponiendo que:
+* El tamaño de ocupado por una variable apuntador es de 8 bytes.
+* El tamaño ocupado por una variable tipo char es de 1 byte.
+* Las direcciones de las variables ch, pch y ppch son 0xFFF000BCC, 0xFFF000BD0 y 0xFFF000BD8 respectivamente.
+
+El resultado de ejecutar las instrucciones anteriores muestra un resultado similar al de la siguiente figura:
+
+![ptr_to_ptr](./imagenes/ptr_to_ptr_ambas.png)
+
+**Figura 13**. Resultado de la ejecución del codigo anterior.
+
+Notese que aun no se han inicializado las variables (variable normal, apuntador y apuntador a apuntador). A continuación de muestra un código de inicializacion y su respectivo efecto:
+
+```C
+pch = &ch; /*Inicializacion del apuntador*/
+ppch = &pch; /*Inicializacion del apuntador al apuntador*/
+```
+
+![ptr_to_ptr__mem_2_3](./imagenes/ptr_to_ptr_ambas.png)
+
+**Figura 14**. Resultado de la ejecución del codigo anterior.
+
+Notese del codigo anterior que a un apuntador a un apuntador se le debe pasar la dirección de memoria del apuntador al que está siendo inicializado.
+
+La siguiente tabla muestra una lista de equivalencias entre los valores almacenados en las variables anteriormente creadas:
 
 
+| Ítem	| Equivalencia en código |
+|-----------|-------------|
+|Lugar de memoria accedido ( variable ch)	| ch = *pch = **ppch |
+|Dirección de la variable ch (&ch)	| &ch = pch = *ppch |
+|Dirección de memoria del apuntador (&pch)	| &pch = ppch |
+|Dirección de memoria del apuntador al apuntador (&ppch)	| &ppch |
 
 ## ss. Enlaces de interés
 * https://www.geeksforgeeks.org/data-types-in-c/
