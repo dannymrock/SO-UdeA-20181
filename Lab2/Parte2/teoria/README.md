@@ -830,6 +830,29 @@ int main() {
 Un apuntador generico o void pointer es un tipo especial de apuntador que puede apuntar a cualquier tipo de dato.
 Su unica limitación es que el dato apuntado no puede ser desreferenciado directamente (el operador * no puede ser usado en este tipo de apuntadores) pues para el caso, la longitud del tipo de dato al que se apunta no puede ser determinada lo hace necesario un casting para hacer que el aputador generico pueda apuntar a un tipo de dato concreto (el cual si puede ser referenciado).
 
+```C  
+  /* Declaracion de variables*/
+  tipo1 var1_1, var1_2,...;
+  ... 
+  tipoN varN_1, varN_2,...;
+  /* Declaracion apuntador generico*/
+  void *ptr;
+  /* Referencia a una variable tipo tipo1 */
+  ptr = &var1_1; // var es una variable de cualquier tipo
+  /* Desreferencia a una variable tipo tipo1*/
+  var1_2 = *((tipo1 *)ptr); // cast
+  /* Referencia a una variable tipo tipoN */
+  ptr = &varN_1; // var es una variable de cualquier tipo
+  /* Desreferencia a una variable tipo tipo1*/
+  varN_2 = *((tipoN *)ptr); // cast
+  ...
+```
+
+En si el cast es de la forma:
+
+```C 
+*((tipo *)ptr)
+```
 
 ```C
 #include <stdio.h>
