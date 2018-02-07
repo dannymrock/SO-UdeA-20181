@@ -825,6 +825,67 @@ int main() {
   return 0;
 }
 ```
+## 9. Apuntadores genericos y casts
+
+Un apuntador generico o void pointer es un tipo especial de apuntador que puede apuntar a cualquier tipo de dato.
+Su unica limitación es que el dato apuntado no puede ser desreferenciado directamente (el operador * no puede ser usado en este tipo de apuntadores) pues para el caso, la longitud del tipo de dato al que se apunta no puede ser determinada lo hace necesario un casting para hacer que el aputador generico pueda apuntar a un tipo de dato concreto (el cual si puede ser referenciado).
+
+
+```C
+#include <stdio.h>
+int main()
+{
+  int a=5,
+  double b=3.1415;
+  void *vp;
+  vp=&a;
+  printf("\n a = %d", *((int *)vp)); // Cast
+  vp=&b;
+  printf("\n b = %d", *((double *)vp));
+  return 0;
+}
+```
+
+```C
+#include <stdio.h>
+
+void swapInt(int *a, int *b);
+void swapFloat(float *a, float *b);
+
+
+
+void swapInt(int *a, int *b) {
+  int temp;
+  temp = *a;
+  *a = *b;
+  *b = temp;
+}
+
+
+void swapFloat(float *a, float *b) {
+  float temp;
+  temp = *a;
+  *a = *b;
+  *b = temp;
+}
+
+```
+
+```C
+#include <stdlib.h>
+#include <string.h>
+int swap2(void *x, void *y, int size) {
+  void *tmp;
+  if ((tmp = malloc(size)) == NULL) {
+    return -1;
+  }
+  memcpy(tmp, x, size); 
+  memcpy(x, y, size); 
+  memcpy(y, tmp, size);
+  free(tmp);
+  return 0;
+}
+```
 
 ## ss. Enlaces de interés
 * https://www.geeksforgeeks.org/data-types-in-c/
