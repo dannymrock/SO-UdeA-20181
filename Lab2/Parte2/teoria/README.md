@@ -962,11 +962,10 @@ Teniendo en cuenta **la tabla de equivalencia** anteriormente mostrada podemos p
         <td><b>Declaración</b></td>
         <td>void imprimirVector(int V[],int tam);</td>
         <td>void imprimirVector(int *V,int tam);</td>
-    </tr>
+    </tr>   
     <tr>
         <td><b>Definición</b></td>
-        <td> 
-            
+        <td>             
           void imprimirVector(int V[],int tam) {</br>
              &nbsp;&nbsp;&nbsp;printf("[ ");</br>
              &nbsp;&nbsp;&nbsp;for(int i = 0; i < tam; i++) {</br>
@@ -975,8 +974,7 @@ Teniendo en cuenta **la tabla de equivalencia** anteriormente mostrada podemos p
              &nbsp;&nbsp;&nbsp;printf("]\n");</br>
           }</br>
         </td>
-        <td>
-        
+        <td>        
            void imprimirVector(int *V,int tam) {</br>
              &nbsp;&nbsp;&nbsp;printf("[ ");</br>
              &nbsp;&nbsp;&nbsp;for(int i = 0; i < tam; i++) {</br>
