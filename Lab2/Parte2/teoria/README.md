@@ -987,15 +987,18 @@ Teniendo en cuenta **la tabla de equivalencia** anteriormente mostrada podemos p
     <tr>
         <td><b>Invocación</b></td>
         <td>
-            int A = {1, 2, 3}; </br>
+            int A[] = {1, 2, 3}; </br>
             imprimirVector(A, 3); </br>
         </td>
         <td>
-           int A = {1, 2, 3}; </br>
+           int A[] = {1, 2, 3}; </br>
            imprimirVector(A, 3); </br>
         </td>
     </tr>
 </table>
+
+En el siguiente [enlace](https://goo.gl/onVv3v) se encuentra el anterior para simular. Pordrá notar que los resultados no cambian.
+
 
 
 ## 8. Apuntadores a apuntadores
