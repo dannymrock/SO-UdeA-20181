@@ -570,6 +570,8 @@ La siguiente figura muestra en resultado de simular el [código](https://goo.gl/
 
 ![array_no_init](./imagenes/array_no_inicializado.png)
 
+**Figura 6**. Representación en memoria de arreglos no inicializados.
+
 **Forma 2**: Pasando el tamaño:
 
 En lo que respecta a la manipulacion de arreglos, es igual que en java. El uso de estructuras repetitivas para el manejo de los sibindices en el arreglo es empleado. En los siguientes ejemplos se tiene ilustra esto de manera rapida.
@@ -603,6 +605,8 @@ int main() {
 La [simulación](https://goo.gl/ACQc4J) de la aplicacion arroja el siguiente resultado:
 
 ![array_ciclos1](./imagenes/array_ciclos1.png)
+
+**Figura 7**. Empleo de ciclos para manipulación de arrays.
 
 2. Hacer cree dos arreglos (A y B), luego, inicialice el arreglo A con numeros aleatorios entre el 1 y el 20, y finalmente lleve al arreglo B los elementos del arreglo A en orden inverso.
 
@@ -642,6 +646,8 @@ int main() {
 La [simulación](https://goo.gl/kGLi2e) de la aplicacion arroja el siguiente resultado:
 
 ![array_ciclos2](./imagenes/array_ciclos2.png)
+
+**Figura 8**. Otro ejemplo de empleo de ciclos para manipulación de arrays.
 
 Es posible pasar **arreglos** como argumentos de funciones. Basicamente para el caso se tienen en cuenta los mismos 3 aspectos que se mencionaron previamente al tratar las funciones de manera introductoria, pero hay una leve diferencia cuando se emplean arreglos y es propiamente en la parte de la declaracion y la definicion donde se nota esto. Veamos la forma:
 
@@ -741,7 +747,12 @@ void copiaReversa(int destino[], int origen[], int tam) {
   }
 }
 ```
+
+La siguiente figura muestra el resultado del código anterior:
+
 ![funciones_arrays](./imagenes/funciones_arrays.png)
+
+**Figura 9**. Manipulando arreglos con funciones.
 
 #### 2.4.2.1. Apuntadores y vectores
 
@@ -770,25 +781,25 @@ Las tres operaciones anteriormente descritas son generalmente útiles para apunt
 
 ![array_hsw](./imagenes/array_hsw.png)
 
-**Figura 6**. Diferencia entre una variable normal y un vector.
+**Figura 10**. Diferencia entre una variable normal y un vector.
 
 Para ilustrar lo anterior suponga lo que tiene dos apuntadores, p1 y p2 los cuales están apuntando a los elementos de un array a como el siguiente:
 
 ![array_a](./imagenes/array_a.png)
 
-**Figura 7**. Arreglo a.
+**Figura 11**. Arreglo a.
 
 * p1 apunta al elemento i del array (a[i]).
 
 ![array_a_p1](./imagenes/array_a_p1.png)
 
-**Figura 8**. Arreglo a y apuntador p1.
+**Figura 12**. Arreglo a y apuntador p1.
 
 * Si n es un entero, entonces la expresión **p2 = p1 + n** hace que **p2** apunta al elemento **a[i+n]**. Ojo que **i+n** debe estar dentro del índice del array (es decir **0 <= i+n <= Tamaño del array - 1**). La siguiente figura muestra el caso para **n = 2**, es decir que **p2** apuntara al elemento **a[i+2]**
 
 ![array_a_p1_p2](./imagenes/array_a_p1_p2.png)
 
-**Figura 9**. Arreglo a y apuntadores p1 y p2.
+**Figura 13**. Arreglo a y apuntadores p1 y p2.
 
 * La resta **p2 – p1** da el número de elementos del array entre los dos apuntadores. Para el caso de la gráfica anterior **2**.
 * La comparación **p1 < p2** es cierta si el elemento referenciado por p2 tiene un índice más grande que el referenciado por **p1**, de otro lado la comparación es **falsa**. Donde para la figura anterior el resultado es **cierto**.
@@ -838,7 +849,7 @@ En la figura 10 se muestra un array de datos tipo **short** comparado con uno ti
 
 ![array_p](./imagenes/arit_pointer.png)
 
-**Figura 10**. Arrays y apuntadores.
+**Figura 14**. Arrays y apuntadores.
 
 
 ```
@@ -868,14 +879,14 @@ En la siguiente figura se muestra la representacion en memoria en la cual se man
 
 ![array_hsw](./imagenes/mm_char_short1.png)
 
-**Figura 11**. Representación a 4 bytes de ancho.
+**Figura 15**. Representación a 4 bytes de ancho.
 
 **Representacion en memoria con un ancho a 1 byte**
 En la siguiente figura se muestra la representacion en memoria en la cual se manejan 1 byte de ancho.
 
 ![array_hsw2](./imagenes/mm_char_short2.png)
 
-**Figura 12**. Representación a 1 byte de ancho.
+**Figura 16**. Representación a 1 byte de ancho.
 
 2. Supongase que se tiene el siguiente codigo fuente:
 
@@ -999,8 +1010,6 @@ Teniendo en cuenta **la tabla de equivalencia** anteriormente mostrada podemos p
 
 En el siguiente [enlace](https://goo.gl/onVv3v) se encuentra el anterior para simular. Pordrá notar que los resultados no cambian.
 
-
-
 ## 8. Apuntadores a apuntadores
 
 Es posible poner apuntar un apuntador a un apuntador, lo cual se indica con la cantidad de asteriscos colocados en la declaración del apuntador, así la declaración realizada en las siguientes líneas de código:
@@ -1018,7 +1027,7 @@ El resultado de ejecutar las instrucciones anteriores muestra un resultado simil
 
 ![ptr_to_ptr](./imagenes/ptr_to_ptr_ambas.png)
 
-**Figura 13**. Resultado de la ejecución del codigo anterior.
+**Figura 17**. Resultado de la ejecución del codigo anterior.
 
 Notese que aun no se han inicializado las variables (variable normal, apuntador y apuntador a apuntador). A continuación de muestra un código de inicializacion y su respectivo efecto:
 
@@ -1029,7 +1038,7 @@ ppch = &pch; /*Inicializacion del apuntador al apuntador*/
 
 ![ptr_to_ptr__mem_2_3](./imagenes/ptr_to_ptr_mem_2_3.png)
 
-**Figura 14**. Resultado de la ejecución del codigo anterior.
+**Figura 18**. Resultado de la ejecución del codigo anterior.
 
 Notese del codigo anterior que a un apuntador a un apuntador se le debe pasar la dirección de memoria del apuntador al que está siendo inicializado.
 
@@ -1136,8 +1145,6 @@ int main() {
 ```
 
 La salida del código anterior se muestra a continuación:
-
-
 
 2. Analice el siguiente [código](https://goo.gl/esBjrP):
 
