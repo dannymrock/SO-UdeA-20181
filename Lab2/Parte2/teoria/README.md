@@ -506,7 +506,7 @@ El elemento mayor del vector es: 9
 
 #### 2.4.2.1. Vectores
 
-Un arreglo es un conjunto o colección indexada que permite manejar elementos que son del mismo tipo de dato como un solo objeto. A continuación se muestran algunos ejemplos ([enlace simulación](https://goo.gl/8qAgxY)):
+Un arreglo es un conjunto o colección indexada que permite manejar elementos que son del mismo tipo de dato como un solo objeto. A continuación se muestran algunos ejemplos ([enlace simulación](https://goo.gl/8qAgxY)) en los cuales se lleva a cabo la devlaración e inicialización de un vector:
 
 <table>
     <tr>
@@ -530,6 +530,30 @@ Un arreglo es un conjunto o colección indexada que permite manejar elementos qu
         <td><img src="./imagenes/vec_char2.png"></td>
     </tr>
 </table>
+
+Notese, que cuando no se pasa en la declaracion entre corchetes; este es deducido de la lista de inicializacion (pasada entre llaves) o la cadena de caracteres pasada al declarar. En sí, se sigue la siguiente forma:
+
+**Forma 1**: Pasando el tamaño:
+
+```C
+tipo arrayName[TAM] = {valor1, valor2, ...};
+```
+**Nota**: La cantidad de elementos de la lista de inicialización no puede superar el tamaño (TAM) del arreglo. 
+
+**Forma 2**: Pasando el tamaño:
+
+```C
+tipo arrayName[] = {valor1, valor2, ...};
+```
+
+Por otro lado, cuando solo se declaran los arreglos pero no se inicializan, es obligatorio colocar entre corchetes el tamaño. La forma de hacer esto se muestra a continuación:
+
+```C
+tipo arrayName[TAM];
+```
+
+La siguiente figura muestra el caso en el que solo se declaran varios vectores de diferentes tipos y de caracter global y local:
+
 
 Cabe resaltar que la manipulación es similar a la empleada en otros lenguajes como java.
 
