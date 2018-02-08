@@ -950,9 +950,54 @@ La conclusión a la que se llega depues de simular es que existe una corresponde
 |A[0]	| *A |
 |A[i]	| *(A + i) |
 
-Teniendo en cuenta **la tabla de equivalencia** anteriormente mostrada podemos pasar arreglos como parametros de funciones y manipularlos en las instrucciones del cuerpo de la instruccion, esto en resumen, no es mas que hacer un cambio de los corchetes **[]** por el asterirco ***** para la parametro asociado al vector. Veamos esto usando ejemplos.
+Teniendo en cuenta **la tabla de equivalencia** anteriormente mostrada podemos pasar arreglos como parametros de funciones y manipularlos en las instrucciones del cuerpo de la instruccion, esto en resumen, no es mas que hacer un cambio de los corchetes **[]** por el asterirco (propio de los apuntadores) para la parametro asociado al vector. Veamos esto usando ejemplos.
 
-
+<table>
+    <tr>
+        <td><b>Notación</b></td>
+        <td><b>Empleando subindices</b></td>
+        <td><b>Empleando apuntadores</b></td>
+    </tr>
+    <tr>
+        <td><b>Declaración</b></td>
+        <td>void imprimirVector(int V[],int tam);</td>
+        <td>void imprimirVector(int *V,int tam);</td>
+    </tr>
+    <tr>
+        <td><b>Definición</b></td>
+        <td> 
+            
+          void imprimirVector(int V[],int tam) {</br>
+             &nbsp;&nbsp;&nbsp;printf("[ ");</br>
+             &nbsp;&nbsp;&nbsp;for(int i = 0; i < tam; i++) {</br>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   printf("%d ", V[i]); </br>  
+             &nbsp;&nbsp;&nbsp;}</br>
+             &nbsp;&nbsp;&nbsp;printf("]\n");</br>
+          }</br>
+        </td>
+        <td>
+        
+           void imprimirVector(int *V,int tam) {</br>
+             &nbsp;&nbsp;&nbsp;printf("[ ");</br>
+             &nbsp;&nbsp;&nbsp;for(int i = 0; i < tam; i++) {</br>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   printf("%d ", *(V + i)); </br>  
+             &nbsp;&nbsp;&nbsp;}</br>
+             &nbsp;&nbsp;&nbsp;printf("]\n");</br>
+          }</br>
+        </td>
+    </tr>
+    <tr>
+        <td><b>Invocación</b></td>
+        <td>
+            int A = {1, 2, 3}; </br>
+            imprimirVector(A, 3); </br>
+        </td>
+        <td>
+           int A = {1, 2, 3}; </br>
+           imprimirVector(A, 3); </br>
+        </td>
+    </tr>
+</table>
 
 
 ## 8. Apuntadores a apuntadores
