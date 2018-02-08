@@ -569,9 +569,47 @@ int main() {
 
 La siguiente figura muestra en resultado de simular el [código](https://goo.gl/hWPDDj) anterior, observe la diferencia en el valor inicial de los arreglos globales respecto a los locales:
 
+![array_no_init](./imagenes/array_no_inicializado.png)
+
+**Forma 2**: Pasando el tamaño:
+
+En lo que respecta a la manipulacion de arreglos, es igual que en java. El uso de estructuras repetitivas para el manejo de los sibindices en el arreglo es empleado. En los siguientes ejemplos se tiene ilustra esto de manera rapida.
+
+**Ejemplos**
+
+1. Hacer un progama que llene un arreglo de 10 elementos con los multiplos del 10 (1, 10, 20, etc.).
+
+```C
+#include <stdio.h>
+
+#define TAM 10
+
+int main() {
+  int A[TAM];
+  int num = 1;
+  // Inicializando el arreglo
+  for(int i = 0; i < TAM; i++) {
+    A[i] = 10*num;
+    num++;     
+  }
+  // Imprimiendo el arreglo
+  printf("A = [ ");
+  for(int i = 0; i < TAM; i++) {
+    printf("%d ", A[i]);     
+  }
+  printf("]");
+  return 0;
+}
+```
+La [simulación](https://goo.gl/ACQc4J) de la aplicacion arroja el siguiente resultado:
+
+[array_ciclos1](./imagenes/array_ciclos1.png)
+
+2. Hacer cree dos arreglos (A y B), luego, inicialice el arreglo A con numeros aleatorios entre el 1 y el 20, y finalmente lleve al arreglo B los elementos del arreglo A en orden inverso.
 
 
-Cabe resaltar que la manipulación es similar a la empleada en otros lenguajes como java.
+
+Cabe resaltar que la manipulación es similar a la empleada en otros lenguajes como java. 
 
 #### 2.4.2.1. Apuntadores y vectores
 
