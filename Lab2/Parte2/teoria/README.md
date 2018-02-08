@@ -1010,7 +1010,7 @@ Teniendo en cuenta **la tabla de equivalencia** anteriormente mostrada podemos p
 
 En el siguiente [enlace](https://goo.gl/onVv3v) se encuentra el anterior para simular. Pordrá notar que los resultados no cambian.
 
-## 8. Apuntadores a apuntadores
+## 4. Apuntadores a apuntadores
 
 Es posible poner apuntar un apuntador a un apuntador, lo cual se indica con la cantidad de asteriscos colocados en la declaración del apuntador, así la declaración realizada en las siguientes líneas de código:
 ```C
@@ -1094,7 +1094,7 @@ int main() {
   return 0;
 }
 ```
-## 9. Apuntadores genericos y casts
+## 5. Apuntadores genericos y casts
 
 Un apuntador generico o void pointer es un tipo especial de apuntador que puede apuntar a cualquier tipo de dato.
 Su unica limitación es que el dato apuntado no puede ser desreferenciado directamente (el operador * no puede ser usado en este tipo de apuntadores) pues para el caso, la longitud del tipo de dato al que se apunta no puede ser determinada lo hace necesario un casting para hacer que el aputador generico pueda apuntar a un tipo de dato concreto (el cual si puede ser referenciado).
@@ -1143,8 +1143,11 @@ int main() {
   return 0;
 }
 ```
-
 La salida del código anterior se muestra a continuación:
+
+![void_ptr](./imagenes/void_ptr1.png)
+
+**Figura 19**. Ejemplo de un apuntador generico.
 
 2. Analice el siguiente [código](https://goo.gl/esBjrP):
 
@@ -1183,9 +1186,13 @@ void swapFloat(float *a, float *b) {
   *b = temp;
 }
 ```
+La salida del código anterior se muestra a continuación:
+
+![void_ptr_fun_no_gen](./imagenes/swap_no_generico.png)
+
+**Figura 20**. Funciones por referencia normales.
 
 **Reto**: Hacer la función que permita hacer el intercambio entre dos cadenas de caracteres
-
 
 3. Analice el siguiente [código](https://goo.gl/sVRt1y):
 
@@ -1225,10 +1232,9 @@ int swap2(void *x, void *y, int size) {
   return 0;
 }
 ```
+Notese respecto al codigo del ejemplo 2 que se tiene al usar apuntadores genericos, pues una misma funcion puede soportar diferentes tipos de datos. La función **memcpy** empleada en el ejemplo anterior puede ser estudiada con mas detalle en el siguiente [enlace](https://www.tutorialspoint.com/c_standard_library/c_function_memcpy.htm).
 
-
-
-## ss. Enlaces de interés
+## 6. Enlaces de interés
 * https://www.geeksforgeeks.org/data-types-in-c/
 * https://www.programiz.com/c-programming/c-enumeration
 * http://people.duke.edu/~tkb13/courses/ncsu-csc230/lecture/
@@ -1239,7 +1245,7 @@ int swap2(void *x, void *y, int size) {
 * https://www.tutorialspoint.com/cprogramming/c_pointer_to_pointer.htm
 * https://boredzo.org/pointers/
 * https://beginnersbook.com/2014/01/c-pointer-to-pointer/
-
+* https://www.tutorialspoint.com/cprogramming/index.htm
 
 
 
