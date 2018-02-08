@@ -694,7 +694,7 @@ imprimirVector(X, 4); // Salida --> [ 1 2 3 4 ]
 ```
 2. Observe el ejemplo 2 anteriormente analizado e implementelo en forma modular empleando funciones.
 
-La simulación del código se muestra en el siguinente [enlace](https://goo.gl/ZiQPm8) 
+La simulación del código se muestra en el siguinente [enlace](https://goo.gl/xDatTm) 
 
 ```C
 #include <stdio.h>
