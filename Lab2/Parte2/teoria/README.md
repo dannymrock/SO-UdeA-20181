@@ -966,36 +966,60 @@ En si el cast es de la forma:
 *((tipo *)ptr)
 ```
 
+A continuación se muestran algunos ejemplos para aclarar lo anteriormente mencionado.
+
+**Ejemplos**
+
+1. Analice el siguiente [código](https://goo.gl/h23kLW):
+
 ```C
 #include <stdio.h>
-int main()
-{
-  int a=5,
-  double b=3.1415;
+
+int main() {
+  int a = 5;
+  double b = 3.1415;
   void *vp;
-  vp=&a;
-  printf("\n a = %d", *((int *)vp)); // Cast
-  vp=&b;
-  printf("\n b = %d", *((double *)vp));
+  vp = &a;
+  printf("a = %d\n", *((int *)vp)); // Cast a (int *)
+  vp = &b;
+  printf("b = %lf\n", *((double *)vp)); // Cast (double *)
   return 0;
 }
 ```
 
+La salida del código anterior se muestra a continuación:
+
+
+
+2. Analice el siguiente [código](https://goo.gl/JfBxqm):
+
+
 ```C
 #include <stdio.h>
 
-void swapInt(int *a, int *b);
+void swapChar(char *a, char *b);
 void swapFloat(float *a, float *b);
 
+int main() {
+  char w = 'w', x = 'a';
+  float y = 2.3, z = -0.5;
+  printf("---- Caracteres ----\n");
+  printf("Antes: w = %c, x = %c\n", w, x);
+  swapChar(&w, &x);
+  printf("Antes: w = %c, x = %c\n", w, x);
+  printf("---- Reales ----\n");
+  printf("Antes: y = %.2f, z = %.2f\n", y, z);
+  swapFloat(&y, &z);
+  printf("Antes: y = %.2f, z = %.2f\n", y, z);  
+  return 0;
+}
 
-
-void swapInt(int *a, int *b) {
-  int temp;
+void swapChar(char *a, char *b) {
+  char temp;
   temp = *a;
   *a = *b;
   *b = temp;
 }
-
 
 void swapFloat(float *a, float *b) {
   float temp;
@@ -1003,8 +1027,9 @@ void swapFloat(float *a, float *b) {
   *a = *b;
   *b = temp;
 }
-
 ```
+
+
 
 ```C
 #include <stdlib.h>
