@@ -603,13 +603,14 @@ int main() {
 ```
 La [simulación](https://goo.gl/ACQc4J) de la aplicacion arroja el siguiente resultado:
 
-[array_ciclos1](./imagenes/array_ciclos1.png)
+![array_ciclos1](./imagenes/array_ciclos1.png)
 
 2. Hacer cree dos arreglos (A y B), luego, inicialice el arreglo A con numeros aleatorios entre el 1 y el 20, y finalmente lleve al arreglo B los elementos del arreglo A en orden inverso.
 
+La [simulación](https://goo.gl/kGLi2e) de la aplicacion arroja el siguiente resultado:
 
+![array_ciclos2](./imagenes/array_ciclos2.png)
 
-Cabe resaltar que la manipulación es similar a la empleada en otros lenguajes como java. 
 
 #### 2.4.2.1. Apuntadores y vectores
 
