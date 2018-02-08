@@ -501,7 +501,6 @@ La salida del programa anterior en pantalla es la siguiente:
 El elemento mayor del vector es: 9
 ```
 
-
 ### 2.4.2. Apuntadores y vectores
 
 #### 2.4.2.1. Vectores
@@ -643,6 +642,106 @@ int main() {
 La [simulación](https://goo.gl/kGLi2e) de la aplicacion arroja el siguiente resultado:
 
 ![array_ciclos2](./imagenes/array_ciclos2.png)
+
+Es posible pasar **arreglos** como argumentos de funciones. Basicamente para el caso se tienen en cuenta los mismos 3 aspectos que se mencionaron previamente al tratar las funciones de manera introductoria, pero hay una leve diferencia cuando se emplean arreglos y es propiamente en la parte de la declaracion y la definicion donde se nota esto. Veamos la forma:
+
+**Definición de la función**
+
+```C
+return_type function_name (data type array[],...) {
+  local declarations;
+  function statements;
+}
+```
+**Declaración de la función**
+
+```C
+return_type function_name (data type arrayParam[],...) 
+```
+
+**Invocación de la función**
+```C
+[return_type var = ] function_name (arrayArg[],...) 
+```
+
+**Ejemplo**
+1. Observe el ejemplo 2 anteriormente analizado, muestra cada uno de los componentes (definición, declaracón e invocación) de lo que sería una función para imprimir entero un vector de cualquier tamaño.
+
+* **Definición de la función**
+
+```C
+// Definicion de la funcion para imprimir un array de cualquier tamaño
+void imprimirVector(int V[],int tam) {
+  printf("[ ");
+  for(int i = 0; i < tam; i++) {
+    printf("%d ", V[i]);   
+  }
+  printf("]\n");
+}
+```
+* **Declaración de la función**
+
+```C
+// Declaracion de la funcion para imprimir un array de cualquier tamaño
+void imprimirVector(int V[],int tam);
+```
+
+* **Invocación de la función**
+```C
+// Invocacion para imprimir 
+int X[] = {1, 2, 3, 4};
+imprimirVector(X, 4); // Salida --> [ 1 2 3 4 ]
+```
+2. Observe el ejemplo 2 anteriormente analizado e implementelo en forma modular empleando funciones.
+
+https://goo.gl/ZiQPm8
+
+```C
+#include <stdio.h>
+#include <stdlib.h> // required to use 'rand()'
+#include <time.h>  // required to use 'srand(time(NULL))'
+#define TAM 10
+
+void imprimirVector(int V[],int tam);
+void generarVectorAleatorio(int V[], int tam, int vInf, int vSup);
+void copiaReversa(int destino[], int origen[], int tam) ;
+
+int main() {
+  srand(time(NULL)); // required for "randomness"
+  int A[TAM], B[TAM];
+  int limSup = 20, limInf = 1;  
+  generarVectorAleatorio(A, TAM, 1, 20);
+  copiaReversa(B, A, TAM);
+  // Imprimiendo el arreglo A
+  printf("A = ");
+  imprimirVector(A, TAM);
+  // Imprimiendo el arreglo B
+  printf("B = ");
+  imprimirVector(B, TAM);
+  return 0;  
+}
+
+void generarVectorAleatorio(int V[], int tam, int vInf, int vSup) {
+  for(int i = 0; i < tam; i++) {
+    V[i] = rand()%vSup + vInf;            
+  }
+}
+
+void imprimirVector(int V[],int tam) {
+  printf("[ ");
+  for(int i = 0; i < tam; i++) {
+    printf("%d ", V[i]);   
+  }
+  printf("]\n");
+}
+
+void copiaReversa(int destino[], int origen[], int tam) {
+  for(int i = 0; i < tam; i++) {
+    destino[tam - (i + 1)] = origen[i];   
+  }
+}
+```
+La [simulación](https://goo.gl/ZiQPm8) del código anterior arroja el siguiente resultado:
 
 
 #### 2.4.2.1. Apuntadores y vectores
@@ -991,7 +1090,7 @@ La salida del código anterior se muestra a continuación:
 
 
 
-2. Analice el siguiente [código](https://goo.gl/JfBxqm):
+2. Analice el siguiente [código](https://goo.gl/esBjrP):
 
 
 ```C
@@ -1006,11 +1105,11 @@ int main() {
   printf("---- Caracteres ----\n");
   printf("Antes: w = %c, x = %c\n", w, x);
   swapChar(&w, &x);
-  printf("Antes: w = %c, x = %c\n", w, x);
+  printf("Despues: w = %c, x = %c\n", w, x);
   printf("---- Reales ----\n");
   printf("Antes: y = %.2f, z = %.2f\n", y, z);
   swapFloat(&y, &z);
-  printf("Antes: y = %.2f, z = %.2f\n", y, z);  
+  printf("Despues: y = %.2f, z = %.2f\n", y, z);  
   return 0;
 }
 
@@ -1029,11 +1128,35 @@ void swapFloat(float *a, float *b) {
 }
 ```
 
+**Reto**: Hacer la función que permita hacer el intercambio entre dos cadenas de caracteres
 
+
+3. Analice el siguiente [código](https://goo.gl/sVRt1y):
 
 ```C
-#include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
+
+swap2(void *x, void *y, int size);
+
+int main() {
+  char w = 'w', x = 'a';
+  float y = 2.3, z = -0.5;
+  char s1[] = "abcd", s2[]="wxyz";
+  printf("---- Caracteres ----\n");
+  printf("Antes: w = %c, x = %c\n", w, x);
+  swap2(&w, &x, sizeof(char));
+  printf("Despues: w = %c, x = %c\n", w, x);
+  printf("---- Reales ----\n");
+  printf("Antes: y = %.2f, z = %.2f\n", y, z);
+  swap2(&y, &z, sizeof(float));
+  printf("Despues: y = %.2f, z = %.2f\n", y, z); 
+  printf("---- Cadenas ----\n");
+  printf("Antes: s1 = %s, s2 = %s\n", s1, s2);
+  swap2(s1, s2, sizeof(s1));
+  printf("Despues: s1 = %s, s2 = %s\n", s1, s2);   
+  return 0;
+}
+
 int swap2(void *x, void *y, int size) {
   void *tmp;
   if ((tmp = malloc(size)) == NULL) {
@@ -1046,6 +1169,8 @@ int swap2(void *x, void *y, int size) {
   return 0;
 }
 ```
+
+
 
 ## ss. Enlaces de interés
 * https://www.geeksforgeeks.org/data-types-in-c/
