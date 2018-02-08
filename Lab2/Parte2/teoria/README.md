@@ -830,7 +830,7 @@ return 0;
 
 Para entender el resultado del código anterior puede seguir el siguiente [enlace](https://goo.gl/sSW8gy).
 
-## 7. Aritmetica de punteros
+## 3. Aritmetica de punteros
 Como se dijo previamente, un apuntador almacena un direccion de memoria asociada a un dato. Tambien, se mostro como es posible hacer uso de apuntadores para barrer y manipular arrays. La existencia diferentes tipos de datos en C (char, int, float, double, ...) con un tamaño en bytes asociado repercute en los valores almancenados en el apuntador. Para aclarar esto un poco observemos las siguientes graaficas.
 
 En la figura 10 se muestra un array de datos tipo **short** comparado con uno tipo **char**. Los datos tipo short tienen un tamaño de 2 bytes de modo que cada miembro consecutivo del array tipo short (A) tendra una direccion aumentada 2 bytes respecto a miembro anterior; segun lo anterior, si la direccion del elemento A[0] es 0x1000 (&A[0] = 0x1000), la dirección del miembro A[1] será 0x1000 + 2bytes = 0x1000 + 16bits = 0x1010. Por otro lado, en el caso del arreglo char B, la direccion solo cambiar de uno en uno. Asi, si &B[0] = 0x1000, entonces &B[1] = 0x1008. De modo que se puede llegar a una expresión mas general como la siguiente:
@@ -949,6 +949,10 @@ La conclusión a la que se llega depues de simular es que existe una corresponde
 |&A[i]	| A + i |
 |A[0]	| *A |
 |A[i]	| *(A + i) |
+
+Teniendo en cuenta **la tabla de equivalencia** anteriormente mostrada podemos pasar arreglos como parametros de funciones y manipularlos en las instrucciones del cuerpo de la instruccion, esto en resumen, no es mas que hacer un cambio de los corchetes **[]** por el asterirco ***** para la parametro asociado al vector. Veamos esto usando ejemplos.
+
+
 
 
 ## 8. Apuntadores a apuntadores
