@@ -607,6 +607,39 @@ La [simulación](https://goo.gl/ACQc4J) de la aplicacion arroja el siguiente res
 
 2. Hacer cree dos arreglos (A y B), luego, inicialice el arreglo A con numeros aleatorios entre el 1 y el 20, y finalmente lleve al arreglo B los elementos del arreglo A en orden inverso.
 
+```C
+#include <stdio.h>
+#include <stdlib.h> // required to use 'rand()'
+#include <time.h>  // required to use 'srand(time(NULL))'
+#define TAM 10
+
+int main() {
+  srand(time(NULL)); // required for "randomness"
+  int A[TAM], B[TAM];
+  int limSup = 20, limInf = 1;  
+  // Inicializando el arreglo
+  for(int i = 0; i < TAM; i++) {
+    A[i] = rand()%limSup + limInf; // generate a number 
+                                   // between limInf and limSup
+     
+  }
+  // Imprimiendo el arreglo A
+  printf("A = [ ");
+  for(int i = 0; i < TAM; i++) {
+    printf("%d ", A[i]);   
+    B[TAM - (i + 1)] = A[i];
+  }
+  printf("]\n"); 
+  // Imprimiendo el arreglo B
+  printf("B = [ ");
+  for(int i = 0; i < TAM; i++) {
+    printf("%d ", B[i]);   
+  }
+  printf("]\n");
+  return 0;  
+}
+```
+
 La [simulación](https://goo.gl/kGLi2e) de la aplicacion arroja el siguiente resultado:
 
 ![array_ciclos2](./imagenes/array_ciclos2.png)
