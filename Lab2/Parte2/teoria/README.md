@@ -531,7 +531,7 @@ Un arreglo es un conjunto o colección indexada que permite manejar elementos qu
     </tr>
 </table>
 
-Notese, que cuando no se pasa en la declaracion entre corchetes; este es deducido de la lista de inicializacion (pasada entre llaves) o la cadena de caracteres pasada al declarar. En sí, se sigue la siguiente forma:
+Notese, que cuando no se pasa el **tamaño** en la declaracion entre corchetes; este es deducido de la lista de inicializacion (pasada entre llaves) o la cadena de caracteres (string) pasada al declarar. En sí, se sigue la siguiente forma:
 
 **Forma 1**: Pasando el tamaño:
 
@@ -546,13 +546,29 @@ tipo arrayName[TAM] = {valor1, valor2, ...};
 tipo arrayName[] = {valor1, valor2, ...};
 ```
 
-Por otro lado, cuando solo se declaran los arreglos pero no se inicializan, es obligatorio colocar entre corchetes el tamaño. La forma de hacer esto se muestra a continuación:
+Por otro lado, cuando solo se declaran los arreglos pero no se inicializan, es obligatorio colocar entre corchetes el **tamaño**. La forma de hacer esto se muestra a continuación:
 
 ```C
 tipo arrayName[TAM];
 ```
 
-La siguiente figura muestra el caso en el que solo se declaran varios vectores de diferentes tipos y de caracter global y local:
+La siguiente figura muestra el caso en el que solo se declaran varios vectores de diferentes tipos tanto globales como locales:
+
+```C
+// Variables globales
+int A[3];
+double B[4];
+
+int main() {
+  // Variables locales
+  char C[6];
+  int D[2];
+  return 0;
+}
+```
+
+La siguiente figura muestra en resultado de simular el [código](https://goo.gl/hWPDDj) anterior, observe la diferencia en el valor inicial de los arreglos globales respecto a los locales:
+
 
 
 Cabe resaltar que la manipulación es similar a la empleada en otros lenguajes como java.
