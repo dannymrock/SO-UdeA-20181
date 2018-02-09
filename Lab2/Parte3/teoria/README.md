@@ -224,6 +224,33 @@ Otra forma de pasar matrices a funciones es empleando apuntadores, pero esto ser
 
 ## 2. Apuntadores y matrices
 
+Así como en el caso de los arreglos de una dimensión, es posible representar los arreglos multidimensionales con una notación de punteros equivalente. 
+
+En el caso de las matrices de dos dimensiones, cuando estas se almacenan en memoria, la forma como la memoria se llena es fila por fila, es decir si se tiene una matriz de n filas por m columnas las primeras n posiciones en memoria corresponden a los n elementos de la primera fila, las n posiciones siguientes corresponden a los n elementos de la siguiente fila y así sucesivamente hasta que todas las filas son ocupadas (n*m posiciones de memoria). La siguiente figura muestra esto:
+
+
+<table>
+<tbody>
+<tr>
+<td></b>Representacion de la matrix</b></td>
+<td></b>Representacion en memoria</b></td>
+</tr>
+<tr>
+<td><img src="./imagenes/a1.png" alt="a"><br>
+<br>
+short a[3][2] = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{101,51},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{102,67},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{103,76}<br>
+              };<br>
+  
+</td>
+
+</tr>
+<tbody>  
+</table>
+
+
 header could be written as follows:
 <table>
 <tbody>
