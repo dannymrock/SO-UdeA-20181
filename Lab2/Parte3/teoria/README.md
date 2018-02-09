@@ -1,4 +1,4 @@
-# Apuntadores y arreglos
+# Apuntadores y arreglos multidimensionales
 
 > **Objetivos**
 > * Introducir el concepto, manipulacion y uso de los arreglos multidimensionales.
@@ -222,7 +222,7 @@ Finalmante, para todos los casos anteriormente expuestos, la salida es la siguie
 
 Otra forma de pasar matrices a funciones es empleando apuntadores, pero esto ser visto posteriormente.
 
-
+## 2. Apuntadores y matrices
 
 header could be written as follows:
 <table>
