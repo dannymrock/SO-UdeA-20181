@@ -465,8 +465,17 @@ int main() {
 }
 ```
 
-PONER LAS GRAFICAS ASOCIADAS.
+La salida del código anterior se muestra a continuación:
 
+![matrix_12](./imagenes/ejemplo_analisis1.png)
+
+**Figura 12**. Resultado del ejemplo 1.
+
+Por otro lado, la representacion en memoria y como arreglo de vectores de la matrix, con base en la figura anterior es se muestra a continuacion.
+
+![matrix_13](./imagenes/ejemplo_analisis1_1.png)
+
+**Figura 13**. Representacion en memomria de la matrix analizada en el ejemplo.
 
 2. Analizar el siguiente [codigo](https://goo.gl/bAxFPX):
 
