@@ -505,7 +505,7 @@ La siguiente tabla muestra el resultado de realizar la prueba de escritorio paso
 <td>
   int B[2][2]= {1, 2, 3, 4};<br>
   <b>int (*p)[2];</b><br>
-  p = A;<br>
+  p = B;<br>
   **p = -(*(p[0] + 1));<br>
   p++;<br>
   **p = *(*p + 1) + 1;<br>
@@ -517,7 +517,7 @@ La siguiente tabla muestra el resultado de realizar la prueba de escritorio paso
 <td>
   int B[2][2]= {1, 2, 3, 4};<br>
   int (*p)[2];<br>
-  <b>p = A;</b><br>
+  <b>p = B;</b><br>
   **p = -(*(p[0] + 1));<br>
   p++;<br>
   **p = *(*p + 1) + 1;<br>
@@ -529,7 +529,7 @@ La siguiente tabla muestra el resultado de realizar la prueba de escritorio paso
 <td>
   int B[2][2]= {1, 2, 3, 4};<br>
   int (*p)[2];<br>
-  p = A;<br>
+  p = B;<br>
   <b>**p = -(*(p[0] + 1));</b><br>
   p++;<br>
   **p = *(*p + 1) + 1;<br>
@@ -541,7 +541,7 @@ La siguiente tabla muestra el resultado de realizar la prueba de escritorio paso
 <td>
   int B[2][2]= {1, 2, 3, 4};<br>
   int (*p)[2];<br>
-  p = A;<br>
+  p = B;<br>
   **p = -(*(p[0] + 1));<br>
   <b>p++;</b><br>
   **p = *(*p + 1) + 1;<br>
@@ -553,7 +553,7 @@ La siguiente tabla muestra el resultado de realizar la prueba de escritorio paso
 <td>
   int B[2][2]= {1, 2, 3, 4};<br>
   int (*p)[2];<br>
-  p = A;<br>
+  p = B;<br>
   **p = -(*(p[0] + 1));<br>
   p++;<br>
   <b>**p = *(*p + 1) + 1;</b><br>
