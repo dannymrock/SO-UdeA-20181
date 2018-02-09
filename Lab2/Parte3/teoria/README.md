@@ -465,6 +465,9 @@ int main() {
 }
 ```
 
+PONER LAS GRAFICAS ASOCIADAS.
+
+
 2. Analizar el siguiente [codigo](https://goo.gl/bAxFPX):
 
 ```C
@@ -480,6 +483,8 @@ int main() {
 ```
 
 La siguiente tabla muestra el resultado de realizar la prueba de escritorio paso por paso (resaltando en negrita) la instruccion que esta ejecutandose. Asi mismo, se asumen que las direcciones estan en formato decimal y no hexadecimal.
+
+
 
 
 
