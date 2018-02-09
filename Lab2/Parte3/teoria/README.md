@@ -504,6 +504,54 @@ La siguiente tabla muestra el resultado de realizar la prueba de escritorio paso
 <td> <img src="./imagenes/ejemplo_analisis2_1.png" alt="2_1"> </td>
 <td> <img src="./imagenes/ejemplo_analisis2_mem1.png" alt="2_1mem"> </td>
 </tr>
+<tr>
+<td>
+  int B[2][2]= {1, 2, 3, 4};<br>
+  int (*p)[2];<br>
+  <b>p = A;</b><br>
+  **p = -(*(p[0] + 1));<br>
+  p++;<br>
+  **p = *(*p + 1) + 1;<br>
+</td>
+<td> <img src="./imagenes/ejemplo_analisis2_2.png" alt="2_2"> </td>
+<td> <img src="./imagenes/ejemplo_analisis2_mem2.png" alt="2_2mem"> </td>
+</tr>
+<tr>
+<td>
+  int B[2][2]= {1, 2, 3, 4};<br>
+  int (*p)[2];<br>
+  p = A;<br>
+  <b>**p = -(*(p[0] + 1));</b><br>
+  p++;<br>
+  **p = *(*p + 1) + 1;<br>
+</td>
+<td> <img src="./imagenes/ejemplo_analisis2_3.png" alt="2_3"> </td>
+<td> <img src="./imagenes/ejemplo_analisis2_mem3.png" alt="2_3mem"> </td>
+</tr>  
+<tr>
+<td>
+  int B[2][2]= {1, 2, 3, 4};<br>
+  int (*p)[2];<br>
+  p = A;<br>
+  **p = -(*(p[0] + 1));<br>
+  <b>p++;</b><br>
+  **p = *(*p + 1) + 1;<br>
+</td>
+<td> <img src="./imagenes/ejemplo_analisis2_4.png" alt="2_4"> </td>
+<td> <img src="./imagenes/ejemplo_analisis2_mem4.png" alt="2_4mem"> </td>
+</tr>   
+<tr>
+<td>
+  int B[2][2]= {1, 2, 3, 4};<br>
+  int (*p)[2];<br>
+  p = A;<br>
+  **p = -(*(p[0] + 1));<br>
+  p++;<br>
+  <b>**p = *(*p + 1) + 1;</b><br>
+</td>
+<td> <img src="./imagenes/ejemplo_analisis2_5.png" alt="2_5"> </td>
+<td> <img src="./imagenes/ejemplo_analisis2_mem5.png" alt="2_5mem"> </td>
+</tr>    
 </tbody>
 </table>  
 
