@@ -451,17 +451,11 @@ La siguiente figura muestra el resultado del código anterior:
 
 
 ## xxx. Enlaces de interés
-* https://www.geeksforgeeks.org/data-types-in-c/
-* https://www.programiz.com/c-programming/c-enumeration
-* http://people.duke.edu/~tkb13/courses/ncsu-csc230/lecture/
-* https://www.geeksforgeeks.org/dangling-void-null-wild-pointers/
-* https://www.geeksforgeeks.org/tag/c-pointers/
-* https://www.geeksforgeeks.org/double-pointer-pointer-pointer-c/
-* https://www.eskimo.com/~scs/cclass/int/sx8.html
-* https://www.tutorialspoint.com/cprogramming/c_pointer_to_pointer.htm
-* https://boredzo.org/pointers/
-* https://beginnersbook.com/2014/01/c-pointer-to-pointer/
-* https://www.tutorialspoint.com/cprogramming/index.htm
+* https://www.geeksforgeeks.org/pass-2d-array-parameter-c/
+* https://www.programiz.com/c-programming/c-arrays-functions
+* https://www.programiz.com/c-programming/examples/matrix-multiplication-function
+* https://beginnersbook.com/2014/01/c-passing-array-to-function-example/
+
 
 
 
