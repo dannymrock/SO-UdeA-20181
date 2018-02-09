@@ -287,9 +287,51 @@ De modo que segun lo anterior, la representacion en memoria de la matrix será:
 
 Así mismo, un arreglo de dos dimensiones puede ser tratado como un arreglo de una dimensión cuyos elementos son arreglos de una dimensión (las filas). Esto es resaltado en la siguiente figura para la matrix anteriormente definida:
 
-![matrix_7(./imagenes/matrix_vector.png)
+![matrix_7](./imagenes/matrix_vector.png)
 
 **Figura 7**. Representación de la matrix como arreglos de una dimension asociada a  cada una de las filas.
+
+**Ejemplo**: Se tiene el siguiente [codigo fuente](https://goo.gl/rCTH5C)
+
+```C
+#include <stdio.h>
+
+int main() {
+  int mat[][3] = {{1,2,3},{4,5,6},{7,8,9}};
+  /* Analisis del elemento mat[0][0] */
+  printf("mat: %p\n", mat); // D
+  printf("*mat: %p\n", *mat); // D
+  // -----------------------------------------------------
+  printf("mat[0]: %p\n",mat[0]); // D
+  printf("&mat[0][0]: %p\n",&mat[0][0]); // D
+  printf("**mat: %d\n",**mat); // V
+  printf("*(mat[0]): %d\n",*(mat[0])); // V
+  printf("*(&mat[0][0]): %d\n",*(&mat[0][0])); // V
+  printf("---------------------\n");
+  /* Analisis del elemento mat[1][0] */
+  printf("mat[1]: %p\n",mat[1]); // D
+  printf("&mat[1][0]: %p\n",&mat[1][0]); // D
+  printf("mat[1][0]: %d\n",mat[1][0]); // V
+  printf("*mat[1]: %d\n",*mat[1]); // V
+  printf("*(&mat[1][0]): %d\n",*(&mat[1][0])); // V
+  printf("---------------------\n");
+  /* Analisis del elemento mat[2][1] */
+  printf("&mat[2][1]: %p\n",&mat[2][1]); // D
+  printf("mat[2] + 1: %p\n",mat[2] + 1); // D
+  printf("mat[2][1]: %d\n",mat[2][1]); // V
+  printf("*(mat[2] + 1): %d\n",*(mat[2] + 1)); // V
+  printf("*(*(mat + 2) + 1): %d\n",*(*(mat + 2) + 1)); // V
+  return 0;
+}
+```
+
+La salida del codigo anterior se muestra a continuación:
+
+![matrix_8](./imagenes/matrix_example.png)
+
+**Figura 8**. Salida del codigo anterior.
+
+
 
 header could be written as follows:
 <table>
