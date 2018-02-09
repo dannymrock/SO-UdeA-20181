@@ -252,6 +252,39 @@ Para el caso vamos a suponer que cada dato tipo short ocupa 2 bytes.
 <tbody>  
 </table>
 
+A continuación se muestra otro ejemplo para reforzar el concepto. Para el caso, dato el siguiente [codigo](https://goo.gl/wPqC3b)
+
+```C
+#include <stdio.h>
+
+int main() {
+  int matrix[2][5] = {
+                       {1,2,3,4,5},
+                       {6,7,8,9,10}
+                     };
+
+  for(int i = 0; i < 2; i++) {
+    for(int j = 0; j < 5; j++) {
+      printf("matrix[%d][%d] -> Address: %p, Value: %d\n",\
+             i,j,&matrix[i][j],matrix[i][j]);
+    }    
+  }
+  return 0;
+}
+```
+
+La salida del programa se muestra a continuación:
+
+![matrix_5](./imagenes/matrix_output.png)
+
+**Figura 5**. Salida del programa.
+
+De modo que segun lo anterior, la representacion en memoria de la matrix será:
+
+![matrix_6](./imagenes/matrix_mem.png)
+
+**Figura 6**. Representación de la matrix en memoria.
+
 
 header could be written as follows:
 <table>
