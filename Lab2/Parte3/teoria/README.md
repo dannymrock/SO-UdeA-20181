@@ -6,6 +6,50 @@
 
 ## 1. Arreglos multidimensionales en C
 
+A diferencia de los vectores, los arreglos multidimensionales (tambien conocidos como) se caracterizan por que manejan mas de un indice. Respecto a la manipulación, no existen considerables diferencias con java, sin embargo, a modo de repaso vamos a introducir algunos conceptos de repaso.
+
+### 1.1. Declaración
+Aqui se establecen ls dimensiones de cada componente, las formas mas comunes siguen una sintaxis como la siguiente:
+
+**Caso para un arreglo de dos dimensiones**
+
+```C
+// Arreglo de dos dimensiones
+arrayType  arrayName[Rows][Columns];
+```
+
+**Caso para un arreglo de tres dimensiones**
+
+```C
+// Arreglo de tres dimensiones
+arrayType  arrayName[Planes][Rows ][Columns];
+```
+
+**Caso para un arreglo de N dimensiones**
+
+```C
+// Arreglo de N dimensiones
+arrayType  arrayName[Dim1][Dim2]...[DimN];
+```
+
+**Ejemplo**
+El siguiente codigo muestra algunas declaraciones:
+
+```C
+int A[2][3];
+float B[3][1];
+int main() {
+  char C[2][3][4];
+  return 0;
+}
+```
+
+La salida es como se muestra a continuacion:
+
+([enlace simulación](https://goo.gl/8qAgxY))
+
+**Figura 1**. Declaración de varios arreglos multidimensionales.
+
 <table>
 <tbody>
 <tr>
