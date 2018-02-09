@@ -78,6 +78,53 @@ La representación en memoria de las matrices declaradas en el ejercicio anterio
 
 **Figura 2**. Declaración e inicialización de varios arreglos multidimensionales.
 
+**Nota**: Al inicializar una matrix se debe pasar como minimo la dimension de las columnas (para el caso de dos dimensiones), si no se hace el compilador no sera capaz de deducir el tamaño de la matriz y se producira un error.
+
+### 1.2. Procesamiento de los arreglos multimensionales
+
+Como en java, el uso de ciclos anidados es fundamentar para el movimiento a traves de cada uno de los elementos de la matrix. Generalmente, las varibles que controlan los ciclos seran empleados como subindices para barrer las matrices. A continuación se muestra un [codigo ejemplo](https://goo.gl/5Ucmws) para refrescar el concepto:
+
+```C
+#include <stdio.h>
+
+#define F 3
+#define C 4
+
+
+int main() {
+  int M[F][C] = {
+                  {4, 2, 7, 3},
+                  {6, 1, 9, 5},
+                  {8, 5, 0, 1}  
+                };
+  
+  printf("Barriendo por filas: \n");
+  for(int i = 0; i < F; i++) {
+    printf("Fila %d: ",i);
+    for(int j = 0; j < C; j++) {
+      printf("%d ",M[i][j]);
+    }
+    printf("\n");
+  }
+  printf("\nBarriendo por columnas: \n");
+  for(int i = 0; i < C; i++) {
+    printf("Columna %d: ",i);
+    for(int j = 0; j < F; j++) {
+      printf("%d ",M[j][i]);
+    }
+    printf("\n");
+  }
+  return 0;
+}
+```
+
+En la siguiente figura se muestra el resultado del código anterior.
+
+![matrix_3](./imagenes/matriz3.png)
+
+**Figura 3**. Barriendo un array multidimensional.
+
+
 
 <table>
 <tbody>
