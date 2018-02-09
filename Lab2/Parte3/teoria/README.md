@@ -557,6 +557,7 @@ La siguiente tabla muestra el resultado de realizar la prueba de escritorio paso
 
 
 
+
 ## xxx. Enlaces de interés
 * https://www.geeksforgeeks.org/pass-2d-array-parameter-c/
 * https://www.programiz.com/c-programming/c-arrays-functions
