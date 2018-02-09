@@ -285,6 +285,11 @@ De modo que segun lo anterior, la representacion en memoria de la matrix será:
 
 **Figura 6**. Representación de la matrix en memoria.
 
+Así mismo, un arreglo de dos dimensiones puede ser tratado como un arreglo de una dimensión cuyos elementos son arreglos de una dimensión (las filas). Esto es resaltado en la siguiente figura para la matrix anteriormente definida:
+
+![matrix_7(./imagenes/matrix_vector.png)
+
+**Figura 7**. Representación de la matrix como arreglos de una dimension asociada a  cada una de las filas.
 
 header could be written as follows:
 <table>
