@@ -331,6 +331,8 @@ La salida del codigo anterior se muestra a continuación:
 
 **Figura 8**. Salida del codigo anterior.
 
+Teniendo en cuenta el resultado de la figura anterior y representando la matrix como un vector de arreglos se tiene la siguiente figura (notese que se resaltan los elementos asociados a las salidas en pantalla del programa anterior):
+
 
 
 header could be written as follows:
