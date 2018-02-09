@@ -339,9 +339,9 @@ Teniendo en cuenta el resultado de la figura anterior y representando la matrix 
 
 Teniendo en cuenta lo anterior, la representación en memoria se muestra a continuación:
 
-![matrix_10](./imagenes/ejercicio_matrix.png)
+![matrix_10](./imagenes/ejercicio_matrix_mem.png)
 
-**Figura 10**. Representacion en memoria de la matrix de ls figura anterior.
+**Figura 10**. Representacion en memoria de la matrix de la figura anterior.
 
 
 
