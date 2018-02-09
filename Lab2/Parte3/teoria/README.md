@@ -349,24 +349,50 @@ La siguiente figura resalta la comparación de la salida en pantalla con el mapa
 
 **Figura 11**. Equivalencias.
 
-
-header could be written as follows:
 <table>
 <tbody>
 <tr>
-<td>&nbsp;Instrucción</td>
-<td>Representación en&nbsp;memoria&nbsp;</td>
+<td><b>Equivalencias</b></td>
+<td><b>Expresión</b></td>
 </tr>
 <tr>
-<td>int i;</td>
-<td><img src="./imagenes/rep_mapa_inst1.png" alt="var_mm1"></td>
+<td><b>De valor</b></td>
+<td>
+  Obteniendo el valor de una matriz en la posicion (i,j):<br>
+  <br>
+  A[i][j] = *(A+i)[j] = *(*(A+i)+ j) = *(A[i] + j)
+</td>
 </tr>
 <tr>
-<td>i = 35;</td>
-<td><img src="./imagenes/rep_mapa_inst2.png" alt="var_mm2"></td>
+<td><b>De dirección</b></td>
+<td>
+  Obteniendo la direccion de una matriz en la posicion (i,j):<br>
+  <br>
+  &A[i][j] = (A+i)[j] = *(A+i) + j = A[i] + j <br>
+  <br>
+  <b>Otra alternativa</b>:<br>
+  &A[i][j] = &A[0][0] + i*N_COLUMNAS + j <br><br>
+  En lo que respecta a obtener el posición de una fila i, lo cual se da cuando j = 0:<br>
+  &A[i][0] = A[i] + 0 = A[i]
+</td>
+</tr>
+<tr>
+<td><b>Anotaciones</b></td>
+<td>
+  &A[0][0] = A = A[0] = &A[0]<br><br>
+  Pero ojo que las anteriores equivalencias no son intercambiables: <br>
+  <ul>
+  <li>&A[0][0] + 1, apunta a A[0][1]</li>
+  <li>A[0] + 1, apunta a A[0][1]</li>
+  <li>A + 1, apunta a A[1][0]</li>
+  <li>&A[0] + 1, apunta a A[1][0]</li>
+  </ul>
+</td>
 </tr>
 </tbody>
-</table>
+</table>  
+  
+
 
 
 
