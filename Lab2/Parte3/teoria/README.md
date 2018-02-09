@@ -349,6 +349,8 @@ La siguiente figura resalta la comparación de la salida en pantalla con el mapa
 
 **Figura 11**. Equivalencias.
 
+Teniendo en cuenta la figura anterior, se pueden llegar a las siguientes equivalencias mas generales, las cuales se muestran en la siguiente tabla:
+
 <table>
 <tbody>
 <tr>
@@ -392,7 +394,92 @@ La siguiente figura resalta la comparación de la salida en pantalla con el mapa
 </tbody>
 </table>  
   
+Es posible definir un arreglo de dos dimensiones como un apuntador a un grupo de arreglos de una dimensión, de modo que una declaración de un arreglo bidimensional puede ser hecha de la siguiente manera:
 
+```C
+T *(ptVar)[m];
+```
+
+Donde **T** está asociado al tipo de dato (el cual puede ser simple o compuesto) y **n** es el número de filas del array bidimensional y **m** es el número de elementos que habrá en la fila. La expresión anterior puede ser por lo tanto una alternativa a la declaración típica de matrices por ejemplo para el caso de una matriz de n filas por n columnas como la siguiente:
+
+```C
+T mat[n][m];
+```
+
+La expresión anterior se puede generalizar a arreglos de más elementos tal de modo que para una matriz de dimensión N:
+
+```C
+T mat[val1]...[val_N];
+```
+
+De modo que la expresión alternativa estará dada por:
+
+```C
+T *(ptVar)[val_2][val_3]...[val_N];
+```
+
+Donde T se refiere al tipo de dato y las expresiones val_1, val_2,..., val_N se refieren al número máximo de elementos asociados con cada uno de los N subíndices del array. 
+
+Otra cosa importante es la presencia del paréntesis, este es necesario ya que si no está, no nos estaríamos refiriendo a un apuntador a un grupo de arrays  sino a un array de apuntadores, esto porque los [] tienen mayor precedencia que el *. Así según lo anterior:
+
+```C
+int (*pz)[2]; // Crea un apuntador a un array de 2 enteros.
+int *pax[2]; // Crea un array de dos punteros a enteros.
+```
+
+Para aterrizar el concepto anterior vamos a analizar el siguiente ejemplo.
+
+**Ejemplos**
+
+1. Dado el siguiente fragmento de [código](https://goo.gl/CppbKT), hacer el respectivo analisis:
+
+```C
+#include <stdio.h>
+
+int main() {
+  int A[3][2] = {{1,2},{3,4},{5,6}};
+  int (*pz)[2];
+  pz = A;
+  printf("A[0][0]: %d\n", A[0][0]); // V
+  printf("**pz: %d\n", **pz); // V
+  printf("*pz[0]: %d\n", *pz[0]); // V
+  printf("(*pz)[0]: %d\n", (*pz)[0]); // V
+  printf("&A[0][0]: %p\n", &A[0][0]); // M
+  printf("*pz: %p\n", *pz); // M
+  printf("pz[0]: %p\n", pz[0]); // M
+  printf("---------------------\n");
+  printf("A[1][0]: %d\n", A[1][0]); // V
+  printf("*pz[1]: %d\n", *pz[1]); // V
+  printf("*(pz[1]+0): %d\n", *(pz[1]+0)); // V
+  printf("*(*(pz + 1)+0): %d\n", *(*(pz +1 )+0)); // V
+  printf("&A[1][0]: %p\n", &A[1][0]); // M
+  printf("pz + 1: %p\n", pz + 1); // M
+  printf("pz[1]: %p\n", pz[1]); // M
+  printf("---------------------\n");
+  printf("A[2][1]: %d\n", A[2][1]);
+  printf("*(pz[2] + 1): %d\n", *(pz[2] + 1));
+  printf("*(*(pz + 2) + 1): %d\n", *(*(pz + 2) + 1));
+  printf("&A[2][1]: %p\n", &A[2][1]);  
+  printf("pz[2] + 1: %p\n", pz[2] + 1);
+  return 0;
+}
+```
+
+2. Analizar el siguiente [codigo](https://goo.gl/bAxFPX):
+
+```C
+int main() {
+  int B[2][2]= {1, 2, 3, 4};
+  int (*p)[2];
+  p = B;
+  **p = -(*(p[0] + 1));
+  p++;
+  **p = *(*p + 1) + 1;
+  return 0;
+}
+```
+
+La siguiente tabla muestra el resultado de realizar la prueba de escritorio paso por paso (resaltando en negrita) la instruccion que esta ejecutandose. Asi mismo, se asumen que las direcciones estan en formato decimal y no hexadecimal.
 
 
 
