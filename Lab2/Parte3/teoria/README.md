@@ -216,7 +216,11 @@ Como anotación importante, de todos los parámetros pasados a la función el ú
 
 Finalmante, para todos los casos anteriormente expuestos, la salida es la siguiente:
 
+![matrix_4](./imagenes/matriz4.png)
 
+**Figura 4**. Salida del programa.
+
+Otra forma de pasar matrices a funciones es empleando apuntadores, pero esto ser visto posteriormente.
 
 
 
