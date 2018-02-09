@@ -333,6 +333,17 @@ La salida del codigo anterior se muestra a continuación:
 
 Teniendo en cuenta el resultado de la figura anterior y representando la matrix como un vector de arreglos se tiene la siguiente figura (notese que se resaltan los elementos asociados a las salidas en pantalla del programa anterior):
 
+![matrix_9](./imagenes/ejercicio_matrix.png)
+
+**Figura 9**. Representacion de la matrix como un vector de arrays.
+
+Teniendo en cuenta lo anterior, la representación en memoria se muestra a continuación:
+
+![matrix_10](./imagenes/ejercicio_matrix.png)
+
+**Figura 10**. Representacion en memoria de la matrix de ls figura anterior.
+
+
 
 
 header could be written as follows:
