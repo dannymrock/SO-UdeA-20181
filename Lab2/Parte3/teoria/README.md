@@ -33,7 +33,7 @@ arrayType  arrayName[Dim1][Dim2]...[DimN];
 ```
 
 **Ejemplo**
-El siguiente codigo muestra algunas declaraciones:
+El siguiente [codigo](https://goo.gl/3Yt92d) muestra algunas declaraciones:
 
 ```C
 int A[2][3];
@@ -46,9 +46,38 @@ int main() {
 
 La salida es como se muestra a continuacion:
 
-([enlace simulación](https://goo.gl/8qAgxY))
+![matrix_1](./imagenes/matriz1.png)
 
 **Figura 1**. Declaración de varios arreglos multidimensionales.
+
+A veces, puede ser util **inicializar** una matrix al declararla, a continuacion se muestran algunos ejemplos:
+
+**Ejemplo**
+El siguiente [codigo](https://goo.gl/ZoWP41) muestra diferentes formas de declarar e inicializar matrices:
+
+```C
+int matrix1[][4] = {
+                    {4, 2, 7, 3},
+                    {6, 1, 9, 5},
+                    {8, 5, 0, 1}  
+                  };
+
+
+int main() {
+  int matrix2[2][2] = {{1, 2}, {3, 4}};
+  int matrix3[2][2] = {{1}, {3, 4}}; 
+  int matrix4[3][5]={1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+  int matrix5[][3]={1, 2, 3, 4};
+  return 0;
+}
+```
+
+La representación en memoria de las matrices declaradas en el ejercicio anterior se muestra a continuación
+
+![matrix_2](./imagenes/matriz2.png)
+
+**Figura 2**. Declaración e inicialización de varios arreglos multidimensionales.
+
 
 <table>
 <tbody>
