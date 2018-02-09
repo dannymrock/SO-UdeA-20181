@@ -485,7 +485,27 @@ int main() {
 La siguiente tabla muestra el resultado de realizar la prueba de escritorio paso por paso (resaltando en negrita) la instruccion que esta ejecutandose. Asi mismo, se asumen que las direcciones estan en formato decimal y no hexadecimal.
 
 
-
+<table>
+<tbody>
+<tr>
+<td><b>Instrucciones</b></td>
+<td><b>Representación</b></td>
+<td><b>Efecto en memoria</b></td>
+</tr>
+<tr>
+<td>
+  int B[2][2]= {1, 2, 3, 4};<br>
+  <b>int (*p)[2];</b><br>
+  p = A;<br>
+  **p = -(*(p[0] + 1));<br>
+  p++;<br>
+  **p = *(*p + 1) + 1;<br>
+</td>
+<td> <img src="./imagenes/ejemplo_analisis2_1.png" alt="2_1"> </td>
+<td> <img src="./imagenes/ejemplo_analisis2_mem1.png" alt="2_1mem"> </td>
+</tr>
+</tbody>
+</table>  
 
 
 
