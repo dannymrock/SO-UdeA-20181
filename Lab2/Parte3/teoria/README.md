@@ -343,7 +343,11 @@ Teniendo en cuenta lo anterior, la representación en memoria se muestra a conti
 
 **Figura 10**. Representacion en memoria de la matrix de la figura anterior.
 
+La siguiente figura resalta la comparación de la salida en pantalla con el mapa de memoria resaltando las equivalencias a las que se llega:
 
+![matrix_11](./imagenes/comparacion.png)
+
+**Figura 11**. Equivalencias.
 
 
 header could be written as follows:
