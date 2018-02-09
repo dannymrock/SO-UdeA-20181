@@ -124,8 +124,103 @@ En la siguiente figura se muestra el resultado del código anterior.
 
 **Figura 3**. Barriendo un array multidimensional.
 
+### 1.3. Funciones y arreglos multidimensionales
+
+Es posible pasar arreglos multidimensionales como parametros de funciones. Cuando se pasa un array multidimensional, la primera dimension del array no tiene que ser especificada pero la segunda dimension (y cualquier subsecuente) deberá ser dada. A continuacion se muestran diferentes casos de uso cuando se emplean funciones con arreglos multidimensionales.
+
+**Caso 1 - Cuando las dimensiones de la matrix estan disponibles globalmente**: las dimensiones pueden ser constantes globales o macros. A continuación se muestra en caso específico en el que se crea una función para imprimir una matrix 2D. Veamos el [código](https://goo.gl/9CUYxd) asociado:
+
+```C
+#include <stdio.h>
+
+#define M 3
+#define N 3
+ 
+void print(int arr[M][N]);
+ 
+int main()
+{
+    int arr[][N] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    print(arr);
+    return 0;
+}
+
+void print(int arr[M][N]) {
+    int i, j;
+    for (i = 0; i < M; i++) {
+      printf("[ ");
+      for (j = 0; j < N; j++) {
+        printf("%d ", arr[i][j]);
+      }
+      printf("]\n");
+    }
+}
+```
+**Caso 2 - Cuando solo la segunda dimension de la matrix esta disponible globalmente**: esta puede ser un constante global o una macro. Pese a que se omite la primera dimension de la matrix, esta debe ser usada como un parametro formal de la función con el objetivo de conocer la expención de la primera dimensión. Veamos el mismo ejemplo anterior teniendo en cuenta este caso (ver [enlace](https://goo.gl/86rsuz)):
+
+```C
+#include <stdio.h>
+
+#define N 3
+ 
+void print(int arr[][N], int m); 
+ 
+int main()
+{
+    int arr[][N] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    print(arr,3);
+    return 0;
+}
+
+void print(int arr[][N], int m) {
+    int i, j;
+    for (i = 0; i < m; i++) {
+      printf("[ ");
+      for (j = 0; j < N; j++) {
+        printf("%d ", arr[i][j]);
+      }
+      printf("]\n");
+    }
+}
+```
 
 
+**Caso 3 - Pasando matrices de cualquier dimension**: 
+Notese que una de las limitaciones de los dos metodos anteriores, es que el tamaño de ambas (caso 1) o al menos una de las dimensiones de la matrix es fijo (columnas de la matrix para el caso 2). Sin embargo desde C99, C soporta que matrices de tamaño variable puedan ser pasadas al especificar las dimensiones de la variable. A continuacion de muestra el caso para el mismo ejemplo analizado (ver el siguiente [codigo](https://goo.gl/oXSgnd)):
+
+```C
+#include <stdio.h>
+
+void print(int m, int n, int arr[][n]);
+ 
+int main()
+{
+    int arr[][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int F = 3, C = 3;
+    print(F, C, arr);
+    return 0;
+}
+
+void print(int m, int n, int arr[][n]) {
+    int i, j;
+    for (i = 0; i < m; i++) {
+      printf("[ ");
+      for (j = 0; j < n; j++) {
+        printf("%d ", arr[i][j]);
+      }
+      printf("]\n");
+    }
+} 
+```
+Como anotación importante, de todos los parámetros pasados a la función el último debe ser la matriz, pues como usa como dimensión para las columnas otra variable, si esta no esta previamente declarada se generara un error; de este modo poner la matrix de último evita este problema.
+
+Finalmante, para todos los casos anteriormente expuestos, la salida es la siguiente:
+
+
+
+
+
+header could be written as follows:
 <table>
 <tbody>
 <tr>
