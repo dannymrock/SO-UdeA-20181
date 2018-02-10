@@ -635,6 +635,42 @@ La salida de muestra a continuación:
 
 **Figura 16**. Array tridimensional asociado a t.
 
+## 3. Empleo de apuntadores para acceder a los elementos de una matrix
+
+Para acceder a un elemento particular dentro de un array particular se emplea el operador indirección (*). A continuación se muestra como 	en el caso de una matriz bidimesional. Para aclarar este concepto miremos el siguiente ejemplo:
+
+**Ejemplo**: Supongase que se tiene un array entero de 10x20 y se desea acceder al elemento perteneciente a la fila 2 y la columna 5 (x[2][5]) . La forma de acceso es la mostrada a continuación:
+
+```C
+float *(*(x+2)+5);  
+```
+Cuyo efecto es el mostrado en la siguiente figura:
+
+c
+
+Para acceder a dicho lugar de memoria es necesario tener en cuenta una serie de cosas:
+* ```x+2```: Puntero al vector correspondiente a la fila 2.
+* ```*(x+2)```: Apuntador al primer elemento de la fila 2.
+* ```*(x+2)+5```: Apuntador al elemento 5 en la fila 2.
+* ```*(*(x+2)+5)```: Elemento de la columna 5 y la fila 2, propiamente x[2][5].
+
+Para aterrizar lo anterior, supongamos que declaramos una matrix global x[10][20] y deseamos llevar al elemento x[2][5] el valor de 10. ¿Como seria el procedimiento a seguir empleando la notacion apuntador?
+
+```C
+int x[10][20];
+
+int main() {
+  *(*(x + 2) + 5) = 10; // x[2][5] = 10
+  return 0;
+}
+```
+
+La salida del [codido anterior](https://goo.gl/wrmfkY) es la siguiente:
+
+![matrix_18](./imagenes/ejemplo_matrix_acceso.png)
+
+**Figura 18**. Modificando el valor de una matrix a traves de la notacion apuntador.
+
 ## xxx. Enlaces de interés
 * https://www.geeksforgeeks.org/pass-2d-array-parameter-c/
 * https://www.programiz.com/c-programming/c-arrays-functions
