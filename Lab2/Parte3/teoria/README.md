@@ -564,6 +564,68 @@ La siguiente tabla muestra el resultado de realizar la prueba de escritorio paso
 </tbody>
 </table>  
 
+3. Se desea crear un array de bidimensional de 10 filas por 20 columnas llamado x esto puede ser hecho, así:
+
+```C
+int (*x)[20]; // Apuntador a un grupo de 20 enteros contiguos de un array unidimensional 
+```
+
+O así:
+
+```C
+int mat[10][20];  
+```
+
+Esto se muestra en la siguiente grafica:
+
+GRAFICA
+
+Basicamente, lo que se quiere dar a entender con la grafica es que x apunta al primer array de 20 elementos, el cual es la primera fila (fila 0), del array original. De manera similar, (x + 1) apunta a los segundos 20 elementos del array (fila 1 del array original) y así sucesivamente hasta la última fila. Para clarificar esto simule el siguiente [ejemplo](https://goo.gl/wbzqJ9) y note lo que implica lo anterior:
+
+```C
+int main() {
+  int (*y)[20];
+  int x[10][20];
+  y = x;
+  for(int i = 0; i < 10; i++) {
+    y = x + i;
+  }
+  return 0;
+}
+```
+
+DIBUJO
+
+4. Considere una matriz de tres dimensiones con la siguiente declaración:
+
+```C
+float t[3][4][5];   
+```
+
+O así:
+
+```C
+float (*t)[4][5];     
+```
+
+En la declaración anterior, se definió a t como un apuntador a un grupo de 4x5 elementos contiguos de una matriz bidimensional. Por lo tanto según lo anterior, t apuntara a los primeros 4x5 elementos, t + 1 apuntara a los segundos 4x5 elementos y así sucesivamente.
+
+En el siguiente [ejemplo](https://goo.gl/1hHB1r) se aterriza el concepto:
+
+```C
+int main() {
+  float t[3][4][5]; 
+  float (*ptr1)[4][5];
+  float (*ptr2)[4][5];
+  float (*ptr3)[4][5];
+  ptr1 = t;
+  ptr2 = t + 1;
+  ptr3 = t + 2;
+  return 0;
+} 
+```
+
+La salida de muestra a continuación:
 
 
 
