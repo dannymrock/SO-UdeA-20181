@@ -646,7 +646,9 @@ float *(*(x+2)+5);
 ```
 Cuyo efecto es el mostrado en la siguiente figura:
 
-c
+![matrix_17](./imagenes/acceso_array_ptr.png)
+
+**Figura 17**. Accediendo a una matrix por medio de la notacion apuntador.
 
 Para acceder a dicho lugar de memoria es necesario tener en cuenta una serie de cosas:
 * ```x+2```: Puntero al vector correspondiente a la fila 2.
