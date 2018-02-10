@@ -578,7 +578,9 @@ int mat[10][20];
 
 Esto se muestra en la siguiente grafica:
 
-GRAFICA
+![matrix_14](./imagenes/matrix_ptr.png)
+
+**Figura 14**. Array bidimensional asociado a x.
 
 Basicamente, lo que se quiere dar a entender con la grafica es que x apunta al primer array de 20 elementos, el cual es la primera fila (fila 0), del array original. De manera similar, (x + 1) apunta a los segundos 20 elementos del array (fila 1 del array original) y así sucesivamente hasta la última fila. Para clarificar esto simule el siguiente [ejemplo](https://goo.gl/wbzqJ9) y note lo que implica lo anterior:
 
@@ -594,7 +596,9 @@ int main() {
 }
 ```
 
-DIBUJO
+![matrix_15](./imagenes/matrix_ptr_2.png)
+
+**Figura 15**. Array bidimensional asociado al codigo anterior.
 
 4. Considere una matriz de tres dimensiones con la siguiente declaración:
 
@@ -627,7 +631,9 @@ int main() {
 
 La salida de muestra a continuación:
 
+![matrix_16](./imagenes/matrix_ptr_3.png)
 
+**Figura 16**. Array tridimensional asociado a t.
 
 ## xxx. Enlaces de interés
 * https://www.geeksforgeeks.org/pass-2d-array-parameter-c/
