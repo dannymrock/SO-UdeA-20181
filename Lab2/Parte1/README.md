@@ -37,7 +37,15 @@ equivalente:
 
 ## 3. Problemas propuestos
 
-1. Una ecuación cuadrática es aquella que tiene la siguiente forma:
+1. **Problema 1**: Escriba una función llamada múltiplo que tome dos enteros y determine si el segundo es múltiplo del primero. La función deberá tomar dos argumentos enteros y devolver 1 si el segundo es un múltiplo del primero y 0 si no. Luego, utilice esta función en un programa que acepte como entrada una serie de pares de enteros.
+
+2. **Problema 2**: Escribir un programa que lea dos números **x** y **n** y en una función, calcule la suma de la progresión geométrica: 
+
+```
+1 + x + x^2 + x^3 + x^4 + ⋯ + x^n
+```
+
+2. **Problema 2**: Una ecuación cuadrática es aquella que tiene la siguiente forma:
 
 ```
 a*x^2 + b*x + c = 0
@@ -84,7 +92,7 @@ int main() {
 
 c. Realizar un programa que solicite por teclado los valores de los coeficientes y de acuerdo a estos, despliegue si la ecuación cuadrática tiene raíces reales y distintas, reales e iguales o complejas conjugadas. Para tal fin se debe hacer uso de la función discriminante previamente creada.
 
-2. Para obtener las raíces de una ecuación de segundo grado utilizando la fórmula:
+3. **Problema 3**: Para obtener las raíces de una ecuación de segundo grado utilizando la fórmula:
 
 ```
 x1 = (-b - D^(1/2))/(2*a)
@@ -141,3 +149,6 @@ b. Invocar en el main la función varias veces de tal manera que la salida sea l
 ```
 
 c.	Realizar un programa que solicite al usuario los valores de los coeficientes y que haciendo uso de la función bachiller despliegue las raíces de estos coeficientes desplegados en pantalla.
+
+4. **Problema 4**: Escriba una función que tome un valor entero y devuelva el número con sus dígitos en reversa. Por ejemplo, dado el numero 7631, la función deberá devolver 1367.
+
