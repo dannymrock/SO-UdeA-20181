@@ -810,8 +810,91 @@ int *t[2][3];
 En el anterior codigo se genera una matrix de 6 apuntadores cada uno de los cuales esta apuntando a un vector unidimensional. Teniendo en cuenta lo anterior, se se desea acceder a un elemento individual tal como ``` t[1][1][2] ```  la forma de hacerlo empleando esta notación sera:
 
 ```C
-int *(t[1][1] + 2);
+int *(t[1][1] + 2); // Será lo mismo que t[1][1][2]
 ```
+
+**Ejemplo**: a modo de repaso simule y analice el siguiente [codigo](https://goo.gl/qa2aVu):
+
+```C
+#include <stdio.h>
+
+/* Matrix */
+int t[2][3][4];
+
+/* Declaracion de las funciones */
+void llenarMatrix(int M[][3][4]); 
+void imprimirMatrix(int M[][3][4]);
+void imprimirDireccionesMatrix(int M[][3][4]);
+
+/* Funcion principal */
+int main() {
+  llenarMatrix(t);
+  *(t[1][1] + 2) = -4; // t[1][1][2] = -4; 
+  // Recorriendo las direcciones de la matrix de apuntadores
+  // asociada
+  int *ptr;
+  for (int i = 0; i < 2; i++) {
+    for (int j = 0; j < 3; j++) {
+      ptr = t[i][j];
+      printf("t[%d][%d] = %p\n",i,j,ptr);
+    }
+  }
+  printf("\nMatrix:\n");
+  imprimirMatrix(t);
+  printf("\nDirecciones de la Matrix:\n");
+  imprimirDireccionesMatrix(t);
+  return 0;   
+}
+
+/* Definicion de las funciones */
+void llenarMatrix(int M[][3][4]) {
+  int val = 1;
+  for(int i = 0; i < 2; i++) {
+    for(int j = 0; j < 3; j++) {
+      for(int k = 0; k < 4; k++) {
+        M[i][j][k] = val++;  
+      }
+    }
+  }  
+}
+
+void imprimirDireccionesMatrix(int M[][3][4]) {
+  for(int i = 0; i < 2; i++) {
+    for(int j = 0; j < 3; j++) {
+      for(int k = 0; k < 4; k++) {
+        printf("&M[%d][%d][%d] = %p\n", i, j, k,M[i][j] + k);  
+      }      
+    }
+  }  
+}
+
+void imprimirMatrix(int M[][3][4]) {
+  printf("-------------------------\n");
+  for(int i = 0; i < 2; i++) {
+    for(int j = 0; j < 3; j++) {
+      for(int k = 0; k < 4; k++) {
+        printf("%5d ", M[i][j][k]);  
+      }
+      printf("\n");
+    }
+    printf("------------------------\n");
+  }  
+}
+```
+
+La siguiente figura muestra la salida del programa y su representacion de la matrix. Notese como se almacena la matrix en memoria.
+
+![matrix_21](./imagenes/ptr_matrix3_output2.png)
+
+**Figura 21**. Salida del programa y representacion de la matrix.
+
+En la siguiente figura, se compara la salida con la representacion de la matrix en el mapa de memoria. Notese, las equivalencias:
+
+
+![matrix_22](./imagenes/ptr_matrix3_output3.png)
+
+**Figura 22**. Salida del programa y representacion en memoria de la matrix.
+
 
 
 
