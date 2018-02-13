@@ -573,7 +573,7 @@ int (*x)[20]; // Apuntador a un grupo de 20 enteros contiguos de un array unidim
 O así:
 
 ```C
-int mat[10][20];  
+int x[10][20];  
 ```
 
 Esto se muestra en la siguiente grafica:
@@ -742,6 +742,66 @@ int main(void)
 ```
 
 Lleve a cabo la prueba de escritorio (puede simularla en el siguiente [enlace](https://goo.gl/Eo16j5)) y compárela con la salida en pantalla del programa. ¿Cómo queda la matriz después de las instrucciones anteriormente mostradas?
+
+4. Arreglos de apuntadores
+
+Un arreglo de apuntadores es un array cuyos elementos son apuntadores a algún tipo de dato. Estos, constituyen una forma alternativa de expresar un arreglo multidimensional. Por ejemplo un array de dos dimensiones:
+
+```C
+T mat[val_1][val_2];
+```
+
+Puede ser reescrito como un array de apuntadores de la siguiente manera:
+
+```C
+T *mat[val_1];
+```
+
+Luego, generalizando lo anterior para arreglos de N dimensiones tenemos que:
+
+```C
+T mat[val_2][val_3]...[val_N];
+```
+
+La forma alternativa será:
+
+```C
+T *mat[val_1][val_2]...[val_N-1];
+```
+
+Aquí **T** se refiere al tipo de dato y las expresiones **val_1**, **val_2**, ..., **val_N** se refieren al número máximo de elementos asociados con cada uno de los N subíndices del array. Note que a diferencia del caso anterior ya no se emplean paréntesis en este tipo de declaración por lo que el array contendrá apuntadores al tipo específico definido en la declaración.
+
+**Ejemplos**:
+
+Supóngase que se tiene una matriz bidimensional x de 10 filas por 20 columnas. Esta definida como un vector de apuntadores sera: 
+
+```C
+int *x[10];
+```
+
+Aquí, **x[0]** apuntara al principio de la primera fila, **x[1]** al principio de la segunda, observe que a diferencia del caso anterior no fue necesario declarar el  número de elementos de cada columna de manera explícita. La siguiente figura muestra el efecto de la anterior declaración con más detalle:
+
+![matrix_15](./imagenes/matrix_ptr2.png)
+
+**Figura 19**. Representacion de la matrix.
+
+Por otro lado, teniendo en cuenta lo anterior, si lo que se desea es acceder a un elemento individual de la matrix, tal como x[2][5]. Una forma equivalente será:
+
+```C
+int *(x[2]+5);
+```
+
+**Donde**:
+* ```x[2]```: Es un apuntador al primer elemento de la fila 2.
+*	```x[2] + 5```: Es un apuntador al elemento 5 dentro de la fila 2.
+*	```*(x[2]+5)```: Se refiere al contenido del elemento de la fila 2 y la columna 5, es decir x[2][5].
+*	```*(*(x + 2) + 5)```: Se refiere al contenido del elemento de la fila 2 y la columna 5, es decir x[2][5].
+
+Lo anterior, se ilustra mas claramente en la siguiente figura: 
+
+![matrix_20](./imagenes/acceso_array_ptr2.png)
+
+**Figura 20**. Acceso a la matrix.
 
 
 
