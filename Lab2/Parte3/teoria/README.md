@@ -673,6 +673,78 @@ La salida del [codido anterior](https://goo.gl/wrmfkY) es la siguiente:
 
 **Figura 18**. Modificando el valor de una matrix a traves de la notacion apuntador.
 
+
+<table>
+<tbody>
+<tr>
+<td><b>Equivalencias</b></td>
+<td><b>Expresión</b></td>
+</tr>
+<tr>
+<td><b>De valor</b></td>
+<td>
+  Obteniendo el valor de una matriz en la posicion (i,j):<br>
+  <br>
+  A[i][j] = *(A+i)[j] = *(*(A+i)+ j) = *(A[i] + j)
+</td>
+</tr>
+<tr>
+<td><b>De dirección</b></td>
+<td>
+  Obteniendo la direccion de una matriz en la posicion (i,j):<br>
+  <br>
+  &A[i][j] = (A+i)[j] = *(A+i) + j = A[i] + j <br>
+  <br>
+  <b>Otra alternativa</b>:<br>
+  &A[i][j] = &A[0][0] + i*N_COLUMNAS + j <br><br>
+  En lo que respecta a obtener el posición de una fila i, lo cual se da cuando j = 0:<br>
+  &A[i][0] = A[i] + 0 = A[i]
+</td>
+</tr>
+<tr>
+<td><b>Anotaciones</b></td>
+<td>
+  &A[0][0] = A = A[0] = &A[0]<br><br>
+  Pero ojo que las anteriores equivalencias no son intercambiables: <br>
+  <ul>
+  <li>&A[0][0] + 1, apunta a A[0][1]</li>
+  <li>A[0] + 1, apunta a A[0][1]</li>
+  <li>A + 1, apunta a A[1][0]</li>
+  <li>&A[0] + 1, apunta a A[1][0]</li>
+  </ul>
+</td>
+</tr>
+</tbody>
+</table>  
+ 
+**Ejemplo**
+Para comprender bien lo anterior codifique el siguiente programa:
+
+```C
+/* zippo2.c --  zippo infovia a pointer variable */
+#include <stdio.h>
+
+int main(void)
+{
+    int zippo[4][2] = { {2,4} , {6,8} , {1,3} , {5, 7} };
+    int (*pz)[2];
+    pz = zippo;
+    printf("pz = %p, pz + 1 = %p\n", pz, pz + 1); // D
+    printf("pz[0] = %p, pz[0] + 1 = %p\n", pz[0], pz[0] + 1); // D
+    printf("*pz = %p, *pz + 1 = %p\n", *pz, *pz + 1); // D
+    printf("pz[0][0] = %d\n", pz[0][0]);  // V
+    printf("*pz[0] = %d\n", *pz[0]); // V
+    printf("**pz = %d\n", **pz); // V
+    printf("pz[2][1] = %d\n", pz[2][1]); // V
+    printf("*(*(pz + 2) + 1) = %d\n", *(*(pz + 2) + 1)); // V
+    return 0;
+}
+```
+
+Lleve a cabo la prueba de escritorio (puede simularla en el siguiente [enlace](https://goo.gl/Eo16j5)) y compárela con la salida en pantalla del programa. ¿Cómo queda la matriz después de las instrucciones anteriormente mostradas?
+
+
+
 ## xxx. Enlaces de interés
 * https://www.geeksforgeeks.org/pass-2d-array-parameter-c/
 * https://www.programiz.com/c-programming/c-arrays-functions
