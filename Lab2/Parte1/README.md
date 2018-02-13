@@ -4,9 +4,13 @@
 > * Reforzar los conceptos discutidos en el laboratorio.
 > * Ir ganando experiencia en la resolución de problemas empleando lenguaje C.
 
-## 1. Ejemplos de repaso
+## 1. Resumen y repaso
 
-A modo de repaso se mostraran algunos ejercicios resueltos.
+Todo lo que se encuentra en la parte teorica puede ser repasado de manera interactiva mediante en el enlace [learn-c](http://www.learn-c.org/). Se recomienda incluso, darle una mirada a la parte de **Learn the Basics** allí propuesta si lo considera pertinente (para mejorar la comprensión del contenido que esta en la teoria).
+
+## 2. Ejemplos de repaso
+
+A modo de repaso se mostraran algunos ejercicios resueltos que implican el uso de programacion modular. Puede descargarlos, compilarlos y ejecutarlos.
 
 1. Hacer un programa que calcule el máximo de 2 números.
 
@@ -31,8 +35,17 @@ equivalente:
 
 **Solucion**: [ejemplo5_sol.c](ejemplo1_sol.c)
 
-## 2. Ejemplo de aplicacion
+## 3. Casos de aplicacion
 
+A continuación se muestran algunos proyectos de programación un poco mas complejos. Ejecutelos, compilelos, ejecutelos y entiendalos, le servirá
+
+1. **Caso 1**: a continuacion se muestra un código de aplicación (tomado del libro: **C programming for the absolute beginner**) el cual permite crear un quiz para enseñar a multiplicar. 
+
+**Solucion**: [Enlace externo](https://raw.githubusercontent.com/malmhaug/C_AbsBegin/master/C4E4MathQuiz.c)
+
+2. **Caso 2**: a continuación se muestra el código de un juego de adivinanzas (tomado del libro: **C programming for the absolute beginner**).
+
+**Solucion**: [Enlace externo](https://github.com/malmhaug/C_AbsBegin/blob/master/C5E4TriviaTrackedAnswere.c)
 
 
 ## 3. Problemas propuestos
@@ -184,12 +197,18 @@ c.	Realizar un programa que solicite al usuario los valores de los coeficientes 
 Ayuda: Use las funciones srand() y rand() para simular el lanzamiento de la moneda.
 
 Ejemplo de algunos casos de entrada:
+
+```
 585
+```
 
 Casos de salida correspondientes:
+
+```
 CCSSS, #de caras = 2, # de sellos = 3
 SCCSCSCC, #de caras = 5, # de sellos = 3
 SCSCC, # de caras = 3, # de sellos = 2
+```
 
 7. **Problema 7**: Las computadoras están jugando un papel creciente en la educación. Escriba un programa que ayudaría a un alumno de escuela primaria a aprender a multiplicar. Utilice rand() para producir dos enteros positivos de un dígito. A continuación debería imprimir una pregunta coma la siguiente:
 
@@ -221,5 +240,11 @@ No. Trata de nuevo
 
 **Nota**: Mediante el generador de números aleatorios, seleccione un número entre 1 y 4 para desplegar un mensaje diferente para cada respuesta. Presente la respuesta mediante una estructura switch.
 
+9. **Problema 9**: Sistemas más avanzados de CAI vigilan el rendimiento del alumno a lo largo de un periodo de tiempo. La decisión para empezar un tema nuevo se basa a menudo en el éxito del alumno en relación con temas anteriores. Modifique el programa del ejercicio anterior para contar el número de respuestas correctas e incorrectas del estudiante. Una vez el estudiante decida terminar la ejecución del programa, el programa debe calcular y mostrar el porcentaje de respuestas correctas respecto al total de preguntas que le hizo el programa. Si el porcentaje es menor a 75%, el programa deberá imprimir el mensaje "**Por favor pídele ayuda al instructor"** y termina.
+
+## Referencias
+
+* https://github.com/malmhaug/C_AbsBegin
+* https://github.com/mindfullofit/CSCI320/tree/master/rewritten_code
 
 
