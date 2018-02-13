@@ -895,8 +895,32 @@ En la siguiente figura, se compara la salida con la representacion de la matrix 
 
 **Figura 22**. Salida del programa y representacion en memoria de la matrix.
 
+**Ejemplo**: Una de las mayores aplicaciones de los arreglos a apuntadores es que permiten trabajar con jagged arrays (matrices irregulares). Un array de este tipo es un array bidimensional que posee un numero de columnas diferentes por cada fila tal y como se muestra en la siguiente figura:
 
+FIGURA
 
+En el siguiente [codigo](https://goo.gl/jaUqCn) se define la anterior matrix irregular. Adicionalmente, se imprimen en pantalla algunos de los valores asociados a esta:
+
+```C
+#include <stdio.h>
+
+int main() {
+  int F0[] = {1,2,3,4};
+  int F1[] = {5,6};
+  int F2[] = {7,8,9};
+  int *P[3];
+  P[0] = F0;
+  P[1] = F1;
+  P[2] = F2;
+  printf("F0[2]: %d\n", F0[2]);
+  printf("*P[0] + 2: %\n", *P[0] + 2);
+  printf("**P + 2:  %d\n", **P + 2);
+  printf("F2[1]: %d\n", F2[1]);
+  printf("*P[2] + 1: %d\n", *P[2] + 1 );
+  printf("*(*(P + 2) + 1): %d\n", *(*(P + 2) + 1));
+  return 0;
+}
+```
 
 ## xxx. Enlaces de interés
 * https://www.geeksforgeeks.org/pass-2d-array-parameter-c/
