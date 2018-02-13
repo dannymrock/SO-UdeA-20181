@@ -45,7 +45,36 @@ equivalente:
 1 + x + x^2 + x^3 + x^4 + ⋯ + x^n
 ```
 
-2. **Problema 2**: Una ecuación cuadrática es aquella que tiene la siguiente forma:
+3. **Problema 3**: Dado el siguiente código fuente:
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main () { 
+  int N, M, cant, i, aleatorio;
+  printf("Digite la cantidad de números que desea generar: ");
+  scanf("%d",&cant);
+  printf("Digite los limites (primero el superior, luego el inferior): ");
+  scanf("%d%d",&N,&M);
+  srand(time(NULL)); // Inicializacion del generador
+  for(i = 0; i < cant; i ++) { 
+    aleatorio = rand()%(N-M+1)+M; //Genera un numero entre M y N
+    printf("%d ", aleatorio);
+  } 
+  printf("\n", aleatorio);
+  system("PAUSE");
+  return 0;
+}
+```
+a. Compile y ejecute el código fuente anteriormente mostrado. ¿Qué es lo que hacen las funciones  srand() y rand()? (Los singientes enlaces pueden serle de utilidad: [1](http://www.chuidiang.org/clinux/funciones/rand.php) y [2](http://arantxa.ii.uam.es/~swerc/ole/ejemplos/crandom.html))
+b. Escriba una función que genere un número aleatorio entre a y b. **Ayuda**: Use las funciones **srand()** y **rand()** anteriormente mencionadas.
+c. Realice un programa que invocando la función anteriormente creada, funcione de manera similar al programa analizado en el punto a.
+
+4. **Problema 4**: Escriba una función que tome un valor entero y devuelva el número con sus dígitos en reversa. Por ejemplo, dado el numero 7631, la función deberá devolver 1367.
+
+5. **Problema 5**: Una ecuación cuadrática es aquella que tiene la siguiente forma:
 
 ```
 a*x^2 + b*x + c = 0
@@ -150,5 +179,47 @@ b. Invocar en el main la función varias veces de tal manera que la salida sea l
 
 c.	Realizar un programa que solicite al usuario los valores de los coeficientes y que haciendo uso de la función bachiller despliegue las raíces de estos coeficientes desplegados en pantalla.
 
-4. **Problema 4**: Escriba una función que tome un valor entero y devuelva el número con sus dígitos en reversa. Por ejemplo, dado el numero 7631, la función deberá devolver 1367.
+6.**Problema 6**: Escriba un programa que simule el lanzamiento de una moneda. En cada línea de entrada aparece el número de lanzamientos de la moneda. En la línea de salida correspondiente debe aparecer una secuencia con el resultado de cada lanzamiento ('C' cuando fue cara y 'S' cuando fue sello) junto con el número de veces que aparece cada lado. El programa deberá usar una función que se encargue de simular el lanzamiento de la moneda una sola vez, que no tome argumentos y que retorne 0 para la cara ('C') ó 1 para el sello ('T'). 
+
+Ayuda: Use las funciones srand() y rand() para simular el lanzamiento de la moneda.
+
+Ejemplo de algunos casos de entrada:
+585
+
+Casos de salida correspondientes:
+CCSSS, #de caras = 2, # de sellos = 3
+SCCSCSCC, #de caras = 5, # de sellos = 3
+SCSCC, # de caras = 3, # de sellos = 2
+
+7. **Problema 7**: Las computadoras están jugando un papel creciente en la educación. Escriba un programa que ayudaría a un alumno de escuela primaria a aprender a multiplicar. Utilice rand() para producir dos enteros positivos de un dígito. A continuación debería imprimir una pregunta coma la siguiente:
+
+```
+¿Cuánto es 6 veces 7?
+```
+
+A continuación el alumno escribe la respuesta. Su programa verifica la respuesta del alumno. Si es correcta imprime **"Muy bien!"** y a continuación solicita otra multiplicación. Si la respuesta es incorrecta imprimirá **"No. Por favor intenta nuevamente"** y a continuación permitirá que el alumno vuelva a intentar con la misma pregunta de forma repetida hasta que al final la conteste correctamente. El programa debe indicarle al alumno una forma de terminar la ejecución.
+
+8. **Problema 8**: 	La utilización de las computadoras en la educación se conoce como Instrucción Asistida por Computadora (CAI). Un problema que se desarrolla en los entornos CIA es la fatiga del alumno. Este problema puede ser enfrentado variando el diálogo de la computadora para retener la atención del alumno. Modifique el programa del ejercicio anterior de modo que este escoja de forma aleatoria uno de cuatro posibles mensajes tanto para respuestas correctas como para respuestas incorrectas. Los cuatro posibles mensajes en cada caso son:
+
+Respuestas correctas:
+
+```
+Muy bien!
+Excelente!
+Buen trabajo!
+Sigue haciéndolo bien!
+```
+
+Respuestas incorrectas:
+
+```
+No. Por favor trata de nuevo.
+Incorrecto. Trata una vez más.
+No te rindas!
+No. Trata de nuevo
+```
+
+**Nota**: Mediante el generador de números aleatorios, seleccione un número entre 1 y 4 para desplegar un mensaje diferente para cada respuesta. Presente la respuesta mediante una estructura switch.
+
+
 
