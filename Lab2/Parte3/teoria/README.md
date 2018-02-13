@@ -899,7 +899,9 @@ En la siguiente figura, se compara la salida con la representacion de la matrix 
 
 Una de las mayores aplicaciones de los arreglos a apuntadores es que permiten trabajar con jagged arrays (matrices irregulares). Un array de este tipo es un array bidimensional que posee un numero de columnas diferentes por cada fila tal y como se muestra en la siguiente figura:
 
-FIGURA
+![matrix_23](./imagenes/irregular_matrix.png)
+
+**Figura 23**. Matrix irregular.
 
 En el siguiente [codigo](https://goo.gl/jaUqCn) se define la anterior matrix irregular. Adicionalmente, se imprimen en pantalla algunos de los valores asociados a esta:
 
@@ -926,7 +928,9 @@ int main() {
 
 La salida del programa anterior se muestra en la siguiente figura, el resultado de la figura anterior se muestra en la siguiente figura (para la parte del mapa de memoria asuma las direcciones para las variabled dadas en la figura y que la arquitectura es de 32 bits):
 
-FIGURA
+![matrix_24](./imagenes/irregular_matrix2.png)
+
+**Figura 24**. Salida del programa que manipula la Matrix irregular.
 
 **Caso de aplicacion**: 
 
@@ -938,9 +942,11 @@ char *myStrPtr[5] = { "If anything can go wrong, it will",
                       "Every solution breeds new problems."};
 ```
 
-La representacion es como la siguiente siguiente figura:
+La representacion der arreglo de apuntadores tipo char descrito anteriormente se muestra a continuacion:
 
-FIGURA
+![matrix_25](./imagenes/arreglos_apuntadores_char.png)
+
+**Figura 25**. Arreglo de apuntadores tipo char.
 
 Ahora bien, para profundizar analice el siguiente [codigo](https://goo.gl/uVceEY):
 
@@ -959,13 +965,13 @@ int main() {
   return 0;
 }
 ```
+La salida del codigo anterio se muestra a continuacion:
 
+![matrix_27](./imagenes/salida_char_ptrs.png)
 
-**Ejemplo**: 
+**Figura 27**. Ejemplo empleando un arreglo de apuntadores tipo char.
 
-
-
-https://www.codeproject.com/Articles/83080/Dynamic-Three-Dimensional-Arrays-in-C-C-C-Java
+**Ejemplo**: A continuacion se muestra como accder y manipular matrices 3D (tomando como base el siguiente [enlace](https://www.codeproject.com/Articles/83080/Dynamic-Three-Dimensional-Arrays-in-C-C-C-Java)). Esto se explica por que en algun momento posterior puede ser de extrema utilidad, ademas, por que se resalta el uso de diferentes niveles de apuntadores. El [codigo](https://goo.gl/ocqJiu) ejemplo se muestra a continución:
 
 ```C
 #include <stdio.h>
@@ -1025,6 +1031,11 @@ void imprimirMatrix3D(int *** M3D) {
 }
 ```
 
+La salida en pantalla y las variables se muestran en la siguiente figura, note los niveles jerarquico empleados en los apuntadores:
+
+![matrix_28](./imagenes/ptr_matrix3D_output.png)
+
+**Figura 28**. Matrix 3D y apuntadores.
 
 
 ## xxx. Enlaces de interés
