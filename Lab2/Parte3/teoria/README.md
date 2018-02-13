@@ -771,9 +771,7 @@ T *mat[val_1][val_2]...[val_N-1];
 
 Aquí **T** se refiere al tipo de dato y las expresiones **val_1**, **val_2**, ..., **val_N** se refieren al número máximo de elementos asociados con cada uno de los N subíndices del array. Note que a diferencia del caso anterior ya no se emplean paréntesis en este tipo de declaración por lo que el array contendrá apuntadores al tipo específico definido en la declaración.
 
-**Ejemplos**:
-
-Supóngase que se tiene una matriz bidimensional x de 10 filas por 20 columnas. Esta definida como un vector de apuntadores sera: 
+**Ejemplo**: Supóngase que se tiene una matriz bidimensional x de 10 filas por 20 columnas. Esta definida como un vector de apuntadores sera: 
 
 ```C
 int *x[10];
@@ -802,6 +800,18 @@ Lo anterior, se ilustra mas claramente en la siguiente figura:
 ![matrix_20](./imagenes/acceso_array_ptr2.png)
 
 **Figura 20**. Acceso a la matrix.
+
+**Ejemplo**: Suponga que se tiene un array tridimensional de enteror de dimensiones 2x3x4. La forma de expresar este array como un array de apuntadores bidimensional es:
+
+```C
+int *t[2][3];
+```
+
+En el anterior codigo se genera una matrix de 6 apuntadores cada uno de los cuales esta apuntando a un vector unidimensional. Teniendo en cuenta lo anterior, se se desea acceder a un elemento individual tal como ``` t[1][1][2] ```  la forma de hacerlo empleando esta notación sera:
+
+```C
+int *(t[1][1] + 2);
+```
 
 
 
