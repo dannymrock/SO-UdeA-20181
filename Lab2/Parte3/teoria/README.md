@@ -895,11 +895,13 @@ En la siguiente figura, se compara la salida con la representacion de la matrix 
 
 **Figura 22**. Salida del programa y representacion en memoria de la matrix.
 
-**Ejemplo**: Una de las mayores aplicaciones de los arreglos a apuntadores es que permiten trabajar con jagged arrays (matrices irregulares). Un array de este tipo es un array bidimensional que posee un numero de columnas diferentes por cada fila tal y como se muestra en la siguiente figura:
+**Caso de aplicacion**: 
+
+Una de las mayores aplicaciones de los arreglos a apuntadores es que permiten trabajar con jagged arrays (matrices irregulares). Un array de este tipo es un array bidimensional que posee un numero de columnas diferentes por cada fila tal y como se muestra en la siguiente figura:
 
 FIGURA
 
-En el siguiente [codigo](https://goo.gl/bupwsf) se define la anterior matrix irregular. Adicionalmente, se imprimen en pantalla algunos de los valores asociados a esta:
+En el siguiente [codigo](https://goo.gl/jaUqCn) se define la anterior matrix irregular. Adicionalmente, se imprimen en pantalla algunos de los valores asociados a esta:
 
 ```C
 #include <stdio.h>
@@ -922,12 +924,115 @@ int main() {
 }
 ```
 
+La salida del programa anterior se muestra en la siguiente figura, el resultado de la figura anterior se muestra en la siguiente figura (para la parte del mapa de memoria asuma las direcciones para las variabled dadas en la figura y que la arquitectura es de 32 bits):
+
+FIGURA
+
+**Caso de aplicacion**: 
+
+Los arreglos de apuntadores ofrecen a menudo un método conveniente para almacenar cadenas de caracteres.  En esta situación, cada elemento del array es un apuntador tipo carácter que indica el principio de una cadena de caracteres separada, por lo tanto un array de **n** elementos puede apuntar a diferentes cadenas de caracteres, de tal manera que cada cadena individual puede ser referenciada por su correspondiente apuntador. La siguiente figura muestra este hecho:
+
+```C
+char *myStrPtr[5] = { "If anything can go wrong, it will",
+                      "Nothing is foolproof",
+                      "Every solution breeds new problems."};
+```
+
+La representacion es como la siguiente siguiente figura:
+
+FIGURA
+
+Ahora bien, para profundizar analice el siguiente [codigo](https://goo.gl/uVceEY):
+
+```C
+#include <stdio.h>
+
+int main() {
+  char *myStrPtr[5] = { "Universidad de Antioquia",
+                         "Alma Mater",
+                         "De la patria."};
+  int i = 0;
+  while(myStrPtr[i] != NULL) {
+    printf("%s\n",myStrPtr[i]);
+    i++;
+  }
+  return 0;
+}
+```
+
+
+**Ejemplo**: 
+
+
+
+https://www.codeproject.com/Articles/83080/Dynamic-Three-Dimensional-Arrays-in-C-C-C-Java
+
+```C
+#include <stdio.h>
+
+/** Dimensiones de la matrix */
+
+const int P = 2; // Planos
+const int F = 2; // Filas
+const int C = 3; // Columnas
+
+/** Declaracion de las funciones */
+
+void imprimirMatrix3D(int *** M3D);
+
+/** Funcion principal */
+
+int main() {
+  /* Vectores: Cada no de los cuales sera una fila de la matrix*/
+  int v0_0[] = {1,2,3};
+  int v0_1[] = {4,5,6};
+  int v1_0[] = {7,8,9};
+  int v1_1[] = {10,11,12};
+  /* Matrices 2D: Cada una sera un plano de la matrix 2D */
+  int *V0[2];  
+  V0[0] = v0_0;
+  V0[1] = v0_1;
+  int *V1[2];
+  V1[0] = v1_0;
+  V1[1] = v1_1;
+  /* Matrix 3D: Formada por 2 matrices 2D */
+  int **M[2];
+  M[0] = V0;
+  M[1] = V1;
+  /* Apuntador a la matrix 3D */
+  int ***Mptr = M;
+  /* Cambio de valores de la matrix a traves del apuntador*/
+  *(*(*(M + 0) + 1) + 2) = 0;  // M[0][1][2] = 0;
+  *(*(*(M + 1) + 0) + 1) = -5; // M[1][0][1] = -5;
+  *(*(M[1]+ 1) + 1) = -15;     // M[1][1][1] = -15;
+  /* Imprimiendo la matrix 3D */
+  imprimirMatrix3D(M);  
+  return 0;
+}
+
+/** Definicion de las funciones */
+void imprimirMatrix3D(int *** M3D) {
+  printf("-------------------------\n");
+  for(int i = 0; i < P; i++) {
+    for(int j = 0; j < F; j++) {
+      for(int k = 0; k < C; k++) {
+        printf("%5d ", *(*(*(M3D + i) + j) + k));  
+      }
+      printf("\n");
+    }
+    printf("------------------------\n");
+  }      
+}
+```
+
+
+
 ## xxx. Enlaces de interés
 * https://www.geeksforgeeks.org/pass-2d-array-parameter-c/
 * https://www.programiz.com/c-programming/c-arrays-functions
 * https://www.programiz.com/c-programming/examples/matrix-multiplication-function
 * https://beginnersbook.com/2014/01/c-passing-array-to-function-example/
-
+* https://www.codeproject.com/Articles/83080/Dynamic-Three-Dimensional-Arrays-in-C-C-C-Java
 
 
 
