@@ -899,7 +899,7 @@ En la siguiente figura, se compara la salida con la representacion de la matrix 
 
 FIGURA
 
-En el siguiente [codigo](https://goo.gl/jaUqCn) se define la anterior matrix irregular. Adicionalmente, se imprimen en pantalla algunos de los valores asociados a esta:
+En el siguiente [codigo](https://goo.gl/bupwsf) se define la anterior matrix irregular. Adicionalmente, se imprimen en pantalla algunos de los valores asociados a esta:
 
 ```C
 #include <stdio.h>
