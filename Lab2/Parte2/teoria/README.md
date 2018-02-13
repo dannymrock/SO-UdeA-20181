@@ -1246,7 +1246,8 @@ Notese respecto al codigo del ejemplo 2 que se tiene al usar apuntadores generic
 * https://boredzo.org/pointers/
 * https://beginnersbook.com/2014/01/c-pointer-to-pointer/
 * https://www.tutorialspoint.com/cprogramming/index.htm
-
+* http://gsd.web.elte.hu/lectures/c-en/c-lecture-9/
+* http://math.pnw.edu/~rlkraft/cs123-2009/homework/hw3/hw3.html
 
 
 
