@@ -98,7 +98,7 @@ struct Book  {
 Las variables de estructuras se pueden definir de dos formas:
 1. Listándolas inmediatamente después de la llave de cierre de la llave de cierre de la declaración de la estructura, algo como esto. Por ejemplo ([codigo](https://goo.gl/BKZ4tR)):
 
-```
+```C
 struct Book  {
    int  book_id;
    char title[50]; 
@@ -112,14 +112,14 @@ struct Book  {
 
 2. Listando el tipo de la estructura seguida por las variables correspondientes en cualquier lugar del programa antes de utilizarlas, así, asumiendo que la estructura está declarada. Por ejemplo ([codigo](https://goo.gl/18uq3R)):
 
-```
+```C
 struct Book  {
    int  book_id;
    char title[50]; 
    char author[40]; 
    int pages;
    float price;
-} 
+}; 
 
 struct Book book1, book2;
 ```
@@ -182,7 +182,60 @@ struct Cancion sadSong = {
 ```
 
 #### 2.3.2. Inicialización específica de cada uno de los miembros
-Básicamente, consiste en la designación de cada uno de los miembros de la forma ```.miembro = valor```.
+Básicamente, consiste en la designación de cada uno de los miembros siguiendo la siguiente forma.
+
+```C
+.miembro = valor; // designador
+```
+
+**Ejemplo** 
+Realizar la misma inicilizacion del caso anterior, pero en este caso emplear la inicializacion especifica de miembros.
+
+```C
+struct Cancion {
+  char titulo[64];
+  char artista[32];
+  char compositor[32];
+  short duracion;
+  char URL[100];
+};
+
+// Inicializacion de la variable (sadSong) tipo struct Cancion 
+struct Cancion sadSong = {
+                            .titulo = "Strange fruit",
+                            .artista" = Billie Holiday",
+                            .compositor = "Abel Meeropol",
+                            .duracion = 164,
+                            .URL = "http://bit.ly/1mU1gBT"
+                         };
+
+```
+
+#### 2.3.3. Caso en el que no se inicializan todos lo miembros
+Ya sea que se emplee una u otra de las formas anteriormente mencionadas, es posible inicializar parcialmente una variable tipo estructura, para ello, basta con no pasar todos los elementos que puede contener la lista de inicialización. A continuación se muestra un ejemplo:
+
+**Ejemplo**
+Crear dos variables tipo struct Cancion, estas variables no tendran todos los parametros inicialidos:
+
+```C
+struct Cancion {
+  char titulo[64];
+  char artista[32];
+  char compositor[32];
+  short duracion;
+  char URL[100];
+};
+
+struct Cancion song1 = {"Mi cerebro esta boca abajo"};
+struct Cancion song2 = { 
+                         .titulo = “Noches de Hungria”,
+                         .compositor = “Julio Jaramillo”,
+                         .duracion = 127
+};
+```
+
+
+
 
 
 
