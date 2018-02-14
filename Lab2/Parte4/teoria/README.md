@@ -153,6 +153,7 @@ int main() {
 }
 ```
 ### 2.3. Inicializacion de variables tipo struct
+
 Al igual que para el caso de las variables simples, las estructuras pueden tener valores iniciales una vez se declaran. Como estas con estructuras compuestas, lo que se hace para inicializar estas, es inicializar miembro por miembro. A continuacion se describen las dos formas de llevar a cabo esto:
 
 #### 2.3.1. Usando una lista de inicialización
@@ -228,13 +229,142 @@ struct Cancion {
 
 struct Cancion song1 = {"Mi cerebro esta boca abajo"};
 struct Cancion song2 = { 
-                         .titulo = “Noches de Hungria”,
-                         .compositor = “Julio Jaramillo”,
+                         .titulo = "Noches de Hungria",
+                         .compositor = "Julio Jaramillo",
                          .duracion = 127
 };
 ```
 
+### 2.4. Empleo de la palabra clave typedef para crear alias (tocayos)
+La palabra reservada ```typedef``` permite a un programador crear un sinónimo de un tipo de dato definido por el usuario o de un tipo ya existente. La sintaxis para usar esta palabra clave es la siguiente:
 
+```C
+tipo_dato typedef nombre_alias;
+```
+
+**Ejemplo**
+Dada la siguiente declaracion de variables:
+
+```C
+double alto, ancho;
+```
+
+Teniendo en cuenta que **alto** y **ancho** son medidas de longitud, podemos crear un alias para una variable tipo double llamado **longitud** y el efecto será el mismo que el del caso anterior, el código para el caso sera el siguiente:
+
+```C
+typedef double longitud;
+longitud alto, ancho;
+```
+
+**Ejemplo**
+La mayor ventaja del uso de esta palabra clave se ve con las estructuras. A continuación se muestra el resultado:
+
+1. Cree dos variables tipo Punto2D llamadas P1 y P2 con valores (2,3) y (-1,6). No emplee typedef
+
+
+```C
+// Declaracion de las estructura
+struct Punto2D {
+  float x;
+  float y;
+};
+
+
+// Declaracion de variables
+struct Punto2D P1 = {
+                      2,
+                      3
+                    };
+
+struct Punto2D P2 = {
+                      .x = -1,
+                      .y = 6
+                    };
+```
+
+
+2. Realice lo mismo que en el punto anterior, pero esta vez haga uso de la palabra clave **typedef** para crear un alias son **struct Punto2d** llamado **Punto2D**. 
+
+
+```C
+// Declaracion de las estructura
+struct Punto2D {
+  float x;
+  float y;
+};
+
+// Creacion del alias
+struct Punto2D Punto2D;
+
+// Declaracion de variables (Note que ya no es necesario el struct Punto2D gracias al alias)
+Punto2D P1 = {
+                      2,
+                      3
+                    };
+
+Punto2D P2 = {
+                      .x = -1,
+                      .y = 6
+                    };
+```
+
+### 2.5. Manipulando estructuras
+Por manipulacion de la estructuras (dentro de este contexto) nos queremos referir al acceso a los miembros de esta, tal y como sucede cuando se accede a los miembros de un objeto en el caso de la POO. Para el caso de las estructuras en particulas, existen dos formas de acceder:
+* Empleando el operador punto (.)
+* Emplenando el operador flecha (->)
+
+#### 2.5.1 Usando el operador punto (.)
+Usado cuando se definen variables del tipo de la estructura. Básicamente tiene la siguiente sintaxis:
+
+```C
+<nombre_variable_estructura>.<nombre_miembro> = datos;
+```
+**Ejemplos**
+1. Crear dos puntos P1 y P2. Luego de su declaracion inicialicelos con los siguientes valores: (1,1) y (10,3).
+
+```
+// Declaracion de las estructura
+struct Punto2D {
+  ...
+};
+
+// Creacion del alias
+struct Punto2D Punto2D;
+
+// Declaracion de los puntos
+Punto2D P1, P2;
+
+// Manipulacion (acceso a los miembros)
+P1.x = 1;
+P1.y = 1;
+P2.x = 10, P2.y = 3;
+```
+
+2. Crear una estructura asociada a un libro y porteriormente declarar dos libros con la siguiente informacion.
+
+
+
+```
+// Declaracion de las estructura
+struct Punto2D {
+  ...
+};
+
+// Creacion del alias
+struct Punto2D Punto2D;
+
+// Declaracion de los puntos
+Punto2D P1, P2;
+
+// Manipulacion (acceso a los miembros)
+P1.x = 1;
+P1.y = 1;
+P2.x = 10, P2.y = 3;
+```
+
+
+
+### 2.5. Estructuras anidadas
 
 
 
