@@ -94,6 +94,7 @@ struct Book  {
 ```
 
 ### 2.2. Definición de variables tipo struct
+
 Las variables de estructuras se pueden definir de dos formas:
 1. Listándolas inmediatamente después de la llave de cierre de la llave de cierre de la declaración de la estructura, algo como esto. Por ejemplo ([codigo](https://goo.gl/BKZ4tR)):
 
@@ -151,4 +152,37 @@ int main() {
   return 0;
 }
 ```
+### 2.3. Inicializacion de variables tipo struct
+Al igual que para el caso de las variables simples, las estructuras pueden tener valores iniciales una vez se declaran. Como estas con estructuras compuestas, lo que se hace para inicializar estas, es inicializar miembro por miembro. A continuacion se describen las dos formas de llevar a cabo esto:
+
+#### 2.3.1. Usando una lista de inicialización
+Esta es similar a la empleada para los arrays, y lo que se hace es inicializar cada miembro de la estructura con el correspondiente valor inicial asociado. Cada valor inicial es separado por coma (,). Veamos.
+
+**Ejemplo** 
+Iniciar la estructura Cancion con la siguiente informacion asociada a una cancion de [Billie Holiday](https://es.wikipedia.org/wiki/Billie_Holiday). A continuacion se muestra el codigo:
+
+```C
+struct Cancion {
+  char titulo[64];
+  char artista[32];
+  char compositor[32];
+  short duracion;
+  char URL[100];
+};
+
+// Inicializacion de la variable (sadSong) tipo struct Cancion 
+struct Cancion sadSong = {
+                            "Strange fruit",
+                            "Billie Holiday",
+                            "Abel Meeropol",
+                             164,
+                            "http://bit.ly/1mU1gBT"
+                         };
+
+```
+
+#### 2.3.2. Inicialización específica de cada uno de los miembros
+Básicamente, consiste en la designación de cada uno de los miembros de la forma ```.miembro = valor```.
+
+
 
