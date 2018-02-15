@@ -160,26 +160,30 @@ Al igual que para el caso de las variables simples, las estructuras pueden tener
 Esta es similar a la empleada para los arrays, y lo que se hace es inicializar cada miembro de la estructura con el correspondiente valor inicial asociado. Cada valor inicial es separado por coma (,). Veamos.
 
 **Ejemplo** 
-Iniciar la estructura Cancion con la siguiente informacion asociada a una cancion de [Billie Holiday](https://es.wikipedia.org/wiki/Billie_Holiday). A continuacion se muestra el codigo:
+Iniciar la estructura Cancion con la siguiente informacion asociada a una cancion de [Billie Holiday](https://es.wikipedia.org/wiki/Billie_Holiday). A continuacion se muestra el [codigo](https://goo.gl/PThJor):
 
 ```C
+// Declaracion de la estructura
 struct Cancion {
-  char titulo[64];
+  char titulo[20];
   char artista[32];
   char compositor[32];
   short duracion;
-  char URL[100];
+  char URL[32];
 };
-
-// Inicializacion de la variable (sadSong) tipo struct Cancion 
-struct Cancion sadSong = {
-                            "Strange fruit",
-                            "Billie Holiday",
-                            "Abel Meeropol",
-                             164,
-                            "http://bit.ly/1mU1gBT"
-                         };
-
+                         
+// Funcion main                         
+int main() {
+  // Inicializacion de la variable (sadSong) tipo struct Cancion 
+  struct Cancion sadSong = {
+                              "Strange fruit",
+                              "Billie Holiday",
+                              "Abel Meeropol",
+                              164,
+                              "http://bit.ly/1mU1gBT"
+                           }; 
+  return 0;
+}
 ```
 
 #### 2.3.2. Inicialización específica de cada uno de los miembros
@@ -190,49 +194,62 @@ Básicamente, consiste en la designación de cada uno de los miembros siguiendo 
 ```
 
 **Ejemplo** 
-Realizar la misma inicilizacion del caso anterior, pero en este caso emplear la inicializacion especifica de miembros.
+Realizar la misma inicilizacion del caso anterior, pero en este caso emplear la inicializacion especifica de miembros (Ver el siguiente [enlace](https://goo.gl/DeHKrG)).
 
 ```C
+// Declaracion de la estructura
 struct Cancion {
-  char titulo[64];
+  char titulo[20];
   char artista[32];
   char compositor[32];
   short duracion;
-  char URL[100];
+  char URL[32];
 };
-
-// Inicializacion de la variable (sadSong) tipo struct Cancion 
-struct Cancion sadSong = {
-                            .titulo = "Strange fruit",
-                            .artista" = Billie Holiday",
-                            .compositor = "Abel Meeropol",
-                            .duracion = 164,
-                            .URL = "http://bit.ly/1mU1gBT"
-                         };
-
+                         
+// Funcion main                         
+int main() {
+  // Inicializacion de la variable (sadSong) tipo struct Cancion 
+  struct Cancion sadSong = {
+                             .titulo = "Strange fruit",
+                             .artista = "Billie Holiday",
+                             .compositor = "Abel Meeropol",
+                             .duracion = 164,
+                             .URL = "http://bit.ly/1mU1gBT"
+                           };
+  return 0;
+}
 ```
+
+FIGURA
 
 #### 2.3.3. Caso en el que no se inicializan todos lo miembros
 Ya sea que se emplee una u otra de las formas anteriormente mencionadas, es posible inicializar parcialmente una variable tipo estructura, para ello, basta con no pasar todos los elementos que puede contener la lista de inicialización. A continuación se muestra un ejemplo:
 
 **Ejemplo**
-Crear dos variables tipo struct Cancion, estas variables no tendran todos los parametros inicialidos:
+Crear dos variables tipo struct Cancion, estas variables no tendran todos los parametros inicialidos (ver el siguiente [enlace](https://goo.gl/p8qxYn)):
 
 ```C
+// Declaracion de la estructura
 struct Cancion {
-  char titulo[64];
+  char titulo[20];
   char artista[32];
   char compositor[32];
   short duracion;
-  char URL[100];
+  char URL[32];
 };
 
+// Variables globales tipo struct Cancion
 struct Cancion song1 = {"Mi cerebro esta boca abajo"};
 struct Cancion song2 = { 
                          .titulo = "Noches de Hungria",
                          .compositor = "Julio Jaramillo",
                          .duracion = 127
 };
+
+// Funcion main                         
+int main() {
+  return 0;
+}
 ```
 
 ### 2.4. Empleo de la palabra clave typedef para crear alias (tocayos)
@@ -259,7 +276,7 @@ longitud alto, ancho;
 **Ejemplo**
 La mayor ventaja del uso de esta palabra clave se ve con las estructuras. A continuación se muestra el resultado:
 
-1. Cree dos variables tipo Punto2D llamadas P1 y P2 con valores (2,3) y (-1,6). No emplee typedef
+1. Cree dos variables tipo Punto2D llamadas P1 y P2 con valores (2,3) y (-1,6). No emplee typedef ([codigo](https://goo.gl/12SyAa))
 
 
 ```C
@@ -270,20 +287,24 @@ struct Punto2D {
 };
 
 
-// Declaracion de variables
-struct Punto2D P1 = {
-                      2,
-                      3
-                    };
+// Funcion main                         
+int main() { 
+  // Declaracion de variables
+  struct Punto2D P1 = {
+                        2,
+                        3
+                      };
 
-struct Punto2D P2 = {
-                      .x = -1,
-                      .y = 6
-                    };
+  struct Punto2D P2 = {
+                        .x = -1,
+                        .y = 6
+                      };
+  return 0;
+}
 ```
 
 
-2. Realice lo mismo que en el punto anterior, pero esta vez haga uso de la palabra clave **typedef** para crear un alias son **struct Punto2d** llamado **Punto2D**. 
+2. Realice lo mismo que en el punto anterior, pero esta vez haga uso de la palabra clave **typedef** para crear un alias son **struct Punto2d** llamado **Punto2D**. (ver siguiente [enlace](https://goo.gl/2nfGgb)) 
 
 
 ```C
@@ -294,18 +315,22 @@ struct Punto2D {
 };
 
 // Creacion del alias
-struct Punto2D Punto2D;
+typedef struct Punto2D Punto2D;
 
-// Declaracion de variables (Note que ya no es necesario el struct Punto2D gracias al alias)
-Punto2D P1 = {
-                      2,
-                      3
-                    };
+// Funcion main                         
+int main() { 
+  // Declaracion de variables
+  Punto2D P1 = {
+                        2,
+                        3
+                      };
 
-Punto2D P2 = {
-                      .x = -1,
-                      .y = 6
-                    };
+  Punto2D P2 = {
+                        .x = -1,
+                        .y = 6
+                      };
+  return 0;
+}
 ```
 
 ### 2.5. Manipulando estructuras
@@ -320,7 +345,7 @@ Usado cuando se definen variables del tipo de la estructura. Básicamente tiene 
 <nombre_variable_estructura>.<nombre_miembro> = datos;
 ```
 **Ejemplos**
-1. Crear dos puntos P1 y P2. Luego de su declaracion inicialicelos con los siguientes valores: (1,1) y (10,3).
+1. Crear dos puntos P1 y P2. Luego de su declaracion inicialicelos con los siguientes valores: (1,1) y (10,3). En el siguiente [enlace](https://goo.gl/XzWLMR) se encuentra el codigo.
 
 ```
 // Declaracion de las estructura
@@ -342,8 +367,7 @@ P2.x = 10, P2.y = 3;
 
 2. Crear una estructura asociada a un libro y porteriormente declarar dos libros con la siguiente informacion.
 
-
-
+Aca vamos...
 ```
 // Declaracion de las estructura
 struct Punto2D {
