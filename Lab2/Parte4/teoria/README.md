@@ -443,9 +443,59 @@ A continuacion se muestra el resultado en memoria.:
 
 VER GRAFICA
 
+2.5.2 Usando el operador flecha (->)
+Es empleado cuando se hace uso de punteros a estructuras, su sintaxis es de la siguiente forma:
+
+```C
+<puntero_estructura>-><nombre_miembro> = datos;
+```
+
+**Ejemplos**
+1. Suponga que se tiene una estructura asociada a las fechas. Tambien, suponga que tiene una variable llamada diaDestino cuyo valor asociado es el 5 de noviembre de 1955 (primer viaje en el tiempo de Marty MacFly). Luego cree una variable tipo apuntador a esta este tipo de estructura y modifique a traves de este el valor de diaDestino al 21 de octubre de 2015 (fecha a la cual viaja Marty MacFly al futuro). Imprima los valores en cada caso.
+
+El [codigo](https://goo.gl/cGBQeP) solucion se muestra a continuacion:
+
+```C
+#include <stdio.h>
+
+struct Date {
+  unsigned year;
+  unsigned month;
+  unsigned day;
+};
+
+typedef struct Date Fecha;
+
+int main() {
+  /* Declaracion de variables */
+  Fecha diaDestino; // Varible tipo fecha
+  Fecha *diaPtr;    // Variable tipo apuntador a fecha
+  diaPtr = &diaDestino;  // Inicializacion del apuntador
+  
+  /* Viaje al pasado */
+  // Fijando por medio del operador punto (.) los valores 
+  // de dia destino al 5 de noviembre de 1955 
+  diaDestino.year = 1955;
+  diaDestino.month = 11;
+  diaDestino.day = 5;
+  printf("Destination time: %d/%d/%d\n", 
+         diaDestino.day, diaDestino.month, diaDestino.year);
+  
+  /*Viaje al futuro */
+  // Fijando por medio del operador flecha (->) los valores 
+  // de dia destino al 21 de octubre de 2015
+  diaPtr->year = 2015;
+  diaPtr->month = 10;
+  diaPtr->day = 21;
+  printf("Destination time: %d/%d/%d\n", 
+         diaPtr->year, diaPtr->month, diaPtr->year);
+  return 0;
+}
+```
 
 
-### 2.5. Estructuras anidadas
+
+### 2.6. Estructuras anidadas
 
 
 
