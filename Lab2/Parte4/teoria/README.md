@@ -396,44 +396,54 @@ P2.x = 10, P2.y = 3;
 </tbody>
 </table>
 
+El [código](https://goo.gl/dbjcTF) solucion se muestra a continuación, note que la forma como se accede a la variable tipo ```Book``` en el correspondiente arreglo es ```book[i]``` para el caso, por ende la forma de acceder a cada uno de los miembros del array en cuestion será ```book[i].miembro```
 
 ```C
 #include <stdio.h>
 #include <string.h>
-...
+
 // Declaracion de las estructura
 struct Book  {
    int  book_id;
-   char title[50]; 
-   char author[40]; 
+   char title[24]; 
+   char author[20]; 
    int pages;
    float price;
 };
 
 // Creacion del alias
-struct Book Book;
+typedef struct Book Book;
 
 // Declaracion del array de libros
- Book books[2];
+Book books[2];
 
-// Manipulacion (acceso a los miembros)
+int main() {
+  // Manipulacion (acceso a los miembros)
 
-// Libro # 1
-books[0].book_id = 1211;
-strcpy(books[0].title,"C Primer Plus"); 
-strcpy(books[0].author,"Stephen Prata"); 
-books[0].pages = 984;
-books[0].price = 585.00;
+  // Libro # 1
+  books[0].book_id = 1211;
+  //OJO: books[0].title = "C Primer Plus" es un ERROR 
+  strcpy(books[0].title,"C Primer Plus");    
+  strcpy(books[0].author,"Stephen Prata"); 
+  books[0].pages = 984;
+  books[0].price = 585.00;
 
-// Libro #2
-books[0].book_id = 1212;
-strcpy(books[0].title,"The ANSI C Programming"); 
-strcpy(books[0].author,"Dennis Ritchie"); 
-books[0].pages = 214;
-books[0].price = 125.00;
+  // Libro #2
+  books[1].book_id = 1212;
+  strcpy(books[1].title,"The ANSI C Programming"); 
+  strcpy(books[1].author,"Dennis Ritchie"); 
+  books[1].pages = 214;
+  books[1].price = 125.00;
 
-...
+  return 0;
+}
 ```
+
+A continuacion se muestra el resultado en memoria.:
+
+VER GRAFICA
+
+
 
 ### 2.5. Estructuras anidadas
 
