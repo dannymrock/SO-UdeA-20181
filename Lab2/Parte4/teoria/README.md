@@ -365,28 +365,75 @@ P1.y = 1;
 P2.x = 10, P2.y = 3;
 ```
 
-2. Crear una estructura asociada a un libro y porteriormente declarar dos libros con la siguiente informacion.
+2. Crear una estructura asociada a un libro y porteriormente declarar dos libros (como un array) con la siguiente informacion.
 
-Aca vamos...
-```
+<table style="width: 91px;">
+<tbody>
+<tr>
+<td style="width: 15px;">#</td>
+<td style="width: 15px;">BookID</td>
+<td style="width: 15px;">Title</td>
+<td style="width: 15px;">Author</td>
+<td style="width: 15px;">Pages</td>
+<td style="width: 15px;">Price</td>
+</tr>
+<tr>
+<td style="width: 15px;">1</td>
+<td style="width: 15px;">1211</td>
+<td style="width: 15px;">C Primer Plus</td>
+<td style="width: 15px;">Stephen Prata</td>
+<td style="width: 15px;">984</td>
+<td style="width: 15px;">585.00</td>
+</tr>
+<tr>
+<td style="width: 15px;">2</td>
+<td style="width: 15px;">1212</td>
+<td style="width: 15px;">The ANSI C Programming</td>
+<td style="width: 15px;">Dennis Ritchie</td>
+<td style="width: 15px;">214</td>
+<td style="width: 15px;">125.00</td>
+</tr>
+</tbody>
+</table>
+
+
+```C
+#include <stdio.h>
+#include <string.h>
+...
 // Declaracion de las estructura
-struct Punto2D {
-  ...
+struct Book  {
+   int  book_id;
+   char title[50]; 
+   char author[40]; 
+   int pages;
+   float price;
 };
 
 // Creacion del alias
-struct Punto2D Punto2D;
+struct Book Book;
 
-// Declaracion de los puntos
-Punto2D P1, P2;
+// Declaracion del array de libros
+ Book books[2];
 
 // Manipulacion (acceso a los miembros)
-P1.x = 1;
-P1.y = 1;
-P2.x = 10, P2.y = 3;
+
+// Libro # 1
+books[0].book_id = 1211;
+strcpy(books[0].title,"C Primer Plus"); 
+strcpy(books[0].author,"Stephen Prata"); 
+books[0].pages = 984;
+books[0].price = 585.00;
+
+// Libro #2
+books[0].book_id = 1212;
+strcpy(books[0].title,"The ANSI C Programming"); 
+strcpy(books[0].author,"Dennis Ritchie"); 
+books[0].pages = 214;
+books[0].price = 125.00;
+
+...
 ```
-
-
 
 ### 2.5. Estructuras anidadas
 
