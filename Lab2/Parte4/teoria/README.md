@@ -574,7 +574,7 @@ Una estructura puede tener a su vez otra estructura como miembro. A continuacion
 
 Note que para el problema podemos crear dos estructuras, una asociada al personaje y otra asociada a las fechas. Asi mismo, podemos ver que las fechas pueden ser tratadas como estructuras del personaje. A continuacion vamos a mostrar el código que define ambas estructuras:
 
-````C
+```C
 struct date {
   unsigned year;
   unsigned month;
