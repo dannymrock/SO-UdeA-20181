@@ -259,6 +259,8 @@ int main() {
 }
 ```
 
+El resultado de ejecutar el codigo anterior, es el mismo que el mostrado en la **figura 9**.
+
 FIGURA
 
 #### 2.3.3. Caso en el que no se inicializan todos lo miembros
@@ -291,6 +293,12 @@ int main() {
 }
 ```
 
+En la siguiente figura se muestra el resultado del codigo anterior, notese lo que sucede como quedan los miembros que no fueron inicializados.
+
+![fig10](./imagenes/var_song2.png)
+
+**Figura 10**. Variables tipo cancion sin inicializar todos sus miembros.
+
 ### 2.4. Empleo de la palabra clave typedef para crear alias (tocayos)
 La palabra reservada ```typedef``` permite a un programador crear un sinónimo de un tipo de dato definido por el usuario o de un tipo ya existente. La sintaxis para usar esta palabra clave es la siguiente:
 
@@ -311,6 +319,12 @@ Teniendo en cuenta que **alto** y **ancho** son medidas de longitud, podemos cre
 typedef double longitud;
 longitud alto, ancho;
 ```
+
+El resultado se muestra a continuacion:
+
+![fig11](./imagenes/type_def1.png)
+
+**Figura 11**. Uso de typedef para la creacion de alias.
 
 **Ejemplo**
 La mayor ventaja del uso de esta palabra clave se ve con las estructuras. A continuación se muestra el resultado:
@@ -342,6 +356,11 @@ int main() {
 }
 ```
 
+La salida del programa anterior es:
+
+![fig12](./imagenes/point_sin_typedef.png)
+
+**Figura 11**. Uso variables tipo struct Punto2D sin usar typedef.
 
 2. Realice lo mismo que en el punto anterior, pero esta vez haga uso de la palabra clave **typedef** para crear un alias son **struct Punto2d** llamado **Punto2D**. (ver siguiente [enlace](https://goo.gl/2nfGgb)) 
 
@@ -371,6 +390,12 @@ int main() {
   return 0;
 }
 ```
+
+La salida del programa anterior (observe en que se diferencia respecto al anterior) es:
+
+![fig12](./imagenes/point_con_typedef.png)
+
+**Figura 12**. Uso variables tipo struct Punto2D usando typedef.
 
 ### 2.5. Manipulando estructuras
 Por manipulacion de la estructuras (dentro de este contexto) nos queremos referir al acceso a los miembros de esta, tal y como sucede cuando se accede a los miembros de un objeto en el caso de la POO. Para el caso de las estructuras en particulas, existen dos formas de acceder:
@@ -403,6 +428,12 @@ P1.x = 1;
 P1.y = 1;
 P2.x = 10, P2.y = 3;
 ```
+
+Observe como quedan los campos de las variables P1 y P2 despues de la ejecucion del codigo anterior.
+
+![fig13](./imagenes/acceso_struct_punto.png)
+
+**Figura 13**. Manipulando variables tipo Punto2D.
 
 2. Crear una estructura asociada a un libro y porteriormente declarar dos libros (como un array) con la siguiente informacion.
 
