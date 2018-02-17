@@ -25,11 +25,13 @@ struct nombre-estructura {
 };
 ```
 
-**Tip**: se reocomienda que los nombres de estructuras empicen con mayuscula.
-
 **Ejemplos**
 
 1. Definir una estructura asociada a un punto en el plano cartesiano.
+
+![fig1](./imagenes/punto.png)
+
+**Figura 1**. Punto.
 
 ```C
 struct Punto2D {
@@ -39,6 +41,10 @@ struct Punto2D {
 ```
 
 2. Definir una estructura asociada a una fecha.
+
+![fig2](./imagenes/fecha.png)
+
+**Figura 2**. Fecha.
 
 ```C
 struct Date {
@@ -50,6 +56,10 @@ struct Date {
 
 3. Definir una estructura asociada a una hora.
 
+![fig3](./imagenes/hora.png)
+
+**Figura 3**. Tiempo
+
 ```C
 struct Tiempo {
   unsigned int hr;
@@ -57,7 +67,12 @@ struct Tiempo {
   unsigned int sec;
 };
 ```
+
 4. Definir una estructura asociada a un album musical
+
+![fig4](./imagenes/album.png)
+
+**Figura 4**. Album
 
 ```C
 struct Album {
@@ -70,6 +85,10 @@ struct Album {
 
 5. Definir una estructura asociada a una cancion.
 
+![fig5](./imagenes/cancion.png)
+
+**Figura 5**. Cancion.
+
 ```C
 struct Cancion {
   char titulo[64];
@@ -80,7 +99,11 @@ struct Cancion {
 };
 ```
 
-6. Definir una estructura asociada a una cancion.
+6. Definir una estructura asociada a un libro.
+
+![fig6](./imagenes/libro.png)
+
+**Figura 6**. Libro.
 
 ```C
 struct Book  {
