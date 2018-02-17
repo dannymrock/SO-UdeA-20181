@@ -493,9 +493,134 @@ int main() {
 }
 ```
 
+FIGURA
+
+Hay que aclarar que el uso del operador punto (.) tambien puede ser empleado con variables tipo apuntador, para ello se sigue la siguiente forma:
+
+**Ejemplos**
+1. Implemente el mismo ejemplo anterior, pero esta vez use el operador punto (.) para modificar los miembros de la variable tipo Date a traves del apuntador.
+
+El [codigo solucion](https://goo.gl/kMb6kb) se muestra a continuacion:
+
+```C
+#include <stdio.h>
+
+struct Date {
+  unsigned year;
+  unsigned month;
+  unsigned day;
+};
+
+typedef struct Date Fecha;
+
+int main() {
+  /* Declaracion de variables */
+  Fecha diaDestino; // Varible tipo fecha
+  Fecha *diaPtr;    // Variable tipo apuntador a fecha
+  diaPtr = &diaDestino;  // Inicializacion del apuntador
+  
+  /* Viaje al pasado */
+  // Fijando por medio del operador punto (.) los valores 
+  // de dia destino al 5 de noviembre de 1955 
+  diaDestino.year = 1955;
+  diaDestino.month = 11;
+  diaDestino.day = 5;
+  printf("Destination time: %d/%d/%d\n", 
+         diaDestino.day, diaDestino.month, diaDestino.year);
+  
+  /*Viaje al futuro */
+  // Fijando por medio del operador flecha (->) los valores 
+  // de dia destino al 21 de octubre de 2015
+  (*diaPtr).year = 2015;
+  (*diaPtr).month = 10;
+  (*diaPtr).day = 21;
+  printf("Destination time: %d/%d/%d\n", 
+         diaPtr->year, diaPtr->month, diaPtr->year);
+  return 0;
+}
+```
+
+Si lo simula, podrá notar que la salida es exactamente la misma que la del ejemplo anterior.
 
 
 ### 2.6. Estructuras anidadas
+Una estructura puede tener a su vez otra estructura como miembro. A continuacion se muestra un ejemplo para ello.
+
+**Ejemplos**
+1. Suponga que se tiene la siguiente tabla asociada a personajes historicos que nunca olvidaremos.
+
+<table>
+<tbody>
+<tr>
+<td>Nombre</td>
+<td>Nacimiento</td>
+<td>Muerte</td>
+<td>Profesion</td>
+</tr>
+<tr>
+<td>Ernest Hemingway</td>
+<td>21/07/1899</td>
+<td>02/07/1961</td>
+<td>Escritor</td>
+</tr>
+<tr>
+<td>Albert Einstein</td>
+<td>14/03/1879</td>
+<td>18/04/1955</td>
+<td>Fisico</td>
+</tr>
+</tbody>
+</table>
+
+Note que para el problema podemos crear dos estructuras, una asociada al personaje y otra asociada a las fechas. Asi mismo, podemos ver que las fechas pueden ser tratadas como estructuras del personaje. A continuacion vamos a mostrar el código que define ambas estructuras:
+
+````C
+struct date {
+  unsigned year;
+  unsigned month;
+  unsigned day;
+};
+
+typedef struct date fecha;
+
+struct personajeHistorico {
+  char nombre[21];
+  fecha nacimiento;
+  fecha muerte;
+  char profesion[21];
+};
+
+typedef struct personajeHistorico personaje;
+
+
+int main() {
+  
+  personaje per1 = {
+                     .nombre = "Ernest Hemingway",
+                     .nacimiento = {
+                       .year = 21, 
+                       .month = 07,
+                       .day =  1899,
+                      },
+                     .muerte = { 02, 07, 1961 },
+                     .profesion = "Escritor"                  
+                   };
+  personaje per2, *ptr;
+  fecha d = {14, 03, 1879};  
+  ptr = &per2;
+  strcpy(per2.nombre,"Albert Einstein");
+  strcpy(ptr->profesion,"Fisico");
+  (*ptr).nacimiento = d;
+  per2.muerte.year = 1955;
+  per2.muerte.month = 4;
+  per2.muerte.day = 18;
+  return 0;
+}
+```
+
+Notese que en el anterior [ejemplo](https://goo.gl/wFkkgf), se combinan varias de las cosas que hemos discutido previamente. El resultado en memoria se muestra a continuacion:
+
+VER FIGURA
 
 
 
