@@ -128,10 +128,8 @@ struct Book  {
    char author[40]; 
    int pages;
    float price;
-} book1, book2, book3;
+} book1, book2;
 ```
-
-
 
 2. Listando el tipo de la estructura seguida por las variables correspondientes en cualquier lugar del programa antes de utilizarlas, así, asumiendo que la estructura está declarada. Por ejemplo ([codigo](https://goo.gl/18uq3R)):
 
@@ -146,8 +144,13 @@ struct Book  {
 
 struct Book book1, book2;
 ```
+La salida sea para uno u otro caso se muestra a continuación:
 
-FIGURAs - LA MISMA PARA AMBOS EJEMPLOS 
+
+![fig7](./imagenes/declaracion_books.png)
+
+**Figura 7**. Estructuras tipo libro.
+
 
 Adicionalmente, los conceptos aplicados para los tipos de datos simples aplican para estructuras tambien; esto es, es posible crear variables normales, arrays, matrices y apuntadores de estructuras entre otros. Veamos:
 
@@ -175,6 +178,13 @@ int main() {
   return 0;
 }
 ```
+
+A continuacion se muestra el resultado en memoria de la ejecución del codigo anterior:
+
+![fig8](./imagenes/declaracion_point.png)
+
+**Figura 8**. Estructuras tipo punto.
+
 ### 2.3. Inicializacion de variables tipo struct
 
 Al igual que para el caso de las variables simples, las estructuras pueden tener valores iniciales una vez se declaran. Como estas con estructuras compuestas, lo que se hace para inicializar estas, es inicializar miembro por miembro. A continuacion se describen las dos formas de llevar a cabo esto:
@@ -208,6 +218,12 @@ int main() {
   return 0;
 }
 ```
+
+A continuacion se muestra como quedan las estructura tipo Cancion (sadSong) al ejecutarse el codigo:
+
+![fig9](./imagenes/var_song1.png)
+
+**Figura 9**. Estructuras tipo cancion (variable sadSong).
 
 #### 2.3.2. Inicialización específica de cada uno de los miembros
 Básicamente, consiste en la designación de cada uno de los miembros siguiendo la siguiente forma.
