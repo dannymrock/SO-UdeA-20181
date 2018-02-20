@@ -960,6 +960,68 @@ mag(c4) = 1.4, ang(c4) = 315.0
 ### 2.6.2. Paso de estructuras por referencia
 En este caso, los parametros pasados a la funcion seran apuntadores a la estructura a pasar. El comportamiento es como el que se da en el caso de las funciones con datos tradicionales. 
 
+**Ejemplos**
+1. Tome la estructura asociada a los libros y realice una funcion que permita imprimir en pantalla la informacion asociada a un libro. El llamado para la funcion sera por referencia.
+
+```C
+#include <stdio.h>
+
+// Declaracion de las estructura
+struct Book  {
+   int  book_id;
+   char title[24]; 
+   char author[20]; 
+   int pages;
+   float price;
+};
+
+/** Declaracion de funciones */
+void printBookInfo(struct Book *lptr);
+
+// Declaracion del array de libros
+// Notese que no se usaron alias
+struct Book books[2];
+
+/** Funcion principal */
+int main() {
+  // Manipulacion (acceso a los miembros)
+
+  // Libro # 1
+  books[0].book_id = 1211;
+  //OJO: books[0].title = "C Primer Plus" es un ERROR 
+  strcpy(books[0].title,"C Primer Plus");    
+  strcpy(books[0].author,"Stephen Prata"); 
+  books[0].pages = 984;
+  books[0].price = 585.00;
+
+  // Libro #2
+  books[1].book_id = 1212;
+  strcpy(books[1].title,"The ANSI C Programming"); 
+  strcpy(books[1].author,"Dennis Ritchie"); 
+  books[1].pages = 214;
+  books[1].price = 125.00;
+  
+  // Imprimiendo la informacion de los libros
+  for(int i = 0; i < 2; i++) {
+    printBookInfo(&books[i]);
+    printf("\n");
+  } 
+  return 0;
+}
+
+/** Definicion de funciones */
+void printBookInfo(struct Book *lptr) {
+  printf("Book name: %s\n", lptr->title);
+  printf("Author: %s\n", lptr->author);
+  printf("Pages: %s\n", lptr->pages);  
+}
+```
+La simulacion se puede realizar siguiendo el siguiente [enlace](https://goo.gl/Hd9vaA)
+
+La salida en pantalla se muestra a continuacion:
+
+FIGURA
+
 
 
 
