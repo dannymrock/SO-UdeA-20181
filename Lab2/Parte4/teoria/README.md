@@ -261,8 +261,6 @@ int main() {
 
 El resultado de ejecutar el codigo anterior, es el mismo que el mostrado en la **figura 9**.
 
-FIGURA
-
 #### 2.3.3. Caso en el que no se inicializan todos lo miembros
 Ya sea que se emplee una u otra de las formas anteriormente mencionadas, es posible inicializar parcialmente una variable tipo estructura, para ello, basta con no pasar todos los elementos que puede contener la lista de inicialización. A continuación se muestra un ejemplo:
 
@@ -437,6 +435,10 @@ Observe como quedan los campos de las variables P1 y P2 despues de la ejecucion 
 
 2. Crear una estructura asociada a un libro y porteriormente declarar dos libros (como un array) con la siguiente informacion.
 
+![fig13](./imagenes/libros.png)
+
+**Figura 13**. Libros.
+
 <table style="width: 91px;">
 <tbody>
 <tr>
@@ -511,7 +513,9 @@ int main() {
 
 A continuacion se muestra el resultado en memoria.:
 
-VER GRAFICA
+![fig14](./imagenes/declaracion_books.png)
+
+**Figura 14**. Resultado en memoria para variables asociadas a los libros.
 
 2.5.2 Usando el operador flecha (->)
 Es empleado cuando se hace uso de punteros a estructuras, su sintaxis es de la siguiente forma:
@@ -563,7 +567,11 @@ int main() {
 }
 ```
 
-FIGURA
+A continuacion se muestra la salida asociada al ejemplo anterior:
+
+![fig15](./imagenes/.png)
+
+**Figura 15**. Salida empleando notacion puntero 
 
 Hay que aclarar que el uso del operador punto (.) tambien puede ser empleado con variables tipo apuntador, para ello se sigue la siguiente forma:
 
@@ -612,12 +620,15 @@ int main() {
 
 Si lo simula, podrá notar que la salida es exactamente la misma que la del ejemplo anterior.
 
-
 ### 2.6. Estructuras anidadas
 Una estructura puede tener a su vez otra estructura como miembro. A continuacion se muestra un ejemplo para ello.
 
 **Ejemplos**
-1. Suponga que se tiene la siguiente tabla asociada a personajes historicos que nunca olvidaremos.
+1. Suponga que se tiene la siguiente tabla asociada a personajes historicos.
+
+![fig16](./imagenes/personajes.png)
+
+**Figura 16**. Personajes
 
 <table>
 <tbody>
@@ -690,7 +701,10 @@ int main() {
 
 Notese que en el anterior [ejemplo](https://goo.gl/wFkkgf), se combinan varias de las cosas que hemos discutido previamente. El resultado en memoria se muestra a continuacion:
 
-VER FIGURA
+![fig17](./imagenes/struct_personajes.png)
+
+**Figura 17**. Resultado en memoria cuando existen estructuras anidadas.
+
 
 
 
