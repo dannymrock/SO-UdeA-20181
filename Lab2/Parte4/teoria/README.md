@@ -705,6 +705,147 @@ Notese que en el anterior [ejemplo](https://goo.gl/wFkkgf), se combinan varias d
 
 **Figura 17**. Resultado en memoria cuando existen estructuras anidadas.
 
+### 2.6. Estructuras y funciones
+Los conceptos vistos hasta el momento sobre funciones tambien aplican a las estructuras ya que las estructuras pueden ser usadas como parametros y valores de retorno por citar unos cuantos casos. La unica cosa adicional, respecto a las funciones que trabajan con variables normales, es que las funciones con estructuras hacen uso de los operadores de acceso para la manipulacion y el procesamiento de los datos de acuerdo a lo que se desea que haga la funcion. Como en el caso tradicional, las funciones en las que se emplean estructuras pueden ser pasadas por valor y por referencia. A continuacion se describe cada caso:
+
+### 2.6.1. Paso de estructuras por valor
+En este caso la estructura pasada como argumento a la funcion es copiada al parametro de la funcion, de modo que el procesamiento se hace sobre la copia y no sobre la estructura pasada como argumento.
+
+**Ejemplos**
+1. Definir una estructura que este asociada a un numero completo. Luego haga una funcion que imprima el numero complejo en cuestion en la forma **parteReal + parteImaginaria*i**. Luego probar el programa para imprimir los numeros: 2, -3*i, -2.3 + 10.5*i, 1.23 - 3.67*i
+
+El codigo solucion se puede simular en el siguiente [enlace](https://goo.gl/juQdWh): 
+```C
+#include <stdio.h>
+
+/** Declaracion de  estructuras */
+typedef struct complejo {
+  float re;
+  float im;
+} complejo;
+
+/** Declaracion de funciones */
+void imprimirComplejo(complejo); // void imprimirComplejo(complejo num)
+
+/** Funcion main */
+int main() {
+  /* Creando los numeros */
+  complejo n1 = {2, 0}; // 2
+  complejo n2 = {.re = 0, .im = -3}; // -3*i
+  complejo n3, n4;
+  n3.re = -2.3; // -2.3 + 10.5*i
+  n3.im = 10.5;
+  n4.re = 1.23; //  1.23 - 3.67*i
+  n4.im = -3.67;
+  /* Llamando las funciones para imprimir */
+  imprimirComplejo(n1);
+  printf("\n");
+  imprimirComplejo(n2);
+  printf("\n");
+  imprimirComplejo(n3);
+  printf("\n");
+  imprimirComplejo(n4);
+  printf("\n");
+  return 0;
+}
+
+/** Definicion de funciones */
+void imprimirComplejo(complejo num) {
+  if (num.im == 0) {
+    // Real puro
+    printf("%.2f",num.re);
+  }
+  else if (num.re == 0) {
+    // Imaginario puro
+    printf("%.2f*i",num.im);
+  }
+  else if (num.im < 0) {
+    // Complejo con parte imaginaria negativa
+    printf("%.2f - %.2f*i",num.re,(-1)*num.im);
+  }
+  else {
+    // Complejo con parte imaginaria positiva
+    printf("%.2f + %.2f*i",num.re,num.im);
+  }  
+}
+```
+
+Notese que en el anterior codigo se empleo ```typedef``` al declarar la estructura para definir de una vez el alias. La salida en pantalla y la representacion en memoria del programa anterior se muestra a continuacion.
+
+
+2. En la anterior funcion se un numero complejo como parametro, sin embargo tambien es posible retornar otras estructuras variables de retorno. Para ello en el siguiente ejemplo:
+* Hacer una funcion que sume dos numeros complejos y retorne el resultado de realizar la suma como otro complejo.
+* Hacer un test sumando los numeros: 2 - 11*i y 8 + 9*i
+
+```C
+#include <stdio.h>
+
+/** Declaracion de  estructuras */
+typedef struct complejo {
+  float re;
+  float im;
+} complejo;
+
+/** Declaracion de las funciones  */
+void imprimirComplejo(complejo);
+complejo sumarComplejos(complejo, complejo);
+void test(void); // Funcion para testing
+
+/** Funcion main */
+int main() {
+  /* Probando todo mediante la funcion test */
+  test();
+  return 0;
+}
+
+/** Definicion de funciones */
+void imprimirComplejo(complejo num) {
+  if (num.im == 0) {
+    // Real puro
+    printf("%.2f",num.re);
+  }
+  else if (num.re == 0) {
+    // Imaginario puro
+    printf("%.2f*i",num.im);
+  }
+  else if (num.im < 0) {
+    // Complejo con parte imaginaria negativa
+    printf("%.2f - %.2f*i",num.re,(-1)*num.im);
+  }
+  else {
+    // Complejo con parte imaginaria positiva
+    printf("%.2f + %.2f*i",num.re,num.im);
+  }  
+}
+
+complejo sumarComplejos(complejo c1, complejo c2) {
+    complejo solucion;
+    solucion.re = c1.re + c2.re;
+    solucion.im = c1.im + c2.im;
+    return solucion;
+}
+
+void test(void) {
+  complejo c1 = {2, -11}, c2 = {8, 9};
+  complejo c3 = sumarComplejos(c1,c2);
+  imprimirComplejo(c1);
+  printf("\n");
+  imprimirComplejo(c2);
+  printf(" + \n---------\n");
+  imprimirComplejo(c3);
+}
+```
+
+
+
+
+## XX. Enlaces
+
+* https://computer.howstuffworks.com
+* https://www.studytonight.com/c/structures-in-c.php
+* https://www.tutorialspoint.com/cprogramming/c_structures.htm
+* https://www.programiz.com/c-programming/c-structures
+* https://www.geeksforgeeks.org/structures-c/
 
 
 
