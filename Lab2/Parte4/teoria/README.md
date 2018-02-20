@@ -772,7 +772,6 @@ void imprimirComplejo(complejo num) {
 
 Notese que en el anterior codigo se empleo ```typedef``` al declarar la estructura para definir de una vez el alias. La salida en pantalla y la representacion en memoria del programa anterior se muestra a continuacion.
 
-
 2. En la anterior funcion se un numero complejo como parametro, sin embargo tambien es posible retornar otras estructuras variables de retorno. Para ello en el siguiente ejemplo:
 * Hacer una funcion que sume dos numeros complejos y retorne el resultado de realizar la suma como otro complejo.
 * Hacer un test sumando los numeros: 2 - 11*i y 8 + 9*i
@@ -835,6 +834,132 @@ void test(void) {
   imprimirComplejo(c3);
 }
 ```
+La simulacion puede verse siguiendo el siguiente [enlace](https://goo.gl/x3fXvA)
+
+3. Mejorar el codigo anterior agregando dos funciones que hagan lo siguiente:
+* Calcule la magnitud de un numero complejo.
+* Calcule el angulo de un numero complejo.
+
+El codigo anterior se mejoro quedando de la siguiente manera:
+
+```C
+#include <stdio.h>
+#include <math.h>
+
+/** Macros */
+#define PI 3.14
+
+// Converts degrees to radians.
+#define degreesToRadians(angleDegrees) (angleDegrees * PI / 180.0)
+
+// Converts radians to degrees.
+#define radiansToDegrees(angleRadians) (angleRadians * 180.0 / PI)
+
+/** Declaracion de  estructuras */
+typedef struct complejo {
+  float re;
+  float im;
+} complejo;
+
+/** Declaracion de funciones */
+void imprimirComplejo(complejo); // void imprimirComplejo(complejo num)
+double calcularMagnitud(complejo);
+complejo sumarComplejos(complejo c1, complejo c2);
+void test1(void);
+void test2(void);
+
+/** Funcion main */
+int main() {
+  /* Creando los numeros */
+  // test1();  ---> Comentado por que ya se probo que dio bien
+  test2();
+  return 0;
+}
+
+/** Definicion de funciones */
+void imprimirComplejo(complejo num) {
+  if (num.im == 0) {
+    // Real puro
+    printf("%.2f",num.re);
+  }
+  else if (num.re == 0) {
+    // Imaginario puro
+    printf("%.2f*i",num.im);
+  }
+  else if (num.im < 0) {
+    // Complejo con parte imaginaria negativa
+    printf("%.2f - %.2f*i",num.re,(-1)*num.im);
+  }
+  else {
+    // Complejo con parte imaginaria positiva
+    printf("%.2f + %.2f*i",num.re,num.im);
+  }  
+}
+
+double calcularMagnitud(complejo num) {
+  return sqrt(pow(num.re,2) + pow(num.im,2));
+}
+
+double obtenerAngulo(complejo num) {
+  if (num.re >= 0 & num.im >= 0) {
+    // Cuadrante I
+    return radiansToDegrees(atan2(num.im,num.re));
+  }
+  else if(num.re < 0 & num.im >= 0) {
+    // Cuadrante II
+    return 180 - radiansToDegrees(atan2(-num.im,num.re));
+  }
+  else if(num.re < 0 & num.im < 0) {
+    // Cuadrante III
+    return 180 + radiansToDegrees(atan2(-num.im,-num.re));
+  }
+  else {
+    // Cuadrante IV
+    return 360 - radiansToDegrees(atan2(-num.im,num.re));
+  }  
+}
+
+complejo sumarComplejos(complejo c1, complejo c2) {
+    complejo solucion;
+    solucion.re = c1.re + c2.re;
+    solucion.im = c1.im + c2.im;
+    return solucion;
+}
+
+void test1(void) {
+  complejo c1 = {2, -11}, c2 = {8, 9};
+  complejo c3 = sumarComplejos(c1,c2);
+  imprimirComplejo(c1);
+  printf("\n");
+  imprimirComplejo(c2);
+  printf(" + \n-------------------\n");
+  imprimirComplejo(c3);
+}
+
+void test2(void) {
+  complejo c1 = {sqrt(3),1};
+  complejo c2 = {-1,1};
+  complejo c3 = {-sqrt(3),-1};
+  complejo c4 = {1,-1};
+  printf("mag(c1) = %.1lf, ang(c1) = %.1lf\n",calcularMagnitud(c1),obtenerAngulo(c1));
+  printf("mag(c2) = %.1lf, ang(c2) = %.1lf\n",calcularMagnitud(c2),obtenerAngulo(c2));
+  printf("mag(c3) = %.1lf, ang(c3) = %.1lf\n",calcularMagnitud(c3),obtenerAngulo(c3));
+  printf("mag(c4) = %.1lf, ang(c4) = %.1lf\n",calcularMagnitud(c4),obtenerAngulo(c4));
+}
+```
+
+El codigo online se encuentra en el siguiente [enlace](https://onlinegdb.com/HkTW3gcvM) y su salida en pantalla es:
+
+```
+mag(c1) = 2.0, ang(c1) = 30.0                                                                                                  
+mag(c2) = 1.4, ang(c2) = 315.1                                                                                                 
+mag(c3) = 2.0, ang(c3) = 210.0                                                                                                 
+mag(c4) = 1.4, ang(c4) = 315.0
+```
+
+### 2.6.2. Paso de estructuras por referencia
+En este caso, los parametros pasados a la funcion seran apuntadores a la estructura a pasar. El comportamiento es como el que se da en el caso de las funciones con datos tradicionales. 
+
 
 
 
