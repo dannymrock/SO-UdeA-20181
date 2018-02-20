@@ -1022,6 +1022,96 @@ La salida en pantalla se muestra a continuacion:
 
 FIGURA
 
+2. Hacer un programa que defina un vector tridimensional como una estructura. El programa tambien debera implementar las siguientes funciones para la manipulacion de vectores:
+* Imprimir vector.
+* Calcular suma.
+* Calcular resta.
+* Calcular producto escalar.
+
+Una vez hecho lo anterior probar el programa con los vectores [1,3,0] y [2,5,-4].
+
+El codigo [solucion](https://goo.gl/JhKMH4) se muestra a continuacion:
+
+```C
+#include <stdio.h>
+
+/** Declaracion de  estructuras */
+typedef struct vector3D {
+  float x;
+  float y;
+  float z;
+} vector3D;
+
+/** Declaracion de las funciones  */
+void imprimirVector3D(vector3D *vPrt); 
+vector3D sumarVector3D(vector3D *v1P, vector3D *v2P);
+vector3D restarVector3D(vector3D *v1P, vector3D *v2P);
+double pEscalar(vector3D *v1P, vector3D *v2P);
+void test(void); // Funcion para testing
+
+/** Funcion main */
+int main() {
+  /* Probando todo mediante la funcion test */
+  test();
+  return 0;
+}
+
+/** Definicion de funciones */
+void imprimirVector3D(vector3D *vPtr) {
+   printf("[%.1f,%.1f,%.1f]",(*vPtr).x, (*vPtr).y, (*vPtr).z);   
+}
+
+vector3D sumarVector3D(vector3D *v1P, vector3D *v2P) {
+  vector3D r;
+  r.x = v1P->x + v2P->x;
+  r.y = v1P->y + v2P->y;
+  r.z = v1P->z + v2P->z;
+  return r;
+}
+
+vector3D restarVector3D(vector3D *v1P, vector3D *v2P) {
+  vector3D r;
+  r.x = v1P->x - v2P->x;
+  r.y = v1P->y - v2P->y;
+  r.z = v1P->z - v2P->z;
+  return r;
+}
+
+double pEscalar(vector3D *v1P, vector3D *v2P) {
+  return(v1P->x*v2P->x + v1P->y*v2P->y + v1P->z*v2P->z);
+}
+
+
+void test(void) {
+  vector3D v1 = {1,3,0}, v2 = {2,5,-4}, vSum, vRes;
+  double p_esc;
+  vSum = sumarVector3D(&v1,&v2);
+  vRes = restarVector3D(&v1,&v2);
+  p_esc = pEscalar(&v1,&v2); 
+  printf("Suma -> \n");
+  imprimirVector3D(&v1);
+  printf(" + ");
+  imprimirVector3D(&v2);
+  printf(" = ");
+  imprimirVector3D(&vSum);
+  printf("\n\n");
+  printf("Resta -> \n");
+  imprimirVector3D(&v1);
+  printf(" - ");
+  imprimirVector3D(&v2);
+  printf(" = ");
+  imprimirVector3D(&vRes);
+  printf("\n\n");
+  printf("Producto escalar -> \n");
+  imprimirVector3D(&v1);
+  printf(" * ");
+  imprimirVector3D(&v2);
+  printf(" = %.1f\n",p_esc);  
+}
+```
+La salida del programa anterior se muestra a continuacion:
+
+IMAGEN.
 
 
 
