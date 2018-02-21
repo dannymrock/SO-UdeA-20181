@@ -1149,7 +1149,7 @@ double calcularDistanciaTotal(coord2D *vecPuntos, int N);
 
 * Obtener la distancia del tramo mayor y la del tramo menor.
 
-````C
+```C
 void obtenerDistanciasExtremas(coord2D *vecPuntos, int N, double *disMin, double *disMax);
 ```
 
