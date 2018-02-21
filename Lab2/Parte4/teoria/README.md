@@ -1113,9 +1113,170 @@ La salida del programa anterior se muestra a continuacion:
 
 IMAGEN.
 
+3. Emplando llamados por referencia es posible pasar a funciones arreglos y matrices tal como se analizo en algun momento. Por ejemplo supongase que un caminante esta registrando las coordenadas (x,y) de diferentes puntos en los cuales realiza su caminata. Supongase, que el sistema de registro de datos del caminante permite como maximo almacenar 20 registros. Realice una aplicacion que permita realizar las siguientes tareas:
+* Ingresar las coordenadas.
+* Obtener la distancia total recorrida. Utilice la siguientes plantillas para la función:
+
+```C
+/* Funcion que calcula la distancia entre 2 puntos*/
+double calcularDistancia(coord2D *pStart, *coord2D pEnd) {
+  // Code
+}
+
+/* Funcion que calcula la distancia total*/
+double calcularDistanciaTotal(coord2D *vecPuntos, int N) {
+  // Code
+}
+```
+
+* Obtener la distancia del tramo mayor y la del tramo menor.
+
+````C
+/* Funcion que calcula la distancia total*/
+double obtenerDistanciasExtremas(coord2D *vecPuntos, int N, double *disMin, double *disMan) {
+  // Code
+}
+```
+* Mostrar la informacion asociada en pantalla.
+
+**Solucion:** Antes de agregar interaccion con el usuario al programa anterior vamos a proceder a verificar el correcto funcionamiento de las funciones anteriormente implementadas para un caso de uso donde el numero de puntos es 5 y sus coordenadas son las siguientes:
+* P1(0,0)
+* P2(3,2)
+* P3(-4,5)
+* P4(-6,-2)
+* P5(-6,-3)
+
+Teniendo en cuenta lo anterior, la distancia entre los puntos sera:
+* d(P1,P2) = 3.61
+* d(P2,P3) = 7.62
+* d(P3,P4) = 7.28
+* d(P4,P5) = 1
+
+Luego segun lo anterior:
+* d_total = 19.5
+* d_min = 1
+* d_max = 7.62
+
+En el siguiente [codigo](https://onlinegdb.com/r13uPE9wM) se definen los puntos anteriormente mostrados y se verifican que los resultados del programa sean los arrojados anteriormente de manera manual. Cabe aclarar, que para esta parte se definira una funcion de test llamada ```caso_de_uso```
+
+```C
+#include <stdio.h>
+#include <math.h>
+
+/** Declaracion de  estructuras */
+typedef struct coordenadas2D {
+  float x;
+  float y;
+} coord2D;
 
 
+/** Declaracion de las funciones  */
+void printCoord2D(coord2D *c);
+void printCoord2DVector(coord2D *v, int tam);
+double calcularDistancia(coord2D *pStart, coord2D *pEnd);
+double calcularDistanciaTotal(coord2D *vecPuntos, int N);
+void obtenerDistanciasExtremas(coord2D *vecPuntos, int N, double *disMin, double *disMax);
+void caso_de_uso(void);
 
+/** Funcion main */
+int main() {
+	caso_de_uso();
+	return 0;
+}
+
+/** Definicion de las funciones  */
+
+void printCoord2D(coord2D *c) {
+    printf("(%.2f,%.2f)",(*c).x,(*c).y);
+}
+
+void printCoord2DVector(coord2D *v, int tam) {
+    for(int i = 0; i < tam; i++) {
+        printCoord2D(v++);
+        printf("\n");
+    }
+}
+
+double calcularDistancia(coord2D *pStart, coord2D *pEnd) {
+  double dist;
+  double dx = pEnd->x - pStart->x;
+  double dy = pEnd->y - pStart->y;  
+  dist = sqrt(pow(dx,2) + pow(dy,2));
+  return dist;
+}
+
+
+double calcularDistanciaTotal(coord2D *vecPuntos, int N) {
+  // Code
+  coord2D pIni, pFin;
+  double d_total = 0;
+  pIni = *vecPuntos; // *vecPuntos = vecPuntos[0];
+  for(int i = 1; i < N; i++) {
+	pFin = *(vecPuntos + i); // *(vecPuntos + i) = vecPuntos[i];
+	// printf("%.2lf\n",calcularDistancia(&pIni, &pFin));
+	d_total +=  calcularDistancia(&pIni, &pFin); 
+	pIni = pFin;
+  }
+  return d_total;  
+}
+
+void obtenerDistanciasExtremas(coord2D *vecPuntos, int N, double *disMin, double *disMax) {
+  // Code
+  coord2D *pIni, *pFin;
+  pIni = &vecPuntos[0];
+  pFin = &vecPuntos[1];
+  double d = calcularDistancia(pIni, pFin);
+  double d_min = d, d_max = d;
+  calcularDistancia(pIni,pFin);
+  pIni = vecPuntos;
+  for(int i = 2; i < N; i++) {
+	  pIni = pFin;
+	  pFin = vecPuntos + i; // vecPuntos + i = &vecPuntos[i]; 
+	  d = calcularDistancia(pIni, pFin);
+	  if(d <= d_min) {
+		  d_min = d;
+	  }
+	  else if(d >= d_max) {
+		  d_max = d;
+	  }	  
+  }
+  *disMin = d_min;
+  *disMax = d_max;
+}
+
+void caso_de_uso(void) {
+    printf("Puntos registrados\n");
+    double m, M;
+    coord2D coords[5] = {
+                         {0,0},
+                         {3,2},
+                         {-4,5},
+                         {-6,-2},
+                         {-6,-3}
+                        };
+    printCoord2DVector(coords, 5);
+    printf("\n");
+    printf("-> Distancia total: %.2lf\n",calcularDistanciaTotal(coords,5));
+    obtenerDistanciasExtremas(coords, 5, &m, &M);
+    printf("-> Distancia minima: %.2lf\n",m);
+    printf("-> Distancia maxima: %.2lf\n",M);
+}
+```
+
+La salida en pantalla del programa anterior es la siguiente:
+
+```
+Puntos registrados                                                                                                               
+(0.00,0.00)                                                                                                                      
+(3.00,2.00)                                                                                                                      
+(-4.00,5.00)                                                                                                                     
+(-6.00,-2.00)                                                                                                                    
+(-6.00,-3.00)                                                                                                                    
+                                                                                                                                 
+-> Distancia total: 19.50                                                                                                        
+-> Distancia minima: 1.00                                                                                                        
+-> Distancia maxima: 7.62  
+```
 ## XX. Enlaces
 
 * https://computer.howstuffworks.com
@@ -1123,6 +1284,7 @@ IMAGEN.
 * https://www.tutorialspoint.com/cprogramming/c_structures.htm
 * https://www.programiz.com/c-programming/c-structures
 * https://www.geeksforgeeks.org/structures-c/
+* https://github.com/fordea/c-programming-a-modern-approach
 
 
 
