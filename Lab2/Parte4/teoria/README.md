@@ -1113,51 +1113,60 @@ La salida del programa anterior se muestra a continuacion:
 
 IMAGEN.
 
-3. Emplando llamados por referencia es posible pasar a funciones arreglos y matrices tal como se analizo en algun momento. Por ejemplo supongase que un caminante esta registrando las coordenadas (x,y) de diferentes puntos en los cuales realiza su caminata. Supongase, que el sistema de registro de datos del caminante permite como maximo almacenar 20 registros. Realice una aplicacion que permita realizar las siguientes tareas:
-* Ingresar las coordenadas.
-* Obtener la distancia total recorrida. Utilice la siguientes plantillas para la función:
+3. Emplando llamados por referencia es posible pasar a funciones arreglos y matrices tal como se analizo en algun momento. Por ejemplo supongase que un caminante esta registrando las coordenadas (x,y) de diferentes puntos en los cuales realiza su caminata. Supongase, que el sistema de registro de datos registra 5 coordenadas. Teniendo en cuenta la siguiente estructura para las coordenadas:
 
 ```C
-/* Funcion que calcula la distancia entre 2 puntos*/
-double calcularDistancia(coord2D *pStart, *coord2D pEnd) {
-  // Code
-}
+typedef struct coordenadas2D {
+  float x;
+  float y;
+} coord2D;
+```
 
-/* Funcion que calcula la distancia total*/
-double calcularDistanciaTotal(coord2D *vecPuntos, int N) {
-  // Code
-}
+Implementar las siguientes funciones:
+* Una funcion para desplegar una coordenada, esta seguira el siguiente prototipo:
+
+```C
+void printCoord2D(coord2D *c);
+```
+
+* Una funcion para desplegar el contenido de un vector de coordenadas:
+
+```C
+void printCoord2DVector(coord2D *v, int tam);
+```
+
+* Una funcion que calcule la distancia entre dos coordenadas:
+
+```C
+double calcularDistancia(coord2D *pStart, coord2D *pEnd);
+```
+
+* Obtener la distancia total recorrida (suma de la distancia de todos lo puntos):
+
+```C
+double calcularDistanciaTotal(coord2D *vecPuntos, int N);
 ```
 
 * Obtener la distancia del tramo mayor y la del tramo menor.
 
 ````C
-/* Funcion que calcula la distancia total*/
-double obtenerDistanciasExtremas(coord2D *vecPuntos, int N, double *disMin, double *disMan) {
-  // Code
-}
+void obtenerDistanciasExtremas(coord2D *vecPuntos, int N, double *disMin, double *disMax);
 ```
-* Mostrar la informacion asociada en pantalla.
 
-**Solucion:** Antes de agregar interaccion con el usuario al programa anterior vamos a proceder a verificar el correcto funcionamiento de las funciones anteriormente implementadas para un caso de uso donde el numero de puntos es 5 y sus coordenadas son las siguientes:
-* P1(0,0)
-* P2(3,2)
-* P3(-4,5)
-* P4(-6,-2)
-* P5(-6,-3)
+* Probar las funciones anteriores con una funcion llamada  ```caso_de_uso``` para la cual se definen las siguientes coordenadas: P1(0,0), P2(3,2), P3(-4,5), P4(-6,-2) y P5(-6,-3).
 
-Teniendo en cuenta lo anterior, la distancia entre los puntos sera:
+**Solucion**: En el siguiente [codigo](https://onlinegdb.com/r13uPE9wM) se definen los puntos anteriormente mostrados y se verifican que los resultados del programa sean los arrojados anteriormente de manera manual. Si todo esta bien se tendrán resultados simulares a los siguiente:
+
+Distancia entre los puntos sera:
 * d(P1,P2) = 3.61
 * d(P2,P3) = 7.62
 * d(P3,P4) = 7.28
 * d(P4,P5) = 1
 
-Luego segun lo anterior:
+Salidas a desplegar:
 * d_total = 19.5
 * d_min = 1
 * d_max = 7.62
-
-En el siguiente [codigo](https://onlinegdb.com/r13uPE9wM) se definen los puntos anteriormente mostrados y se verifican que los resultados del programa sean los arrojados anteriormente de manera manual. Cabe aclarar, que para esta parte se definira una funcion de test llamada ```caso_de_uso```
 
 ```C
 #include <stdio.h>
