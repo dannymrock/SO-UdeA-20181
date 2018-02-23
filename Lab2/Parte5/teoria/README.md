@@ -1,10 +1,43 @@
-# Estructuras en C
+# Memoria dinamica en C
 
-## 1. Conceptualizacion
+## 1. Introduccion
 
-Anteriormente vimos que los **arrays** esta una coleccion de datos de un mismo tipo agrupados bajo un mismo nombre. C, pese a no ser un lenguaje de programacion orientado a objetos maneja un tipo de dato compuesto conocido como **estructura**. En si, una estructura es lo mas cercano a la definición que conocemos de **clase** en los lenguajes de programación, la unica diferencia respecto a las clases (sin hablar en el sentido estricto de la palabra), es que una estructura es como una clase con miembros pero sin metodos.
+Comentarios
 
-La mayor ventaja de estas, es que permiten la creacion de **nuevos tipos de datos**, liberando al programador de tener que restringirse 
-al uso de los tipos de datos tipicos ofrecidos por el lenguaje como tal (int, double, float, etc.) lo cual hace posible organizar datos complicados, particularmente en largos programas.
+## 2. Espacios de memoria
 
-Una **estructura**, es una coleccion de uno o más tipos de datos denominados **miembros**, cada uno de los cuales (como se dijo antes) puede ser de un tipo diferente. 
+De manera resumida la memoria de datos de un programa en C puede ser dividida en tres partes:
+1. **Memoria estatica**: en esta se localizan todas las variables globales (aquellas que son definidas fuera de funciones),
+tambien se localizan las variables locales (definidas dentro de funciones) que son explicitamente declaradas como estaticas.
+2. **Stack**: lugar de la memoria en el cual se definen las variables locales (variables automaticas (no estaticas) declaradas dentro 
+de la funcion), los parametros de las funciones y los valores retornados por las funciones.
+3. **Heap**: lugar de la memoria disponible para asignacion dinamica (en tiempo de ejecicion) de memoria. 
+
+La siguiente figura resalta los espacios anteriormente descritos:
+
+![mmap](./imagenes/memory_map3.png)
+**Figura 1**. Mapa de memoria
+
+Para clarificar un poco lo anterior supongamos que se codifica el siguiente [programa](https://goo.gl/Z16WF6) en C:
+
+```C
+#include <stdio.h>
+
+int x=5;
+char msg[] = "Hello";
+
+int main(int argc, const char* argv[]) {
+  int v;
+  float pi = 3.14159;
+  printf("%d\n",x);
+  printf("%f\n",pi);
+  return 0;
+}
+
+```
+
+Cuya salida al ejecutar el programa se muestra en la siguiente figura:
+
+![fig_exe](./imagenes/variables_memoria.png)
+
+Como se puede ver de la figura anterior, se resaltan varios elementos 
