@@ -61,6 +61,38 @@ En la figura anterior, se puede ver que no hay variables en el **heap** pues no 
 
 ## 3. Asignando memoria
 
+Para tratar esta parte abordemos un problema tipico para ver las diferentes formas de solucion desde el punto de vista del manejo de memoria. Supongase que se desean ingresar un conjunto de datos asociados con la temperatura a lo largo del dia, el ingreso de estos datos se hace de manera manual leyendo el numero de registros manuales existentes en una planilla para luego ingresarlos al sistema. Hacer un programa que facilite esta tarea.
+
+Existen diferentes maneras de asignar memoria:
+1. **Forma 1**: Declarar un arreglo estatico de tamaño fijo, asumientod que el numero de registros a ingresar nunca va a ser mayor que el tamaño fijo previamente definido. Esta forma de declaración es **estatica** por que la reserva de memoria (arreglo), se hace en tiempo de compilación.
+
+```C
+#include <stdio.h>
+
+#define NUM_MAX_REG 100
+
+int main() {
+  float datos[NUM_MAX_REG]; // Se supone que no se van a ingresar mas de 100 registros
+  float reg;
+  int numReg;
+  printf("Ingrese la cantidad de registros a leer: ");
+  scanf("&d",numReg);
+  if (numReg > NUM_MAX_REG) {
+    printf("ERROR: solo se pierden %d datos\n", numReg - NUM_MAX_REG);
+    numReg = NUM_MAX_REG;
+  } 
+  for(int i = 0; i < numReg; i++) {
+    printf("Dato[%d]: ", i);
+    scanf("%f", &reg);    
+  } 
+  return 0;
+}
+```
+
+
+
+Declare static array of maximum size that could possibly occur
+
 
 ## x. Enlaces
 * https://www.berthon.eu/wiki/foss:wikishelf:linux:memory
