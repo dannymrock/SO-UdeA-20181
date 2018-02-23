@@ -64,7 +64,7 @@ En la figura anterior, se puede ver que no hay variables en el **heap** pues no 
 Para tratar esta parte abordemos un problema tipico para ver las diferentes formas de solucion desde el punto de vista del manejo de memoria. Supongase que se desean ingresar un conjunto de datos asociados con la temperatura a lo largo del dia, el ingreso de estos datos se hace de manera manual leyendo el numero de registros manuales existentes en una planilla para luego ingresarlos al sistema. Hacer un programa que facilite esta tarea.
 
 Existen diferentes maneras de asignar memoria:
-1. **Forma 1**: Declarar un arreglo estatico de tamaño fijo, asumientod que el numero de registros a ingresar nunca va a ser mayor que el tamaño fijo previamente definido. Esta forma de declaración es **estatica** por que la reserva de memoria (arreglo), se hace en tiempo de compilación.
+* **Forma 1**: Declarar un arreglo estatico de tamaño fijo, asumientod que el numero de registros a ingresar nunca va a ser mayor que el tamaño fijo previamente definido. Esta forma de declaración es **estatica** por que la reserva de memoria (arreglo) se hace en tiempo de compilación.
 
 ```C
 #include <stdio.h>
@@ -84,15 +84,58 @@ int main() {
   for(int i = 0; i < numReg; i++) {
     printf("Dato[%d]: ", i);
     scanf("%f", &reg);    
+    *(datos + i) = reg;
   } 
   return 0;
 }
 ```
 
+Como se podra notar, la forma anterior es ineficiente por razones similares a las expuestas en la introducción.
 
+* **Forma 2**: Declarar un arreglo dinamico (automatico) de un tamaño especificado en tiempo de ejecución. El siguiente codigo ilustra esta idea:
 
-Declare static array of maximum size that could possibly occur
+```C
+#include <stdio.h>
 
+int main() {
+  float reg;
+  int numReg;
+  printf("Ingrese la cantidad de registros a leer: ");
+  scanf("&d",numReg);
+  float datos[numReg];
+  for(int i = 0; i < numReg; i++) {
+    printf("Dato[%d]: ", i);
+    scanf("%f", &reg);    
+    *(datos + i) = reg;
+  } 
+  return 0;
+}
+```
+
+El problema de la forma anterior es que el compilador es previo a C99, no permite declarar un arreglo definiendo su tamaño a partir de una variable (siendo **numReg**) para el caso.
+
+* **Forma 3**: Declarar un arreglo dinamico de un tamaño especificado en tiempo de ejecución empleando las funciones propias de la libreria estandar para tal caso (```malloc``` y ```calloc```). En lo que respecta al caso, esta es la mejor forma. La descripción y uso de estas funciones sera tratada en breve. Por ahora veamos el codigo asociado.
+
+```C
+#include <stdio.h>
+
+int main() {
+  float *datos;
+  float reg;
+  int numReg;
+  printf("Ingrese la cantidad de registros a leer: ");
+  scanf("&d",numReg);
+  datos = (float *)malloc(numReg*sizeof(float));
+  if (pF != NULL) {
+    for(int i = 0; i < numReg; i++) {
+      printf("Dato[%d]: ", i);
+      scanf("%f", &reg);    
+      *(datos + i) = reg;
+  } 
+  free(datos);
+  return 0;
+}
+```
 
 ## x. Enlaces
 * https://www.berthon.eu/wiki/foss:wikishelf:linux:memory
@@ -103,7 +146,3 @@ Declare static array of maximum size that could possibly occur
 * https://gabrieletolomei.wordpress.com/miscellanea/operating-systems/in-memory-layout/
 * http://www.cs.utexas.edu/users/fussell/cs310h/lectures/Lecture_17-310h.pdf
 * https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-087-practical-programming-in-c-january-iap-2010/lecture-notes/
-
-
-
-
