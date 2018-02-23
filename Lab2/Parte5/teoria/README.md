@@ -40,4 +40,21 @@ Cuya salida al ejecutar el programa se muestra en la siguiente figura:
 
 ![fig_exe](./imagenes/variables_memoria.png)
 
-Como se puede ver de la figura anterior, se resaltan varios elementos 
+Como se puede ver de la figura anterior, se resaltan los espacios de memoria y las variables que se encuentran en estos:
+
+| Espacio de memoria | Variables |
+| ------------- | ------------- |
+| Memoria estatica | x, msg  |
+| Stack  | v, pi |
+| Heap  | --- |
+
+En la siguiente figura se muestra mas claramente esta reacion con el esquema mostrado en la figura 1:
+
+![mmap_program](./imagenes/memoria_ambas2.png)
+**Figura 2**. Asignacion de las variables en el espacio de memoria.
+
+En la figura anterior, se puede ver que no hay variables en el **heap** pues no se hicieron asignaciones dinamicas de memoria el cual sera el proximo tema a tratar.
+
+
+
+
