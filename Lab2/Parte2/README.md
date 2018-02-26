@@ -20,7 +20,8 @@ En construccion
 
 Suponga que se tiene el siguiente vector con las siguientes direcciones:
 
-IMAGEN.
+![imagen1](./imgenes/ejercicio1_vini.png)
+**Figura 1**. Vector inicial ejercicio 1 
 
 Adicionalemente, suponga que se declararon 3 apuntadores **p1**, **p2** y **p3** los cuales se encuentran en la direcciones **1000**, **2000** y **3000** respectivamente. Dadas las siguientes instrucciones:
 
@@ -39,7 +40,8 @@ p2 = p3 + 2;
 1. Dibuje el mapa de memoria asociado al problema anterior.
 2  Despues de que se ejecuta el codigo anterior: Actualice el vector con los nuevos valores después de la ejecución del código anteriormente mostrado (**Nota**: no olvide resaltar el lugar apundado por los apuntadores):
 
-IMAGEN
+![imagen2](./imgenes/ejercicio1_vfin.png)
+**Figura 2**. Contenido del vector del ejercicio 1 despues de la ejecucion del codigo (Llenar).
 
 Adicionalmente, llene el mapa de memoria con los nuevos valores tanto de los elementos del vector como de los apuntadores despues de la ejecucion del codigo.
 
