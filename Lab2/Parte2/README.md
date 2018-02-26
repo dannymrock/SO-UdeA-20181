@@ -61,7 +61,66 @@ Adicionalmente, llene el mapa de memoria con los nuevos valores tanto de los ele
 | p3 + 1  |   |
 | p3 - 2  |   |
 
+**Ejercicio 2**:
+El proposito del siguiente codigo es que usted refuerce el concepto de llamadas por valor y por referencia. Observe el siguiente codigo:
 
+```C
+int f(int x, int y, int *z);
+
+int main() {
+  int a, b, c, d;
+  int *p1, *p2 = &a, *p3 = &d;
+  a = 2;
+  b = -1;
+  p2 = &c;  
+  d = f(a + 3, b, &c);
+  p1 = p2;
+  // Parada 1...
+  *p3 = f(*p2, -d, p1);
+  // Parada 2...
+  return 0;
+}
+
+int f(int x, int y, int *z) {
+  *z = x + y;
+  x++;  
+  return *z + x + y;
+}
+```
+
+Ahora responda las siguientes preguntas:
+
+1. Llene la siguiente tabla con el contenido de las variables hasta que se llega al punto de parada 1 (Ver comentario en el codigo):
+
+
+| Expresión  | Valor |
+| ------------- | ------------- |
+| a  |   |
+| b  |   |
+| c  |   |
+| d  |   |
+| *p1  |   |
+| *p2  |   |
+| *p3 |   |
+| p1  |   |
+| p2  |   |
+| p3  |   |
+
+2. Ahora llene la siguiente tabla con el contenido de las variables hasta que se llega al punto de parada 2 (Ver comentario en el codigo):
+
+| Expresión  | Valor |
+| ------------- | ------------- |
+| a  |   |
+| b  |   |
+| c  |   |
+| d  |   |
+| *p1  |   |
+| *p2  |   |
+| *p3 |   |
+| p1  |   |
+| p2  |   |
+| p3  |   |
 
 ## 4. Problemas de programacion
 
+En construccion
