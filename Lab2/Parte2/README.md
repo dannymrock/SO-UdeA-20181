@@ -12,7 +12,123 @@ Revisar la parte teorica la cual se encuentra en el siguiente [enlace](https://g
 
 ## 2. Ejemplos de repaso
 
-En construccion
+### 2.1. Apuntadores y variables
+
+1. Despues de que se simula el siguiente [codigo](https://goo.gl/QXBsL8), ¿Cual es el valor final de la variable ch?
+
+```C
+#include <stdio.h>
+
+int main() {
+  char *p1, *p2;
+  char ch = 'a';
+  printf("ch = %c\n", ch);
+  p1 = &ch;
+  (*p1)++;
+  printf("ch = %c\n", ch);
+  p2 = p1;
+  *p2 += 3;
+  printf("ch = %c\n", ch);
+  return 0;
+}
+```
+
+2. Suponga que se simula el siguiente [codigo](https://goo.gl/5NeAxm)
+
+```C
+#include <stdio.h>
+
+int main() {
+  int *p1, *p2;
+  int a = 3;
+  p1 = &a;
+  p2 = p1;
+  printf("------------------\n");
+  printf("a = %d\n", a);
+  printf("p1 = %p\n", p1);
+  printf("p2 = %p\n",p2);  
+  (*p1)++;
+  *p2++;
+  printf("------------------\n");
+  printf("a = %d\n", a);
+  printf("p1 = %p\n", p1);
+  printf("p2 = %p\n",p2);
+  return 0;
+}
+```
+
+Por que se muestran los valores mostrados a la salida en pantalla. Puede ser util que revise el siguiente [enlace](http://en.cppreference.com/w/c/language/operator_precedence)
+
+### 2.2. Apuntadores y vectores
+
+1. ¿Que es lo que hace el siguiente [codigo](https://goo.gl/ybji6p)?
+
+```C
+#include <stdio.h>
+
+int main() {
+  int V[4] = {1,2,3,4};
+  int VS[4];
+  int s;   
+  for(int i = 0; i < 4; i++) {    
+    s = 0;
+    for(int j = 0; j <= i; j++) {
+      s += V[j];
+    }
+    VS[3 - i] = s;
+  }
+  return 0;
+}
+```
+
+2. ¿Que es lo que hace el siguiente [codigo](https://goo.gl/jnaR9z)?
+
+```C
+#include <stdio.h>
+
+int main() {
+  int V[4] = {1,2,3,4};
+  int VS[4];
+  int s;   
+  for(int i = 0; i < 4; i++) {    
+    s = 0;
+    for(int j = 0; j <= i; j++) {
+      s += *(V + j);
+    }
+    *((VS + 3) - i) = s;
+  }
+  return 0;
+}
+```
+
+3. ¿Que es lo que hace el siguiente [codigo](https://goo.gl/Ao4mjH)?
+
+```C
+#include <stdio.h>
+
+int main() {
+  int *p1, *p2;
+  int V[4] = {1,2,3,4};
+  int VS[4];
+  int s;  
+  p2 = &VS[3];  
+  for(int i = 0; i <4; i++) {
+    p1 = V;
+    s = 0;
+    for(int j = 0; j <= i; j++) {
+      s += *p1;
+      p1++;
+    }
+    *p2 = s;
+    p2--;
+  }
+  return 0;
+}
+```
+
+### 2.3. Funciones por referencia y por valor
+
+Ejemplo de un incremento (En construccion)
 
 ## 3. Ejercicios conceptuales
 
