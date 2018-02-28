@@ -213,7 +213,7 @@ int main() {
 
 #### 3.2.1. Asignación de memoria: Memory Allocation o Malloc
 
-La función ```malloc``` permite reservar un bloque de memoria en el heap. El prototipo de esta función se muestra a continuación:
+La función ```malloc``` permite reservar un bloque de memoria (sin inicializar) en el heap. El prototipo de esta función se muestra a continuación:
 
 > **Sintaxis**:
 >
@@ -226,6 +226,20 @@ La función ```malloc``` permite reservar un bloque de memoria en el heap. El pr
 > 
 > La funcion retorna la direccion en el heap a partir de la cual se reservó el tamaño de memoria solicitado o retorna **NULL** si no es posible reservar la cantidad de memoria. Cabe recordar que ```void*``` indica que la dirección retornada es genérica, es decir, en esa dirección se puede almacenar cualquier tipo de variable.
 
+#### 3.2.2. Libeeración de memoria: Memory Allocation o Malloc
+
+La función ```free``` libera un bloque de memoria previamente reservado en el heap. El prototipo de esta función se muestra a continuación:
+
+> **Sintaxis**:
+>
+> ```C
+> void free(void* pointer);
+> ```
+>
+> **Donde**:
+> * **pointer**: apuntador con la dirección del bloque de memoria (previamente reservado con **malloc** o con **calloc**) a liberar. 
+
+### 
 
 
 ## x. Enlaces
