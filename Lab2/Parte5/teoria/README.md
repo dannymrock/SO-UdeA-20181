@@ -209,6 +209,22 @@ int main() {
 }
 ```
 
+### 3.2. Manejo dinamico de memoria
+
+#### 3.2.1. Asignación de memoria: Memory Allocation o Malloc
+
+La función ```malloc``` permite reservar un bloque de memoria en el heap. El prototipo de esta función se muestra a continuación:
+
+> **Sintaxis:
+>
+> ```C
+> void * malloc (size_t size)
+> ```
+>
+> **Donde**:
+> * **size**: Numero de bytes que seran reservados
+> 
+> La funcion retorna la direccion en el heap a partir de la cual se reservó el tamaño de memoria solicitado o retorna **NULL** si no es posible reservar la cantidad de memoria. Cabe recordar que ```void*``` indica que la dirección retornada es genérica, es decir, en esa dirección se puede almacenar cualquier tipo de variable.
 
 
 
