@@ -137,6 +137,91 @@ int main() {
 }
 ```
 
+A continuacion, en los siguientes ejemplos se muestra la diferencia entre declarar una variable en el stack y declararla en el heap usando reserva dinamica de memoria.
+
+### Ejemplos
+
+1. Simule y analise los codigos 1 y 2 mostrados a continuacion. Pese a que logicamente hacen lo mismo, ¿Cual es la principal diferencia entre estos?
+
+**Codigo 1**: [Codigo online](https://goo.gl/2kyQTR)
+
+```C
+#include <stdio.h>
+
+int main() {
+  int a;
+  int *p = &a;
+  *p = 5;
+  printf("*p = %d\n", *p);
+  return 0;
+}
+```
+
+IMAGEN
+
+**Codigo 2**: [Codigo online](https://goo.gl/PW73xh)
+
+```C
+#include <stdio.h>
+
+int main() {
+  int *p;
+  p = malloc(sizeof(int));
+  if(p == 0) {
+    printf("ERROR: Out of memory\n");
+    return 1;
+  }
+  *p = 5;
+  printf("*p = %d\n", *p);
+  free(p);
+  return 0;
+}
+```
+
+IMAGEN
+
+## 3. Asignacion dinamica de memoria mediante C
+
+### 3.1. Operador sizeof
+Este es un operador (no una funcion) que devielve la cantidad en bytes ocupada por una variable o algun tipo de dato. La sintaxis basica de este operador se muestra a continuacion:
+
+```C
+sizeof ( type-name )  
+```
+
+**Ejemplo**: En el siguiente [codigo](https://goo.gl/yscp62) ejemplo se muestran algunos ejemplos del uso de este operador:
+
+```
+#include <stdio.h>
+
+int main() {
+  short *p;
+  long long a;
+  printf("sizeof(short*) = %d\n",sizeof(short*));  // Pasando un tipo de dato
+  printf("sizeof(p1) = %d\n",sizeof(p)); // Pasando una variable
+  printf("sizeof(short) = %d\n",sizeof(short)); // Pasando un tipo de dato
+  printf("sizeof(long long) = %d\n",sizeof(long long)); // Pasando un tipo de dato
+  printf("sizeof(long long) = %d\n",sizeof(a)); // Pasando una variable
+  printf("sizeof(double*) = %d\n",sizeof(double*)); // Pasando un tipo de dato
+  printf("sizeof(char*) = %d\n",sizeof(char*)); // Pasando un tipo de dato
+  printf("sizeof(char) = %d\n",sizeof(char)); // Pasando un tipo de dato
+  return 0;
+}
+```
+
+
+
+Not a function call; a C operator
+
+
+The sizeof operator gives the amount of storage, in bytes, required to store an object of the type of the operand. This operator allows you to avoid specifying machine-dependent data sizes in your programs.
+
+
+La función sizeof, devuelve el tamaño en bytes que ocupa una variable o algún tipo de dato.
+
+En este caso las 2 instrucciones devuelven lo mismo:
+
+
 ## x. Enlaces
 * https://www.berthon.eu/wiki/foss:wikishelf:linux:memory
 * http://resources.infosecinstitute.com/system-address-map-initialization-in-x86x64-architecture-part-1-pci-based-systems/#gref
