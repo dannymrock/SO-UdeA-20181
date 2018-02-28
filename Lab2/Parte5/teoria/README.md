@@ -191,7 +191,7 @@ sizeof ( type-name )
 
 **Ejemplo**: En el siguiente [codigo](https://goo.gl/yscp62) ejemplo se muestran algunos ejemplos del uso de este operador:
 
-```
+```C
 #include <stdio.h>
 
 int main() {
@@ -210,16 +210,6 @@ int main() {
 ```
 
 
-
-Not a function call; a C operator
-
-
-The sizeof operator gives the amount of storage, in bytes, required to store an object of the type of the operand. This operator allows you to avoid specifying machine-dependent data sizes in your programs.
-
-
-La función sizeof, devuelve el tamaño en bytes que ocupa una variable o algún tipo de dato.
-
-En este caso las 2 instrucciones devuelven lo mismo:
 
 
 ## x. Enlaces
