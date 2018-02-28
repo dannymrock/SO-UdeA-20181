@@ -222,7 +222,86 @@ Simule el [código anterior](https://goo.gl/vBaqbt) y deduzca por que los valore
 
 ### 2.4. Funciones y vectores
 
-1. Hacer una funcion que tome cada uno de
+1. Hacer una funcion que lea una cadena de caracteres y permita obtener el numero de vocales y consonantes. La forma de la funcion es la siguiente:
+
+```C
+
+ /**  
+  *   @brief  Determina la cantidad de vocales y consonantes en una cadena de caracteres
+  *  
+  *   @param  s es una cadena de caracteres
+  *   @param  nv es el parametro al cual se llevara el numero de vocales
+  *   @param  nc es el parametro al cual se llevara el numero de consonantes
+  *   @return void
+  */ 
+  void contarCaracteres(char *s, int nv, int nc) {
+    // Coloque su codigo aqui
+    ...
+  }
+```
+
+**Solucion**:
+
+```C
+
+/**  
+ *   @brief  Determina si un caracter es vocal
+ *  
+ *   @param  ch es el caracter a verificar
+ *   @return 1 si el caracter es vocal y 0 si es consonante
+ */
+int esVocal(char ch) {
+  if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || \
+        ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U' ) {
+      return 1;
+    }   
+    else {
+      return 0;
+    }
+  }
+  else {
+    return -1;
+  }
+}
+
+/**  
+ *   @brief  Determina la cantidad de vocales y consonantes en una cadena de caracteres
+ *  
+ *   @param  s es una cadena de caracteres
+ *   @param  nv es el parametro al cual se llevara el numero de vocales
+ *   @param  nc es el parametro al cual se llevara el numero de consonantes
+ *   @return void
+ */ 
+
+void contarCaracteres(char *s, int *nv, int *nc) {
+  *nv = 0;
+  *nc = 0;
+   while(*s != '\0') {
+       if(esVocal(*s) == 1) {
+         *nv += 1;
+       } else if(esVocal(*s) == 0) {
+         *nc += 1;
+       }
+     s++;
+   }
+}```
+
+2. Una vez hecho lo anterior, realizar una funcion que permita probar las funciones anteriores con la cadena **"tengo 5 ovejas"**. 
+
+**Solucion**: La funcion de test se muestra a continuación:
+
+```C
+void test(char *c) {
+  printf("Cadena: %s\n",c);  
+  int numVoc, numCons;
+  contarCaracteres(c, &numVoc, &numCons);
+  printf("Numero de vocales: %d\n", numVoc);
+  printf("Numero de consonantes: %d\n", numCons);
+}
+```
+En el siguiente [enlace](https://goo.gl/dfZSpr) se muestra la simulacion del codigo
+
 
 ## 3. Ejercicios conceptuales
 
@@ -336,3 +415,7 @@ Ahora responda las siguientes preguntas:
 ## 4. Problemas de programacion
 
 En construccion
+
+
+## Enlaces de utilidad
+* http://csweb.cs.wfu.edu/~fulp/CSC112/codeStyle.html
