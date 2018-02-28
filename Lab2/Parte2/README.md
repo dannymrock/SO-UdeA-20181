@@ -128,7 +128,96 @@ int main() {
 
 ### 2.3. Funciones por referencia y por valor
 
-Ejemplo de un incremento (En construccion)
+1. Dado el siguiente prototipo para la funcion **incremento**:
+
+```C
+/* Funcion que aumenta el valor de la variable pasada como argumento */
+void incremento(int v);
+```
+
+A continuacion se muestra la implementacion y un ejemplo de uso de la funcion:
+
+```C
+#include <stdio.h>
+
+void incremento(int);
+
+int main() {
+  int v = 3;
+  printf("Antes de la funcion \'incremento\' v vale %d\n",v);
+  incremento(v);
+  printf("Despues de la funcion \'incremento\' v vale %d\n",v);
+  return 0;
+}
+
+void incremento(int i) {
+  i++;
+}
+```
+
+Simule el programa anterior usando el siguiente [enlace](https://goo.gl/gW54SB). ¿Cambia el valor de v?, ¿Por que?
+
+2. Dado el siguiente prototipo para la funcion **incremento**:
+
+```C
+/* Funcion que aumenta el valor de la variable pasada como argumento */
+void incremento(int *v);
+```
+
+A continuacion se muestra la implementacion y un ejemplo de uso de la funcion:
+
+```C
+#include <stdio.h>
+
+void incremento(int*);
+
+int main() {
+  int v = 3;
+  int *p = &v;
+  printf("Antes de la funcion \'incremento\' v vale %d\n",v);
+  incremento(&v);   // Pregunta 2
+  printf("Despues de la funcion \'incremento\' v vale %d\n",v);
+  incremento(p);   // Pregunta 3
+  printf("Despues de la funcion \'incremento\' otra vez v vale %d\n",v);
+  return 0;
+}
+
+void incremento(int *i) {
+  *i += 1;
+}
+```
+
+Simule el programa anterior usando el siguiente [enlace](https://goo.gl/aTyRft) y responda las siguientes preguntas:
+* ¿El valor de v cambia?, ¿Por que?
+* ¿Por que en la linea cuyo comentario es **Pregunta 2** se usa el ampersand (&) al invocar la funcion?
+* ¿Por que en la linea cuyo comentario es **Pregunta 3** no se usa el ampersand (&) al invocar la funcion?, ¿Que pasa si se usa el ampersand?
+
+4. Dado el siguiente codigo:
+
+```C
+#include <stdio.h>
+
+int foo(int a, int *b);
+
+int main() {
+  int x = 3, y = 4, z = 0;
+  printf("x = %d, y = %d, z = %d\n", x, y, z);
+  z = foo(x, &y);
+  printf("x = %d, y = %d, z = %d\n", x, y, z);  
+}
+
+int foo(int a, int *b) {
+  int r;
+  a++;
+  *b += a;
+  r = a + *b;
+}
+```
+Simule el [código anterior](https://goo.gl/vBaqbt) y deduzca por que los valores de **x**, **y** y **z** son los que se muestran antes y despues del llamado de la funcion.
+
+### 2.4. Funciones y vectores
+
+1. Hacer una funcion que tome cada uno de
 
 ## 3. Ejercicios conceptuales
 
