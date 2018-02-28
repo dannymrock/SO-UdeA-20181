@@ -127,7 +127,7 @@ int main() {
 ```
 
 ### 2.3. Funciones por referencia y por valor
-
+///////////// MEMORAR LA PREGUNTA
 1. Dado el siguiente prototipo para la funcion **incremento**:
 
 ```C
@@ -144,9 +144,12 @@ void incremento(int);
 
 int main() {
   int v = 3;
+  int *p = &v;
   printf("Antes de la funcion \'incremento\' v vale %d\n",v);
   incremento(v);
   printf("Despues de la funcion \'incremento\' v vale %d\n",v);
+  incremento(*p);
+  printf("Despues de la funcion \'incremento\' otra vez v vale %d\n",v);
   return 0;
 }
 
