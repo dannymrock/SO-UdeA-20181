@@ -239,7 +239,67 @@ La función ```free``` libera un bloque de memoria previamente reservado en el h
 > **Donde**:
 > * **pointer**: apuntador con la dirección del bloque de memoria (previamente reservado con **malloc** o con **calloc**) a liberar. 
 
-### 
+#### Ejemplos
+Con el fin de comprender los conceptos anteriormente expuestos analise y entienda los siguientes codigos
+
+1. **Codigo 1**: [codigo online](https://goo.gl/RVaqJs)
+
+```C
+#include <stdio.h>
+
+int main() {
+  int *p, *q;
+  p = malloc(sizeof(int));
+  q = p;
+  *p = 10;
+  printf("%d\n",*q);
+  *q = 20;
+  printf("%d\n",*q);
+  free(p);  // Tambien para el caso puede ser q
+  return 0;
+}
+```
+2. **Codigo 2**:  [codigo online](https://goo.gl/FYjaPb) 
+
+```C
+#include <stdio.h>
+
+int main() {
+  int *p, *q;
+  p = malloc(sizeof(int));
+  q = malloc(sizeof(int));
+  *p = 10;
+  *q = 20;
+  printf("*p = %d; *q = %d\n", *p, *q);
+  *p = *q;
+  printf("*p = %d; *q = %d\n", *p, *q);
+  free(p);  
+  free(q);  
+  return 0;
+}
+```
+
+Tambien es posible declarar arrays en memoria dinamica pasando el tamaño del array en bytes. Asi por ejemplo, para declara un array de **N** elementos, el valor pasado como parametro a la funcion **malloc** sera **N*sizeof(dataTipe)**
+
+3. **Codigo 3**: Crear dinamicamente un array de 10 elementos y llenarlo de ceros [codigo online](https://goo.gl/rBSJ6x)
+
+```C
+#include <stdio.h>
+
+#define TAM 10 
+
+int main() {
+  int *p, *q;
+  p = malloc(TAM*sizeof(int));
+  for (int i = 0; i < TAM; i++) {
+    *(p + i) = 0; // p[i] = 0
+  }
+  free(p);    
+  return 0;
+}
+```
+
+
 
 
 ## x. Enlaces
