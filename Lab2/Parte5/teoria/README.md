@@ -299,7 +299,26 @@ int main() {
 }
 ```
 
+> **Buen tip de programacion**: asignar NULL a un apuntador no es obligatorio, pero es buena practica. Esto para evitar algun error si el apuntador es erroneamente utilizado despues de que la memoria ha sido liberada.
 
+4. **Codigo 4**: Crear dinamicamente un array de 10 elementos y llenarlo de ceros, pero esta vez haga uso de la buena practica de programacion para entenderla [codigo online](https://goo.gl/X8TJoA)
+
+```C
+#include <stdio.h>
+
+#define TAM 10 
+
+int main() {
+  int *p, *q;
+  p = malloc(TAM*sizeof(int));
+  for (int i = 0; i < TAM; i++) {
+    *(p + i) = 0; // p[i] = 0
+  }
+  free(p); 
+  p = NULL;
+  return 0;
+}
+```
 
 
 ## x. Enlaces
