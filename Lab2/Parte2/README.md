@@ -158,7 +158,7 @@ void incremento(int i) {
 }
 ```
 
-Simule el programa anterior usando el siguiente [enlace](https://goo.gl/gW54SB). ¿Cambia el valor de v?, ¿Por que?
+Simule el programa anterior usando el siguiente [enlace](https://goo.gl/NmWCAc). ¿Cambia el valor de v?, ¿Por que?
 
 2. Dado el siguiente prototipo para la funcion **incremento**:
 
