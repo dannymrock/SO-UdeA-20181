@@ -215,7 +215,7 @@ int main() {
 
 La función ```malloc``` permite reservar un bloque de memoria en el heap. El prototipo de esta función se muestra a continuación:
 
-> **Sintaxis:
+> **Sintaxis**:
 >
 > ```C
 > void * malloc (size_t size)
