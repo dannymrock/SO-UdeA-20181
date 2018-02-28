@@ -285,7 +285,8 @@ void contarCaracteres(char *s, int *nv, int *nc) {
        }
      s++;
    }
-}```
+}
+```
 
 2. Una vez hecho lo anterior, realizar una funcion que permita probar las funciones anteriores con la cadena **"tengo 5 ovejas"**. 
 
@@ -300,7 +301,53 @@ void test(char *c) {
   printf("Numero de consonantes: %d\n", numCons);
 }
 ```
-En el siguiente [enlace](https://goo.gl/dfZSpr) se muestra la simulacion del codigo
+En el siguiente [enlace](https://goo.gl/dfZSpr) se muestra la simulacion del codigo, cuya salida para el caso es:
+
+```
+Cadena: Tengo 5 ovejas
+Numero de vocales: 5
+Numero de consonantes: 6
+```
+
+3. Hacer una funcion para revertir el contenido de un array, la funcion tendrá la siguiente forma:
+
+```C
+
+ /**  
+  *   @brief  Revierte el contenido de un array de enteros
+  *  
+  *   @param  in es el arreglo de entrada
+  *   @param  out es el arreglo de salida
+  *   @param  n es el tamaño del los arrays
+  *   @return void
+  */ 
+  void contarCaracteres(int *in, int *out, int n) {
+    // Coloque su codigo aqui
+    ...
+  }
+```
+
+La solucion de la funcion anterior se muestra a continuacion:
+
+```C
+
+/**  
+ *   @brief  Revierte el contenido de un array de enteros
+ *  
+ *   @param  in es el arreglo de entrada
+ *   @param  out es el arreglo de salida
+ *   @param  n es el tamaño del los arrays
+ *   @return void
+ */ 
+void contarCaracteres(int *in, int *out, int n) {
+  out = out + (n - 1);
+  for (int i = 0; i < n; i++) {
+    *out-- = *in++;
+  }
+}
+```
+
+En el siguiente [codigo](https://goo.gl/gY3RDg), se simula la funcion anteriormente definida:
 
 
 ## 3. Ejercicios conceptuales
