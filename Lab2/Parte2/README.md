@@ -127,7 +127,7 @@ int main() {
 ```
 
 ### 2.3. Funciones por referencia y por valor
-///////////// MEMORAR LA PREGUNTA
+
 1. Dado el siguiente prototipo para la funcion **incremento**:
 
 ```C
@@ -148,7 +148,7 @@ int main() {
   printf("Antes de la funcion \'incremento\' v vale %d\n",v);
   incremento(v);
   printf("Despues de la funcion \'incremento\' v vale %d\n",v);
-  incremento(*p);
+  incremento(*p); // Pregunta
   printf("Despues de la funcion \'incremento\' otra vez v vale %d\n",v);
   return 0;
 }
@@ -158,7 +158,9 @@ void incremento(int i) {
 }
 ```
 
-Simule el programa anterior usando el siguiente [enlace](https://goo.gl/NmWCAc). ¿Cambia el valor de v?, ¿Por que?
+Simule el programa anterior usando el siguiente [enlace](https://goo.gl/NmWCAc) y responda las siguientes preguntas:
+* ¿El valor de v cambia?, ¿Por que?
+* ¿Por que en la linea cuyo comentario es Pregunta se usa el asterisco (*) al invocar la funcion?
 
 2. Dado el siguiente prototipo para la funcion **incremento**:
 
