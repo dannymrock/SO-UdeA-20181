@@ -489,3 +489,4 @@ void cleanMatrix(int **M,int F, int C) {
 * https://www.geeksforgeeks.org/dynamically-allocate-2d-array-c/
 * https://www.programiz.com/c-programming/c-dynamic-memory-allocation
 * https://www.cs.swarthmore.edu/~newhall/unixhelp/C_arrays.html
+
