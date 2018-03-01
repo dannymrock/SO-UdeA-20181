@@ -397,7 +397,7 @@ Con el fin de comprender los conceptos anteriormente expuestos analise y entiend
 
 1. Muestre mediante un ejemplo el uso de la funcion anterior.
 
-**Solución**: En el siguiente [enlace](https://goo.gl/EBnnuF) se encuentra la solución.
+**Solución**: En el siguiente [enlace]() se encuentra la solución.
 
 ```C
 #include <stdio.h>
@@ -409,11 +409,14 @@ Con el fin de comprender los conceptos anteriormente expuestos analise y entiend
 int main() {
   int *p;
   p = malloc(TAM1*sizeof(int));
+  printf("Ubicacion del apuntador tras el malloc: %p\n",p);
   for (int i = 0; i < TAM1; i++) {
     *(p + i) = i + 1; // p[i] = 0
   }
   p = realloc(p,TAM2*sizeof(int));
+  printf("Ubicacion del apuntador tras el primer realloc: %p\n",p);
   p = realloc(p,TAM3*sizeof(int)); 
+  printf("Ubicacion del apuntador tras el segundo realloc: %p\n",p);
   free(p);   
   p = NULL;
   return 0;
@@ -422,13 +425,7 @@ int main() {
 
 FIGURA
 
-
-
-
-
-
-
-
+# **** PENDIENTE - EJEMPLOS CON ESTRUCTURAS
 
 ## x. Enlaces
 * https://www.berthon.eu/wiki/foss:wikishelf:linux:memory
