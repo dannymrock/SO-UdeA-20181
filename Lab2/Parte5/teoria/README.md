@@ -423,9 +423,58 @@ int main() {
 }
 ```
 
+
 FIGURA
 
-# **** PENDIENTE - EJEMPLOS CON ESTRUCTURAS
+# **** PENDIENTE - EJEMPLOS CON ESTRUCTURAS - CUADRAAR LOS SIGUIETNRS EJEMPLOS
+
+**Ejemplo**: [Enlace](https://goo.gl/Aj256G)
+
+```C
+int **createZeroMatrix(int F, int C);
+int **createZeroMatrix2(int F, int C);
+void cleanMatrix(int **M,int F, int C);
+
+int main() {
+  int **ZM1;
+  int **ZM2;
+  ZM1 = createZeroMatrix(2, 3);
+  ZM2 = createZeroMatrix2(2, 4);
+  cleanMatrix(ZM1,2,3);
+  cleanMatrix(ZM2,2,4);
+  ZM1 = 0;
+  ZM2 = 0;
+  return 0;
+}
+
+int **createZeroMatrix(int F, int C) {
+  int **M = (int **)malloc(F * sizeof(int *));
+  for(int i = 0; i < F; i++) {
+    *(M + i) = calloc(C,sizeof(int)); // *(M + i) = M[i] = ... 
+  }
+  return M;
+}
+
+int **createZeroMatrix2(int F, int C) {
+  int **M = (int **)malloc(F * sizeof(int *));
+  for(int i = 0; i < F; i++) {
+    *(M + i) = malloc(C*sizeof(int)); // *(M + i) = M[i] = ...   
+    for(int j = 0; j < C; j++) {
+      *(*(M + i) + j) = 0; // *(*(M + i) + j) = M[i][j] = ...
+    }
+  }
+  return M;
+}
+
+void cleanMatrix(int **M,int F, int C) {
+  for(int i = 0; i < F; i++) {
+    free(M[i]);  // M[i] = *(M + i) 
+  }    
+  free(M);
+  M = 0;
+}
+```
+
 
 ## x. Enlaces
 * https://www.berthon.eu/wiki/foss:wikishelf:linux:memory
@@ -436,3 +485,7 @@ FIGURA
 * https://gabrieletolomei.wordpress.com/miscellanea/operating-systems/in-memory-layout/
 * http://www.cs.utexas.edu/users/fussell/cs310h/lectures/Lecture_17-310h.pdf
 * https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-087-practical-programming-in-c-january-iap-2010/lecture-notes/
+* https://stackoverflow.com/questions/2128728/allocate-matrix-in-c
+* https://www.geeksforgeeks.org/dynamically-allocate-2d-array-c/
+* https://www.programiz.com/c-programming/c-dynamic-memory-allocation
+* https://www.cs.swarthmore.edu/~newhall/unixhelp/C_arrays.html
