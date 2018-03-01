@@ -358,7 +358,74 @@ int main() {
 }
 ```
 
-2. **Codigo 2**: Crear dinamicamente un array de 10 elementos entero y llenarlo de ceros por medio de la funcion calloc. Ver [codigo online]()
+2. **Codigo 2**: Crear dinamicamente un array de 10 elementos entero y llenarlo de ceros por medio de la funcion calloc. Ver [codigo online](https://goo.gl/BnEetd)
+
+```C
+#include <stdio.h>
+
+int main() {
+  int *p;
+  p = calloc(10, sizeof(int));
+  if(p == 0) {
+    printf("ERROR: Out of memory\n");
+    return -1;
+  }
+  free(p);
+  p = NULL;
+  return 0;
+}
+```
+
+#### 3.2.4. Reasignación de memoria: Memory Re-allocation o realloc
+
+La función ```realloc``` permite redimensionar un bloque de memoria previamente reservada con ```malloc```. El prototipo de esta función se muestra a continuación.
+
+> **Sintaxis**:
+>
+> ```C
+> void * realloc(void * ptr, size_t size)
+> ```
+>
+> **Donde**:
+> * **ptr**: Puntero a memoria. 
+> * **size**: Nuevo tamaño requerido. 
+>
+> Si el tamaño es reducido, los datos se pueden perder. Si el tamaño es incrementado y la funcion es incapaz de extender la localizacion existente, esta asignara un nuevo espacio de memoria y copiara los datos a traves de esa retornando un puntero a la memoria nuevamente asignada. 
+
+#### Ejemplos
+Con el fin de comprender los conceptos anteriormente expuestos analise y entienda los siguientes codigos:
+
+1. Muestre mediante un ejemplo el uso de la funcion anterior.
+
+**Solución**: En el siguiente [enlace](https://goo.gl/EBnnuF) se encuentra la solución.
+
+```C
+#include <stdio.h>
+
+#define TAM1 10 
+#define TAM2 5
+#define TAM3 15
+
+int main() {
+  int *p;
+  p = malloc(TAM1*sizeof(int));
+  for (int i = 0; i < TAM1; i++) {
+    *(p + i) = i + 1; // p[i] = 0
+  }
+  p = realloc(p,TAM2*sizeof(int));
+  p = realloc(p,TAM3*sizeof(int)); 
+  free(p);   
+  p = NULL;
+  return 0;
+}
+```
+
+FIGURA
+
+
+
+
+
 
 
 
