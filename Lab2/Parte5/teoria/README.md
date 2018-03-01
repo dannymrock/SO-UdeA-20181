@@ -226,7 +226,7 @@ La función ```malloc``` permite reservar un bloque de memoria (sin inicializar)
 > 
 > La funcion retorna la direccion en el heap a partir de la cual se reservó el tamaño de memoria solicitado o retorna **NULL** si no es posible reservar la cantidad de memoria. Cabe recordar que ```void*``` indica que la dirección retornada es genérica, es decir, en esa dirección se puede almacenar cualquier tipo de variable.
 
-#### 3.2.2. Libeeración de memoria: Memory Allocation o Malloc
+#### 3.2.2. Liberación de memoria: free
 
 La función ```free``` libera un bloque de memoria previamente reservado en el heap. El prototipo de esta función se muestra a continuación:
 
@@ -319,6 +319,48 @@ int main() {
   return 0;
 }
 ```
+
+#### 3.2.3. Asignación de memoria con inicializacion: calloc
+
+La función ```calloc``` permite reservar e inicializat a 0 un bloque de memoria en el heap. El prototipo de esta función se muestra a continuación:
+
+> **Sintaxis**:
+>
+> ```C
+> void * calloc (size_t numElements, size_t size)
+> ```
+>
+> **Donde**:
+> * **num**: numero de elementos consecutivos a reservar. 
+> * **size**: Tamaño en bytes de cada elemento. 
+>
+> El espacio total reservado en la funcion es de numElements*size. Normalmente, la funcion retorna un apuntador que contiene la direccion inicial del bloque reservado en el heap. En caso de que no haya suficiente memoria disponible la funcion retornara NULL.
+
+#### Ejemplos
+Con el fin de comprender los conceptos anteriormente expuestos analise y entienda los siguientes codigos:
+
+1. **Codigo 1**: Declare una en el heap un dato double inicializado a 0. Ver [codigo online](https://goo.gl/j8A8Zn)
+
+```C
+#include <stdio.h>
+
+int main() {
+  double *p;
+  p = calloc(1, sizeof(double));
+  if(p == 0) {
+    printf("ERROR: Out of memory\n");
+    return -1;
+  }
+  printf("*p = %.1lf\n", *p);
+  free(p);
+  p = NULL;
+  return 0;
+}
+```
+
+2. **Codigo 2**: Crear dinamicamente un array de 10 elementos entero y llenarlo de ceros por medio de la funcion calloc. Ver [codigo online]()
+
+
 
 
 ## x. Enlaces
