@@ -474,7 +474,72 @@ void cleanMatrix(int **M,int F, int C) {
   M = 0;
 }
 ```
+**Enlace**: https://goo.gl/a31sVK
+```C
+#include <stdio.h>
+#include <string.h>
 
+
+char **separateCharacters(char *cad);
+int esVocal(char ch);
+
+int main(void)
+{
+    char mess[] = "hola";
+    char **R;
+    R = separateCharacters(mess);
+    printf("El mensaje %s tiene el siguiente inventario:\n",mess);
+    printf("-> Vocales: %s\n",R[0]);
+    printf("-> Consonantes: %s\n",R[1]);
+    free(R);
+    return 0;
+}
+
+int esVocal(char ch) {
+    if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || \
+                ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U' ) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+    else {
+        return -1;
+    }
+}
+
+char **separateCharacters(char *cad) {
+    char *p[2];
+    int **r = (char **)malloc(2 * sizeof(char *));
+    int nV = 0, nC = 0;
+    p[0] = malloc(strlen(cad)*sizeof(char));
+    p[1] = malloc(strlen(cad)*sizeof(char));
+    r[0] = p[0];
+    r[1] = p[1];
+    while (*cad != '\0') {
+        if(esVocal(*cad) == 1) {
+            // El caracter es vocal
+            *(p[0] + nV) = *cad;   // *(*p + nV)
+            nV++;
+        }
+        else if (esVocal(*cad) == 0) {
+            // El caracter es consonante
+            *(*(p + 1) + nC) = *cad;  // *(p[1] + nC)
+            nC++;
+        }
+        cad++;
+    }
+    *(*p + nV) = '\0';
+    *(*(p + 1) + nC) = '\0';
+
+    p[0] = realloc(p[0],(nV + 1)*sizeof(char));
+    p[1] = realloc(p[1],(nC + 1)*sizeof(char));
+
+    return r;
+}
+```
 
 ## x. Enlaces
 * https://www.berthon.eu/wiki/foss:wikishelf:linux:memory
