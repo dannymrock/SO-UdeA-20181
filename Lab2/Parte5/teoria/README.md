@@ -428,7 +428,7 @@ FIGURA
 
 # **** PENDIENTE - EJEMPLOS CON ESTRUCTURAS - CUADRAAR LOS SIGUIETNRS EJEMPLOS
 
-**Ejemplo**: [Enlace](https://goo.gl/Aj256G)
+**Ejemplo**: [Enlace](https://goo.gl/kWh3Ru)
 
 ```C
 int **createZeroMatrix(int F, int C);
@@ -474,7 +474,8 @@ void cleanMatrix(int **M,int F, int C) {
   M = 0;
 }
 ```
-**Enlace**: https://goo.gl/a31sVK
+**Enlace**: https://goo.gl/oUhjpC
+
 ```C
 #include <stdio.h>
 #include <string.h>
@@ -516,8 +517,6 @@ char **separateCharacters(char *cad) {
     int nV = 0, nC = 0;
     p[0] = malloc(strlen(cad)*sizeof(char));
     p[1] = malloc(strlen(cad)*sizeof(char));
-    r[0] = p[0];
-    r[1] = p[1];
     while (*cad != '\0') {
         if(esVocal(*cad) == 1) {
             // El caracter es vocal
@@ -536,7 +535,8 @@ char **separateCharacters(char *cad) {
 
     p[0] = realloc(p[0],(nV + 1)*sizeof(char));
     p[1] = realloc(p[1],(nC + 1)*sizeof(char));
-
+    r[0] = p[0];
+    r[1] = p[1];
     return r;
 }
 ```
