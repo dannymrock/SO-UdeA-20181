@@ -461,7 +461,37 @@ Ahora responda las siguientes preguntas:
 
 ## 4. Problemas de programacion
 
-En construccion
+### 4.1. Repaso
+
+1. Escriba una funcion que retorne el producto de un array teniendo en cuenta la siguiente forma:
+
+```
+/**  
+ *   @brief  Calcula el producto de los elementos de un array
+ *  
+ *   @param  array es el arreglo a pasar
+ *   @param  size es el tamaño del arreglo pasado como argumento
+ *   @return el producto de los elementos del vector
+ */ 
+ 
+ int product(const int *array, int size){
+    // Coloque su codigo aqui
+    ...
+  }
+```
+
+Luego realice una función que permita verificar el correcto funcionamiento de funcion anteriormente codificada.
+
+**Solucion**: La solución 
+
+
+
+(Product of an array) Write two overloaded functions that return the product of
+elements in an array with the following headers:
+int product(const int array[], int size);
+double product(const double array[], int size);
+Write a test program that prompts the user to enter 3 double values, invokes this
+function, and displays the product of these values.
 
 
 ## Enlaces de utilidad
