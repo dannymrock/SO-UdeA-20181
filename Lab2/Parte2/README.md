@@ -586,6 +586,131 @@ int product(const int *array, int size) {
   return p;
 }
 ```
+El codigo solucion se encuetra en: ....
+
+3. Codifique una funcion que encuentre el valor minimo y maximo de un array siguiendo el formato mostrado a continuación:
+
+```C
+/**
+ *   @brief  Obtiene los elementos maximo y minimo de un array.
+ *
+ *   @param  array es el arreglo a pasar
+ *   @param  size es el tamaño del arreglo pasado como argumento
+ *   @param  min es la variable a la cual se asignara el valor minimo (por refenrecia)
+ *   @param  min es la variable a la cual se asignara el valor minimo (por refenrecia)
+ *   @return no retorna nada
+ */
+void max_min(double *array, int size, double *min, double *max) {
+  // Coloque aqui el codigo...
+}
+```
+
+**Solucion**: La simulación online se muestra en el siguiente [enlace](https://goo.gl/cds8ac). A continuacion se reproduce el codigo alli presente:
+
+```C
+#include <stdio.h>
+
+void max_min(double *array, int size, double *mini, double *maxi);
+void test(void);
+int main() {
+  test(); 
+  return 0;
+}
+
+/**
+ *   @brief  Obtiene los elementos maximo y minimo de un array.
+ *
+ *   @param  array es el arreglo a pasar
+ *   @param  size es el tamaño del arreglo pasado como argumento
+ *   @param  min es la variable a la cual se asignara el valor minimo (por refenrecia)
+ *   @param  min es la variable a la cual se asignara el valor minimo (por refenrecia)
+ *   @return no retorna nada
+ */
+void max_min(double *array, int size, double *min, double *max) {
+  *min = *array;
+  *max = *array;
+  for (int i = 1; i < size; i++) {
+    if(*(array + i) >= *max) {
+      *max = *(array + i);
+    }
+    if(*(array + i) <= *min) {
+      *min = *(array + i);
+    }
+  }
+}
+
+void test(void) {
+  double A[] = {-1.2, 2.4, -3.5, 10.2, 4};
+  double m, M;
+  max_min(A,5,&m,&M);
+  printf("- Minimo: %lf\n",m);
+  printf("- Maximo: %lf\n",M);
+}
+```
+4. Supongase que cada 4 horas se esta midiendo el porcentaje de uso de una CPU. Haga un programa que permita saber cual es el procenjate de uso maximo y minimo durante el dia. Para ello emplee la función creada en el punto 3.
+
+**Nota**: Se deja este ejercicio al estudiante
+
+5. Suponga que usted hace parte de un equipo de desarrollo que esta trabajando en el juego del ahorcado. Hacer una funcion que se le solicite una cadena y un caracter, esto con el fin de reemplazar reemplazar todo aquel caracter de la cadena que sea igual al caracter  ingresado como argumento por una raya (-). La funcion debera devolver el numero de caracteres diferentes de raya.
+
+```C
+/**
+ *   @brief  Reemplaza cada caracter de array igual a ch por un guion (-).
+ *
+ *   @param  array es el arreglo a pasar
+ *   @param  ch es el caracter a averiguar
+ *   @return numero de caracteres de array no descubiertos (No reemplazados por guion)
+ */
+int reemplazarCaracter(char *array, char ch) {
+  // Coloque su codigo a continuacion...
+}
+```
+
+**Solucion**: La solucion con test del problema anterior se muestra en el siguiente [enlace](https://goo.gl/A17q8i). Su codigo se muestra a continuacion:
+
+```C
+#include <stdio.h>
+
+void test(void);
+int reemplazarCaracter(char *, char);
+
+int main() {
+  test(); 
+  return 0;
+}
+
+/**
+ *   @brief  Reemplaza cada caracter de array igual a ch por un guion (-).
+ *
+ *   @param  array es el arreglo a pasar
+ *   @param  ch es el caracter a averiguar
+ *   @return numero de caracteres de array no descubiertos (No reemplazados por guion)
+ */
+int reemplazarCaracter(char *array, char ch) {
+  int cnt = 0;
+  while (*array != '\0') {
+    if(ch == *array) {
+      *array = '-';  
+    }
+    else if (*array != '-') {
+      cnt++;
+    }
+    array++;
+  }
+  return cnt;
+}
+
+void test(void) {
+  char cad[] = "cadena";
+  int v = reemplazarCaracter(cad,'a');
+  printf("%s : %d\n", cad, v);
+  v = reemplazarCaracter(cad,'n');
+  printf("%s : %d\n", cad, v);
+}
+```
+
+
+
 
 ## Enlaces de utilidad
 * http://csweb.cs.wfu.edu/~fulp/CSC112/codeStyle.html
