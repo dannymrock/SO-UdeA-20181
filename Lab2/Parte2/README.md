@@ -524,14 +524,68 @@ El programa puede ser simulado en el siguiente [enlace](https://goo.gl/JhEdHv) y
 Resp = 120
 ```
 
+2. Empleando la funcion anteriormente codificada escriba un programa que permita que un usuario ingrese un vector de 3 elementos para luego calcular su producto. El programa se debera ejecutar cuantas veces el usuario lo desee:
 
-(Product of an array) Write two overloaded functions that return the product of
-elements in an array with the following headers:
-int product(const int array[], int size);
-double product(const double array[], int size);
-Write a test program that prompts the user to enter 3 double values, invokes this
-function, and displays the product of these values.
+**Solucion**: El codigo solución de muestra a continuacion:
 
+```C
+/**
+* Compilation:
+* gcc -Wall code_4_2.c -o code_4_2.out
+*/
+
+#include <stdio.h>
+
+void inputVector(int *);
+int product(const int *, int);
+
+int main(void) {
+    int vIn[3];
+    int prod;
+    char seguir;
+    do {
+        printf("Ingrese el vector de 3 elementos: ");
+        inputVector(vIn);
+        prod = product(vIn,3);
+        printf("El producto es: %d\n\n",prod);
+        fflush(stdin);
+        printf("Desea continuar (y/n)? ");
+        scanf("%c",&seguir);
+        printf("\n");
+    } while(seguir == 'y');
+    printf("Suerte es que le digo\n");
+    return 0;
+}
+
+/**
+ *   @brief  Permite ingresar cada uno de los componentes de un vector de 3 elementod
+ *
+ *   @param  array es el arreglo que se va a ingresar
+ *   @return void
+ */
+void inputVector(int *array) {
+    int i;
+    for(i = 0;i < 3;i++) {
+        scanf("%d",(array + i));
+    }
+}
+
+/**
+ *   @brief  Calcula el producto de los elementos de un array
+ *
+ *   @param  array es el arreglo a pasar
+ *   @param  size es el tamaño del arreglo pasado como argumento
+ *   @return el producto de los elementos del vector
+ */
+int product(const int *array, int size) {
+  int p = *array;
+  int i;
+  for (i = 1; i < size; i++) {
+    p = p*(*++array);
+  }
+  return p;
+}
+```
 
 ## Enlaces de utilidad
 * http://csweb.cs.wfu.edu/~fulp/CSC112/codeStyle.html
