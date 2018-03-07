@@ -482,8 +482,47 @@ Ahora responda las siguientes preguntas:
 
 Luego realice una función que permita verificar el correcto funcionamiento de funcion anteriormente codificada.
 
-**Solucion**: La solución 
+**Solucion**: La solución del problema anterior se muestra a continuacion:
 
+```C
+#include <stdio.h>
+
+void test(void); 
+int product(const int *array, int size);
+
+int main() {
+  test();
+  return 0;
+}
+
+/**  
+ *   @brief  Calcula el producto de los elementos de un array
+ *  
+ *   @param  array es el arreglo a pasar
+ *   @param  size es el tamaño del arreglo pasado como argumento
+ *   @return el producto de los elementos del vector
+ */ 
+int product(const int *array, int size) {
+  int p = *array;
+  int i;
+  for (i = 1; i < size; i++) {
+    p = p*(*++array);
+  }  
+  return p;
+}
+
+void test(void) {
+  int V[] = {1,2,3,4,5};
+  int p = product(V,5);
+  printf("Resp = %d\n",p);  
+}
+```
+
+El programa puede ser simulado en el siguiente [enlace](https://goo.gl/JhEdHv) y la salida arrojada por este es:
+
+```
+Resp = 120
+```
 
 
 (Product of an array) Write two overloaded functions that return the product of
@@ -496,3 +535,5 @@ function, and displays the product of these values.
 
 ## Enlaces de utilidad
 * http://csweb.cs.wfu.edu/~fulp/CSC112/codeStyle.html
+* https://overiq.com/c-programming/101/the-malloc-function-in-c/
+* https://www.geeksforgeeks.org/void-pointer-c/
