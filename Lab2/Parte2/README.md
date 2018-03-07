@@ -461,11 +461,11 @@ Ahora responda las siguientes preguntas:
 
 ## 4. Problemas de programacion
 
-### 4.1. Repaso
+### 4.1. Miselanea de problemas resueltos a modo de repaso
 
 1. Escriba una funcion que retorne el producto de un array teniendo en cuenta la siguiente forma:
 
-```
+```C
 /**  
  *   @brief  Calcula el producto de los elementos de un array
  *  
@@ -709,8 +709,65 @@ void test(void) {
 }
 ```
 
+### 4.2. Ejercicios de programación.
 
+Para cada uno de los ejercicio de programacion propuestos a continuacion, realice la respectiva funcion de test para probar el correcto funcionamiento de lo que se pide en el ejercicio.
 
+1. Hacer que barra una cadena de caracteres en busca de un caracter especifico. La funcion deberá retornar el numero de veces que aparece este caracter o -1 en caso de que no este. La forma de la funcion se muestra a continuación:
+
+```C
+/**
+ *   @brief  Cuenta las veces que aparece un caracter determinado dentro de una cadena.
+ *
+ *   @param  array cadena de caracteres a ingresar
+ *   @param  ch es el caracter a averiguar
+ *   @return el numero de veces que aparece ch en array o -1 si no aparece.
+ */
+int contarCaracter(char *array, char ch) {
+  // Coloque su codigo aqui...
+}
+```
+
+2. Hacer una funcion que permita que un usuario obtenga el subindice asociado a la primera aparicion de un caracter en un array. Si el caracter no esta la función debera retornar -1. Haga uso de la funcion del punto 1 para validar la presencia del caracter. A continuacion se muestra la forma de la función:
+
+```C
+/**
+ *   @brief  Obtiene el indice de la primera aparicion de un caracter en un array
+ *
+ *   @param  array cadena de caracteres a ingresar
+ *   @param  ch es el caracter a ingresa
+ *   @return el indice del primer ch en la cadena array
+ */
+int obtenerIndice(char *array, char ch) {
+  // Coloque su codigo aqui...
+}
+```
+
+Para clarificar un poco la cosa, si por ejemplo la cadena es **hola: que mas** y el caracter a buscar es **:** la funcion debera retornar **4**. Por otro lado, si el caracter a buscar es la **a**, la funcion retornara **3**. Finalmente, si el caracter ingresado es **z** la funcion retornara **-1**.
+
+3. Obtener la subcadena de una cadena dada a partir de un subindice siguiendo la siguiente funcion.
+
+```C
+/**
+ *   @brief  Obtiene una subcadena a tomada a partir de un subindice asociado a una subcadena
+ *
+ *   @param  array cadena de caracteres a ingresar
+ *   @param  index indice
+ *   @return un apuntador a la posicion inicial de la subcadena o NULL si el tamaño de index supera a la longitud de la cadena
+ */
+char *obtenerSubcadena(char *array, int index) {
+  // Coloque su codigo aqui...
+}
+```
+Para averiguar la longitud de la cadena puede emplar la funcion **strlen** de la libreria **string.h**. Por ejemplo, para el caso, si la cadena es **hola que tal** y el indice ingresado por el usuario es **4**, la funcion debera retornar un apuntador que apunte a la posicion **5** de la cadena, de modo que cuando se imprima la cadena en cuestion a partir de este apuntado se muestre la siguiente salida **que tal**. En el siguiente ejemplo se aterriza lo anterior suponiendo que ya se codifico la funcion subcadena.
+
+```C
+char *p1 = "Hola que tal"; 
+char *p2;
+p2 = obtenerSubcadena(p1, 5);
+printf("%s\n",p1);    // Imprime: Hola que tal
+printf("%s\n",p2);    // Imprime: que tal
+```
 
 ## Enlaces de utilidad
 * http://csweb.cs.wfu.edu/~fulp/CSC112/codeStyle.html
