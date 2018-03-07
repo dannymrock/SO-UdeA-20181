@@ -56,3 +56,11 @@ Para abrir un archivo y asociarlo con un stream se usa la funcion ```fopen()``` 
 FILE *fopen(const char *fname, const char *mode);
 ```
 
+**Donde**:
+* **fname** esta asociado al nombre del archivo.
+* **mode** opcion que indica a C si el archivo se va a leer, a escribir o a modificar entre otras. La siguiente tabla describe las opciones disponibles el modo.
+
+
+
+
+
