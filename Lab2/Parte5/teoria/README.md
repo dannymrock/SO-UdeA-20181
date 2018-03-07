@@ -157,7 +157,10 @@ int main() {
 }
 ```
 
-IMAGEN
+La siguiente figura muestre el efecto del codigo anterior:
+
+![mem_stack](./imagenes/memoria_stack.png)
+**Figura 3**. Accediendo desde un apuntador a una variable definida en el stack.
 
 **Codigo 2**: [Codigo online](https://goo.gl/PW73xh)
 
@@ -178,7 +181,10 @@ int main() {
 }
 ```
 
-IMAGEN
+La siguiente figura muestre el efecto del codigo anterior:
+
+![mem_heap](./imagenes/malloc_help.png)
+**Figura 4**. Asignacion dinamica de una variable usando malloc
 
 ## 3. Asignacion dinamica de memoria mediante C
 
@@ -208,6 +214,11 @@ int main() {
   return 0;
 }
 ```
+
+A continuacion se muestra la salida en el simulador para diferentes tipos de datos:
+
+![print_size](./imagenes/size_of.png)
+**Figura 6**. Tamaño en bytes para diferentes tipos de datos.
 
 ### 3.2. Manejo dinamico de memoria
 
@@ -259,6 +270,12 @@ int main() {
   return 0;
 }
 ```
+
+La salida del codigo anterior se muestra a continuacion:
+
+![c1](./imagenes/codigo1.png)
+**Figura 7**. Salida codigo 1.
+
 2. **Codigo 2**:  [codigo online](https://goo.gl/FYjaPb) 
 
 ```C
@@ -278,6 +295,10 @@ int main() {
   return 0;
 }
 ```
+La salida del codigo anterior se muestra a continuacion:
+
+![c2](./imagenes/codigo2.png)
+**Figura 8**. Salida codigo 2.
 
 Tambien es posible declarar arrays en memoria dinamica pasando el tamaño del array en bytes. Asi por ejemplo, para declara un array de **N** elementos, el valor pasado como parametro a la funcion **malloc** sera **N*sizeof(dataTipe)**
 
@@ -299,6 +320,12 @@ int main() {
 }
 ```
 
+La salida del codigo anterior se muestra a continuacion:
+
+![c3](./imagenes/codigo3.png)
+**Figura 9**. Salida codigo 3.
+
+
 > **Buen tip de programacion**: asignar NULL a un apuntador no es obligatorio, pero es buena practica. Esto para evitar algun error si el apuntador es erroneamente utilizado despues de que la memoria ha sido liberada.
 
 4. **Codigo 4**: Crear dinamicamente un array de 10 elementos y llenarlo de ceros, pero esta vez haga uso de la buena practica de programacion para entenderla [codigo online](https://goo.gl/X8TJoA)
@@ -319,6 +346,16 @@ int main() {
   return 0;
 }
 ```
+
+La salida del codigo anterior se muestra a continuacion cuando se hace la reserva dinamica de memoria:
+
+![c4](./imagenes/codigo4_a.png)
+**Figura 10**. Salida codigo 4 tras la reserva con malloc.
+
+El efecto despues de liberar memoria y poner el apuntador a NULL:
+
+![c5](./imagenes/codigo4_b.png)
+**Figura 11**. Salida codigo tras aplicar del delete y poner el apuntador en valor NULL.
 
 #### 3.2.3. Asignación de memoria con inicializacion: calloc
 
@@ -358,6 +395,11 @@ int main() {
 }
 ```
 
+La siguiente imagen muestra el efecto del uso del calloc:
+
+![c4](./imagenes/calloc_1.png)
+**Figura 12**. Salida codigo 4 tras la reserva con calloc.
+
 2. **Codigo 2**: Crear dinamicamente un array de 10 elementos entero y llenarlo de ceros por medio de la funcion calloc. Ver [codigo online](https://goo.gl/BnEetd)
 
 ```C
@@ -375,6 +417,7 @@ int main() {
   return 0;
 }
 ```
+Tras la ejecucion del codigo anterior, el efecto es similar al de la figura 10.
 
 #### 3.2.4. Reasignación de memoria: Memory Re-allocation o realloc
 
@@ -397,7 +440,7 @@ Con el fin de comprender los conceptos anteriormente expuestos analise y entiend
 
 1. Muestre mediante un ejemplo el uso de la funcion anterior.
 
-**Solución**: En el siguiente [enlace]() se encuentra la solución.
+**Solución**: En el siguiente [enlace](https://goo.gl/L9gwSN) se encuentra la solución.
 
 ```C
 #include <stdio.h>
@@ -423,8 +466,11 @@ int main() {
 }
 ```
 
+El efecto del codigo anterior se muestra en la siguiente figura:
 
-FIGURA
+![reallc](./imagenes/realloc_example.png)
+**Figura 13**. Efecto de usar realoc
+
 
 # **** PENDIENTE - EJEMPLOS CON ESTRUCTURAS - CUADRAAR LOS SIGUIETNRS EJEMPLOS
 
