@@ -10,5 +10,16 @@ Los archivos son usados para almacenamiento permanente de grandes cantidades de 
 
 ## 2. Empleando C para el trabajo con archivos
 
+C streams
+
+Buffer
+
+----
+
+Operaciones de intercambio.
+1.
+2.
+3.
+
 
 
