@@ -32,5 +32,27 @@ A continuación se describiran la forma como se llevan a cabo cada una de las ac
 #### 2.2.1. Abriendo el archivo
 
 Abrir el archivo implica dos cosas:
-1. Declarar un apuntador a FILE.
-2. Hacer uso de la funcion ```Cfopen```
+1. Declarar un apuntador a ```FILE```
+2. Hacer uso de la funcion ```fopen```
+
+**Declarando un apuntador a FILE**
+
+```FILE``` es una estructura definida en la libreria ```stdio.h``` (no olvidar incluir en el archivo fuente) para trabajar con archivos, de modo que el primer paso para empezar el proceso de trabajar con archivos consiste en la declaracion de un apuntador a este tipo de dato. La forma para esto es la siguiente:
+
+```C
+FILE *file_pointer_name,..;
+```
+
+Por ejemplo a continuacion se declaran dos apuntadores a FILE:
+
+```C
+FILE *ifp;
+FILE *ofp;
+```
+**Abriendo un archivo**
+Para abrir un archivo y asociarlo con un stream se usa la funcion ```fopen()``` cuyo prototipo se muestra a continuacion:
+
+```C
+FILE *fopen(const char *fname, const char *mode);
+```
+
