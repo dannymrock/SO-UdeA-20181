@@ -384,6 +384,18 @@ int main() {
 
 Hay que resaltar que en el codigo anterior, hay algunas funciones que no se han visto pero que pueden ser consultadas en internet, a continuacion como [strcat](https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/rtref/strcat.htm) y [snprintf](https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/rtref/snprintf.htm). Lo animamos a que observe la descripcion y ejemplos de los enlaces y comprenda como se usan estos en el programa.
 
+#### 2.2.3.1.3. Funcion gets
+Permite leer un unico caracter de un stream especifico. El prototipo de esta se muestra a continuacion:
+
+```C
+int getc(FILE *fp);
+```
+
+**Donde**:
+* **fp** es el file pointer asociado al archivo despues de que este ha sido abierto mediante la funcion fopen.
+
+La funcion retorna el caracter que fue leido **EOF** (-1) en caso de error.
+
 ## X. Enlaces:
 * http://c.conclase.net/librerias/
 * https://www.ntu.edu.sg/home/ehchua/programming/index.html
