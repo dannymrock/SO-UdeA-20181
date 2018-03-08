@@ -82,7 +82,21 @@ FILE *fopen(const char *fname, const char *mode);
 
 Si el programa abre exitoramente el archivo, fopen() devuelve un apuntador a file pointer el cual puede ser empleado para aplicar otras funciones de I/O sobre el archivo asociado (como lo veremos despues). Por otro lado, si hay un error, el valor retornado sera un puntero nulo.
 
+**Code snippets**
+1. Abrir para leer un archivo llamado "lista.txt"
 
+```C
+// Abriendo el archivo
+FILE *inFile;
+inFile = open("lista.txt","r");
+// Verificando que el 
+if(inFile == NULL) {
+  printf(“Can not open data.dat\n”);
+  exit(1);
+}
+// Este codigo continuara...
+```
+2. Abrir para leer un archivo llamado "lista.txt"
 
 #### 2.2.2. Cerrando el archivo el archivo
 Despues de completarse el procesamiento de un archivo, este debe ser cerrado y para ello se emplea la funcion fclose(). El prototipo de la funcion fclose es el siguiente:
@@ -97,8 +111,7 @@ int fclose(FILE *fp);
 La funcion anterior retorna 0 si el stream fue cerrado con exito o -1 si hay errores.
 
 
-**Code snippets**
-1. Abrir para leer un archivo llamado "lista.txt"
+
 
 
 ## X. Enlaces:
