@@ -99,3 +99,5 @@ La funcion anterior retorna 0 si el stream fue cerrado con exito o -1 si hay err
 
 ## X. Enlaces:
 * http://c.conclase.net/librerias/
+* https://www.ntu.edu.sg/home/ehchua/programming/index.html
+* https://www.le.ac.uk/users/rjm1/cotter/index.htm
