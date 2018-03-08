@@ -222,7 +222,10 @@ int putc(int ch, FILE *fp);
 La funcion retorna el caracter que se acabo de escribir si el proceso fue exitoso o EOF (constante simbolica definida en stdio.h cuyo valor es -1) si un error ocurre.
 
 **Ejemplo**
-1. Hacer
+1. Una cadena de ADN puede se representa mediante un alfabeto de 4 simbolos ('A', 'C', 'G' y 'T'). Hacer un programa que permita generar una archivo con una cadena de ADN cuyo tamaño y nombre sea ingresado por el usuario.
+
+**Solucion**
+
 
 ## X. Enlaces:
 * http://c.conclase.net/librerias/
