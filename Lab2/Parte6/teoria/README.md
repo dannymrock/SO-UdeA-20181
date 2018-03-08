@@ -76,6 +76,26 @@ FILE *fopen(const char *fname, const char *mode);
 | w+b | Crea binario para leer/escribir  |
 | a+b | Abre o crea binario para leer/escribir  |
 
+Si el programa abre exitoramente el archivo, fopen() devuelve un apuntador a file pointer el cual puede ser empleado para aplicar otras funciones de I/O sobre el archivo asociado (como lo veremos despues). Por otro lado, si hay un error, el valor retornado sera un puntero nulo.
 
 
 
+#### 2.2.2. Cerrando el archivo el archivo
+Despues de completarse el procesamiento de un archivo, este debe ser cerrado y para ello se emplea la funcion fclose(). El prototipo de la funcion fclose es el siguiente:
+
+```C
+int fclose(FILE *fp);
+```
+
+**Donde**:
+* **fp** es el FILE pointer asociado con el stream.
+
+La funcion anterior retorna 0 si el stream fue cerrado con exito o -1 si hay errores.
+
+
+**Code snippets**
+1. Abrir para leer un archivo llamado "lista.txt"
+
+
+## X. Enlaces:
+* http://c.conclase.net/librerias/
