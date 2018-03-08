@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <string.h>
 
 int main() {
-  srand(time(NULL)); // Inicializacion del generador
   char inFilename[80];
   char outFilename[80] = "inventario_";
   char cntS[10];
