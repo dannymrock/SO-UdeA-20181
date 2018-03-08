@@ -406,17 +406,82 @@ Esta funcion agreda un terminador null a los datos leidos, comparada con la vers
 
 **Ejemplos**:
 
-1. 
+1. Hacer un programa que lea un archivo y lo muestre en pantalla. Este programa, debera mostrar ademas el numero de linea asociado. Por ejemplo, supongase que se tiene un archivo de texto llamado "frases.txt"
 
+```
+La vida es una obra teatral que no importa cuánto haya durado, sino lo bien que haya sido representada. 
+Séneca
 
+Estar preparado es importante, saber esperar lo es aún más, pero aprovechar el momento adecuado es la clave de la vida. 
+Arthur Schnitzler
 
+¡Qué pequeñas son mis manos…! En relación con todo lo que la vida ha querido darme.
+Ramón J. Sénder
 
+Todo el mundo trata de realizar algo grande, sin darse cuenta de que la vida se compone de cosas pequeñas. 
+Frank Clark
 
+Sólo le falta el tiempo a quien no sabe aprovecharlo. 
+Jovellanos
+
+Nuestra mayor gloria no está en no caer nunca, sino en levantarnos cada vez que caemos. 
+Confucio
+
+La alegría cuanto más se gasta, más queda. 
+Ralph Waldo Emerson
+
+Se necesitan dos años para aprender a hablar, y sesenta para aprender a callar. 
+Ernest Hemingway
+```
+Cuando se muestre en pantalla sera:
+
+```
+1   La vida es una obra teatral que no importa cuánto haya durado, sino lo bien que haya sido representada. 
+2   Séneca
+3
+4   Estar preparado es importante, saber esperar lo es aún más, pero aprovechar el momento adecuado es la clave de la vida. 
+5   Arthur Schnitzler
+6
+7   ¡Qué pequeñas son mis manos…! En relación con todo lo que la vida ha querido darme.
+8   Ramón J. Sénder
+9  
+10  Todo el mundo trata de realizar algo grande, sin darse cuenta de que la vida se compone de cosas pequeñas. 
+11  Frank Clark
+12
+13  Sólo le falta el tiempo a quien no sabe aprovecharlo. 
+14  Jovellanos
+15
+16  Nuestra mayor gloria no está en no caer nunca, sino en levantarnos cada vez que caemos. 
+17  Confucio
+18
+19  La alegría cuanto más se gasta, más queda. 
+20  Ralph Waldo Emerson
+21
+22  Se necesitan dos años para aprender a hablar, y sesenta para aprender a callar. 
+23  Ernest Hemingway
+```
+**Solucion**:
+
+#### 2.2.3.1.4. Funcion puts
+Escribe una cadena de caracteres a un stream. El prototipo de la funcion es el siguiente:
+
+```C
+char fputs(char *str, FILE *fp);
+```
 
 **Donde**:
+* **str** es un apuntador a una cadena de caracteres terminada con NULL.
 * **fp** es el file pointer asociado al archivo despues de que este ha sido abierto mediante la funcion fopen.
 
-La funcion retorna el caracter que fue leido **EOF** (-1) en caso de error.
+La función retorna un valor no negativo si todo sale bien o EOF en caso de error.
+
+
+
+
+
+
+
+
 
 ## X. Enlaces:
 * http://c.conclase.net/librerias/
