@@ -87,24 +87,29 @@ Si el programa abre exitoramente el archivo, fopen() devuelve un apuntador a fil
 1. Crear un archivo de texto llamado **data.dat** y dejandolo listo para escribir
 
 ```C
+#include <stdio.h>
+#include <string.h>
+
+...
 // Abriendo el archivo
 FILE *outFile;
 inFile = open("data.dat","w");
 // Este codigo continuara...
 ```
 
-
-
-
-3. Abrir para leer un archivo llamado "lista.txt"
+2. Abrir para leer un archivo llamado "lista.txt"
 
 ```C
+#include <stdio.h>
+#include <string.h>
+
+...
 // Abriendo el archivo
 FILE *inFile;
 inFile = open("lista.txt","r");
-// Verificando que el 
+// Verificando que el archivo se haya abierto
 if(inFile == NULL) {
-  printf("Can not open lista.txt\n");
+  printf("No se puede abrir lista.txt\n");
   exit(1);
 }
 // Este codigo continuara...
@@ -114,6 +119,51 @@ Note que se chequeo el resultado de **fopen**. Esta función puede devolver NULL
 * Intentar abrir un archivo en un disco que no esta listo; por ejemplo, cuando el disco no esta formateado.
 * Intentar abrir un archivo en un directorio inexistente o en un disco duro inexistente.
 * Intentar abrir un archivo inexistente en modo **r**.
+
+3. Abrir para leer un archivo. Su nombre debera ser pasado por teclado.
+
+```C
+#include <stdio.h>
+#include <string.h>
+
+...
+// Abriendo el archivo
+char filename[80];
+FILE *fp;
+printf("Entre el nombre del archivo que sera abierto: ");
+gets(filename); 
+fp = open(filename,"r");
+// Verificando que el archivo se haya abierto
+if(fp == NULL) {
+  printf("Can not open %s\n", filename);
+  exit(1);
+}
+// Este codigo continuara...
+```
+
+4. Crear un archivo dentro del directorio **/home/vito.corleone**. El nombre del archivo sera pasado por teclado.
+
+```C
+#include <stdio.h>
+#include <string.h>
+
+...
+// Abriendo el archivo
+char path[] = "/home/vito.corleone/"
+char filename[80];
+char fullName[161] = "\0"; 
+FILE *fp;
+printf("Entre el nombre del archivo que sera abierto: ");
+gets(filename);
+strcat(fullName, path);
+strcat(fullName, filename);
+fp = open(fullName,"w");
+// Este codigo continuara...
+```
+
+[enlace](http://c.conclase.net/librerias/?ansifun=strcat)
+
+Como se puede ver en el código anteriormente mostrado, se empleo la funcion fgets() la cual es una funcion como scanf para entrada de datos desde el teclado. Para mas informacion sobre esta, puede consultar el siguiente [enlace](http://c.conclase.net/librerias/?ansifun=fgets).
 
 2. Abrir para leer un archivo llamado "lista.txt"
 
@@ -137,3 +187,7 @@ La funcion anterior retorna 0 si el stream fue cerrado con exito o -1 si hay err
 * http://c.conclase.net/librerias/
 * https://www.ntu.edu.sg/home/ehchua/programming/index.html
 * https://www.le.ac.uk/users/rjm1/cotter/index.htm
+* https://pablohaya.com/2013/10/12/diferencia-entre-scanf-gets-y-fgets/
+* http://www.dummies.com/programming/c/how-to-use-the-fgets-function-for-text-input-in-c-programming/
+* https://www.programiz.com/c-programming
+* https://www.programiz.com/c-programming
