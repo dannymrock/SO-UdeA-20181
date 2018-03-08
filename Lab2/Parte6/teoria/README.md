@@ -61,6 +61,21 @@ FILE *fopen(const char *fname, const char *mode);
 * **mode** opcion que indica a C si el archivo se va a leer, a escribir o a modificar entre otras. La siguiente tabla describe las opciones disponibles el modo.
 
 
+| Modo  | Significado |
+| ------------- | ------------- |
+| r | Abre un archivo de texto para lectura  |
+| w  | Abre un archivo de texto para escritura  |
+| a  | Agrega contenido a un archivo de texto  |
+| rb  | Abre un archivo binario para lectura  |
+| wb  | Abre un archivo binario para escritura  |
+| ab  | Agrega contenido a un archivo binario |
+| r+  | Abre un archivo de texto para leer/escribir  |
+| w+ | Crea un archivo de texto para leer/escribir   |
+| a+ | Abre o crea un archivo de texto para leer/escribir  |
+| r+b | Abre binario para leer/escribir  |
+| w+b | Crea binario para leer/escribir  |
+| a+b | Abre o crea binario para leer/escribir  |
+
 
 
 
