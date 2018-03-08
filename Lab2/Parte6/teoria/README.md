@@ -83,7 +83,20 @@ FILE *fopen(const char *fname, const char *mode);
 Si el programa abre exitoramente el archivo, fopen() devuelve un apuntador a file pointer el cual puede ser empleado para aplicar otras funciones de I/O sobre el archivo asociado (como lo veremos despues). Por otro lado, si hay un error, el valor retornado sera un puntero nulo.
 
 **Code snippets**
-1. Abrir para leer un archivo llamado "lista.txt"
+
+1. Crear un archivo de texto llamado **data.dat** y dejandolo listo para escribir
+
+```C
+// Abriendo el archivo
+FILE *outFile;
+inFile = open("data.dat","w");
+// Este codigo continuara...
+```
+
+
+
+
+3. Abrir para leer un archivo llamado "lista.txt"
 
 ```C
 // Abriendo el archivo
@@ -91,11 +104,17 @@ FILE *inFile;
 inFile = open("lista.txt","r");
 // Verificando que el 
 if(inFile == NULL) {
-  printf(“Can not open data.dat\n”);
+  printf("Can not open lista.txt\n");
   exit(1);
 }
 // Este codigo continuara...
 ```
+Note que se chequeo el resultado de **fopen**. Esta función puede devolver NULL mas espeficicamente por cosas como:
+* Usar un nombre de archivo invalido.
+* Intentar abrir un archivo en un disco que no esta listo; por ejemplo, cuando el disco no esta formateado.
+* Intentar abrir un archivo en un directorio inexistente o en un disco duro inexistente.
+* Intentar abrir un archivo inexistente en modo **r**.
+
 2. Abrir para leer un archivo llamado "lista.txt"
 
 #### 2.2.2. Cerrando el archivo el archivo
