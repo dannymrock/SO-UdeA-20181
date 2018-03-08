@@ -141,6 +141,8 @@ if(fp == NULL) {
 // Este codigo continuara...
 ```
 
+Como se puede ver en el código anteriormente mostrado, se empleo la funcion fgets() la cual es una funcion como scanf para entrada de datos desde el teclado. Para mas informacion sobre esta, puede consultar el siguiente [enlace](http://c.conclase.net/librerias/?ansifun=fgets).
+
 4. Crear un archivo dentro del directorio **/home/vito.corleone**. El nombre del archivo sera pasado por teclado.
 
 ```C
@@ -151,7 +153,7 @@ if(fp == NULL) {
 // Abriendo el archivo
 char path[] = "/home/vito.corleone/"
 char filename[80];
-char fullName[161] = "\0"; 
+char fullName[161]; 
 FILE *fp;
 printf("Entre el nombre del archivo que sera abierto: ");
 gets(filename);
@@ -160,12 +162,7 @@ strcat(fullName, filename);
 fp = open(fullName,"w");
 // Este codigo continuara...
 ```
-
-[enlace](http://c.conclase.net/librerias/?ansifun=strcat)
-
-Como se puede ver en el código anteriormente mostrado, se empleo la funcion fgets() la cual es una funcion como scanf para entrada de datos desde el teclado. Para mas informacion sobre esta, puede consultar el siguiente [enlace](http://c.conclase.net/librerias/?ansifun=fgets).
-
-2. Abrir para leer un archivo llamado "lista.txt"
+Para obtener el nombre completo del archivo (ruta + nombre) se uso la función **strcat** que concatena dos cadenas de caracteres. Para mas informacion sobre esta puede consultar el siguiente [enlace](http://c.conclase.net/librerias/?ansifun=strcat)
 
 #### 2.2.2. Cerrando el archivo el archivo
 Despues de completarse el procesamiento de un archivo, este debe ser cerrado y para ello se emplea la funcion fclose(). El prototipo de la funcion fclose es el siguiente:
@@ -179,7 +176,24 @@ int fclose(FILE *fp);
 
 La funcion anterior retorna 0 si el stream fue cerrado con exito o -1 si hay errores.
 
+**Code snippets**
 
+1. En el siguiente ejemplo se muestra como se cierra un archivo despues de que este ha sido abierto.
+
+```C
+#include <stdio.h>
+#include <string.h>
+
+...
+// Abriendo el archivo
+char fullName[] = "/home/vito.corleone/data.dat"
+fout = open(fullName,"w");
+// Este codigo continuara
+
+...
+// Cerrando el archivo
+fclose(fout);
+```
 
 
 
@@ -190,4 +204,4 @@ La funcion anterior retorna 0 si el stream fue cerrado con exito o -1 si hay err
 * https://pablohaya.com/2013/10/12/diferencia-entre-scanf-gets-y-fgets/
 * http://www.dummies.com/programming/c/how-to-use-the-fgets-function-for-text-input-in-c-programming/
 * https://www.programiz.com/c-programming
-* https://www.programiz.com/c-programming
+
