@@ -198,24 +198,31 @@ fclose(fout);
 #### 2.2.3. Trabajando con archivos
 
 C proporsiona varias funciones para leer y escribir archivos, la siguiente tabla muestra algunas de ellas:
-* fscanf()
-* fgets()
-* fgetc()
-* fread()
 
+| Modo  | Funciones |
+| ------------- | ------------- |
+| Lectura | fscanf, fgets, fgetc, fread |
+| Escrirtura | fprintf, fputs, fputc, fwrite |
 
-C provides four functions that can be used to read text fi les
-from the disk. These are
-Σ fscanf()
-Σ fgets()
-Σ fgetc()
-Σ fread()
-C provides four functions that can be used to write text
-fi les into the disk. These are
-Σ fprintf()
-Σ fputs()
-Σ fputc()
-Σ fwrite()
+#### 2.2.3.1. Entrada y salida por caracteres
+
+Para leer y escribir archivos de caracter en caracter se emplea las funciones **getc** y **putc** respectivamente. A continuación se hablará de cada una de estas
+
+**Funcion putc**
+Permite escribir un unico caracter a un stream especifico. El prototipo de esta se muestra a continuacion:
+
+```C
+int putc(int ch, FILE *fp);
+```
+
+**Donde**:
+* **ch** es el caracter que sera escrito.
+* **fp** es el file pointer asociado al archivo despues de que este ha sido abierto mediante la funcion fopen.
+
+La funcion retorna el caracter que se acabo de escribir si el proceso fue exitoso o EOF (constante simbolica definida en stdio.h cuyo valor es -1) si un error ocurre.
+
+**Ejemplo**
+1. Hacer
 
 ## X. Enlaces:
 * http://c.conclase.net/librerias/
