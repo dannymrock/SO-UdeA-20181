@@ -226,6 +226,25 @@ La funcion retorna el caracter que se acabo de escribir si el proceso fue exitos
 
 **Solucion**
 
+**Funcion getc**
+Permite leer un unico caracter de un stream especifico. El prototipo de esta se muestra a continuacion:
+
+```C
+int getc(FILE *fp);
+```
+
+**Donde**:
+* **fp** es el file pointer asociado al archivo despues de que este ha sido abierto mediante la funcion fopen.
+
+La funcion retorna el caracter que fue leido EOF (-1) en caso de error.
+
+**Ejemplo**
+1. Hacer un programa que lea un archivo de texto caracter por caracter y lo imprima en pantalla.
+
+2. Hacer un programa que abra un archivo que contiene una cadena de ADN, lo imprima y genere ademas un archivo con el numero de cada uno de los caracteres el alfabeto contatos en el archivo, estos valores deberan estar separados por espacio. El nombre del archivo sera inventario_nombreArchivo.dat
+
+
+
 
 ## X. Enlaces:
 * http://c.conclase.net/librerias/
