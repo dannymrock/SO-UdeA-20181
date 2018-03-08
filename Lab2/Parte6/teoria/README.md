@@ -278,10 +278,12 @@ int getc(FILE *fp);
 **Donde**:
 * **fp** es el file pointer asociado al archivo despues de que este ha sido abierto mediante la funcion fopen.
 
-La funcion retorna el caracter que fue leido EOF (-1) en caso de error.
+La funcion retorna el caracter que fue leido **EOF** (-1) en caso de error.
 
 **Ejemplo**
 1. Hacer un programa que lea un archivo de texto caracter por caracter y lo imprima en pantalla.
+
+**Solucion**: En [read_caracter.c](./code/read_caracter.c), por comodidad se muestra
 
 2. Hacer un programa que abra un archivo que contiene una cadena de ADN, lo imprima y genere ademas un archivo con el numero de cada uno de los caracteres el alfabeto contatos en el archivo, estos valores deberan estar separados por espacio. El nombre del archivo sera inventario_nombreArchivo.dat
 
