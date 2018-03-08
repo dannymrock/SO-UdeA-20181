@@ -283,10 +283,47 @@ La funcion retorna el caracter que fue leido **EOF** (-1) en caso de error.
 **Ejemplo**
 1. Hacer un programa que lea un archivo de texto caracter por caracter y lo imprima en pantalla.
 
-**Solucion**: En [read_caracter.c](./code/read_caracter.c), por comodidad se muestra
+**Solucion**: [read_caracter.c](./code/read_caracter.c) es el codigo solucion. Por comodidad se muestra este codigo a continuación:
 
-2. Hacer un programa que abra un archivo que contiene una cadena de ADN, lo imprima y genere ademas un archivo con el numero de cada uno de los caracteres el alfabeto contatos en el archivo, estos valores deberan estar separados por espacio. El nombre del archivo sera inventario_nombreArchivo.dat
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
+int main() {
+  srand(time(NULL)); // Inicializacion del generador
+  char filename[80];
+  int tam;
+  char ch;
+  FILE *inputFile;
+  printf("Ingrese el nombre de la cadena de ADN a generar: ");
+  scanf("%[^\n]s",filename); // Formato para que la entrada pueda aceptar espacios
+  inputFile = fopen(filename,"r");
+  if (inputFile == NULL) {
+    printf("Error al abrir el archivo %s\n", filename);
+    exit(-1);
+  }
+  do {
+    ch = getc(inputFile);
+    printf("%c", ch);
+  } while(ch != EOF);
+  printf("\n");
+  fclose(inputFile);
+  exit(0);
+}
+```
+
+2. Hacer un programa que abra un archivo que contiene una cadena de ADN y genere un archivo de salida con el numero de cada uno de los caracteres el alfabeto genetico ('A', 'G', 'G' y 'C') separados por espacio. El nombre del archivo sera **inventario_nombreArchivo**. Asi por ejemplo si se tiene un archivo con el siguiente nombre **secuencia.dat** con el siguiente contenido:
+
+```
+AGCTTTTCATTCT
+```
+
+La salida sera un archivo llamado **inventario_secuencia.dat** y su contenido será el siguiente:
+
+```
+2 1 7 2
+```
 
 
 
