@@ -475,10 +475,60 @@ char fputs(char *str, FILE *fp);
 
 La función retorna un valor no negativo si todo sale bien o EOF en caso de error.
 
+**Ejemplo**:
+
+1. Hacer un programa que lea una cadena de ADN de un archivo cualquiera y genere la cadena complementaria en otro archivo con **complemento_nombreArchivo** como nombre. Tenga en cuenta que en una cadena de ADN los pares complementarios son: 'A' con 'T' y 'G' con 'C'. Por ejemplo, si la cadena se llama **adn1.txt** y tiene el siguiente contenido:
+
+```
+AGTTTCTTAAGCCG
+```
+
+El resultado será una cadena llamada **complemento_adn1.txt** con el siguiente contenido:
+
+```
+TCAAAGAATTCGGC
+```
+
+**Solución**:
 
 
+#### 2.2.3.1.5. Funcion fprintf
+Esta trabaja de manera similar a printf, solo que lo que escribe no va a pantalla si no a un archivo. El prototipo de esta funcion es motrado a continuación:
 
+```C
+int fprintf(FILE *fp, const char *format, ...)
+```
 
+**Donde**:
+* **fp** es el file pointer asociado al archivo despues de que este ha sido abierto mediante la funcion fopen.
+* **format** es la cadena de caracteres en C que sera escrita, esta sigue la misma forma que el caso de **printf**
+
+**Ejemplo**:
+
+1. Este ejercicio ya se realizo empleando putc, pero para propositos de comparacion se va a realizar con fprintf. Hacer un programa que abra un archivo que contiene una cadena de ADN y genere un archivo de salida con el numero de cada uno de los caracteres el alfabeto genetico ('A', 'G', 'G' y 'C') separados por espacio. El nombre del archivo sera **inventario_nombreArchivo**. Asi por ejemplo si se tiene un archivo con el siguiente nombre **secuencia.dat** con el siguiente contenido:
+
+```
+AGCTTTTCATTCT
+```
+
+La salida sera un archivo llamado **inventario_secuencia.dat** y su contenido será el siguiente:
+
+```
+2 1 7 2
+```
+
+**Solucion**:
+
+#### 2.2.3.1.6. Funcion fscanf
+Esta trabaja de manera similar a scanf, solo que lo que toma no viene desde el teclado sino desde un archivo. El prototipo de esta funcion es mostrado a continuación:
+
+```C
+int fscanf(FILE *fp, const char *format, ...)
+```
+
+**Donde**:
+* **fp** es el file pointer asociado al archivo despues de que este ha sido abierto mediante la funcion fopen.
+* **format** es la cadena de caracteres en C que sera escrita, esta sigue la misma forma que el caso de **printf**
 
 
 
