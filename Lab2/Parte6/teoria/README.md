@@ -385,11 +385,33 @@ int main() {
 Hay que resaltar que en el codigo anterior, hay algunas funciones que no se han visto pero que pueden ser consultadas en internet, a continuacion como [strcat](https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/rtref/strcat.htm) y [snprintf](https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/rtref/snprintf.htm). Lo animamos a que observe la descripcion y ejemplos de los enlaces y comprenda como se usan estos en el programa.
 
 #### 2.2.3.1.3. Funcion gets
-Permite leer un unico caracter de un stream especifico. El prototipo de esta se muestra a continuacion:
+Es una funcion empleada para leer un archivo linea por linea. El prototipo de la funcion es el siguiente:
 
 ```C
-int getc(FILE *fp);
+char *fgets(char *str, int n, FILE *fp);
 ```
+
+**Donde**:
+* **str** cadena de caracteres a la que se llevara la parte leida del archivo.
+* **n** numero maximo de caracteres a leer tenieno en cuenta el NULL. Por lo tanto el maximo de caracteres es de **n - 1**.
+* **fp** es el file pointer asociado al archivo despues de que este ha sido abierto mediante la funcion fopen.
+
+La funcion detiene la lectura si:
+* Se han leido ya n - 1 caracteres.
+* Se a encontrado el caracter de nueva linea.
+* Se ha alcanzado el final del archivo.
+* Se ha lanzado un error de lectura.
+
+Esta funcion agreda un terminador null a los datos leidos, comparada con la version de lectura caracter por caracter (getc) esta funcion es maas eficiente.
+
+**Ejemplos**:
+
+1. 
+
+
+
+
+
 
 **Donde**:
 * **fp** es el file pointer asociado al archivo despues de que este ha sido abierto mediante la funcion fopen.
