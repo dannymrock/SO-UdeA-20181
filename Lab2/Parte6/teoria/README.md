@@ -17,6 +17,7 @@ Los archivos son usados para almacenamiento permanente de grandes cantidades de 
 Un concepto muy importante en C es el de **stream**. Un **stream** no es mas que una interfaz logica que permite el intercambio de datos entre una aplicacion y un archivo (en el sentido amplio de la palabra, se asocia no solo al disco duro sino que tambien puede hacer alusion a otros dispositivos como el teclado, la pantalla, etc.). Cuando se establece un intercambio de datos entre una aplicacion y un archivo se establece un buffer (flujo de bytes) que es intercambiado entre el dispositivo y la aplicación tal y como se muestra en la siguiente figura:
 
 ![fig1](./imagenes/file_IO.png)
+
 **Figura 1**. C stream.
 
 Tal y como se muestra en la figura 2, el intercambio de informacion entre el archivo y la aplicacion implica tres actividades:
@@ -25,6 +26,7 @@ Tal y como se muestra en la figura 2, el intercambio de informacion entre el arc
 3. **Cerrar el archivo**: lo cual indica que se dara por terminada la transferencia de datos entre este y la aplicacion.
 
 ![fig2](./imagenes/procesando_archivos.png)
+
 **Figura 2**. Trabajando con archivos. 
 
 ### 2.2. Usando archivos en C
