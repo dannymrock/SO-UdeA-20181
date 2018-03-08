@@ -195,7 +195,27 @@ fout = open(fullName,"w");
 fclose(fout);
 ```
 
+#### 2.2.3. Trabajando con archivos
 
+C proporsiona varias funciones para leer y escribir archivos, la siguiente tabla muestra algunas de ellas:
+* fscanf()
+* fgets()
+* fgetc()
+* fread()
+
+
+C provides four functions that can be used to read text fi les
+from the disk. These are
+Σ fscanf()
+Σ fgets()
+Σ fgetc()
+Σ fread()
+C provides four functions that can be used to write text
+fi les into the disk. These are
+Σ fprintf()
+Σ fputs()
+Σ fputc()
+Σ fwrite()
 
 ## X. Enlaces:
 * http://c.conclase.net/librerias/
