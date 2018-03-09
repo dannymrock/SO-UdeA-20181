@@ -460,7 +460,34 @@ Cuando se muestre en pantalla sera:
 22  Se necesitan dos años para aprender a hablar, y sesenta para aprender a callar. 
 23  Ernest Hemingway
 ```
-**Solucion**:
+**Solucion**: El archivo [read_linea.c](./code/read_linea.c) contiene la sulucion. A continuacion se muestra este por comodidad:
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+  char filename[80];
+  char line[201];
+  int numLinea = 1;
+  FILE *iF;
+  printf("Ingrese el nombre del archivo: ");
+  fflush(stdin);
+  scanf("%[^\n]s",filename); // Formato para que la entrada pueda aceptar espacios
+  iF = fopen(filename,"r");
+  if (iF == NULL) {
+    printf("Error al abrir el archivo %s\n", filename);
+    exit(-1);
+  }
+  while(fgets(line, 201, iF)!=NULL) {
+    printf("%-5d",numLinea++);
+    printf("%s",line);
+  } 
+  fclose(iF);
+  exit(0);
+}
+```
 
 #### 2.2.3.1.4. Funcion puts
 Escribe una cadena de caracteres a un stream. El prototipo de la funcion es el siguiente:
