@@ -384,6 +384,155 @@ int main() {
 
 Hay que resaltar que en el codigo anterior, hay algunas funciones que no se han visto pero que pueden ser consultadas en internet, a continuacion como [strcat](https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/rtref/strcat.htm) y [snprintf](https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/rtref/snprintf.htm). Lo animamos a que observe la descripcion y ejemplos de los enlaces y comprenda como se usan estos en el programa.
 
+#### 2.2.3.1.3. Funcion gets
+Es una funcion empleada para leer un archivo linea por linea. El prototipo de la funcion es el siguiente:
+
+```C
+char *fgets(char *str, int n, FILE *fp);
+```
+
+**Donde**:
+* **str** cadena de caracteres a la que se llevara la parte leida del archivo.
+* **n** numero maximo de caracteres a leer tenieno en cuenta el NULL. Por lo tanto el maximo de caracteres es de **n - 1**.
+* **fp** es el file pointer asociado al archivo despues de que este ha sido abierto mediante la funcion fopen.
+
+La funcion detiene la lectura si:
+* Se han leido ya n - 1 caracteres.
+* Se a encontrado el caracter de nueva linea.
+* Se ha alcanzado el final del archivo.
+* Se ha lanzado un error de lectura.
+
+Esta funcion agreda un terminador null a los datos leidos, comparada con la version de lectura caracter por caracter (getc) esta funcion es maas eficiente.
+
+**Ejemplos**:
+
+1. Hacer un programa que lea un archivo y lo muestre en pantalla. Este programa, debera mostrar ademas el numero de linea asociado. Por ejemplo, supongase que se tiene un archivo de texto llamado "frases.txt"
+
+```
+La vida es una obra teatral que no importa cuánto haya durado, sino lo bien que haya sido representada. 
+Séneca
+
+Estar preparado es importante, saber esperar lo es aún más, pero aprovechar el momento adecuado es la clave de la vida. 
+Arthur Schnitzler
+
+¡Qué pequeñas son mis manos…! En relación con todo lo que la vida ha querido darme.
+Ramón J. Sénder
+
+Todo el mundo trata de realizar algo grande, sin darse cuenta de que la vida se compone de cosas pequeñas. 
+Frank Clark
+
+Sólo le falta el tiempo a quien no sabe aprovecharlo. 
+Jovellanos
+
+Nuestra mayor gloria no está en no caer nunca, sino en levantarnos cada vez que caemos. 
+Confucio
+
+La alegría cuanto más se gasta, más queda. 
+Ralph Waldo Emerson
+
+Se necesitan dos años para aprender a hablar, y sesenta para aprender a callar. 
+Ernest Hemingway
+```
+Cuando se muestre en pantalla sera:
+
+```
+1   La vida es una obra teatral que no importa cuánto haya durado, sino lo bien que haya sido representada. 
+2   Séneca
+3
+4   Estar preparado es importante, saber esperar lo es aún más, pero aprovechar el momento adecuado es la clave de la vida. 
+5   Arthur Schnitzler
+6
+7   ¡Qué pequeñas son mis manos…! En relación con todo lo que la vida ha querido darme.
+8   Ramón J. Sénder
+9  
+10  Todo el mundo trata de realizar algo grande, sin darse cuenta de que la vida se compone de cosas pequeñas. 
+11  Frank Clark
+12
+13  Sólo le falta el tiempo a quien no sabe aprovecharlo. 
+14  Jovellanos
+15
+16  Nuestra mayor gloria no está en no caer nunca, sino en levantarnos cada vez que caemos. 
+17  Confucio
+18
+19  La alegría cuanto más se gasta, más queda. 
+20  Ralph Waldo Emerson
+21
+22  Se necesitan dos años para aprender a hablar, y sesenta para aprender a callar. 
+23  Ernest Hemingway
+```
+**Solucion**:
+
+#### 2.2.3.1.4. Funcion puts
+Escribe una cadena de caracteres a un stream. El prototipo de la funcion es el siguiente:
+
+```C
+char fputs(char *str, FILE *fp);
+```
+
+**Donde**:
+* **str** es un apuntador a una cadena de caracteres terminada con NULL.
+* **fp** es el file pointer asociado al archivo despues de que este ha sido abierto mediante la funcion fopen.
+
+La función retorna un valor no negativo si todo sale bien o EOF en caso de error.
+
+**Ejemplo**:
+
+1. Hacer un programa que lea una cadena de ADN de un archivo cualquiera y genere la cadena complementaria en otro archivo con **complemento_nombreArchivo** como nombre. Tenga en cuenta que en una cadena de ADN los pares complementarios son: 'A' con 'T' y 'G' con 'C'. Por ejemplo, si la cadena se llama **adn1.txt** y tiene el siguiente contenido:
+
+```
+AGTTTCTTAAGCCG
+```
+
+El resultado será una cadena llamada **complemento_adn1.txt** con el siguiente contenido:
+
+```
+TCAAAGAATTCGGC
+```
+
+**Solución**:
+
+
+#### 2.2.3.1.5. Funcion fprintf
+Esta trabaja de manera similar a printf, solo que lo que escribe no va a pantalla si no a un archivo. El prototipo de esta funcion es motrado a continuación:
+
+```C
+int fprintf(FILE *fp, const char *format, ...)
+```
+
+**Donde**:
+* **fp** es el file pointer asociado al archivo despues de que este ha sido abierto mediante la funcion fopen.
+* **format** es la cadena de caracteres en C que sera escrita, esta sigue la misma forma que el caso de **printf**
+
+**Ejemplo**:
+
+1. Este ejercicio ya se realizo empleando putc, pero para propositos de comparacion se va a realizar con fprintf. Hacer un programa que abra un archivo que contiene una cadena de ADN y genere un archivo de salida con el numero de cada uno de los caracteres el alfabeto genetico ('A', 'G', 'G' y 'C') separados por espacio. El nombre del archivo sera **inventario_nombreArchivo**. Asi por ejemplo si se tiene un archivo con el siguiente nombre **secuencia.dat** con el siguiente contenido:
+
+```
+AGCTTTTCATTCT
+```
+
+La salida sera un archivo llamado **inventario_secuencia.dat** y su contenido será el siguiente:
+
+```
+2 1 7 2
+```
+
+**Solucion**:
+
+#### 2.2.3.1.6. Funcion fscanf
+Esta trabaja de manera similar a scanf, solo que lo que toma no viene desde el teclado sino desde un archivo. El prototipo de esta funcion es mostrado a continuación:
+
+```C
+int fscanf(FILE *fp, const char *format, ...)
+```
+
+**Donde**:
+* **fp** es el file pointer asociado al archivo despues de que este ha sido abierto mediante la funcion fopen.
+* **format** es la cadena de caracteres en C que sera escrita, esta sigue la misma forma que el caso de **printf**
+
+
+
+
 ## X. Enlaces:
 * http://c.conclase.net/librerias/
 * https://www.ntu.edu.sg/home/ehchua/programming/index.html
