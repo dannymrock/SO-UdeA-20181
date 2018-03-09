@@ -516,8 +516,60 @@ El resultado será una cadena llamada **complemento_adn1.txt** con el siguiente 
 TCAAAGAATTCGGC
 ```
 
-**Solución**:
+**Solución**: El archivo [read_write_line1.c](./code/read_write_line1.c) contiene la sulucion. A continuacion se muestra este por comodidad:
 
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void complementar(char *cad);
+
+int main() {
+  char inFilename[80];
+  char outFilename[80] = "complemento_";
+  char adn_string[21]; 
+  FILE *inFile;
+  FILE *outFile;
+  printf("Ingrese el nombre de la cadena de ADN a generar: ");
+  fflush(stdin);
+  scanf("%[^\n]s",inFilename); // Formato para que la entrada pueda aceptar espacios
+  strcat(outFilename,inFilename);
+  inFile = fopen(inFilename,"r");
+  outFile = fopen(outFilename,"w");
+  if (inFile == NULL) {
+    printf("Error al abrir el archivo %s\n", inFilename);
+    exit(-1);
+  }
+  while(fgets(adn_string, 21, inFile)!=NULL) {
+    complementar(adn_string);
+    fputs(adn_string, outFile); 
+  }
+  fclose(inFile);
+  fclose(outFile);
+  exit(0);
+}
+
+void complementar(char *cad) {
+  while(*cad != '\0') {
+    switch(*cad) {
+      case 'A':
+        *cad = 'T';
+        break;
+      case 'T':
+        *cad = 'A';
+        break;
+      case 'G':
+        *cad = 'C';
+        break;
+      case 'C':
+        *cad = 'G';
+        break;
+    }
+    cad++;
+  }
+}
+```
 
 #### 2.2.3.1.5. Funcion fprintf
 Esta trabaja de manera similar a printf, solo que lo que escribe no va a pantalla si no a un archivo. El prototipo de esta funcion es motrado a continuación:
@@ -532,7 +584,40 @@ int fprintf(FILE *fp, const char *format, ...)
 
 **Ejemplo**:
 
-1. Este ejercicio ya se realizo empleando putc, pero para propositos de comparacion se va a realizar con fprintf. Hacer un programa que abra un archivo que contiene una cadena de ADN y genere un archivo de salida con el numero de cada uno de los caracteres el alfabeto genetico ('A', 'G', 'G' y 'C') separados por espacio. El nombre del archivo sera **inventario_nombreArchivo**. Asi por ejemplo si se tiene un archivo con el siguiente nombre **secuencia.dat** con el siguiente contenido:
+1. 1. Hacer un programa que genere un archivo con N datos entre 0 y 100. Cada numero estara en un renglon.
+
+**Solucion**: El archivo [write_line.c](./code/write_line.c) contiene la sulucion. A continuacion se muestra este por comodidad:
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+int main() {
+  srand(time(NULL)); // Inicializacion del generador
+  char outFilename[80];
+  int N;
+  int num;
+  FILE *outFile;
+  printf("Ingrese el nombre del archivo: ");
+  fflush(stdin);
+  scanf("%[^\n]s",outFilename); // Formato para que la entrada pueda aceptar espacios
+  fflush(stdin);
+  printf("La cantidad de numeros que desea que se guarden en este: ");
+  scanf("%d", &N);
+  outFile = fopen(outFilename,"w");
+  for(int i = 0; i < N; i++) {
+    num = rand()%101; //Generando un aleatorio entre 0 y 100
+    // printf("%d\n",num);
+    fprintf(outFile,"%d\n",num);
+  }
+  fclose(outFile);
+  exit(0);
+}
+```
+
+2. Este ejercicio ya se realizo empleando putc, pero para propositos de comparacion se va a realizar con fprintf. Hacer un programa que abra un archivo que contiene una cadena de ADN y genere un archivo de salida con el numero de cada uno de los caracteres el alfabeto genetico ('A', 'G', 'G' y 'C') separados por espacio. El nombre del archivo sera **inventario_nombreArchivo**. Asi por ejemplo si se tiene un archivo con el siguiente nombre **secuencia.dat** con el siguiente contenido:
 
 ```
 AGCTTTTCATTCT
@@ -544,7 +629,7 @@ La salida sera un archivo llamado **inventario_secuencia.dat** y su contenido se
 2 1 7 2
 ```
 
-**Solucion**:
+**Solucion**: 
 
 #### 2.2.3.1.6. Funcion fscanf
 Esta trabaja de manera similar a scanf, solo que lo que toma no viene desde el teclado sino desde un archivo. El prototipo de esta funcion es mostrado a continuación:
