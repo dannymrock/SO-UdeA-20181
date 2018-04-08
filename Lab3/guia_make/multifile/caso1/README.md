@@ -49,8 +49,8 @@ gcc -Wall *.o -o example_multi1.out
 <table >
 	<tbody>
 		<tr>
-			<td> ww</td>
-			<td>ww </td>
+			<td>Target</td>
+			<td>Dependencias / Comando de construcción</td>
 		</tr>
 		<tr>
 			<td> </td>
