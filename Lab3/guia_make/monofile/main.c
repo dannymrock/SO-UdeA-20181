@@ -6,12 +6,13 @@
 void menu(void);
 double area_triangulo(double, double);
 double area_rectangulo(double, double);
-double area_trapecio(double, double);
+double area_trapecio(double, double, double);
 double area_circulo(double);
+void borrar_pantalla(void);
+ 
+int opc; // Variable global para la seleccion
 
-int opc;
-
-main() {
+int main() {
     double b, h, r, B, A; 
     do {
         menu();
@@ -35,24 +36,27 @@ main() {
             case 3:
                 printf("Digite la base menor del trapecio: ");
                 scanf("%lf", &b);
-				printf("Digite la base mayor del trapecio: ");
+		printf("Digite la base mayor del trapecio: ");
                 scanf("%lf", &B);
-				printf("Digite la altura del trapecio: ");
+		printf("Digite la altura del trapecio: ");
                 scanf("%lf", &h);
                 printf("El area del trapecio es: %.2lf\n", area_trapecio(B,b,h));
                 break;
             case 4:
                 printf("Digite el radio del circulo: ");
                 scanf("%lf", &r);
-                A = a_circulo(r);
+                A = area_circulo(r);
                 printf("El area del circulo es: %.2lf\n", area_circulo(r));
                 break;
-			case 5: 
-				printf("Hasta la vista baby Jesus\n");
-				break;
+	    case 5: 
+		printf("Hasta la vista baby Jesus\n");
+		break;
             default:
                 printf("\n\nOpcion no valida !!!!\n");
         }
+        printf("Presione una tecla para continuar...\n");
+        getchar();
+        borrar_pantalla();
     }while(opc != 5);
     printf("Fin del programa, Suerte es que le digo\n");
     return 0;
@@ -81,18 +85,18 @@ double area_trapecio(double base_mayor, double base_menor, double altura) {
 }
 
 void menu(void) {
-    int opc; // Variable que almacena la opcion seleccionada
     printf("MENU\n");
     printf("1. Hallar el area del triangulo\n");
     printf("2. Hallar el area del rectangulo\n");
     printf("3. Hallar el area del trapecio\n");
-    printf("4. Hallar el area del circulo\n")
-	printf("5. Salir\n");
+    printf("4. Hallar el area del circulo\n");
+    printf("5. Salir\n");
     printf("\n\nSeleccione una opcion: ");
-    scanf("%d",&opc);
+    scanf("%d",&opc); // opc es global
 }
 
 void borrar_pantalla(void) {
+    getchar();
     printf("\033[2J\033[0;0f");
     printf("\033[%d;%df", 0, 0);
 }
