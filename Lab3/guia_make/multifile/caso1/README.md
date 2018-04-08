@@ -43,3 +43,38 @@ gcc -Wall *.o -o example_multi1.out
 ```
 ./example_multi1.out
 ```
+
+## Trabajando con makefiles
+
+<table >
+	<tbody>
+		<tr>
+			<td> ww</td>
+			<td>ww </td>
+		</tr>
+		<tr>
+			<td> </td>
+			<td> </td>
+		</tr>
+		<tr>
+			<td> </td>
+			<td> </td>
+		</tr>
+		<tr>
+			<td> </td>
+			<td> </td>
+		</tr>
+		<tr>
+			<td> </td>
+			<td> </td>
+		</tr>
+		<tr>
+			<td> </td>
+			<td> </td>
+		</tr>
+		<tr>
+			<td> </td>
+			<td> </td>
+		</tr>
+	</tbody>
+</table>
