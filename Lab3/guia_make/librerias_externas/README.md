@@ -54,3 +54,13 @@ En el momento de hacer el enlazado con esta libreria para crear el ejecutable se
 > more information, such as the ld(1) and ld.so(8) manual pages.
 
 
+Asi teniendo en cuenta lo anterior y suponiendo que se tiene un archivo (**main.c**) que esta haciendo uso de las funciones propias de esta libreria tenemos que el comando seria:
+
+```
+gcc -I/usr/local/include/libcalg-1.0/libcalg/ -L/usr/local/lib/ main.c -lcalg -o myprogram.out
+```
+
+## Recursos adicionales
+1. [Static and Dynamic Libraries | Set 1](https://www.geeksforgeeks.org/static-vs-dynamic-libraries/)
+2. [Static and Dynamic Libraries | Set 2](https://www.geeksforgeeks.org/working-with-shared-libraries-set-2/)
+
