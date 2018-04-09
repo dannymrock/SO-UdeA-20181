@@ -28,9 +28,9 @@ int main() {
             case 3:
                 printf("Digite la base menor del trapecio: ");
                 scanf("%lf", &b);
-		printf("Digite la base mayor del trapecio: ");
+		            printf("Digite la base mayor del trapecio: ");
                 scanf("%lf", &B);
-		printf("Digite la altura del trapecio: ");
+		            printf("Digite la altura del trapecio: ");
                 scanf("%lf", &h);
                 printf("El area del trapecio es: %.2lf\n", area_trapecio(B,b,h));
                 break;
@@ -40,9 +40,9 @@ int main() {
                 A = area_circulo(r);
                 printf("El area del circulo es: %.2lf\n", area_circulo(r));
                 break;
-	    case 5:
-		printf("Hasta la vista baby Jesus\n");
-		break;
+	         case 5:
+		            printf("Hasta la vista baby Jesus\n");
+		            break;
             default:
                 printf("\n\nOpcion no valida !!!!\n");
         }
