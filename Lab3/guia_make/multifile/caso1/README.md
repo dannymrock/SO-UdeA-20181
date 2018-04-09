@@ -104,3 +104,11 @@ clean:
 clean_all:
 	rm *.o *~ *.out
 ```
+
+Para mejorar los makefiles aun mas es bueno cacharrear en la pagina principal del tema hay enlaces de interes. Adicionalmente se pueden mirar los siguientes links:
+1. [Quick Reference](https://www.gnu.org/software/make/manual/html_node/Quick-Reference.html)
+2. [Make Cheatsheet](http://eduardolezcano.com/wp-content/uploads/2016/06/make_cheatsheet.pdf)
+3. [RefCard Make](https://www.tofgarion.net/lectures/IN323/refcards/refcardMakeIN323.pdf)
+
+El siguiente makefile tomado del siguiente [enlace](https://stackoverflow.com/questions/39699563/makefile-doesnt-find-source-files?rq=1) y adaptado al caso muestra el uso de variables como las mostradas anteriormente.
+
