@@ -1,0 +1,21 @@
+# Regla de construccion general
+all: example_multi1.out
+
+# Regla que genera el archivo ejecutable
+example_multi1.out: main.o funciones.o
+	gcc main.o funciones.o -o example_multi1.out
+
+# Reglas para generar los archivos objeto del programa
+funciones.o: funciones.c funciones.h
+	gcc -I. -c funciones.c
+
+main.o: main.c funciones.h
+	gcc -I. -c main.c
+
+#Regla para borrar todos los archivos obtejo (.o) y copias de seguridad (~) del proyecto
+clean:
+	rm *.o *~
+
+#Regla para borrar todos los archivos obtejo (.o), copias de seguridad (~) y el ejecutable generado
+clean_all:
+	rm *.o *~ *.out

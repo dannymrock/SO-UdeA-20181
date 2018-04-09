@@ -1,0 +1,27 @@
+# gcc for C
+# g++ for c++
+CC = gcc
+
+#compiler flags
+# -Wall
+CFLAGS = -Wall -I.
+
+#target
+TARGET := example_multi1.out
+#directory for the object files
+HEADERS = $(wildcard *.h)
+SOURCES = $(wildcard *.c)
+OBJECTS = $(SOURCES:%.c=%.o)
+
+default: all
+all: $(TARGET)
+
+%.o: %.c $(HEADERS)
+	$(CC) -c $< -o $@
+
+$(TARGET): $(OBJECTS)
+	$(CC) $(OBJECTS) $(CFLAGS) -o $@
+
+clean:
+	-rm -f *.o
+	-rm -f $(TARGET)

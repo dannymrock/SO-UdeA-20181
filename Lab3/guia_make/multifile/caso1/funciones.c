@@ -1,6 +1,6 @@
 #include "funciones.h"
 
-int opc;
+extern int opc;
 
 double area_triangulo(double base, double altura) {
   double area;

@@ -1,6 +1,6 @@
 /* funciones.h */
-#ifndef FUNCIONES_H_
-#define FUNCIONES_H_
+#ifndef _FUNCIONES_H_
+#define _FUNCIONES_H_
 
 /* Resto del archivo include */
 #include <stdio.h>

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "funciones.h"
 
-extern int opc; // Variable global para la seleccion
+int opc; // Variable global para la seleccion
 
 int main() {
     double b, h, r, B, A;
