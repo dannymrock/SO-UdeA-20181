@@ -55,7 +55,7 @@ int main() {
                 printf("\n\nOpcion no valida !!!!\n");
         }
         printf("Presione una tecla para continuar...\n");
-        getchar();
+        getchar();	
         borrar_pantalla();
     }while(opc != 5);
     printf("Fin del programa, Suerte es que le digo\n");
