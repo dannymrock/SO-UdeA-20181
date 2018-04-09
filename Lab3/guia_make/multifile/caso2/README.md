@@ -28,4 +28,3 @@ gcc -Wall funciones.o main.o -o example_multi1.out
 ./example_multi1.out
 ```
 
-## a
