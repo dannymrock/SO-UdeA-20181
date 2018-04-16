@@ -1,23 +1,25 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
+
 int main () {
-    int i;
-    int numHijos = 3;
-    pid_t pid;
-    for (i = 0; i < numHijos; i++) {
-        pid = fork();
-        if (pid == -1) {
-            /* Error */
-            printf("No fue posible crear un hijo\n");
-            return -1;
-        }
-        if (pid == 0) {
-            printf("Soy el hijo #%d con PID: %d\n",i+1, getpid());
-            exit(0);
-        }
-    }
-    return 0;
+  int pid;
+  int numHijos = 5;
+  int numProceso;
+  for(numProceso = 0; numProceso < numHijos; numProceso++) {
+      pid = fork();
+      if (pid == -1) {
+          // Imprimir algún mensaje de error
+      } else if(pid == 0) {
+          break;
+      }
+  }
+  if (pid == 0) {
+      // Lógica del hijo
+      printf("Soy el hijo #%d\n", numProceso);
+  }
+  else {
+      printf("Soy un padre perezoso\n");
+  }
 }

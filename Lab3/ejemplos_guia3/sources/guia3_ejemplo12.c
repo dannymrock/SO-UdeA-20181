@@ -1,22 +1,17 @@
-#include <unistd.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <signal.h>
 #include <sys/types.h>
-
-int main(int argc, char *argv[]) {
-  pid_t my_pid;
-  my_pid = getpid();
-  printf("Mi ID del proceso es: %d \n",(int)my_pid);
-  printf("El ID del padre del proceso es: %d \n",(int)getppid());
-  printf("Hola mundo. \n");
-  printf("Hola mundo. \n");
-  printf("Hola mundo. \n");
-  printf("Hola mundo. \n");
-  printf("Hasta la vista baby. \n");
-  kill(my_pid,9);//Forma alternativa:kill(pid_hijo,SIGKILL);
-  printf("Hasta la vista baby. \n");
-  printf("Hasta la vista baby. \n");
-  printf("Hasta la vista baby. \n");
+#include <unistd.h>
+int main () {
+  pid_t child_pid;
+  /* Creacion del proceso hijo. */
+  child_pid = fork ();
+  if (child_pid > 0) {
+    /*Este es el proceso padre el cual duerme por 20 segundos.*/
+    sleep (20);
+  }
+  else {
+    /* Este es el proceso hijo el cual culmina inmediatamente.*/
+    exit (0);
+  }
   return 0;
 }
