@@ -80,7 +80,7 @@ int main ()
   free(MR->data);
   free(MR);
   gettimeofday(&ti, NULL);   // Instante inicial
-  MR = multiplicarMatrices(M1,M2);tiempo= get_ms(ti, tf);
+  MR = multiplicarMatrices(M1,M2);
   gettimeofday(&tf, NULL);   // Instante final
   tiempo= get_ms(ti, tf);
   printf("Multiplicacion matrices: t(ms) = %.10e\n\n", tiempo);
