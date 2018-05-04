@@ -5,8 +5,7 @@ void do_wrap_up(int, int);
 
 int r1 = 0, r2 = 0;
 
-extern int
-main(void)
+extern int main(void)
 {
   do_one_thing(&r1);
   do_another_thing(&r2);
