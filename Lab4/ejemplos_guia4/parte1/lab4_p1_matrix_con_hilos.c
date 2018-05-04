@@ -33,10 +33,25 @@ struct fila_columna {
   int tam;
 } typedef fila_columna;
 
+struct fila_i {
+  int indice;
+  double *v;
+  matrix2D *M;
+} typedef fila_i;
+
+struct columna_j {
+  int indice;
+  double *v;
+  matrix2D *M;
+} typedef columna_j;
+
 
 /* Funciones para paralelizar a nivel de hilo */
 void* llenar_fila (void* parameters);
 void* multiplicar_fila_columna(void* parameters);
+void* obtener_fila(void* parameters);
+void* obtener_columna(void* parameters);
+
 
 /* Funciones normales */
 void inicializar_matrix(double value, matrix2D *M);
@@ -51,12 +66,79 @@ double get_ms(struct timeval t_ini,struct  timeval t_fin);
 void test_llenarfila(void);
 void test_llenar_matrix(void);
 void test_multiplicar_fila_columna(void);
+void test_obtenerfila(void);
+void test_obtenercolumna(void);
+void test_multiplicar_matrices(void);
 
 int main ()
 {
   // test_llenarfila();
   //test_llenar_matrix();
-  test_multiplicar_fila_columna();
+  //test_multiplicar_fila_columna();
+  //test_obtenerfila();
+  //test_obtenercolumna();
+  //test_multiplicar_matrices();
+  struct timeval ti, tf;
+  double tiempo;
+  // Reserva de memoria para las matrices
+  matrix2D *M1,  // Matrix 1
+           *M2,  // Matrix 2
+           *MR;  // Matrix resultante
+  M1 = malloc(sizeof(matrix2D));
+  M2 = malloc(sizeof(matrix2D));
+  MR = malloc(sizeof(matrix2D));
+  // Inicializacion de las matrices
+  M1->num_rows = 20;
+  M1->num_colums = 20;
+  M1->data = malloc(sizeof(double)*M1->num_rows*M1->num_colums);
+  M2->num_rows = 20;
+  M2->num_colums = 20;
+  M2->data = malloc(sizeof(double)*M2->num_rows*M2->num_colums);
+  gettimeofday(&ti, NULL);   // Instante inicial
+  inicializar_matrix(3, M1);
+  gettimeofday(&tf, NULL);   // Instante final
+  tiempo= get_ms(ti, tf);
+  printf("Inicializacion Matrix 1: t(ms) = %.10e\n\n", tiempo);
+  gettimeofday(&ti, NULL);   // Instante inicial
+  inicializar_matrix(4, M2);
+  gettimeofday(&tf, NULL);   // Instante final
+  tiempo= get_ms(ti, tf);
+  printf("Inicializacion Matrix 2: t(ms) = %.10e\n\n", tiempo);
+  // imprimir_matrix(M1);
+  // imprimir_matrix(M2);
+  printf("\nM1 + M2 -> \n");
+  gettimeofday(&ti, NULL);   // Instante inicial
+  MR = sumarMatrices(M1,M2);
+  gettimeofday(&tf, NULL);   // Instante final
+  tiempo= get_ms(ti, tf);
+  printf("Suma matrices: t(ms) = %.10e\n\n", tiempo);
+  // imprimir_matrix(MR);
+  printf("\nM1 - M2 -> \n");
+  // Liberando MR antes de hacer nuevamente la operacion
+  free(MR->data);
+  free(MR);
+  gettimeofday(&ti, NULL);   // Instante inicial
+  MR = restarMatrices(M1,M2);
+  gettimeofday(&tf, NULL);   // Instante final
+  tiempo= get_ms(ti, tf);
+  printf("Resta Matrices: t(ms) = %.10e\n\n", tiempo);
+  // imprimir_matrix(MR);
+  printf("\nM1 * M2 -> \n");
+  free(MR->data);
+  free(MR);
+  gettimeofday(&ti, NULL);   // Instante inicial
+  MR = multiplicarMatrices(M1,M2);
+  gettimeofday(&tf, NULL);   // Instante final
+  tiempo= get_ms(ti, tf);
+  printf("Multiplicacion matrices: t(ms) = %.10e\n\n", tiempo);
+  // imprimir_matrix(MR);
+  // Liberando memoria antes de finalizar por completo la aplicacion
+  free(M1->data);
+  free(M1);
+  free(M2->data);
+  free(M2);
+  free(MR->data);
+  free(MR);
   return 0;
 }
 
@@ -155,24 +237,50 @@ matrix2D *restarMatrices(matrix2D *M1, matrix2D *M2) {
 }
 
 matrix2D *multiplicarMatrices(matrix2D *M1, matrix2D *M2) {
+  pthread_t t_f[M1->num_rows*M2->num_colums];
+  pthread_t t_c[M1->num_rows*M2->num_colums];
+  pthread_t t_elem[M1->num_rows*M2->num_colums];
+  fila_i *filas[M1->num_rows];
+  columna_j *columnas[M2->num_colums];
   matrix2D *MR = NULL;
-  double acum = 0;
-  int i,j,k;
+  double *acum = malloc(sizeof(double));
+  fila_columna *fc = malloc(sizeof(fila_columna));
+  int i, j, k = 0;
   if (chequear_dimensiones(resta,*M1, *M2)==TRUE) {
     MR = malloc(sizeof(matrix2D));
     MR->num_rows = M1->num_rows;
     MR->num_colums = M2->num_colums;
-
-    MR->data = malloc(sizeof(double)*M1->num_rows*M2->num_colums);
+    MR->data = malloc(sizeof(double)*M1->num_rows*M1->num_colums);
     for(i = 0; i < M1->num_rows; i++) {
       for(j = 0; j < M2->num_colums; j++) {
-        for(k = 0; k < M1->num_rows; k++) {
-          acum += *((M1->data + i) + k*M1->num_colums) + *((M2->data + k*M2->num_colums) + j);
-        }
-        *((MR->data + i) + j*MR->num_colums) = acum;
-        acum = 0;
+        filas[i] = malloc(sizeof(fila_i));
+        filas[i]->indice = i;
+        filas[i]->M = M1;
+        filas[i]->v = malloc(sizeof(double)*M1->num_colums);
+
+        columnas[j] = malloc(sizeof(columna_j));
+        columnas[j]->indice = j;
+        columnas[j]-> M = M2;
+        columnas[j]->v = malloc(sizeof(double)*M2->num_rows);
+        pthread_create (&t_f[k], NULL, &obtener_fila, filas[i]);
+        pthread_create (&t_c[k], NULL, &obtener_columna, columnas[j]);
+        pthread_join(t_f[k],NULL);
+        pthread_join(t_c[k],NULL);
+        fc->tam = M1->num_rows;
+        fc->vector_F = filas[i]->v;
+        fc->vector_C = columnas[j]->v;
+        pthread_create(&t_elem[k], NULL, &multiplicar_fila_columna, fc);
+        pthread_join(t_elem[k], (void *) &acum);
+        *((MR->data + i) + j*MR->num_colums) = *acum;
+        k++;
+        free(filas[i]->v);
+        free(filas[i]);
+        free(columnas[j]->v);
+        free(columnas[j]);
       }
     }
+    free(acum);
+    free(fc);
     return MR;
   }
   else {
@@ -187,13 +295,32 @@ double get_ms(struct timeval t_ini,struct timeval t_fin) {
 /* Funciones para paralelizar */
 void* llenar_fila (void* parameters)
 {
-
   fila *p = (fila*) parameters;
   int i;
   for (i = 0; i < p->num_elementos; ++i)
     *(p->data + i) = p->valor;
   return NULL;
 }
+
+void* obtener_fila(void* parameters) {
+  //printf("Thread PID: %lu \n",(unsigned long)pthread_self());
+  fila_i *p = (fila_i*) parameters;
+  //*double fila = malloc(sizeof(double)*p->num_colums);
+  for(int i = 0; i < p->M->num_colums; i++) {
+    *(p->v + i) = *(p->M->data + \
+                    p->indice*p->M->num_colums + \
+                    i);
+  }
+}
+
+void* obtener_columna(void* parameters) {
+  //printf("Thread PID: %lu \n",(unsigned long)pthread_self());
+  columna_j *p = (columna_j*) parameters;
+  for(int j = 0; j < p->M->num_rows; j++) {
+    *(p->v + j) = *((p->M->data + p->indice) + j*p->M->num_rows);
+  }
+}
+
 
 void* multiplicar_fila_columna(void* parameters) {
   fila_columna *p = (fila_columna*) parameters;
@@ -230,4 +357,71 @@ void test_llenarfila(void) {
     printf("%lf ",*(f1.data + i));
   }
   printf("\n");
+}
+
+void test_obtenerfila(void){
+  matrix2D *M = malloc(sizeof(matrix2D));
+  fila_i *p = malloc(sizeof(fila_i));
+  M->num_rows = 5;
+  M->num_colums = 5;
+  M->data = malloc(sizeof(double)*M->num_rows*M->num_colums);
+  inicializar_matrix(3, M);
+  p->indice = 3;
+  p->M = M;
+  p->v = malloc(sizeof(double)*M->num_colums);
+  obtener_fila(p);
+  for (int i = 0; i < M->num_colums; i++) {
+    printf("%lf ", *(p->v + i));
+  }
+  printf("\n");
+  free(p->v);
+  free(M->data);
+  free(p);
+  free(M);
+}
+
+void test_obtenercolumna(void){
+  matrix2D *M = malloc(sizeof(matrix2D));
+  columna_j *p = malloc(sizeof(columna_j));
+  M->num_rows = 5;
+  M->num_colums = 5;
+  M->data = malloc(sizeof(double)*M->num_rows*M->num_colums);
+  inicializar_matrix(3, M);
+  p->indice = 3;
+  p->M = M;
+  p->v = malloc(sizeof(double)*M->num_rows);
+  obtener_columna(p);
+  for (int i = 0; i < M->num_rows; i++) {
+    printf("%lf ", *(p->v + i));
+  }
+  printf("\n");
+  free(p->v);
+  free(M->data);
+  free(p);
+  free(M);
+}
+
+void test_multiplicar_matrices(void){
+  matrix2D *M1,  // Matrix 1
+           *M2,  // Matrix 2
+           *MR;  // Matrix resultante
+  M1 = malloc(sizeof(matrix2D));
+  M2 = malloc(sizeof(matrix2D));
+  MR = malloc(sizeof(matrix2D));
+  // Inicializacion de las matrices
+  M1->num_rows = 20;
+  M1->num_colums = 20;
+  M1->data = malloc(sizeof(double)*M1->num_rows*M1->num_colums);
+  M2->num_rows = 20;
+  M2->num_colums = 20;
+  M2->data = malloc(sizeof(double)*M2->num_rows*M2->num_colums);
+  inicializar_matrix(3, M1);
+  inicializar_matrix(4, M2);
+  printf("%s ->\n","M1");
+  imprimir_matrix(M1);
+  printf("\n%s ->\n","M2");
+  imprimir_matrix(M2);
+  MR = multiplicarMatrices(M1,M2);
+  imprimir_matrix(MR);
+  free(MR->data);
 }
