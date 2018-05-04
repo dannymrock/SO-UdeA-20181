@@ -27,8 +27,16 @@ struct fila {
   double valor;
 } typedef fila;
 
+struct fila_columna {
+  double *vector_F;
+  double *vector_C;
+  int tam;
+} typedef fila_columna;
+
+
 /* Funciones para paralelizar a nivel de hilo */
 void* llenar_fila (void* parameters);
+void* multiplicar_fila_columna(void* parameters);
 
 /* Funciones normales */
 void inicializar_matrix(double value, matrix2D *M);
@@ -42,11 +50,13 @@ double get_ms(struct timeval t_ini,struct  timeval t_fin);
 /* Funciones de test */
 void test_llenarfila(void);
 void test_llenar_matrix(void);
+void test_multiplicar_fila_columna(void);
 
 int main ()
 {
   // test_llenarfila();
-  test_llenar_matrix();
+  //test_llenar_matrix();
+  test_multiplicar_fila_columna();
   return 0;
 }
 
@@ -183,6 +193,30 @@ void* llenar_fila (void* parameters)
   for (i = 0; i < p->num_elementos; ++i)
     *(p->data + i) = p->valor;
   return NULL;
+}
+
+void* multiplicar_fila_columna(void* parameters) {
+  fila_columna *p = (fila_columna*) parameters;
+  double* resultado = malloc(sizeof(double));
+  *resultado = 0;
+  for(int i = 0; i < p->tam; i++) {
+    *resultado += (*(p->vector_F + i)) * (*(p->vector_C + i));
+  }
+  return resultado;
+}
+
+void test_multiplicar_fila_columna(void) {
+  double vf[] = {1,2,3};
+  double vc[] = {2,3,4};
+  double *r = malloc(sizeof(double));
+  fila_columna *fc = malloc(sizeof(fila_columna));
+  fc->tam = 3;
+  fc->vector_F = vf;
+  fc->vector_C = vc;
+  r = multiplicar_fila_columna(fc);
+  printf("%lf\n", *r);
+  free(fc);
+  free(r);
 }
 
 void test_llenarfila(void) {
