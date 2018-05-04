@@ -45,13 +45,19 @@ struct columna_j {
   matrix2D *M;
 } typedef columna_j;
 
+struct elemento_ij {
+  matrix2D *M1;
+  matrix2D *M2;
+  int i;
+  int j;
+} typedef elemento_ij;
 
 /* Funciones para paralelizar a nivel de hilo */
 void* llenar_fila (void* parameters);
 void* multiplicar_fila_columna(void* parameters);
 void* obtener_fila(void* parameters);
 void* obtener_columna(void* parameters);
-
+void* calcular_elemento_multiplicacion(void* parameters);
 
 /* Funciones normales */
 void inicializar_matrix(double value, matrix2D *M);
@@ -235,7 +241,91 @@ matrix2D *restarMatrices(matrix2D *M1, matrix2D *M2) {
     return NULL;
   }
 }
+matrix2D *multiplicarMatrices(matrix2D *M1, matrix2D *M2) {
+  matrix2D *MR = NULL;
+  pthread_t t_elem[M1->num_rows*M2->num_colums];
+  double *acum = malloc(sizeof(double));
+  int i, j, k = 0;
+  elemento_ij* e_ij = malloc(M1->num_rows*M2->num_colums*sizeof(double));
+  if (chequear_dimensiones(resta,*M1, *M2)==TRUE) {
+    MR = malloc(sizeof(matrix2D));
+    MR->num_rows = M1->num_rows;
+    MR->num_colums = M2->num_colums;
+    MR->data = malloc(sizeof(double)*M1->num_rows*M1->num_colums);
 
+    for (int i = 0; i < M1->num_rows; i++) {
+      for (int j = 0; j < M2->num_colums; j++) {
+        (e_ij + k)->M1 = malloc(sizeof(matrix2D));
+        (e_ij + k)->M2 = malloc(sizeof(matrix2D));
+        (e_ij + k)->M1 = M1;
+        (e_ij + k)->M2 = M2;
+        (e_ij + k)->i = i;
+        (e_ij + k)->j = j;
+
+        pthread_create(&t_elem[k], NULL, &calcular_elemento_multiplicacion, (e_ij + k));
+        pthread_join(t_elem[k], (void *) &acum);
+        *((MR->data + i) + j*MR->num_colums) = *acum;
+        k++;
+        free((e_ij + k)->M1);
+        free((e_ij + k)->M2);
+      }
+    }
+    free(acum);
+    free(e_ij);
+    return MR;
+  }
+  else {
+    return NULL;
+  }
+}
+/*
+----------------------------------------------------------------
+INTENTO 2
+----------------------------------------------------------------
+matrix2D *multiplicarMatrices(matrix2D *M1, matrix2D *M2) {
+  double *f_i = malloc(sizeof(double)*M1->num_colums);
+  double *c_j = malloc(sizeof(double)*M2->num_rows);
+  pthread_t t_elem[M1->num_rows*M2->num_colums];
+  matrix2D *MR = NULL;
+  fila_columna *fc = malloc(sizeof(fila_columna));
+  double *acum = malloc(sizeof(double));
+  int i, j, k = 0;
+  if (chequear_dimensiones(resta,*M1, *M2)==TRUE) {
+    MR = malloc(sizeof(matrix2D));
+    MR->num_rows = M1->num_rows;
+    MR->num_colums = M2->num_colums;
+    MR->data = malloc(sizeof(double)*M1->num_rows*M1->num_colums);
+    for(i = 0; i < M1->num_rows; i++) {
+      for(j = 0; j < M2->num_colums; j++) {
+        // Obteniendo la fila i-esima
+        *(f_i + j) = *((M1->data + j) + i*M1->num_colums);
+        // Obteniendo la columna j-esima
+        *(c_j + j) = *((M2->data + j*M2->num_rows) + i);
+        fc->tam = M1->num_rows;
+        fc->vector_F = f_i;
+        fc->vector_C = c_j;
+        pthread_create(&t_elem[k], NULL, &multiplicar_fila_columna, fc);
+        pthread_join(t_elem[k], (void *) &acum);
+        *((MR->data + i) + j*MR->num_colums) = *acum;
+        k++;
+      }
+    }
+    free(f_i);
+    free(c_j);
+    free(acum);
+    free(fc);
+    return MR;
+  }
+  else {
+    return NULL;
+  }
+}
+*/
+
+/*
+----------------------------------------------------------------
+INTENTO 1
+----------------------------------------------------------------
 matrix2D *multiplicarMatrices(matrix2D *M1, matrix2D *M2) {
   pthread_t t_f[M1->num_rows*M2->num_colums];
   pthread_t t_c[M1->num_rows*M2->num_colums];
@@ -288,6 +378,8 @@ matrix2D *multiplicarMatrices(matrix2D *M1, matrix2D *M2) {
   }
 }
 
+*/
+
 double get_ms(struct timeval t_ini,struct timeval t_fin) {
   return (t_fin.tv_sec - t_ini.tv_sec)*1000 + (t_fin.tv_usec - t_ini.tv_usec)/1000.0;
 }
@@ -320,6 +412,19 @@ void* obtener_columna(void* parameters) {
     *(p->v + j) = *((p->M->data + p->indice) + j*p->M->num_rows);
   }
 }
+
+
+void* calcular_elemento_multiplicacion(void* parameters) {
+  elemento_ij *p = (elemento_ij*) parameters;
+  double *v = malloc(sizeof(double));
+
+  for(int i = 0; i < p->M1->num_rows; i++) {
+    *v += *((p->M1->data + p->i) + p->j*p->M1->num_colums) + \
+          *((p->M2->data + p->j*p->M2->num_rows) + i);
+  }
+  return v;
+}
+
 
 
 void* multiplicar_fila_columna(void* parameters) {
