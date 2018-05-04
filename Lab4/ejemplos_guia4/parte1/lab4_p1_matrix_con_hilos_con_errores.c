@@ -94,11 +94,11 @@ int main ()
   M2 = malloc(sizeof(matrix2D));
   MR = malloc(sizeof(matrix2D));
   // Inicializacion de las matrices
-  M1->num_rows = 20;
-  M1->num_colums = 20;
+  M1->num_rows = 3;
+  M1->num_colums = 3;
   M1->data = malloc(sizeof(double)*M1->num_rows*M1->num_colums);
-  M2->num_rows = 20;
-  M2->num_colums = 20;
+  M2->num_rows = 3;
+  M2->num_colums = 3;
   M2->data = malloc(sizeof(double)*M2->num_rows*M2->num_colums);
   gettimeofday(&ti, NULL);   // Instante inicial
   inicializar_matrix(3, M1);
@@ -137,7 +137,7 @@ int main ()
   gettimeofday(&tf, NULL);   // Instante final
   tiempo= get_ms(ti, tf);
   printf("Multiplicacion matrices: t(ms) = %.10e\n\n", tiempo);
-  // imprimir_matrix(MR);
+  //imprimir_matrix(MR);
   // Liberando memoria antes de finalizar por completo la aplicacion
   free(M1->data);
   free(M1);
@@ -244,34 +244,34 @@ matrix2D *restarMatrices(matrix2D *M1, matrix2D *M2) {
 matrix2D *multiplicarMatrices(matrix2D *M1, matrix2D *M2) {
   matrix2D *MR = NULL;
   pthread_t t_elem[M1->num_rows*M2->num_colums];
-  double *acum = malloc(sizeof(double));
   int i, j, k = 0;
-  elemento_ij* e_ij = malloc(M1->num_rows*M2->num_colums*sizeof(double));
   if (chequear_dimensiones(resta,*M1, *M2)==TRUE) {
+    elemento_ij* e_ij[M1->num_rows*M2->num_colums];
+    double *acum[M1->num_rows*M2->num_colums];
     MR = malloc(sizeof(matrix2D));
     MR->num_rows = M1->num_rows;
     MR->num_colums = M2->num_colums;
     MR->data = malloc(sizeof(double)*M1->num_rows*M1->num_colums);
-
     for (int i = 0; i < M1->num_rows; i++) {
       for (int j = 0; j < M2->num_colums; j++) {
-        (e_ij + k)->M1 = malloc(sizeof(matrix2D));
-        (e_ij + k)->M2 = malloc(sizeof(matrix2D));
-        (e_ij + k)->M1 = M1;
-        (e_ij + k)->M2 = M2;
-        (e_ij + k)->i = i;
-        (e_ij + k)->j = j;
-
-        pthread_create(&t_elem[k], NULL, &calcular_elemento_multiplicacion, (e_ij + k));
-        pthread_join(t_elem[k], (void *) &acum);
-        *((MR->data + i) + j*MR->num_colums) = *acum;
+        acum[k] = malloc(sizeof(double));
+        e_ij[k] = malloc(sizeof(elemento_ij));
+        e_ij[k]->M1 = malloc(sizeof(matrix2D));
+        e_ij[k]->M2 = malloc(sizeof(matrix2D));
+        e_ij[k]->i = i;
+        e_ij[k]->j = j;
+        //printf("(i,j) = (%d,%d)\n", e_ij[k]->i,e_ij[k]->j);
+        pthread_create(&t_elem[k], NULL, &calcular_elemento_multiplicacion, e_ij[k]);
+        pthread_join(t_elem[k], (void *) acum[k]);
+        //printf("%lf\n", *acum);
+        //*((MR->data + i) + j*MR->num_colums) = *acum;
+        free(e_ij[k]->M1);
+        free(e_ij[k]->M2);
+        free(e_ij[k]);
+        free(acum[k]);
         k++;
-        free((e_ij + k)->M1);
-        free((e_ij + k)->M2);
       }
     }
-    free(acum);
-    free(e_ij);
     return MR;
   }
   else {
@@ -415,13 +415,21 @@ void* obtener_columna(void* parameters) {
 
 
 void* calcular_elemento_multiplicacion(void* parameters) {
+  printf("Thread PID: %lu \n",(unsigned long)pthread_self());
   elemento_ij *p = (elemento_ij*) parameters;
   double *v = malloc(sizeof(double));
-
+  *v = 0;
   for(int i = 0; i < p->M1->num_rows; i++) {
-    *v += *((p->M1->data + p->i) + p->j*p->M1->num_colums) + \
-          *((p->M2->data + p->j*p->M2->num_rows) + i);
+    // printf("%lf\n", *((p->M1->data + p->i*p->M1->num_colums) + i));
+    //printf("---\n");
+    //printf("(i,j) = (%lf,%lf)\n", *((p->M1->data + p->i) + p->j*p->M1->num_colums), \
+                          *((p->M2->data + p->j*p->M2->num_rows) + i));
+    //*v += *((p->M1->data + p->i) + p->j*p->M1->num_colums) * \
+    //      *((p->M2->data + p->j*p->M2->num_rows) + i);
+
   }
+  //printf("%lf\n",*v);
+  //printf("%lf\n",*v);
   return v;
 }
 
